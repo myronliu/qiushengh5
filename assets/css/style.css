@@ -1,0 +1,903 @@
+@charset "UTF-8";
+/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+html {
+  line-height: 1;
+}
+
+/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+ol, ul {
+  list-style: none;
+}
+
+/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+caption, th, td {
+  text-align: left;
+  font-weight: normal;
+  vertical-align: middle;
+}
+
+/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q, blockquote {
+  quotes: none;
+}
+/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+q:before, q:after, blockquote:before, blockquote:after {
+  content: "";
+  content: none;
+}
+
+/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+a img {
+  border: none;
+}
+
+/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block;
+}
+
+/* line 40, ../../app/theme/sass/_base.scss */
+body {
+  font: 14px/1.5 microsoft yahei;
+  padding: 0;
+  margin: 0;
+  color: #878787;
+  background: #F2F2F2;
+}
+
+/* line 49, ../../app/theme/sass/_base.scss */
+em {
+  color: #FB373F;
+  font-style: normal;
+}
+
+/* line 54, ../../app/theme/sass/_base.scss */
+a {
+  color: #666;
+  text-decoration: none;
+}
+
+/* line 59, ../../app/theme/sass/_base.scss */
+a:hover {
+  color: #f63;
+}
+
+/* 使float的元素可以撑开父级div */
+/* line 66, ../../app/theme/sass/_base.scss */
+.clearfix:after, .panel:after, .panel > .title:after, .panel > .content:after, .main-content:after, .main-content .inner-main-content:after, .main-content .inner-right-content:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: ".";
+  clear: both;
+  height: 0;
+}
+
+/* line 75, ../../app/theme/sass/_base.scss */
+* html .clearfix, * html .panel, * html .panel > .title, * html .panel > .content, * html .main-content, * html .main-content .inner-main-content, .main-content * html .inner-main-content, * html .main-content .inner-right-content, .main-content * html .inner-right-content {
+  zoom: 1;
+}
+
+/* line 77, ../../app/theme/sass/_base.scss */
+*:first-child + html .clearfix, *:first-child + html .panel, *:first-child + html .panel > .title, *:first-child + html .panel > .content, *:first-child + html .main-content, *:first-child + html .main-content .inner-main-content, .main-content *:first-child + html .inner-main-content, *:first-child + html .main-content .inner-right-content, .main-content *:first-child + html .inner-right-content {
+  zoom: 1;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f13 {
+  font-size: 13px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f14 {
+  font-size: 14px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f15 {
+  font-size: 15px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f16 {
+  font-size: 16px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f17 {
+  font-size: 17px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f18 {
+  font-size: 18px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f19 {
+  font-size: 19px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f20 {
+  font-size: 20px;
+}
+
+/* line 80, ../../app/theme/sass/_base.scss */
+.f21 {
+  font-size: 21px;
+}
+
+/* line 85, ../../app/theme/sass/_base.scss */
+.fl {
+  float: left;
+}
+
+/* line 89, ../../app/theme/sass/_base.scss */
+.fr {
+  float: right;
+}
+
+/* line 93, ../../app/theme/sass/_base.scss */
+.hide {
+  display: none;
+}
+
+/* line 97, ../../app/theme/sass/_base.scss */
+.show {
+  display: "";
+}
+
+/* line 102, ../../app/theme/sass/_base.scss */
+.container, .l-container, .top-notify, .top-link, .main-menu, .main-content, .footer-corp, .footer-frq, .main-footer, .l-mainContainer, .main-content .inner-main-content, .l-sideContainer, .main-content .inner-right-content {
+  margin: 0px auto;
+}
+
+/* line 106, ../../app/theme/sass/_base.scss */
+.btn, .btn-primary, .btn-secondary, .btn-myhry {
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  border: 2px solid;
+  padding: 5px 20px;
+  font-size: 18px;
+}
+/* line 112, ../../app/theme/sass/_base.scss */
+.btn.disabled, .disabled.btn-primary, .disabled.btn-secondary, .disabled.btn-myhry {
+  cursor: default;
+}
+
+/* line 117, ../../app/theme/sass/_base.scss */
+.btn-primary {
+  border-color: #F5F5F5;
+  background-color: #F74F19;
+  border-color: #F74F19;
+  color: white;
+}
+/* line 124, ../../app/theme/sass/_base.scss */
+.btn-primary:hover {
+  background-color: #4cb0f9;
+  border-color: #4cb0f9;
+}
+/* line 129, ../../app/theme/sass/_base.scss */
+.btn-primary:active {
+  background: #df4c04;
+  border-color: #df4c04;
+}
+
+/* line 135, ../../app/theme/sass/_base.scss */
+.btn-secondary {
+  background-color: white;
+}
+/* line 139, ../../app/theme/sass/_base.scss */
+.btn-secondary:hover {
+  background-color: #4cb0f9;
+  border-color: #4cb0f9;
+}
+
+/* line 145, ../../app/theme/sass/_base.scss */
+.btn-myhry {
+  background-color: white;
+  color: #999;
+}
+/* line 150, ../../app/theme/sass/_base.scss */
+.btn-myhry:hover {
+  background-color: #4cb0f9;
+  border-color: #ff884f;
+}
+
+/* line 156, ../../app/theme/sass/_base.scss */
+.btn-gray {
+  border-color: #878787;
+  color: #878787;
+}
+
+/* line 161, ../../app/theme/sass/_base.scss */
+.panel {
+  border: solid 1px #F5F5F5;
+}
+/* line 165, ../../app/theme/sass/_base.scss */
+.panel > .title {
+  border-bottom: solid 1px #F5F5F5;
+  line-height: 30px;
+  padding: 10px 20px;
+  background-color: #FFFEFC;
+  color: #333;
+}
+/* line 174, ../../app/theme/sass/_base.scss */
+.panel > .title .caption {
+  color: #1C1C1C;
+  font-size: 20px;
+  float: left;
+}
+/* line 180, ../../app/theme/sass/_base.scss */
+.panel > .title .action {
+  float: right;
+}
+
+/* line 190, ../../app/theme/sass/_base.scss */
+.progress-bar {
+  background-color: #F5F5F5;
+}
+/* line 45, ../../app/theme/sass/_mixins.scss */
+.progress-bar > .inner {
+  background-color: #FB373F;
+  border: 0px;
+  height: 2px;
+}
+
+/* line 195, ../../app/theme/sass/_base.scss */
+.line {
+  border-bottom: 1px dashed  #DBDBDD;
+  padding: 12px 0 0 0;
+  width: 100%;
+  position: absolute;
+  left: 0px;
+}
+
+/* line 206, ../../app/theme/sass/_base.scss */
+.form-group label {
+  color: #626262;
+  min-width: 156px;
+  display: inline-block;
+  text-align: right;
+  *height: 66px;
+}
+/* line 214, ../../app/theme/sass/_base.scss */
+.form-group .blue {
+  color: #6589BB;
+  font-size: 16px;
+}
+
+/* line 221, ../../app/theme/sass/_base.scss */
+.lagre {
+  width: 340px !important;
+}
+
+/* line 225, ../../app/theme/sass/_base.scss */
+.lagre-s {
+  width: 150px !important;
+}
+
+/* line 229, ../../app/theme/sass/_base.scss */
+.medium {
+  width: 83px !important;
+}
+
+/* line 234, ../../app/theme/sass/_base.scss */
+.small {
+  width: 33px !important;
+}
+
+/* line 238, ../../app/theme/sass/_base.scss */
+input[type="button"] {
+  cursor: pointer;
+}
+
+/*------------------------------------------------*/
+/*   Layout Rules
+/*------------------------------------------------*/
+/*==========  Base  ==========*/
+/* line 11, ../../app/theme/sass/_layout.scss */
+.l-container, .top-notify, .top-link, .main-menu, .main-content, .footer-corp, .footer-frq, .main-footer {
+  width: 1200px;
+}
+
+/* line 16, ../../app/theme/sass/_layout.scss */
+.l-mainContainer, .main-content .inner-main-content {
+  width: 881px;
+}
+
+/* line 21, ../../app/theme/sass/_layout.scss */
+.l-sideContainer, .main-content .inner-right-content {
+  width: 300px;
+}
+
+/* line 26, ../../app/theme/sass/_layout.scss */
+.l-top-notify {
+  border: solid 1px #FEECBC;
+  text-align: center;
+  background-color: #FFFDF3;
+  line-height: 32px;
+}
+
+/* line 33, ../../app/theme/sass/_layout.scss */
+.l-top-link {
+  border: solid 1px #F5F5F5;
+  line-height: 32px;
+}
+
+/*==========  Header  ==========*/
+/*==========  Content  ==========*/
+/* line 57, ../../app/theme/sass/_layout.scss */
+.main-content .inner-main-content {
+  float: left;
+}
+/* line 62, ../../app/theme/sass/_layout.scss */
+.main-content .inner-right-content {
+  float: right;
+}
+
+/*-----  End of Content  ------*/
+/*==========  Footer  ==========*/
+/*------------------------------------------------*/
+/*   Modules Rules
+/*------------------------------------------------*/
+/*------------------------------------------------*/
+/*   State Rules
+/*------------------------------------------------*/
+/*------------------------------------------------*/
+/*   Theme Rules
+/*------------------------------------------------*/
+/* line 1, ../../app/theme/sass/pages/_home.scss */
+.home {
+  height: 100%;
+  width: 100%;
+  background-image: url(/images/bg.jpg);
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* line 8, ../../app/theme/sass/pages/_home.scss */
+.home .top {
+  height: 2rem;
+  background-color: rgba(255, 0, 0, 0.6);
+  color: white;
+  line-height: 2rem;
+}
+/* line 14, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop {
+  width: 50%;
+  height: 50%;
+  float: left;
+  border-right: solid 0.3rem;
+  border-right-color: #d4ffdb;
+  border-bottom: solid 0.3rem;
+  border-bottom-color: #d4ffdb;
+  position: relative;
+  box-sizing: border-box;
+}
+/* line 24, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content {
+  width: 80%;
+  height: 70%;
+  left: 10%;
+  position: absolute;
+  top: 15%;
+  background-color: rgba(15, 114, 15, 0.4);
+  border-radius: 0.4rem;
+}
+/* line 32, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .title {
+  color: white;
+  font-size: 2rem;
+}
+/* line 36, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .item {
+  color: white;
+  font-size: 1.2rem;
+}
+/* line 39, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .item > span:first-child {
+  margin-right: 2rem;
+}
+/* line 45, ../../app/theme/sass/pages/_home.scss */
+.home .righttop {
+  width: 50%;
+  height: 50%;
+  float: right;
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: solid 0.3rem;
+  border-bottom-color: #d4ffdb;
+}
+/* line 55, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(15, 114, 15, 0.4);
+  border-radius: 0.4rem;
+}
+/* line 61, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .title {
+  color: white;
+  font-size: 2rem;
+}
+/* line 65, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .item {
+  margin-top: 0.5rem;
+  color: white;
+  font-size: 1rem;
+}
+/* line 69, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .item > span {
+  margin-right: 1rem;
+}
+/* line 72, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .item > span:first-child {
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+  background-color: #005000;
+  border-radius: 0.2rem;
+}
+/* line 82, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom {
+  width: 50%;
+  height: 50%;
+  float: left;
+  border-right: solid 0.3rem;
+  border-right-color: #d4ffdb;
+  position: relative;
+  box-sizing: border-box;
+}
+/* line 90, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content {
+  width: 80%;
+  height: 70%;
+  left: 10%;
+  position: absolute;
+  top: 15%;
+  background-color: rgba(15, 114, 15, 0.4);
+  border-radius: 0.4rem;
+}
+/* line 98, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .title {
+  color: white;
+  font-size: 2rem;
+}
+/* line 102, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .item {
+  color: white;
+  font-size: 1rem;
+}
+/* line 105, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .item > span {
+  margin-right: 0.8rem;
+}
+/* line 108, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .item .infoC {
+  width: 50%;
+  display: inline-block;
+}
+/* line 115, ../../app/theme/sass/pages/_home.scss */
+.home .rightbottom {
+  width: 50%;
+  height: 50%;
+  float: right;
+  position: relative;
+  box-sizing: border-box;
+}
+/* line 123, ../../app/theme/sass/pages/_home.scss */
+.home .rightbottom .content {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background-color: rgba(15, 114, 15, 0.4);
+  border-radius: 0.4rem;
+}
+/* line 129, ../../app/theme/sass/pages/_home.scss */
+.home .rightbottom .content .title {
+  color: white;
+  font-size: 2rem;
+}
+/* line 133, ../../app/theme/sass/pages/_home.scss */
+.home .rightbottom .content .item {
+  margin-top: 0.3rem;
+  color: white;
+  font-size: 1rem;
+  background-color: #005000;
+  width: 80%;
+  margin-left: 10%;
+}
+/* line 140, ../../app/theme/sass/pages/_home.scss */
+.home .rightbottom .content .item > span {
+  margin-right: 1rem;
+}
+/* line 143, ../../app/theme/sass/pages/_home.scss */
+.home .rightbottom .content .item > span:first-child {
+  margin-right: 1rem;
+  width: 7rem;
+  display: inline-block;
+  border-radius: 0.2rem;
+}
+/* line 151, ../../app/theme/sass/pages/_home.scss */
+.home .rightbottom .content .info {
+  color: white;
+  font-size: 1rem;
+  margin-left: 10%;
+  text-align: left;
+  background-color: orange;
+  padding: 0.1rem 0.3rem;
+  width: 4rem;
+  border-radius: 0.2rem;
+  margin-top: 0.3rem;
+}
+
+/* line 1, ../../app/theme/sass/pages/_guanka.scss */
+.guanka {
+  height: 736px;
+  width: 100%;
+  background-image: url(/images/yx.png);
+  text-align: center;
+  background-repeat: no-repeat;
+  background-size: 100% 736px;
+}
+/* line 8, ../../app/theme/sass/pages/_guanka.scss */
+.guanka > img {
+  width: 55px;
+}
+/* line 11, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .guan1 {
+  position: absolute;
+  top: 203px;
+  left: 31%;
+}
+/* line 16, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .guan2 {
+  position: absolute;
+  top: 317px;
+  left: 75%;
+}
+/* line 21, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .guan3 {
+  position: absolute;
+  top: 471px;
+  left: 9%;
+}
+/* line 26, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .guan4 {
+  position: absolute;
+  top: 495px;
+  left: 81%;
+}
+/* line 31, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .guan5 {
+  position: absolute;
+  top: 627px;
+  left: 33%;
+}
+/* line 36, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .bx {
+  width: 100px;
+}
+/* line 39, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .bx1 {
+  position: absolute;
+  top: 213px;
+  left: 5%;
+}
+/* line 44, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .bx2 {
+  position: absolute;
+  top: 297px;
+  left: 49%;
+}
+/* line 49, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .bx3 {
+  position: absolute;
+  top: 443px;
+  left: 16%;
+}
+/* line 54, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .bx4 {
+  position: absolute;
+  top: 536px;
+  left: 62%;
+}
+/* line 59, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .bx5 {
+  position: absolute;
+  top: 640px;
+  left: 5%;
+}
+/* line 64, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .title {
+  color: white;
+  font-size: 1.5rem;
+}
+/* line 68, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .title1 {
+  position: absolute;
+  top: 263px;
+  left: 29%;
+}
+/* line 73, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .title2 {
+  position: absolute;
+  top: 375px;
+  left: 72%;
+}
+/* line 78, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .title3 {
+  position: absolute;
+  top: 534px;
+  left: 1%;
+}
+/* line 83, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .title4 {
+  position: absolute;
+  top: 473px;
+  left: 83%;
+}
+/* line 88, ../../app/theme/sass/pages/_guanka.scss */
+.guanka .title5 {
+  position: absolute;
+  top: 606px;
+  left: 31%;
+}
+
+/* line 1, ../../app/theme/sass/pages/_guard1.scss */
+.guard1 {
+  height: 100%;
+  background-image: url(/images/guanka.png);
+  background-size: contain;
+  text-align: center;
+}
+/* line 6, ../../app/theme/sass/pages/_guard1.scss */
+.guard1 .ka1 {
+  width: 80%;
+  margin-top: 25%;
+}
+/* line 10, ../../app/theme/sass/pages/_guard1.scss */
+.guard1 .ka2 {
+  width: 80%;
+  margin-top: 25%;
+}
+
+/* line 1, ../../app/theme/sass/pages/_guard2.scss */
+.guard1 {
+  height: 100%;
+  background-image: url(/images/guanka.png);
+  background-size: contain;
+  text-align: center;
+}
+/* line 6, ../../app/theme/sass/pages/_guard2.scss */
+.guard1 .ka1 {
+  width: 80%;
+  margin-top: 25%;
+}
+/* line 10, ../../app/theme/sass/pages/_guard2.scss */
+.guard1 .ka2 {
+  width: 80%;
+  margin-top: 25%;
+}
+
+/* line 1, ../../app/theme/sass/pages/_question.scss */
+.question {
+  height: 100%;
+  background-color: #ebebeb;
+}
+/* line 4, ../../app/theme/sass/pages/_question.scss */
+.question .header {
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  background-image: url(/images/head1.png);
+  color: white;
+  font-size: 20px;
+  font-weight: bolder;
+  text-align: center;
+}
+/* line 15, ../../app/theme/sass/pages/_question.scss */
+.question .title {
+  height: 40px;
+  line-height: 40px;
+  color: white;
+  background-image: url(/images/head2.png);
+}
+/* line 21, ../../app/theme/sass/pages/_question.scss */
+.question .title .back {
+  width: 10%;
+  display: inline-block;
+  text-align: center;
+  font-weight: bolder;
+}
+/* line 28, ../../app/theme/sass/pages/_question.scss */
+.question .content {
+  margin-top: 30px;
+  padding-left: 10px;
+  color: black;
+  font-size: 16px;
+  font-weight: bolder;
+  line-height: 30px;
+}
+/* line 37, ../../app/theme/sass/pages/_question.scss */
+.question .answerItem {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 1px;
+  background-color: white;
+  height: 40px;
+  line-height: 40px;
+  padding-left: 10px;
+}
+/* line 46, ../../app/theme/sass/pages/_question.scss */
+.question .button {
+  margin-top: 40px;
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+}
+
+/* line 1, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 22;
+}
+/* line 9, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .boxMain {
+  text-align: center;
+}
+/* line 11, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .boxMain img {
+  width: 90%;
+}
+/* line 15, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .boxMain .signed {
+  width: 70%;
+  position: absolute;
+  left: 15%;
+  padding-top: 10px;
+}
+/* line 22, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .kuang {
+  background-image: url(/images/kuang.png);
+  background-repeat: no-repeat;
+  background-size: 200px;
+  width: 200px;
+  height: 100px;
+  margin: 0 auto;
+  text-align: center;
+}
+/* line 30, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .kuang .kuang-title {
+  color: red;
+  font-size: 18px;
+  font-weight: bolder;
+  padding: 10px;
+  padding-bottom: 2px;
+}
+/* line 37, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .kuang .jinbi {
+  text-align: center;
+}
+/* line 39, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .kuang .jinbi img {
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  vertical-align: top;
+}
+/* line 45, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .kuang .jinbi span {
+  height: 35px;
+  line-height: 35px;
+  display: inline-block;
+  margin-left: 10px;
+  font-size: 24px;
+  color: black;
+  font-weight: bolder;
+}
+/* line 56, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .reward-ok {
+  text-align: center;
+}
+/* line 58, ../../app/theme/sass/helper/_reward.scss */
+.bidlcjDialog .reward-ok img {
+  width: 100px;
+  margin-top: 15px;
+}
+
+/* line 65, ../../app/theme/sass/helper/_reward.scss */
+.display {
+  display: none;
+}
+
+/* line 1, ../../app/theme/sass/helper/_total.scss */
+.totalDialog {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 22;
+}
+/* line 9, ../../app/theme/sass/helper/_total.scss */
+.totalDialog .total-boxMain {
+  text-align: center;
+}
+/* line 11, ../../app/theme/sass/helper/_total.scss */
+.totalDialog .total-boxMain img {
+  width: 300px;
+}
+/* line 15, ../../app/theme/sass/helper/_total.scss */
+.totalDialog .total-boxMain span {
+  position: absolute;
+  display: block;
+  left: 37%;
+  top: 207px;
+  font-size: 24px;
+  color: white;
+}
+/* line 24, ../../app/theme/sass/helper/_total.scss */
+.totalDialog .total-kuang {
+  color: white;
+  text-align: center;
+  padding-top: 10px;
+}
+/* line 29, ../../app/theme/sass/helper/_total.scss */
+.totalDialog .total-reward-ok {
+  text-align: center;
+}
+/* line 31, ../../app/theme/sass/helper/_total.scss */
+.totalDialog .total-reward-ok img {
+  width: 100px;
+  margin-top: 15px;
+}
+
+/* line 38, ../../app/theme/sass/helper/_total.scss */
+.display {
+  display: none;
+}
+
+/* line 1, ../../app/theme/sass/components/_checkbox.scss */
+.checkbox {
+  display: table-cell;
+  vertical-align: middle;
+}

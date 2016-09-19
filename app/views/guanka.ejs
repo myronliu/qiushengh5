@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head >
+  <title><%= typeof title === 'undefined' ? '夺宝': title %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no,minimal-ui">
+  <script type="text/javascript">
+
+  </script>
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
+
+  <script src="/socket.io.js"></script>
+  <script>
+  ;(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    var recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            var fontSize = 10 * (clientWidth / 640);
+            fontSize = (fontSize > 54) ? 54: fontSize;
+            //如果是pc访问
+            if(!/windows phone|iphone|android|iPad/ig.test(window.navigator.userAgent)) {
+                fontSize = 20;
+            }
+            docEl.style.fontSize = fontSize + 'px';
+            var dpi =  window.devicePixelRatio;
+            docEl.setAttribute('data-dpi',dpi);
+            var scale = 1/dpi;
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    recalc();
+  })(document, window);
+</script>
+</head>
+<body>
+<header id="header">
+  <%- typeof headerData === 'undefined'?'':headerData %>
+</header>
+<div id="container" style="height: 100%;">
+  <div style="height: 100%;"><%- reactOutput %></div>
+</div>
+</body>
+<script><%- typeof stateData === 'undefined'?'':stateData%></script>
+
+<!-- build:js -->
+
+<script type="text/javascript" src="/bundle.js"></script>
+<!-- endbuild -->
+</html>

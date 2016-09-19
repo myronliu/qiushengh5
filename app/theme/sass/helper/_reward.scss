@@ -1,0 +1,67 @@
+.bidlcjDialog{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.7);
+    z-index: 22;
+    .boxMain{
+      text-align: center;
+      img{
+        width: 90%;
+        // margin-top: 20%;
+      }
+      .signed{
+        width: 70%;
+        position: absolute;
+        left: 15%;
+        padding-top: 10px;
+      }
+    }
+    .kuang{
+      background-image: url(/images/kuang.png);
+      background-repeat: no-repeat;
+      background-size: 200px;
+      width: 200px;
+      height: 100px;
+      margin: 0 auto;
+      text-align: center;
+      .kuang-title{
+        color: red;
+        font-size: 18px;
+        font-weight: bolder;
+        padding: 10px;
+        padding-bottom: 2px;
+      }
+      .jinbi{
+        text-align: center;
+        img{
+          width: 35px;
+          height: 35px;
+          display: inline-block;
+          vertical-align: top;
+        }
+        span{
+          height: 35px;
+          line-height: 35px;
+          display: inline-block;
+          margin-left: 10px;
+          font-size: 24px;
+          color: black;
+          font-weight: bolder;
+        }
+      }
+    }
+    .reward-ok{
+      text-align: center;
+      img{
+        width: 100px;
+        margin-top: 15px;
+      }
+    }
+  }
+
+.display{
+  display: none;
+}
