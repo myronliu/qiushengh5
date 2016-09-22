@@ -18,31 +18,32 @@ module.exports ={
         }
       )
 
-      // var recommendation = DataInfo.recommendation()
-      //   .then(function(result){
-      //       console.log(result)
-      //     if(result && result.body){
-      //       result = JSON.parse(result.body);  
-      //       return result; 
-      //     }else{
-      //       return {}
-      //     }
-      //   }
-      // )
+      var recommendation = DataInfo.recommendation()
+        .then(function(result){
+            // console.log(result)
+          if(result && result.body){
+            result = JSON.parse(result.body);  
+            return result; 
+          }else{
+            return {}
+          }
+        }
+      )
 
-      // var competition = DataInfo.competition()
-      //   .then(function(result){
-      //     if(result && result.body){
-      //       result = JSON.parse(result.body);  
-      //       return result; 
-      //     }else{
-      //       return {}
-      //     }
-      //   }
-      // )
+      var competition = DataInfo.competition()
+        .then(function(result){
+            // console.log(JSON.parse(result.body))
+          if(result && result.body){
+            result = JSON.parse(result.body);  
+            return result; 
+          }else{
+            return {}
+          }
+        }
+      )
 
-      // return [content,recommendation,competition];
-      return [content];
+      return [content,recommendation,competition];
+      // return [content];
     })
   }
 }

@@ -11,6 +11,23 @@
     color: white;
     line-height: 2rem;
   }
+  .pop{
+    width: 50%;
+    height: 10rem;
+    position: absolute;
+    margin-left: 25%;
+    top: 25%;
+    margin-top: 2rem;
+    background-color: #c0bc4a;
+    z-index: 999;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    &>div{
+      height: 2rem;
+      line-height: 2rem;
+      color: white;
+    }
+  }
   .lefttop{
     width: 50%;
     height: 50%;
@@ -29,16 +46,41 @@
       top: 15%;
       background-color: rgba(15, 114, 15,0.4);
       border-radius: 0.4rem;
+      .content_1{
+        width: 9rem;
+        display: inline-block;
+        position: relative;
+        .first{
+          position:absolute;
+          left:0;
+        }
+        .middle{
+          color: gold;
+        }
+        .right{
+          position:absolute;
+          right:0;
+        }
+      }
       .title{
         color: white;
         font-size: 2rem;
       }
       .item{
         color: white;
-        font-size: 1.2rem;
-        &>span:first-child{
-          margin-right: 2rem;
+        font-size: 0.5rem;
+        &>span{
+          margin-right: 0.8rem;
         }
+        .infoC{
+          width: 50%;
+          display: inline-block;
+        }
+      }
+      .reclast{
+        width: 6rem;
+        display: inline-block;
+        text-align: right;
       }
     }
   }
@@ -58,6 +100,22 @@
       position: absolute;
       background-color: rgba(15, 114, 15,0.4);
       border-radius: 0.4rem;
+      .content_1{
+        width: 11rem;
+        display: inline-block;
+        position: relative;
+        .first{
+          position:absolute;
+          left:0;
+        }
+        .middle{
+          color: gold;
+        }
+        .right{
+          position:absolute;
+          right:0;
+        }
+      }
       .title{
         color: white;
         font-size: 2rem;
@@ -95,13 +153,29 @@
       top: 15%;
       background-color: rgba(15, 114, 15,0.4);
       border-radius: 0.4rem;
+      .content_1{
+        width: 9rem;
+        display: inline-block;
+        position: relative;
+        .first{
+          position:absolute;
+          left:0;
+        }
+        .middle{
+          color: gold;
+        }
+        .right{
+          position:absolute;
+          right:0;
+        }
+      }
       .title{
         color: white;
         font-size: 2rem;
       }
       .item{
         color: white;
-        font-size: 1rem;
+        font-size: 0.5rem;
         &>span{
           margin-right: 0.8rem;
         }
@@ -109,6 +183,11 @@
           width: 50%;
           display: inline-block;
         }
+      }
+      .reclast{
+        width: 6rem;
+        display: inline-block;
+        text-align: right;
       }
     }
   }

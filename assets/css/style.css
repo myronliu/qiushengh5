@@ -394,6 +394,25 @@ input[type="button"] {
   line-height: 2rem;
 }
 /* line 14, ../../app/theme/sass/pages/_home.scss */
+.home .pop {
+  width: 50%;
+  height: 10rem;
+  position: absolute;
+  margin-left: 25%;
+  top: 25%;
+  margin-top: 2rem;
+  background-color: #c0bc4a;
+  z-index: 999;
+  border-radius: 0.5rem;
+  padding: 1rem;
+}
+/* line 25, ../../app/theme/sass/pages/_home.scss */
+.home .pop > div {
+  height: 2rem;
+  line-height: 2rem;
+  color: white;
+}
+/* line 31, ../../app/theme/sass/pages/_home.scss */
 .home .lefttop {
   width: 50%;
   height: 50%;
@@ -405,7 +424,7 @@ input[type="button"] {
   position: relative;
   box-sizing: border-box;
 }
-/* line 24, ../../app/theme/sass/pages/_home.scss */
+/* line 41, ../../app/theme/sass/pages/_home.scss */
 .home .lefttop .content {
   width: 80%;
   height: 70%;
@@ -415,21 +434,52 @@ input[type="button"] {
   background-color: rgba(15, 114, 15, 0.4);
   border-radius: 0.4rem;
 }
-/* line 32, ../../app/theme/sass/pages/_home.scss */
+/* line 49, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .content_1 {
+  width: 9rem;
+  display: inline-block;
+  position: relative;
+}
+/* line 53, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .content_1 .first {
+  position: absolute;
+  left: 0;
+}
+/* line 57, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .content_1 .middle {
+  color: gold;
+}
+/* line 60, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .content_1 .right {
+  position: absolute;
+  right: 0;
+}
+/* line 65, ../../app/theme/sass/pages/_home.scss */
 .home .lefttop .content .title {
   color: white;
   font-size: 2rem;
 }
-/* line 36, ../../app/theme/sass/pages/_home.scss */
+/* line 69, ../../app/theme/sass/pages/_home.scss */
 .home .lefttop .content .item {
   color: white;
-  font-size: 1.2rem;
+  font-size: 0.5rem;
 }
-/* line 39, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .item > span:first-child {
-  margin-right: 2rem;
+/* line 72, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .item > span {
+  margin-right: 0.8rem;
 }
-/* line 45, ../../app/theme/sass/pages/_home.scss */
+/* line 75, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .item .infoC {
+  width: 50%;
+  display: inline-block;
+}
+/* line 80, ../../app/theme/sass/pages/_home.scss */
+.home .lefttop .content .reclast {
+  width: 6rem;
+  display: inline-block;
+  text-align: right;
+}
+/* line 87, ../../app/theme/sass/pages/_home.scss */
 .home .righttop {
   width: 50%;
   height: 50%;
@@ -439,7 +489,7 @@ input[type="button"] {
   border-bottom: solid 0.3rem;
   border-bottom-color: #d4ffdb;
 }
-/* line 55, ../../app/theme/sass/pages/_home.scss */
+/* line 97, ../../app/theme/sass/pages/_home.scss */
 .home .righttop .content {
   width: 100%;
   height: 100%;
@@ -447,22 +497,42 @@ input[type="button"] {
   background-color: rgba(15, 114, 15, 0.4);
   border-radius: 0.4rem;
 }
-/* line 61, ../../app/theme/sass/pages/_home.scss */
+/* line 103, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .content_1 {
+  width: 11rem;
+  display: inline-block;
+  position: relative;
+}
+/* line 107, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .content_1 .first {
+  position: absolute;
+  left: 0;
+}
+/* line 111, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .content_1 .middle {
+  color: gold;
+}
+/* line 114, ../../app/theme/sass/pages/_home.scss */
+.home .righttop .content .content_1 .right {
+  position: absolute;
+  right: 0;
+}
+/* line 119, ../../app/theme/sass/pages/_home.scss */
 .home .righttop .content .title {
   color: white;
   font-size: 2rem;
 }
-/* line 65, ../../app/theme/sass/pages/_home.scss */
+/* line 123, ../../app/theme/sass/pages/_home.scss */
 .home .righttop .content .item {
   margin-top: 0.5rem;
   color: white;
   font-size: 1rem;
 }
-/* line 69, ../../app/theme/sass/pages/_home.scss */
+/* line 127, ../../app/theme/sass/pages/_home.scss */
 .home .righttop .content .item > span {
   margin-right: 1rem;
 }
-/* line 72, ../../app/theme/sass/pages/_home.scss */
+/* line 130, ../../app/theme/sass/pages/_home.scss */
 .home .righttop .content .item > span:first-child {
   margin-right: 1rem;
   width: 7rem;
@@ -470,7 +540,7 @@ input[type="button"] {
   background-color: #005000;
   border-radius: 0.2rem;
 }
-/* line 82, ../../app/theme/sass/pages/_home.scss */
+/* line 140, ../../app/theme/sass/pages/_home.scss */
 .home .leftbottom {
   width: 50%;
   height: 50%;
@@ -480,7 +550,7 @@ input[type="button"] {
   position: relative;
   box-sizing: border-box;
 }
-/* line 90, ../../app/theme/sass/pages/_home.scss */
+/* line 148, ../../app/theme/sass/pages/_home.scss */
 .home .leftbottom .content {
   width: 80%;
   height: 70%;
@@ -490,26 +560,52 @@ input[type="button"] {
   background-color: rgba(15, 114, 15, 0.4);
   border-radius: 0.4rem;
 }
-/* line 98, ../../app/theme/sass/pages/_home.scss */
+/* line 156, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .content_1 {
+  width: 9rem;
+  display: inline-block;
+  position: relative;
+}
+/* line 160, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .content_1 .first {
+  position: absolute;
+  left: 0;
+}
+/* line 164, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .content_1 .middle {
+  color: gold;
+}
+/* line 167, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .content_1 .right {
+  position: absolute;
+  right: 0;
+}
+/* line 172, ../../app/theme/sass/pages/_home.scss */
 .home .leftbottom .content .title {
   color: white;
   font-size: 2rem;
 }
-/* line 102, ../../app/theme/sass/pages/_home.scss */
+/* line 176, ../../app/theme/sass/pages/_home.scss */
 .home .leftbottom .content .item {
   color: white;
-  font-size: 1rem;
+  font-size: 0.5rem;
 }
-/* line 105, ../../app/theme/sass/pages/_home.scss */
+/* line 179, ../../app/theme/sass/pages/_home.scss */
 .home .leftbottom .content .item > span {
   margin-right: 0.8rem;
 }
-/* line 108, ../../app/theme/sass/pages/_home.scss */
+/* line 182, ../../app/theme/sass/pages/_home.scss */
 .home .leftbottom .content .item .infoC {
   width: 50%;
   display: inline-block;
 }
-/* line 115, ../../app/theme/sass/pages/_home.scss */
+/* line 187, ../../app/theme/sass/pages/_home.scss */
+.home .leftbottom .content .reclast {
+  width: 6rem;
+  display: inline-block;
+  text-align: right;
+}
+/* line 194, ../../app/theme/sass/pages/_home.scss */
 .home .rightbottom {
   width: 50%;
   height: 50%;
@@ -517,7 +613,7 @@ input[type="button"] {
   position: relative;
   box-sizing: border-box;
 }
-/* line 123, ../../app/theme/sass/pages/_home.scss */
+/* line 202, ../../app/theme/sass/pages/_home.scss */
 .home .rightbottom .content {
   width: 100%;
   height: 100%;
@@ -525,12 +621,12 @@ input[type="button"] {
   background-color: rgba(15, 114, 15, 0.4);
   border-radius: 0.4rem;
 }
-/* line 129, ../../app/theme/sass/pages/_home.scss */
+/* line 208, ../../app/theme/sass/pages/_home.scss */
 .home .rightbottom .content .title {
   color: white;
   font-size: 2rem;
 }
-/* line 133, ../../app/theme/sass/pages/_home.scss */
+/* line 212, ../../app/theme/sass/pages/_home.scss */
 .home .rightbottom .content .item {
   margin-top: 0.3rem;
   color: white;
@@ -539,18 +635,18 @@ input[type="button"] {
   width: 80%;
   margin-left: 10%;
 }
-/* line 140, ../../app/theme/sass/pages/_home.scss */
+/* line 219, ../../app/theme/sass/pages/_home.scss */
 .home .rightbottom .content .item > span {
   margin-right: 1rem;
 }
-/* line 143, ../../app/theme/sass/pages/_home.scss */
+/* line 222, ../../app/theme/sass/pages/_home.scss */
 .home .rightbottom .content .item > span:first-child {
   margin-right: 1rem;
   width: 7rem;
   display: inline-block;
   border-radius: 0.2rem;
 }
-/* line 151, ../../app/theme/sass/pages/_home.scss */
+/* line 230, ../../app/theme/sass/pages/_home.scss */
 .home .rightbottom .content .info {
   color: white;
   font-size: 1rem;

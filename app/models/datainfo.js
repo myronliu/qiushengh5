@@ -9,13 +9,13 @@ DataInfo.content = function (fundCode) {
     });
 }
 DataInfo.recommendation = function(fundCode){
-  return Api().post(UrlConfig.url+"?url=http://www.fencaike.com/"+UrlConfig.recommendationFootball)
+  return Api().post(UrlConfig.url+"?url=http://b.fencaike.com/api/"+UrlConfig.recommendationFootball)
     .send({
       // url: UrlConfig.recommendationFootball
     });
 }
 DataInfo.competition = function(fundCode){
-  return Api().post(UrlConfig.url+"?url=http://www.fencaike.com/"+UrlConfig.competition)
+  return Api().post(UrlConfig.url+"?url=http://b.fencaike.com/api/"+UrlConfig.competition)
     .send({
       // url: UrlConfig.competition
     });

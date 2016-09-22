@@ -44,13 +44,13 @@ var t=later.setInterval(sendMessage,sched);
 
 function sendMessage(){
   DataInfoController.detail()
-    // .spread(function(content,recommendation,competition){
-    .spread(function(content){
+    .spread(function(content,recommendation,competition){
+    // .spread(function(content){
       var data = {
         time: new Date().toLocaleString(),
         content:content,
-        // recommendation:recommendation,
-        // competition:competition
+        recommendation:recommendation,
+        competition:competition
       };
       global.socket.emit('message', JSON.stringify(data));
     })
@@ -67,13 +67,14 @@ router.get('/error',function(req,res){
 router.get('/',function(req,res){
 
   DataInfoController.detail(req, res)
-    // .spread(function(content,recommendation,competition){
-    .spread(function(content){
+    .spread(function(content,recommendation,competition){
+    // .spread(function(content){
+      // console.log(recommendation)
       var data = {
         time: new Date().toLocaleString(),
         content:content,
-        // recommendation:recommendation,
-        // competition:competition
+        recommendation:recommendation,
+        competition:competition
       };
       res.expose(Exp.dehydrate(data));
       
@@ -86,7 +87,7 @@ router.get('/',function(req,res){
         recommendation:{},
         competition:{}
       }
-      console.log("server router error: /fund");
+      console.log("server router error: /");
       console.log(err);
       res.expose(Exp.dehydrate({data}));
       var reactHtml = ReactDOMServer.renderToString(Home());

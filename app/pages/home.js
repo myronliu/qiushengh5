@@ -9,12 +9,15 @@ import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
+import ReactHover from 'react-hover';
+
 export default class extends BasePage {
   state={
     disabled: false,
     showLoading: false,
     srcc: "/images/xiu.png",
-    data: this.props.data
+    data: this.props.data,
+    showTodayPop: false
   };
 
   apiSuccess(url,body){
@@ -50,74 +53,130 @@ export default class extends BasePage {
     }.bind(this));
   }
 
+  showPop(item){
+    this.setState({
+      showPop: true,
+      Name: item.contentusername,
+      Title: item.contenttitle,
+      Desc: item.contentdescribe
+    })
+  }
+
+  showRecPop(item){
+    this.setState({
+      showPop: true,
+      Name: item.recommendationusername,
+      Title: item.recommendationtitle,
+      Desc: item.recommendationdesc
+    })
+  }
+
+  hidePop(){
+    this.setState({
+      showPop: false
+    })
+  }
+
   renderItems(t, i){
     return this.state.data.content.contentList.map(function(item, index){
       if(index>3) return
       return (
-        <div key={index} className="item"  style={{height:i, lineHeight:i}}><span>{(new Date(item.contentinfo[0].date).getMonth() + 1) + '月' + new Date(item.contentinfo[0].date).getDate() + '号'}</span><span className="infoC">{item.match.hostname + '让(－1)' + item.match.guestname + '胜'}</span><span>{item.match.matchstatus == "0" ? "中" : "失"}</span></div>
+        <div key={index} className="item" onMouseOver={this.showPop.bind(this,item)} onMouseLeave={this.hidePop.bind(this)} style={{height:i, lineHeight:i}}><span>{(new Date(item.contentinfo[0].date).getMonth() + 1) + '月' + new Date(item.contentinfo[0].date).getDate() + '号'}</span><span className="content_1"><span className="first">{item.match.hostname}</span><span className="middle">对战</span><span className="right">{item.match.guestname}</span></span><span>{item.match.matchstatus == "0" ? "胜" : "败"}</span></div>
       )
     }.bind(this))
   }
 
-  // render(){
-  //   return null
-  // }
+  renderRecomItems(t, i){
+    return this.state.data.recommendation.recommendationList.map(function(item, index){
+      if(index>3) return
+      return (
+        <div key={index} className="item" onMouseOver={this.showRecPop.bind(this,item)} onMouseLeave={this.hidePop.bind(this)} style={{height:i, lineHeight:i}}><span>{item.recommendationusername}</span><span className="content_1"><span className="first">{item.recommendationinfo.items[0].match.hostname}</span><span className="middle">对战</span><span className="right">{item.recommendationinfo.items[0].match.guestname}</span></span><span className="reclast">{item.recommendationinfo.items[0].recommendationresultdesc}</span></div>
+      )
+    }.bind(this))
+  }
 
-            // <div className="item"  style={{height:i, lineHeight:i}}><span>8月12号</span><span>001让(－1)001胜</span><span>中</span></div>
-            // <div className="item"  style={{height:i, lineHeight:i}}><span>8月13号</span><span>001让(－1)001胜</span><span>中</span></div>
-            // <div className="item"  style={{height:i, lineHeight:i}}><span>8月14号</span><span>001让(－1)001胜</span><span>中</span></div>
+  renderRecomTodayItems(t, i){
+    return this.state.data.recommendation.recommendationList.map(function(item, index){
+      if(index>2) return
+      return (
+        <div key={index} className="item"  style={{height:i, lineHeight:i}}><span>{item.recommendationusername}</span><span className="content_1"><span className="first">{item.recommendationinfo.items[0].match.hostname}</span><span className="middle">对战</span><span className="right">{item.recommendationinfo.items[0].match.guestname}</span></span><span className="reclast">{item.recommendationinfo.items[0].recommendationresultdesc}</span></div>
+      )
+    }.bind(this))
+  }
+
+  show(){
+    this.setState({
+      showPop: true
+    })
+  }
+
+  hide(){
+    this.setState({
+      showPop: false
+    })
+  }
 
   render() {
-    var t = '';
-    var i = '';
-    var h = '';
+    var t = 0;
+    var i = 0;
+    var h = 0;
     if(process.browser){
       t = document.body.clientHeight * 0.35 / 5 * 1.5 + 'px';
       i = document.body.clientHeight * 0.35 / 5 * 0.8 + 'px';
       h = document.body.clientHeight - 20 * (document.body.clientHeight / 640)
     }
+
     return (
+
       <div className="home">
+        <div className="pop" style={{display:this.state.showPop ? '' : "none"}} onMouseOver={this.show.bind(this)} onMouseLeave={this.hide.bind(this)}>
+          <div>{this.state.Name}</div>
+          <div>{this.state.Title}</div>
+          <div>{this.state.Desc}</div>
+        </div>
         <div className="top">{'当前时间' + this.state.data.time}</div>
         <div className="sss" style={{height: h}}>
           <div className="lefttop">
             <div className="content">
               <div className="title" style={{height:t,lineHeight:t}}>今日推荐</div>
-              <div className="item"  style={{height:i,lineHeight:i}}><span>001让(－1)001胜</span><span>中</span></div>
-              <div className="item"  style={{height:i,lineHeight:i}}><span>002让(－1)002胜</span><span>中</span></div>
-              <div className="item"  style={{height:i,lineHeight:i}}><span>003让(－1)003胜</span><span>中</span></div>
+              {
+                this.renderRecomTodayItems(t,i)
+              }
             </div>
           </div>
           <div className="righttop">
             <div className="content">
               <div className="title" style={{height:t, lineHeight:t}}>数据分析</div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span style={{backgroundColor: '#00ac00'}}>日本乙级联赛</span><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span>欧罗巴联赛</span><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span>欧罗巴联赛</span><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span>欧罗巴联赛</span><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span>欧罗巴联赛</span><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
+              {
+                this.renderItems(t, i)
+              }
             </div>
           </div>
           <div className="leftbottom">
             <div className="content">
               <div className="title" style={{height:t, lineHeight:t}}>历史推荐</div>
               {
-                this.renderItems(t,i)
+                this.renderRecomItems(t,i)
               }
             </div>
           </div>
           <div className="rightbottom">
             <div className="content">
               <div className="title" style={{height:t*0.8, lineHeight:t*0.8}}>极限追踪</div>
-              <div className="info">连平  →</div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span>8月12号</span><span>001让(－1)001胜</span><span>中</span></div>
-              <div className="info">连负  →</div>
-              <div className="item"  style={{height:i, lineHeight:i}}><span>8月14号</span><span>001让(－1)001胜</span><span>中</span></div>
+              {
+                this.props.data.competition.data ? 
+                (<div><div className="info">连平  →</div>
+                <div className="item"  style={{height:i, lineHeight:i}}><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
+                <div className="item"  style={{height:i, lineHeight:i}}><span>8月12号</span><span>001让(－1)001胜</span><span>中</span></div>
+                <div className="info">连负  →</div>
+                <div className="item"  style={{height:i, lineHeight:i}}><span>8月14号</span><span>001让(－1)001胜</span><span>中</span></div>
+                </div>) : <div style={{fontSize:'1rem', color:'white'}}>数据暂无</div>
+              }
             </div>
           </div>
         </div>
       </div>
+      
     )
   }
 }
