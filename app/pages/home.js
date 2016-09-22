@@ -9,7 +9,7 @@ import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
-import ReactHover from 'react-hover';
+// import ReactHover from 'react-hover';
 
 export default class extends BasePage {
   state={
