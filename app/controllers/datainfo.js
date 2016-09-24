@@ -8,8 +8,8 @@ module.exports ={
     return Promise.resolve().then(function(){
       var date = new Date();
       console.log(date)
-      // date = date.getFullYear() + (date.getMonth() + 1) + date.getDate();
-      date = "20160922"
+      date = date.getFullYear() + (date.getMonth() + 1) + date.getDate();
+      // date = "20160922"
       var content = DataInfo.content()
         .then(function(result){
           if(result && result.body){
