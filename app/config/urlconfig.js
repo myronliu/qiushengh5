@@ -6,5 +6,7 @@ module.exports={// 不要加  '/'
   recommendationBasketball: 'index.php?recommendation-api-unionpay-basketball',
 
   // url:'/lottery/trans'
-  url: 'lottery/transO'
+  url: 'lottery/transO',
+  urlToday: 'lottery/dailyRecommend',
+  getUserRec: 'getUserRec'
 }

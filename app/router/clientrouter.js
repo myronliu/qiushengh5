@@ -26,7 +26,7 @@ var Router = EvoFlux.createRouter({
   '/': function(){
     Exp.rehydrate();
     var items = Exp.getItems();
-    ReactDOM.render(<Home data={items}/>, container);
+    ReactDOM.render(<Home data={items} username={this.query("username")}/>, container);
   },
   // '/guanka': function(){
   //   ReactDOM.render(<GuanKa />, container);

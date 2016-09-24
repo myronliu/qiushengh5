@@ -20,5 +20,9 @@ DataInfo.competition = function(fundCode){
       // url: UrlConfig.competition
     });
 }
+DataInfo.recommendationToday = function(username,day){
+  return Api().post(UrlConfig.urlToday+"?day="+day+"&username=" + username)
+    .send({});
+}
 
 module.exports = DataInfo;

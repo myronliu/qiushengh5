@@ -40,10 +40,10 @@ var sched={
 // var textSched = later.parse.text('at 06:19pm every weekday');
 var sched = later.parse.text('every 5 sec');
 later.date.localTime();  //设置本地时区
-var t=later.setInterval(sendMessage,sched);
+// var t=later.setInterval(sendMessage,sched);
 
 function sendMessage(){
-  DataInfoController.detail()
+  DataInfoController.detailA()
     .spread(function(content,recommendation,competition){
     // .spread(function(content){
       var data = {
@@ -59,6 +59,10 @@ function sendMessage(){
     })
 }
 
+// global.socket.on('message',function(event){ 
+//   console.log('Received message from client!',event); 
+// }); 
+
 router.get('/error',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(ErrorView({message:"出错啦！"}));
   res.render('index', {reactOutput: reactHtml,title:'出错啦'});
@@ -67,11 +71,11 @@ router.get('/error',function(req,res){
 router.get('/',function(req,res){
 
   DataInfoController.detail(req, res)
-    .spread(function(content,recommendation,competition){
-    // .spread(function(content){
-      // console.log(recommendation)
+    .spread(function(content,recommendation,competition, recommendationToday){
+      // .spread(function(content){
       var data = {
         time: new Date().toLocaleString(),
+        recommendationToday: recommendationToday,
         content:content,
         recommendation:recommendation,
         competition:competition
@@ -83,14 +87,16 @@ router.get('/',function(req,res){
     })
     .catch(function(err){
       var data={
+        time: new Date().toLocaleString(),
         content: {},
         recommendation:{},
-        competition:{}
+        competition:{},
+        recommendationToday:{}
       }
       console.log("server router error: /");
       console.log(err);
       res.expose(Exp.dehydrate({data}));
-      var reactHtml = ReactDOMServer.renderToString(Home());
+      var reactHtml = ReactDOMServer.renderToString(Home({data: data}));
       res.render('guanka', {reactOutput: reactHtml,title:'首页'});
     })
 })

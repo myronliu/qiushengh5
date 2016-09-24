@@ -13,6 +13,7 @@ module.exports = EvoFlux.createAction("api",{
             ajaxSet.header['X-KJT-AUTH']=(auth===undefined?'':auth);
             // ajaxSet.header['X-SSO-Auth']=(ssoToken===undefined?'':ssoToken);
         }
+        console.log(ajaxSet)
 
         Api.init(ajaxSet).api.post(url)
             .send(param)
@@ -26,7 +27,7 @@ module.exports = EvoFlux.createAction("api",{
             ajaxSet=global.ajaxConfig
         }
         Api.init(ajaxSet).api.get(url)
-            .query(param)
+            // .query(param)
             .end(function(err,result){
                 this.requestEnd(err,result,url,cb)
             }.bind(this))
@@ -60,7 +61,7 @@ module.exports = EvoFlux.createAction("api",{
         }else{
             // console.log("result")
             // console.log(result)
-            var status=result.body.status
+            var status=result.body.status || 0
             if(cb){
                 if(status===undefined){
                     cb({status:-1,message:'网络加载失败，请稍后重试'});

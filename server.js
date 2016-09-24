@@ -58,7 +58,7 @@ var server = app.listen(port,function(){
   var port = server.address().port;
   console.log("please visit:" + host + ":" + port);
 });
-
+/*
 // 需要HTTP 模块来启动服务器和Socket.IO
 var io= require('socket.io'); 
 
@@ -78,4 +78,4 @@ global.socket.on('connection', function(client){
     // clearInterval(interval); 
     console.log('Server has disconnected'); 
   }); 
-});
+});*/

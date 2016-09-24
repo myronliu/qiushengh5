@@ -23,34 +23,40 @@ export default class extends BasePage {
   apiSuccess(url,body){
     this.showLoading(false);
     switch(url){
-      case this.state.loginurl:
-        if(Cookie.getCookie("name")!=this.refs.name.value){
-          Cookie.setCookie("name", this.refs.name.value, 1);
-          Cookie.setCookie("signed", "", 1);
-          Cookie.setCookie("guard1", "", 1);
-          Cookie.setCookie("guard2", "", 1);
-          Cookie.setCookie("guard3", "", 1);
-          Cookie.setCookie("guard4", "", 1);
-        }
-        Cookie.setCookie("token", body.data, 1);
-        window.to('/guanka');
+      case UrlConfig.getUserRec:
+        this.setState({
+          data: body
+        })
         break;
     }
   }
 
   componentDidMount(){
     super.componentDidMount();
-    var socket = io();
-    socket.on('message', function(msg){
-      // this.setState({
-      //   srcc: msg
-      // })
-      // console.log(msg)
-      this.setState({
-        data: JSON.parse(msg)
-      })
-      console.log(JSON.parse(msg))
-    }.bind(this));
+    // debugger;
+    // var socket = io();
+    // socket.on('message', function(msg){
+    //   // this.setState({
+    //   //   data: JSON.parse(msg)
+    //   // })
+    //   var dd = JSON.parse(msg);
+    //   this.state.data.competition = dd.competition;
+    //   this.state.data.recommendation = dd.recommendation;
+    //   this.state.data.recommendation = dd.recommendation;
+    //   this.setState({
+    //     data: this.state.data
+    //   })
+    //   console.log(JSON.parse(msg))
+    // }.bind(this));
+    this.interval = setInterval(function(){
+      ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
+    }.bind(this), 5000)
+  }
+
+  componentWillUnmount(){
+    if(this.interval){
+      clearInterval(this.interval)
+    }
   }
 
   showPop(item){
@@ -71,6 +77,15 @@ export default class extends BasePage {
     })
   }
 
+  showComsPop(item){
+    this.setState({
+      showPop: true,
+      Name: item[0].limit_type,
+      Title: "近一年 " + item[0].one_his_num + " 场",
+      Desc: "近一年创纪录时间：" + item[0].one_his_end_time
+    })
+  }
+
   hidePop(){
     this.setState({
       showPop: false
@@ -78,30 +93,64 @@ export default class extends BasePage {
   }
 
   renderItems(t, i){
-    return this.state.data.content.contentList.map(function(item, index){
-      if(index>3) return
-      return (
-        <div key={index} className="item" onMouseOver={this.showPop.bind(this,item)} onMouseLeave={this.hidePop.bind(this)} style={{height:i, lineHeight:i}}><span>{(new Date(item.contentinfo[0].date).getMonth() + 1) + '月' + new Date(item.contentinfo[0].date).getDate() + '号'}</span><span className="content_1"><span className="first">{item.match.hostname}</span><span className="middle">对战</span><span className="right">{item.match.guestname}</span></span><span>{item.match.matchstatus == "0" ? "胜" : "败"}</span></div>
-      )
-    }.bind(this))
+    if(this.state.data && this.state.data.content && this.state.data.content.contentList){
+      return this.state.data.content.contentList.map(function(item, index){
+        if(index>3) return
+        return (
+          <div key={index} className="item" onMouseOver={this.showPop.bind(this,item)} onMouseLeave={this.hidePop.bind(this)} style={{height:i, lineHeight:i}}><span>{(new Date(item.contentinfo[0].date).getMonth() + 1) + '月' + new Date(item.contentinfo[0].date).getDate() + '号'}</span><span className="content_1"><span className="first">{item.match.hostname}</span><span className="middle">对战</span><span className="right">{item.match.guestname}</span></span><span>{item.match.matchstatus == "0" ? "胜" : "败"}</span></div>
+        )
+      }.bind(this))
+    }else{
+      return (<div style={{fontSize:'1rem', color:'white'}}>数据暂无</div>)
+    }
   }
 
   renderRecomItems(t, i){
-    return this.state.data.recommendation.recommendationList.map(function(item, index){
-      if(index>3) return
-      return (
-        <div key={index} className="item" onMouseOver={this.showRecPop.bind(this,item)} onMouseLeave={this.hidePop.bind(this)} style={{height:i, lineHeight:i}}><span>{item.recommendationusername}</span><span className="content_1"><span className="first">{item.recommendationinfo.items[0].match.hostname}</span><span className="middle">对战</span><span className="right">{item.recommendationinfo.items[0].match.guestname}</span></span><span className="reclast">{item.recommendationinfo.items[0].recommendationresultdesc}</span></div>
-      )
-    }.bind(this))
+    if(this.state.data && this.state.data.recommendation && this.state.data.recommendation.recommendationList){
+      return this.state.data.recommendation.recommendationList.map(function(item, index){
+        if(index>3) return
+        return (
+          <div key={index} className="item" onMouseOver={this.showRecPop.bind(this,item)} onMouseLeave={this.hidePop.bind(this)} style={{height:i, lineHeight:i}}><span>{item.recommendationusername}</span><span className="content_1"><span className="first">{item.recommendationinfo.items[0].match.hostname}</span><span className="middle">对战</span><span className="right">{item.recommendationinfo.items[0].match.guestname}</span></span><span className="reclast">{item.recommendationinfo.items[0].recommendationresultdesc}</span></div>
+        )
+      }.bind(this))
+    }else{
+      return (<div style={{fontSize:'1rem', color:'white'}}>数据暂无</div>)
+    }
   }
 
   renderRecomTodayItems(t, i){
-    return this.state.data.recommendation.recommendationList.map(function(item, index){
-      if(index>2) return
-      return (
-        <div key={index} className="item"  style={{height:i, lineHeight:i}}><span>{item.recommendationusername}</span><span className="content_1"><span className="first">{item.recommendationinfo.items[0].match.hostname}</span><span className="middle">对战</span><span className="right">{item.recommendationinfo.items[0].match.guestname}</span></span><span className="reclast">{item.recommendationinfo.items[0].recommendationresultdesc}</span></div>
-      )
-    }.bind(this))
+    if(this.state.data && this.state.data.recommendationToday && this.state.data.recommendationToday.length > 0){
+      return this.state.data.recommendationToday.map(function(item, index){
+        if(index>3) return
+        return (
+          <div key={index} className="item"  style={{height:i, lineHeight:i}}><span>{item.username}</span><span className="content_1"><span className="first">{item.host}</span><span className="middle">对战</span><span className="right">{item.team}</span></span><span className="reclast">{item.no + " " + item.score}</span></div>
+        )
+      }.bind(this))
+      return
+    }
+    if(this.state.data && this.state.data.recommendation && this.state.data.recommendation.recommendationList){
+      return this.state.data.recommendation.recommendationList.map(function(item, index){
+        if(index>3) return
+        return (
+          <div key={index} className="item"  style={{height:i, lineHeight:i}}><span>{item.recommendationusername}</span><span className="content_1"><span className="first">{item.recommendationinfo.items[0].match.hostname}</span><span className="middle">对战</span><span className="right">{item.recommendationinfo.items[0].match.guestname}</span></span><span className="reclast">{item.recommendationinfo.items[0].recommendationresultdesc}</span></div>
+        )
+      }.bind(this))
+    }else{
+      return (<div style={{fontSize:'1rem', color:'white'}}>数据暂无</div>)
+    }
+  }
+
+  renderComs(t, i){
+    if(this.state.data && this.state.data.competition && this.state.data.competition.data && this.state.data.competition.data instanceof Array){
+      return this.state.data.competition.data.map(function(item, index){
+        if(index>3) return
+        return (
+          <div key={index} className="item" onMouseOver={this.showComsPop.bind(this,item)} onMouseLeave={this.hidePop.bind(this)} style={{height:i, lineHeight:i}}><span style={{backgroundColor: item[0].backgroundcolor}}>{item[0].third_level}</span><span className="content_1"><span className="first">{item[0].code}</span><span className="middle">{item[0].jc_team_name}</span><span className="right">{"极限：" + item[0].limit_num}</span></span></div>
+        )
+      }.bind(this))
+    }else{
+      return (<div style={{fontSize:'1rem', color:'white'}}>数据暂无</div>)
+    }
   }
 
   show(){
@@ -163,15 +212,7 @@ export default class extends BasePage {
           <div className="rightbottom">
             <div className="content">
               <div className="title" style={{height:t*0.8, lineHeight:t*0.8}}>极限追踪</div>
-              {
-                this.props.data.competition.data ? 
-                (<div><div className="info">连平  →</div>
-                <div className="item"  style={{height:i, lineHeight:i}}><span>8月11号</span><span>001让(－1)001胜</span><span>中</span></div>
-                <div className="item"  style={{height:i, lineHeight:i}}><span>8月12号</span><span>001让(－1)001胜</span><span>中</span></div>
-                <div className="info">连负  →</div>
-                <div className="item"  style={{height:i, lineHeight:i}}><span>8月14号</span><span>001让(－1)001胜</span><span>中</span></div>
-                </div>) : <div style={{fontSize:'1rem', color:'white'}}>数据暂无</div>
-              }
+              {this.renderComs(t, i)}
             </div>
           </div>
         </div>

@@ -32,7 +32,8 @@ ajax.api = {
   },
   post: function(url){
 
-    url=url.lastIndexOf('/',0)==0?url:('/'+url);
+    // url=url.lastIndexOf('/',0)==0?url:('/'+url);
+    console.log(apiAddress + url)
     if(isService || !isCors){
       if(!isService){
       }
