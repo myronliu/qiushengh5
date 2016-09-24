@@ -8,7 +8,8 @@ module.exports ={
     return Promise.resolve().then(function(){
       var date = new Date();
       console.log(date)
-      date = date.getFullYear() + (date.getMonth() + 1) + date.getDate();
+      date = "" + date.getFullYear() + (date.getMonth() > 8 ? date.getMonth() + 1 : "0" + (date.getMonth() +1) ) + date.getDate();
+      console.log(date)
       // date = "20160922"
       var content = DataInfo.content()
         .then(function(result){
@@ -49,7 +50,7 @@ module.exports ={
       var recommendationToday = DataInfo.recommendationToday(req.query.username, date)
         .then(function(result){
           if(result && result.body){
-            // console.log(result.body)
+            console.log(result.body)
             // result = JSON.parse(result.body);
             return result.body || {};
           }else{
