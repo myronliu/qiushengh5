@@ -6,7 +6,9 @@ var ErrorView = require('../pages/error');
 var Home = require('../pages/home');
 var Exp = require('../helper/expose');
 
-// var List = require('../pages/list');
+var Specialist = require('../pages/specialist');
+var Specialinfo = require('../pages/specialinfo');
+var QiuSheng = require('../pages/qiusheng');
 // var Vote = require('../pages/vote');
 // var Result = require('../pages/result');
 
@@ -28,6 +30,15 @@ var Router = EvoFlux.createRouter({
     var items = Exp.getItems();
     ReactDOM.render(<Home data={items} username={this.query("username")}/>, container);
   },
+  '/specialist':function(){
+    ReactDOM.render(<Specialist />, container);
+  },
+  '/specialifo': function(){
+    ReactDOM.render(<Specialinfo />, container);
+  },
+  '/qiusheng': function(){
+    ReactDOM.render(<QiuSheng />, container);
+  }
   // '/guanka': function(){
   //   ReactDOM.render(<GuanKa />, container);
   // },

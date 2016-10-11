@@ -7,8 +7,8 @@ export default class Footer extends React.Component{
     data:{}
   }
   nextPage(){
-    console.log(this.props.data.target)
-    console.log(this.props.data.type)
+    // console.log(this.props.data.target)
+    // console.log(this.props.data.type)
     if(this.props.data.type===1){
       if(this.props.data.target&&this.props.data.target.length>0){
         let  target=this.props.data.target;

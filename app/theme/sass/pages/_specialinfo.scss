@@ -1,0 +1,106 @@
+.specialinfo{
+  .header{
+    background-image: url(../images/back.jpg);
+    padding: 1rem;
+    .divImg{
+      text-align: center;
+      &>img{
+        width: 4rem;
+        border-radius: 2rem;
+        border: 0.1rem solid;
+        border-color: white;
+      }
+    }
+    .name{
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+    }
+    .desc{
+      padding-left: 1rem;
+      padding-right: 1rem;
+      text-align: center;
+      color: white;
+      font-size: 1rem;
+    }
+  }
+  .tabs{
+    .active{
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      background-color: #004700;
+      color: #e9e905;
+      line-height: 3rem;
+      box-sizing: border-box;
+    }
+    .unactive{
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      background-color: green;
+      color: white;
+      line-height: 3rem;
+    }
+  }
+  .items{
+    .specialItem{
+      height: 4rem;
+      background-color: white;
+      padding-top: 0.5rem;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      .leftPart{
+        display: inline-block;
+        width: 80%;
+        height: 4rem;
+        vertical-align: top;
+        .topInfo{
+          height: 1.5rem;
+          font-size: 1rem;
+          padding-left: 1rem;
+          .liansai{
+            color: orange;
+          }
+          .add{
+            margin-left: 1rem;
+            border: 0.1rem solid;
+            border-radius: 0.2rem;
+            padding: 0.1rem;
+            color: green;
+          }
+          .time{
+            float: right;
+            margin-right: 1rem;
+            font-size: 0.5rem;
+            color: #bebebe;
+          }
+        }
+        .bottomInfo{
+          height: 2.5rem;
+          padding-left: 1rem;
+          line-height: 2.5rem;
+          text-align: center;
+          .left{
+            float: left;
+          }
+          .right{
+            float: right;
+            margin-right: 1rem;
+          }
+        }
+      }
+      .rightPart{
+        display: inline-block;
+        width: 20%;
+        line-height: 4rem;
+        box-sizing: border-box;
+        border-left: 0.1rem solid;
+        border-color: #d9d9d9;
+        text-align: center;
+        color: red;
+        height: 4rem;
+      }
+    }
+  }
+}

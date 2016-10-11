@@ -1,0 +1,49 @@
+.specialist{
+  height:100%;
+  .tabs{
+    border-bottom: 0.2rem solid;
+    border-bottom-color: #cdcdcd;
+  }
+  .tabItem{
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+    color: #0000b5;
+    border-right-width: 0.1rem;
+    border-right-style: solid;
+    border-right-color: #cdcdcd;
+    box-sizing: border-box;
+  }
+  .tabItemWithoutBorder{
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    height: 3rem;
+    line-height: 3rem;
+    color: #0000b5;
+  }
+  .tabItemWithLine{
+    background-color: gainsboro;
+  }
+  .specialItem{
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 0.1rem solid;
+    border-bottom-color: #cdcdcd;
+    background-color: white;
+    &>img{
+      height: 4rem;
+      border-radius: 2rem;
+      background-color: #ffdcf5;
+    }
+    .name{
+      font-size: 1rem;
+      color:black;
+    }
+  }
+}

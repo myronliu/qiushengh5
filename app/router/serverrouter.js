@@ -16,7 +16,9 @@ var Exp =require('../helper/expose');
 var ErrorView = React.createFactory(require('../pages/error'));
 var Home = React.createFactory(require('../pages/home'));
 
-// var List = React.createFactory(require('../pages/list'));
+var Specialist = React.createFactory(require('../pages/specialist'));
+var Specialinfo = React.createFactory(require('../pages/specialinfo'));
+var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 // var Vote = React.createFactory(require('../pages/vote'));
 // var Result = React.createFactory(require('../pages/result'));
 
@@ -84,7 +86,7 @@ router.get('/',function(req,res){
       res.expose(Exp.dehydrate(data));
       
       var reactHtml = ReactDOMServer.renderToString(Home({data: data}));
-      res.render('guanka', {reactOutput: reactHtml,title:'首页', stateData: res.locals.state});
+      res.render('home', {reactOutput: reactHtml,title:'首页', stateData: res.locals.state});
     })
     .catch(function(err){
       var data={
@@ -98,14 +100,24 @@ router.get('/',function(req,res){
       console.log(err);
       res.expose(Exp.dehydrate({data}));
       var reactHtml = ReactDOMServer.renderToString(Home({data: data}));
-      res.render('guanka', {reactOutput: reactHtml,title:'首页'});
+      res.render('home', {reactOutput: reactHtml,title:'首页'});
     })
 })
 
-// router.get('/guanka',function(req,res){
-//   var reactHtml = ReactDOMServer.renderToString(GuanKa());
-//   res.render('guanka', {reactOutput: reactHtml,title:'关卡'});
-// })
+router.get('/specialist',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Specialist());
+  res.render('home', {reactOutput: reactHtml,title:'专家列表'});
+})
+
+router.get('/specialifo',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Specialinfo());
+  res.render('home', {reactOutput: reactHtml,title:'专家详情'});
+})
+
+router.get('/qiusheng',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(QiuSheng());
+  res.render('home', {reactOutput: reactHtml,title:'首页'});
+})
 
 function renderToPath(req,res,path){
   let filePath=patha.join(__dirname,'..','/pages'+path+'.js');

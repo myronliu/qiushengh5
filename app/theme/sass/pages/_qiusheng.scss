@@ -1,0 +1,196 @@
+.qiusheng{
+  overflow-x: hidden;
+  .swiper_div{
+    background: white;
+    float: left;
+    position: relative;
+    transition-property:transform;
+    // height:10rem;
+    background-color:#efeff4;
+  }
+  .marginTop07rem{
+    margin-top: 0.7rem;
+  }
+  .topInfo{
+    height: 3rem;
+    line-height: 3rem;
+    padding-left: 1rem;
+    border-bottom: 0.1rem solid;
+    border-bottom-color: #cdcdcd;
+    background-color: white;
+    margin-top: 0.2rem;
+    .title{
+      font-size: 3rem;
+      color: black;
+    }
+    .link{
+      color: orange;
+      float: right;
+      margin-right: 1rem;
+      font-size:1rem;
+    }
+  }
+  .saishi{
+    background-color: white;
+    padding-left: 1rem;
+    border-bottom: 0.1rem solid;
+    border-bottom-color: #cdcdcd;
+    .saishiLeft{
+      display: inline-block;
+      width: 33.33%;
+      vertical-align: top;
+      &>img{
+        width: 3rem;
+        border-radius: 2rem;
+        vertical-align: top;
+        margin-top: 1.5rem;
+      }
+      &>span{
+        line-height: 6rem;
+        display: inline-block;
+        height: 6rem;
+        color: black;
+      }
+    }
+    .saishiMiddle{
+      display: inline-block;
+      width: 33.33%;
+      height: 6rem;
+      vertical-align: top;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 2rem;
+      .o{
+        color: orange;
+      }
+      .g{
+        color: green;
+      }
+    }
+  }
+  .hongrenbang{
+    height: 3rem;
+    line-height: 3rem;
+    padding-left: 1rem;
+    background-color: white;
+    .leftInfo{
+      color: red;
+      font-weight: bold;
+    }
+    .middleInfo{
+
+    }
+    .rightInfo{
+      float: right;
+      margin-right: 1rem;
+    }
+  }
+  .specialist{
+    .specialItem{
+      width: 25%;
+      display: inline-block;
+      text-align: center;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 0rem;
+      // border-bottom-color: #cdcdcd;
+      background-color: white;
+      &>img{
+        height: 4rem;
+        border-radius: 2rem;
+        background-color: #ffdcf5;
+      }
+      .name{
+        font-size: 1rem;
+        color:black;
+      }
+    }
+  }
+  .recList{
+    .recItem{
+      .specialInfo{
+        padding-left: 1rem;
+        height: 4rem;
+        background-color: white;
+        border-bottom: 0.1rem solid;
+        border-bottom-color: #d7d7d7;
+        &>img{
+          width: 3rem;
+          border-radius: 2rem;
+          margin-top: 0.5rem;
+          vertical-align: top;
+        }
+        .textInfo{
+          display: inline-block;
+          .tTitle{
+            font-size: 3rem;
+            line-height: 2.5rem;
+            color: black;
+          }
+          .tDesc{
+            font-size: 1rem;
+            line-height: 1.5rem;
+          }
+        }
+      }
+      .saishiItem{
+        height: 4rem;
+        background-color: white;
+        padding-top: 0.5rem;
+        padding-bottom: 0.5rem;
+        margin-bottom: 1rem;
+        .leftPart{
+          display: inline-block;
+          width: 80%;
+          height: 4rem;
+          vertical-align: top;
+          .sTopInfo{
+            height: 1.5rem;
+            font-size: 1rem;
+            padding-left: 1rem;
+            .liansai{
+              color: orange;
+            }
+            .add{
+              margin-left: 1rem;
+              border: 0.1rem solid;
+              border-radius: 0.2rem;
+              padding: 0.1rem;
+              color: green;
+            }
+            .time{
+              float: right;
+              margin-right: 1rem;
+              font-size: 0.5rem;
+              color: #bebebe;
+            }
+          }
+          .bottomInfo{
+            height: 2.5rem;
+            padding-left: 1rem;
+            line-height: 2.5rem;
+            text-align: center;
+            .left{
+              float: left;
+            }
+            .right{
+              float: right;
+              margin-right: 1rem;
+            }
+          }
+        }
+        .rightPart{
+          display: inline-block;
+          width: 20%;
+          line-height: 4rem;
+          box-sizing: border-box;
+          border-left: 0.1rem solid;
+          border-color: #d9d9d9;
+          text-align: center;
+          color: red;
+          height: 4rem;
+        }
+      }
+    }
+  }
+};
