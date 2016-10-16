@@ -1673,7 +1673,7 @@ input[type="button"] {
 /* line 38, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiLeft {
   display: inline-block;
-  width: 33.33%;
+  width: 30.33%;
   vertical-align: top;
 }
 /* line 42, ../../app/theme/sass/pages/_qiusheng.scss */
@@ -1691,41 +1691,62 @@ input[type="button"] {
   color: black;
 }
 /* line 55, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .saishi .saishiRight {
+  display: inline-block;
+  width: 30.33%;
+  vertical-align: top;
+  text-align: right;
+}
+/* line 60, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .saishi .saishiRight > img {
+  width: 3rem;
+  border-radius: 2rem;
+  vertical-align: top;
+  margin-top: 1.5rem;
+}
+/* line 66, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .saishi .saishiRight > span {
+  line-height: 6rem;
+  display: inline-block;
+  height: 6rem;
+  color: black;
+}
+/* line 73, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiMiddle {
   display: inline-block;
-  width: 33.33%;
+  width: 39.33%;
   height: 6rem;
   vertical-align: top;
   text-align: center;
   font-size: 1rem;
   line-height: 2rem;
 }
-/* line 63, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 81, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiMiddle .o {
   color: orange;
 }
-/* line 66, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 84, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiMiddle .g {
   color: green;
 }
-/* line 71, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 89, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .hongrenbang {
   height: 3rem;
   line-height: 3rem;
   padding-left: 1rem;
   background-color: white;
 }
-/* line 76, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 94, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .hongrenbang .leftInfo {
   color: red;
   font-weight: bold;
 }
-/* line 83, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 101, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .hongrenbang .rightInfo {
   float: right;
   margin-right: 1rem;
 }
-/* line 89, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 107, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .specialist .specialItem {
   width: 25%;
   display: inline-block;
@@ -1735,18 +1756,18 @@ input[type="button"] {
   border-bottom: 0rem;
   background-color: white;
 }
-/* line 98, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 116, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .specialist .specialItem > img {
   height: 4rem;
   border-radius: 2rem;
   background-color: #ffdcf5;
 }
-/* line 103, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 121, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .specialist .specialItem .name {
   font-size: 1rem;
   color: black;
 }
-/* line 111, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 129, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo {
   padding-left: 1rem;
   height: 4rem;
@@ -1754,29 +1775,29 @@ input[type="button"] {
   border-bottom: 0.1rem solid;
   border-bottom-color: #d7d7d7;
 }
-/* line 117, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 135, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo > img {
   width: 3rem;
   border-radius: 2rem;
   margin-top: 0.5rem;
   vertical-align: top;
 }
-/* line 123, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 141, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo .textInfo {
   display: inline-block;
 }
-/* line 125, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 143, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo .textInfo .tTitle {
   font-size: 3rem;
   line-height: 2.5rem;
   color: black;
 }
-/* line 130, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 148, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo .textInfo .tDesc {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-/* line 136, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 154, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem {
   height: 4rem;
   background-color: white;
@@ -1784,24 +1805,24 @@ input[type="button"] {
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
-/* line 142, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 160, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart {
   display: inline-block;
   width: 80%;
   height: 4rem;
   vertical-align: top;
 }
-/* line 147, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 165, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo {
   height: 1.5rem;
   font-size: 1rem;
   padding-left: 1rem;
 }
-/* line 151, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 169, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .liansai {
   color: orange;
 }
-/* line 154, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 172, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .add {
   margin-left: 1rem;
   border: 0.1rem solid;
@@ -1809,30 +1830,30 @@ input[type="button"] {
   padding: 0.1rem;
   color: green;
 }
-/* line 161, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 179, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .time {
   float: right;
   margin-right: 1rem;
   font-size: 0.5rem;
   color: #bebebe;
 }
-/* line 168, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 186, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo {
   height: 2.5rem;
   padding-left: 1rem;
   line-height: 2.5rem;
   text-align: center;
 }
-/* line 173, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 191, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .left {
   float: left;
 }
-/* line 176, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 194, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .right {
   float: right;
   margin-right: 1rem;
 }
-/* line 182, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 200, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .rightPart {
   display: inline-block;
   width: 20%;
@@ -2019,4 +2040,380 @@ input[type="button"] {
 .specialist .specialItem .name {
   font-size: 1rem;
   color: black;
+}
+
+/* line 1, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch {
+  overflow-x: hidden;
+}
+/* line 3, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .header {
+  line-height: 3rem;
+  background-color: white;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+/* line 8, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .header .on {
+  width: 5rem;
+  display: inline-block;
+  background-color: #2244ae;
+  line-height: 2rem;
+  color: white;
+  border-bottom-left-radius: 0.2rem;
+  border-top-left-radius: 0.2rem;
+  box-sizing: border-box;
+  border: solid 1px;
+  border-color: #2244ae;
+}
+/* line 20, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .header .end {
+  width: 5rem;
+  display: inline-block;
+  color: #2244ae;
+  line-height: 2rem;
+  border: solid 1px;
+  border-bottom-right-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+  box-sizing: border-box;
+}
+/* line 31, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi {
+  background-color: white;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-bottom: 0.1rem solid;
+  border-bottom-color: #cdcdcd;
+  margin-bottom: 1rem;
+}
+/* line 38, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiLeft {
+  display: inline-block;
+  width: 30.33%;
+  vertical-align: top;
+}
+/* line 42, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiLeft > img {
+  width: 3rem;
+  border-radius: 2rem;
+  vertical-align: top;
+  margin-top: 1.5rem;
+}
+/* line 48, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiLeft > span {
+  line-height: 6rem;
+  display: inline-block;
+  height: 6rem;
+  color: black;
+}
+/* line 55, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiRight {
+  display: inline-block;
+  width: 30.33%;
+  vertical-align: top;
+  text-align: right;
+}
+/* line 60, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiRight > img {
+  width: 3rem;
+  border-radius: 2rem;
+  vertical-align: top;
+  margin-top: 1.5rem;
+}
+/* line 66, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiRight > span {
+  line-height: 6rem;
+  display: inline-block;
+  height: 6rem;
+  color: black;
+}
+/* line 73, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiMiddle {
+  display: inline-block;
+  width: 39.33%;
+  height: 6rem;
+  vertical-align: top;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+/* line 81, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiMiddle .o {
+  color: orange;
+  margin-right: 1rem;
+}
+/* line 85, ../../app/theme/sass/pages/_hotmatch.scss */
+.hotmatch .saishi .saishiMiddle .g {
+  color: green;
+}
+
+/* line 3, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi {
+  background-color: white;
+  border-bottom: 0.1rem solid;
+  border-bottom-color: #cdcdcd;
+  margin-bottom: 1rem;
+  background-image: url("../images/header.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-origin: content-box;
+}
+/* line 12, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiLeft {
+  display: inline-block;
+  width: 30.33%;
+  vertical-align: top;
+  text-align: center;
+}
+/* line 17, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiLeft > img {
+  width: 3rem;
+  border-radius: 2rem;
+  vertical-align: top;
+  margin-top: 1.5rem;
+  display: block;
+  left: 50%;
+  margin-left: -1.5rem;
+  position: relative;
+  background-color: white;
+}
+/* line 28, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiLeft > span {
+  line-height: 4rem;
+  display: block;
+  height: 4rem;
+  color: white;
+}
+/* line 35, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiRight {
+  display: inline-block;
+  width: 30.33%;
+  vertical-align: top;
+  text-align: center;
+}
+/* line 40, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiRight > img {
+  width: 3rem;
+  border-radius: 2rem;
+  vertical-align: top;
+  margin-top: 1.5rem;
+  display: block;
+  left: 50%;
+  margin-left: -1.5rem;
+  position: relative;
+  background-color: white;
+}
+/* line 51, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiRight > span {
+  line-height: 4rem;
+  display: block;
+  height: 4rem;
+  color: white;
+}
+/* line 58, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiMiddle {
+  display: inline-block;
+  width: 39.33%;
+  height: 8.5rem;
+  vertical-align: top;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 2rem;
+}
+/* line 66, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiMiddle .liansai {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  color: white;
+}
+/* line 70, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiMiddle .liansai .o {
+  margin-right: 1rem;
+}
+/* line 75, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiMiddle .g {
+  color: #00da00;
+  font-size: 4rem;
+  height: 3rem;
+  line-height: 3rem;
+}
+/* line 81, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .top .saishi .saishiMiddle .time {
+  height: 2.5rem;
+  line-height: 2.5rem;
+  color: red;
+}
+/* line 89, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .header {
+  line-height: 3rem;
+  background-color: white;
+  border-bottom: 1px solid;
+  border-bottom-color: #d7d7d7;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+/* line 96, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .header .on {
+  width: 30%;
+  display: inline-block;
+  border-bottom: 2px solid;
+  border-bottom-color: #0000c4;
+  color: #0000c4;
+  margin-right: 10%;
+}
+/* line 104, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .header .end {
+  width: 30%;
+  display: inline-block;
+}
+/* line 110, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .specialInfo {
+  padding-left: 1rem;
+  height: 4rem;
+  background-color: white;
+  border-bottom: 0.1rem solid;
+  border-bottom-color: #d7d7d7;
+}
+/* line 116, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .specialInfo > img {
+  width: 3rem;
+  border-radius: 2rem;
+  margin-top: 0.5rem;
+  vertical-align: top;
+}
+/* line 122, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .specialInfo .textInfo {
+  display: inline-block;
+}
+/* line 124, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .specialInfo .textInfo .tTitle {
+  font-size: 3rem;
+  line-height: 2.5rem;
+  color: black;
+}
+/* line 129, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .specialInfo .textInfo .tDesc {
+  font-size: 1rem;
+  line-height: 1.5rem;
+}
+/* line 135, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem {
+  height: 1.5rem;
+  background-color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+/* line 141, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart {
+  display: inline-block;
+  width: 80%;
+  height: 4rem;
+  vertical-align: top;
+}
+/* line 146, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo {
+  height: 1.5rem;
+  font-size: 1rem;
+  padding-left: 1rem;
+}
+/* line 150, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .liansai {
+  color: orange;
+}
+/* line 153, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .add {
+  margin-left: 1rem;
+  border: 0.1rem solid;
+  border-radius: 0.2rem;
+  padding: 0.1rem;
+  color: green;
+}
+/* line 160, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .time {
+  float: right;
+  margin-right: 1rem;
+  font-size: 0.5rem;
+  color: #bebebe;
+}
+/* line 167, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo {
+  height: 2.5rem;
+  padding-left: 1rem;
+  line-height: 2.5rem;
+  text-align: center;
+}
+/* line 172, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo .left {
+  float: left;
+}
+/* line 175, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo .right {
+  float: right;
+  margin-right: 1rem;
+}
+/* line 181, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .recItem .saishiItem .rightPart {
+  display: inline-block;
+  width: 20%;
+  line-height: 1.5rem;
+  box-sizing: border-box;
+  border-left: 0.1rem solid;
+  border-color: #d9d9d9;
+  text-align: center;
+  color: red;
+  height: 1.5rem;
+}
+/* line 194, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .tabs {
+  border-bottom: 1px solid;
+  border-bottom-color: #cdcdcd;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  background-color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+/* line 203, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .tabItem {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  height: 2rem;
+  line-height: 2rem;
+  color: #364bff;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: #364bff;
+  box-sizing: border-box;
+  border-left-style: none;
+}
+/* line 216, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .tabItemWithoutBorder {
+  display: inline-block;
+  width: 23%;
+  text-align: center;
+  height: 2rem;
+  line-height: 2rem;
+  color: #364bff;
+  box-sizing: border-box;
+  border-width: 0.1rem;
+  border-style: solid;
+  border-color: #364bff;
+  border-left-style: none;
+}
+/* line 229, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .tabItemWithLine {
+  background-color: #364bff;
+  color: white;
+}
+/* line 233, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .leftRadius {
+  border-bottom-left-radius: 0.3rem;
+  border-top-left-radius: 0.3rem;
+}
+/* line 237, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+.hotmatchdetail .rightRadius {
+  border-bottom-right-radius: 0.3rem;
+  border-top-right-radius: 0.3rem;
 }

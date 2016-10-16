@@ -37,8 +37,26 @@
     border-bottom-color: #cdcdcd;
     .saishiLeft{
       display: inline-block;
-      width: 33.33%;
+      width: 30.33%;
       vertical-align: top;
+      &>img{
+        width: 3rem;
+        border-radius: 2rem;
+        vertical-align: top;
+        margin-top: 1.5rem;
+      }
+      &>span{
+        line-height: 6rem;
+        display: inline-block;
+        height: 6rem;
+        color: black;
+      }
+    }
+    .saishiRight{
+      display: inline-block;
+      width: 30.33%;
+      vertical-align: top;
+      text-align: right;
       &>img{
         width: 3rem;
         border-radius: 2rem;
@@ -54,7 +72,7 @@
     }
     .saishiMiddle{
       display: inline-block;
-      width: 33.33%;
+      width: 39.33%;
       height: 6rem;
       vertical-align: top;
       text-align: center;

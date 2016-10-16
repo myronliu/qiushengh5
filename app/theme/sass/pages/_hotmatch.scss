@@ -1,0 +1,90 @@
+.hotmatch{
+  overflow-x: hidden;
+  .header{
+    line-height: 3rem;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 1rem;
+    .on{
+      width: 5rem;
+      display: inline-block;
+      background-color: #2244ae;
+      line-height: 2rem;
+      color: white;
+      border-bottom-left-radius: 0.2rem;
+      border-top-left-radius: 0.2rem;
+      box-sizing: border-box;
+      border: solid 1px;
+      border-color: #2244ae;
+    }
+    .end{
+      width: 5rem;
+      display: inline-block;
+      color: #2244ae;
+      line-height: 2rem;
+      border: solid 1px;
+      border-bottom-right-radius: 0.2rem;
+      border-top-right-radius: 0.2rem;
+      box-sizing: border-box;
+    }
+  }
+  .saishi{
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-bottom: 0.1rem solid;
+    border-bottom-color: #cdcdcd;
+    margin-bottom: 1rem;
+    .saishiLeft{
+      display: inline-block;
+      width: 30.33%;
+      vertical-align: top;
+      &>img{
+        width: 3rem;
+        border-radius: 2rem;
+        vertical-align: top;
+        margin-top: 1.5rem;
+      }
+      &>span{
+        line-height: 6rem;
+        display: inline-block;
+        height: 6rem;
+        color: black;
+      }
+    }
+    .saishiRight{
+      display: inline-block;
+      width: 30.33%;
+      vertical-align: top;
+      text-align: right;
+      &>img{
+        width: 3rem;
+        border-radius: 2rem;
+        vertical-align: top;
+        margin-top: 1.5rem;
+      }
+      &>span{
+        line-height: 6rem;
+        display: inline-block;
+        height: 6rem;
+        color: black;
+      }
+    }
+    .saishiMiddle{
+      display: inline-block;
+      width: 39.33%;
+      height: 6rem;
+      vertical-align: top;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 2rem;
+      .o{
+        color: orange;
+        margin-right: 1rem
+      }
+      .g{
+        color: green;
+      }
+    }
+  }
+}

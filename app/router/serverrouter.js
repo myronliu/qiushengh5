@@ -19,6 +19,8 @@ var Home = React.createFactory(require('../pages/home'));
 var Specialist = React.createFactory(require('../pages/specialist'));
 var Specialinfo = React.createFactory(require('../pages/specialinfo'));
 var QiuSheng = React.createFactory(require('../pages/qiusheng'));
+var Hotmatch = React.createFactory(require('../pages/hotmatch'));
+var HotmatchDetail = React.createFactory(require('../pages/hotmatchdetail'));
 // var Vote = React.createFactory(require('../pages/vote'));
 // var Result = React.createFactory(require('../pages/result'));
 
@@ -117,6 +119,16 @@ router.get('/specialifo',function(req,res){
 router.get('/qiusheng',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(QiuSheng());
   res.render('home', {reactOutput: reactHtml,title:'首页'});
+})
+
+router.get('/hotmatch',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Hotmatch());
+  res.render('home', {reactOutput: reactHtml,title:'热门赛事'});
+})
+
+router.get('/hotmatchdetail',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(HotmatchDetail());
+  res.render('home', {reactOutput: reactHtml,title:'赛事推荐列表'});
 })
 
 function renderToPath(req,res,path){
