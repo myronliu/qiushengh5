@@ -21,6 +21,7 @@ var Specialinfo = React.createFactory(require('../pages/specialinfo'));
 var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 var Hotmatch = React.createFactory(require('../pages/hotmatch'));
 var HotmatchDetail = React.createFactory(require('../pages/hotmatchdetail'));
+var UserRank = React.createFactory(require('../pages/userrank'));
 // var Vote = React.createFactory(require('../pages/vote'));
 // var Result = React.createFactory(require('../pages/result'));
 
@@ -129,6 +130,11 @@ router.get('/hotmatch',function(req,res){
 router.get('/hotmatchdetail',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(HotmatchDetail());
   res.render('home', {reactOutput: reactHtml,title:'赛事推荐列表'});
+})
+
+router.get('/userrank',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(UserRank());
+  res.render('home', {reactOutput: reactHtml,title:'红人榜'});
 })
 
 function renderToPath(req,res,path){
