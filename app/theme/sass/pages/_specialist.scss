@@ -6,22 +6,22 @@
   }
   .tabItem{
     display: inline-block;
-    width: 25%;
+    width: 20%;
     text-align: center;
-    height: 3rem;
-    line-height: 3rem;
+    height: 6rem;
+    line-height: 6rem;
     color: #0000b5;
-    border-right-width: 0.1rem;
+    border-right-width: 1px;
     border-right-style: solid;
     border-right-color: #cdcdcd;
     box-sizing: border-box;
   }
   .tabItemWithoutBorder{
     display: inline-block;
-    width: 25%;
+    width: 20%;
     text-align: center;
-    height: 3rem;
-    line-height: 3rem;
+    height: 6rem;
+    line-height: 6rem;
     color: #0000b5;
   }
   .tabItemWithLine{
@@ -33,16 +33,19 @@
     text-align: center;
     padding-top: 1rem;
     padding-bottom: 1rem;
-    border-bottom: 0.1rem solid;
+    border-bottom: 1px solid;
     border-bottom-color: #cdcdcd;
     background-color: white;
+    height: 10rem;
     &>img{
-      height: 4rem;
-      border-radius: 2rem;
+      height: 6rem;
+      border-radius: 3rem;
       background-color: #ffdcf5;
     }
     .name{
-      font-size: 1rem;
+      font-size: 2rem;
+      height:4rem;
+      line-height: 4rem;
       color:black;
     }
   }

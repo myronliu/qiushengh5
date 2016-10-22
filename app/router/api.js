@@ -37,6 +37,24 @@ router.post('/getUserRec',function(req,res){
     })
 })
 
+router.post('/lottery/expert/list',function(req,res){
+    ApiAction.post(req.url,req.body,function(data){
+        res.json(data);
+    }, global.qsH5Config)
+})
+
+router.post('/lottery/expert/detail',function(req,res){
+    ApiAction.post(req.url,req.body,function(data){
+        res.json(data);
+    }, global.qsH5Config)
+})
+
+router.post('/lottery/expert/recommend',function(req,res){
+    ApiAction.post(req.url,req.body,function(data){
+        res.json(data);
+    }, global.qsH5Config)
+})
+
 router.post('*',function(req,res){
     let auth=req.cookies.auth
     let ssoToken=req.cookies.ssoToken

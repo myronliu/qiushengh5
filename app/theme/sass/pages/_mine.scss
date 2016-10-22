@@ -1,4 +1,4 @@
-.specialinfo{
+.mine{
   .header{
     background-image: url(../images/back.jpg);
     padding: 1rem;
@@ -16,12 +16,16 @@
       color: white;
       font-size: 2.5rem;
     }
-    .desc{
+    .money{
       padding-left: 1rem;
       padding-right: 1rem;
-      text-align: center;
+      text-align: left;
       color: white;
       font-size: 2.5rem;
+      .num{
+        color: #ffdb00;
+        margin-right: 0.5rem;
+      }
     }
   }
   .tabs{

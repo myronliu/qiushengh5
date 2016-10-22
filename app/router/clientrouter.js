@@ -33,12 +33,15 @@ var Router = EvoFlux.createRouter({
   '/specialist':function(){
     ReactDOM.render(<Specialist />, container);
   },
-  '/specialifo': function(){
-    ReactDOM.render(<Specialinfo />, container);
+  '/specialinfo': function(){
+    ReactDOM.render(<Specialinfo id={this.query("id")}/>, container);
   },
   '/qiusheng': function(){
     ReactDOM.render(<QiuSheng />, container);
-  }
+  },
+  // '/specialinfo': function(){
+  //   ReactDOM.render(<Specialinfo />, container);
+  // }
   // '/guanka': function(){
   //   ReactDOM.render(<GuanKa />, container);
   // },

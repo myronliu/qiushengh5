@@ -1,0 +1,106 @@
+.recodetail{
+  height:100%;
+  .item{
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
+    background-color: white;
+    .line1{
+      height: 3rem;
+      line-height: 3rem;
+      .left{
+        color: orange;
+        font-size: 2rem;
+      }
+      .right{
+        float: right;
+        font-size: 2rem;
+      }
+    }
+    .line2{
+      height: 4rem;
+      line-height: 4rem;
+      text-align: center;
+      color: black;
+      .left{
+        font-size: 2.5rem;
+        float: left;
+      }
+      .vs{
+        font-size: 2rem;
+      }
+      .right{
+        font-size: 2.5rem;
+        float: right;
+      }
+    }
+    .line3{
+      height: 6rem;
+      line-height: 6rem;
+      font-size: 2.5rem;
+      .left{
+        width:10%;
+        display: inline-block;
+        .num{
+          display: block;
+          width: 3rem;
+          text-align: center;
+          background-color: #fcb2b2;
+          color: white;
+          height: 3rem;
+          border-radius: 4rem;
+          position: relative;
+          line-height: 3rem;
+        }
+      }
+      .right{
+        width:90%;
+        display: inline-block;
+        .first{
+          width: 30%;
+          display: inline-block;
+          text-align: center;
+          height: 4rem;
+          border: 1px solid;
+          border-radius: 3px;
+          position: relative;
+          line-height: 4rem;
+          box-sizing: border-box;
+        }
+        .middle{
+          width: 30%;
+          display: inline-block;
+          text-align: center;
+          height: 4rem;
+          border: 1px solid;
+          border-radius: 3px;
+          position: relative;
+          line-height: 4rem;
+          box-sizing: border-box;
+          margin-left: 5%;
+        }
+        .last{
+          width: 30%;
+          display: inline-block;
+          text-align: center;
+          height: 4rem;
+          border: 1px solid;
+          border-radius: 3px;
+          position: relative;
+          line-height: 4rem;
+          box-sizing: border-box;
+          margin-left: 5%;
+        }
+      }
+    }
+  }
+  .active{
+    color: red;
+  }
+  .img{
+    padding:1rem;
+    &>img{
+      width: 100%;
+    }
+  }
+}

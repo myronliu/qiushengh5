@@ -2,6 +2,7 @@ import Layout from '../components/layout'
 
 import Cookie from '../helper/cookie';
 import Toast from '../helper/toast';
+import Loading from '../helper/loading';
 import NextButton from '../components/nextbutton';
 import Input from '../components/Input';
 import TitleInput from '../components/titleinput';
@@ -12,20 +13,48 @@ import BasePage from '../components/BasePage.js';
 
 export default class extends BasePage {
   state={
-    tabs:['推荐专家','特邀大咖','彩店专家','明星专家'],
+    tabs:[
+      {
+        title:'推荐专家',
+        key: 'TJZJ'
+      },{
+        title:'特邀大咖',
+        key: 'TYDK'
+      },{
+        title:'彩店专家',
+        key: 'CDSD'
+      },{
+        title:'美女推波',
+        key: 'MNTB'
+      },{
+        title:'竞彩高手',
+        key:'JCGS'
+      }],
     currentTab: 0,
-    list:[1,2,3,4,5,6,7,8,9,10,11,12]
+    list:[]
   };
 
   apiSuccess(url,body){
-    // this.showLoading(false);
-    // switch(url){
-    //   case UrlConfig.getUserRec:
-    //     this.setState({
-    //       data: body
-    //     })
-    //     break;
-    // }
+    this.showLoading(false);
+    switch(url){
+      case UrlConfig.expertlist:
+        if(body && body.length>0){
+          if(body.length % 4 === 1){
+            body.push({})
+            body.push({})
+            body.push({})
+          }else if(body.length % 4 === 2){
+            body.push({})
+            body.push({})
+          }else if(body.length % 4 === 3){
+            body.push({})
+          }
+        }
+        this.setState({
+          list: body
+        })
+        break;
+    }
   }
 
   componentDidMount(){
@@ -33,23 +62,27 @@ export default class extends BasePage {
     // this.interval = setInterval(function(){
     //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
     // }.bind(this), 5000)
-  }
-
-  componentWillUnmount(){
-    
+    this.showLoading(true);
+    ApiAction.post(UrlConfig.expertlist, {expertType: "TJZJ", token: Cookie.getCookie("token")});
   }
 
   changeTab(index){
+    this.showLoading(true);
     this.setState({
       currentTab: index
     })
+    ApiAction.post(UrlConfig.expertlist, {expertType: this.state.tabs[index].key, token: Cookie.getCookie("token")});
+  }
+
+  gotoDetail(id){
+    window.to('/specialinfo?id=' + id);
   }
 
   renderTabs(){
     return this.state.tabs.map(function(item, index){
       return (
         <div onTouchEnd={this.changeTab.bind(this, index)} className={(this.state.tabs.length === index +1 ? "tabItemWithoutBorder" : "tabItem") + (this.state.currentTab === index ? " tabItemWithLine" : '')} key={index}>
-          {item}
+          {item.title}
         </div>
       )
     }.bind(this));
@@ -58,10 +91,10 @@ export default class extends BasePage {
   renderItems(){
     return this.state.list.map(function(item, index){
       return (
-        <div className="specialItem" key={"s"+index}>
-          <img src={item.url ? item.url : '../images/photo.png'} className="" />
+        <div className="specialItem" key={"s"+index} onTouchEnd={this.gotoDetail.bind(this, item.id)}>
+          <img src={item.avatar ? item.avatar : '../images/photo.png'} className="" />
           <div className="name">
-            {item.name ? item.name : '专家'}
+            {item.name ? item.name : '虚位以待'}
           </div>
         </div>
       )
@@ -71,6 +104,7 @@ export default class extends BasePage {
   render() {
     return (
       <Layout className={'specialist'} title={'专家列表'}>
+        <Loading showLoading={this.state.showLoading} />
         <div className="tabs">
           {this.renderTabs()}
         </div>

@@ -1877,8 +1877,8 @@ input[type="button"] {
 }
 /* line 7, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .header .divImg > img {
-  width: 4rem;
-  border-radius: 2rem;
+  width: 8rem;
+  border-radius: 4rem;
   border: 0.1rem solid;
   border-color: white;
 }
@@ -1886,7 +1886,7 @@ input[type="button"] {
 .specialinfo .header .name {
   text-align: center;
   color: white;
-  font-size: 1rem;
+  font-size: 2.5rem;
 }
 /* line 19, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .header .desc {
@@ -1894,94 +1894,99 @@ input[type="button"] {
   padding-right: 1rem;
   text-align: center;
   color: white;
-  font-size: 1rem;
+  font-size: 2.5rem;
 }
-/* line 28, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 27, ../../app/theme/sass/pages/_specialinfo.scss */
+.specialinfo .tabs {
+  line-height: 5rem;
+  height: 5rem;
+  font-size: 2.5rem;
+}
+/* line 31, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .tabs .active {
   display: inline-block;
   width: 50%;
   text-align: center;
   background-color: #004700;
   color: #e9e905;
-  line-height: 3rem;
   box-sizing: border-box;
 }
-/* line 37, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 39, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .tabs .unactive {
   display: inline-block;
   width: 50%;
   text-align: center;
   background-color: green;
   color: white;
-  line-height: 3rem;
 }
-/* line 47, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 48, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem {
-  height: 4rem;
+  height: 8rem;
   background-color: white;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
-/* line 53, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 54, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart {
   display: inline-block;
   width: 80%;
-  height: 4rem;
+  height: 8rem;
   vertical-align: top;
 }
-/* line 58, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 59, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart .topInfo {
-  height: 1.5rem;
-  font-size: 1rem;
+  height: 3rem;
+  font-size: 2rem;
   padding-left: 1rem;
+  height: 3rem;
 }
-/* line 62, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 64, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart .topInfo .liansai {
   color: orange;
 }
-/* line 65, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 67, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart .topInfo .add {
   margin-left: 1rem;
-  border: 0.1rem solid;
-  border-radius: 0.2rem;
+  border: 1px solid;
+  border-radius: 0.5rem;
   padding: 0.1rem;
   color: green;
 }
-/* line 72, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 74, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart .topInfo .time {
   float: right;
   margin-right: 1rem;
-  font-size: 0.5rem;
+  font-size: 1.5rem;
   color: #bebebe;
 }
-/* line 79, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 81, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart .bottomInfo {
-  height: 2.5rem;
+  height: 5rem;
   padding-left: 1rem;
-  line-height: 2.5rem;
+  line-height: 5rem;
   text-align: center;
 }
-/* line 84, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 86, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart .bottomInfo .left {
   float: left;
 }
-/* line 87, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 89, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .leftPart .bottomInfo .right {
   float: right;
   margin-right: 1rem;
 }
-/* line 93, ../../app/theme/sass/pages/_specialinfo.scss */
+/* line 95, ../../app/theme/sass/pages/_specialinfo.scss */
 .specialinfo .items .specialItem .rightPart {
   display: inline-block;
   width: 20%;
-  line-height: 4rem;
+  line-height: 8rem;
   box-sizing: border-box;
-  border-left: 0.1rem solid;
+  border-left: 1px solid;
   border-color: #d9d9d9;
   text-align: center;
   color: red;
-  height: 4rem;
+  height: 8rem;
 }
 
 /* line 1, ../../app/theme/sass/pages/_specialist.scss */
@@ -1996,12 +2001,12 @@ input[type="button"] {
 /* line 7, ../../app/theme/sass/pages/_specialist.scss */
 .specialist .tabItem {
   display: inline-block;
-  width: 25%;
+  width: 20%;
   text-align: center;
-  height: 3rem;
-  line-height: 3rem;
+  height: 6rem;
+  line-height: 6rem;
   color: #0000b5;
-  border-right-width: 0.1rem;
+  border-right-width: 1px;
   border-right-style: solid;
   border-right-color: #cdcdcd;
   box-sizing: border-box;
@@ -2009,10 +2014,10 @@ input[type="button"] {
 /* line 19, ../../app/theme/sass/pages/_specialist.scss */
 .specialist .tabItemWithoutBorder {
   display: inline-block;
-  width: 25%;
+  width: 20%;
   text-align: center;
-  height: 3rem;
-  line-height: 3rem;
+  height: 6rem;
+  line-height: 6rem;
   color: #0000b5;
 }
 /* line 27, ../../app/theme/sass/pages/_specialist.scss */
@@ -2026,19 +2031,22 @@ input[type="button"] {
   text-align: center;
   padding-top: 1rem;
   padding-bottom: 1rem;
-  border-bottom: 0.1rem solid;
+  border-bottom: 1px solid;
   border-bottom-color: #cdcdcd;
   background-color: white;
+  height: 10rem;
 }
-/* line 39, ../../app/theme/sass/pages/_specialist.scss */
+/* line 40, ../../app/theme/sass/pages/_specialist.scss */
 .specialist .specialItem > img {
-  height: 4rem;
-  border-radius: 2rem;
+  height: 6rem;
+  border-radius: 3rem;
   background-color: #ffdcf5;
 }
-/* line 44, ../../app/theme/sass/pages/_specialist.scss */
+/* line 45, ../../app/theme/sass/pages/_specialist.scss */
 .specialist .specialItem .name {
-  font-size: 1rem;
+  font-size: 2rem;
+  height: 4rem;
+  line-height: 4rem;
   color: black;
 }
 
@@ -2507,4 +2515,258 @@ input[type="button"] {
   vertical-align: top;
   margin-top: 1.9rem;
   margin-left: 0.2rem;
+}
+
+/* line 1, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail {
+  height: 100%;
+}
+/* line 3, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  margin-top: 1rem;
+  background-color: white;
+}
+/* line 8, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line1 {
+  height: 3rem;
+  line-height: 3rem;
+}
+/* line 11, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line1 .left {
+  color: orange;
+  font-size: 2rem;
+}
+/* line 15, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line1 .right {
+  float: right;
+  font-size: 2rem;
+}
+/* line 20, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line2 {
+  height: 4rem;
+  line-height: 4rem;
+  text-align: center;
+  color: black;
+}
+/* line 25, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line2 .left {
+  font-size: 2.5rem;
+  float: left;
+}
+/* line 29, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line2 .vs {
+  font-size: 2rem;
+}
+/* line 32, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line2 .right {
+  font-size: 2.5rem;
+  float: right;
+}
+/* line 37, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line3 {
+  height: 6rem;
+  line-height: 6rem;
+  font-size: 2.5rem;
+}
+/* line 41, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line3 .left {
+  width: 10%;
+  display: inline-block;
+}
+/* line 44, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line3 .left .num {
+  display: block;
+  width: 3rem;
+  text-align: center;
+  background-color: #fcb2b2;
+  color: white;
+  height: 3rem;
+  border-radius: 4rem;
+  position: relative;
+  line-height: 3rem;
+}
+/* line 56, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line3 .right {
+  width: 90%;
+  display: inline-block;
+}
+/* line 59, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line3 .right .first {
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  height: 4rem;
+  border: 1px solid;
+  border-radius: 3px;
+  position: relative;
+  line-height: 4rem;
+  box-sizing: border-box;
+}
+/* line 70, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line3 .right .middle {
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  height: 4rem;
+  border: 1px solid;
+  border-radius: 3px;
+  position: relative;
+  line-height: 4rem;
+  box-sizing: border-box;
+  margin-left: 5%;
+}
+/* line 82, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .item .line3 .right .last {
+  width: 30%;
+  display: inline-block;
+  text-align: center;
+  height: 4rem;
+  border: 1px solid;
+  border-radius: 3px;
+  position: relative;
+  line-height: 4rem;
+  box-sizing: border-box;
+  margin-left: 5%;
+}
+/* line 97, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .active {
+  color: red;
+}
+/* line 100, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .img {
+  padding: 1rem;
+}
+/* line 102, ../../app/theme/sass/pages/_recodetail.scss */
+.recodetail .img > img {
+  width: 100%;
+}
+
+/* line 2, ../../app/theme/sass/pages/_mine.scss */
+.mine .header {
+  background-image: url(../images/back.jpg);
+  padding: 1rem;
+}
+/* line 5, ../../app/theme/sass/pages/_mine.scss */
+.mine .header .divImg {
+  text-align: center;
+}
+/* line 7, ../../app/theme/sass/pages/_mine.scss */
+.mine .header .divImg > img {
+  width: 8rem;
+  border-radius: 4rem;
+  border: 0.1rem solid;
+  border-color: white;
+}
+/* line 14, ../../app/theme/sass/pages/_mine.scss */
+.mine .header .name {
+  text-align: center;
+  color: white;
+  font-size: 2.5rem;
+}
+/* line 19, ../../app/theme/sass/pages/_mine.scss */
+.mine .header .money {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  text-align: left;
+  color: white;
+  font-size: 2.5rem;
+}
+/* line 25, ../../app/theme/sass/pages/_mine.scss */
+.mine .header .money .num {
+  color: #ffdb00;
+  margin-right: 0.5rem;
+}
+/* line 31, ../../app/theme/sass/pages/_mine.scss */
+.mine .tabs {
+  line-height: 5rem;
+  height: 5rem;
+  font-size: 2.5rem;
+}
+/* line 35, ../../app/theme/sass/pages/_mine.scss */
+.mine .tabs .active {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  background-color: #004700;
+  color: #e9e905;
+  box-sizing: border-box;
+}
+/* line 43, ../../app/theme/sass/pages/_mine.scss */
+.mine .tabs .unactive {
+  display: inline-block;
+  width: 50%;
+  text-align: center;
+  background-color: green;
+  color: white;
+}
+/* line 52, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem {
+  height: 8rem;
+  background-color: white;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-bottom: 1rem;
+}
+/* line 58, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart {
+  display: inline-block;
+  width: 80%;
+  height: 8rem;
+  vertical-align: top;
+}
+/* line 63, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart .topInfo {
+  height: 3rem;
+  font-size: 2rem;
+  padding-left: 1rem;
+  height: 3rem;
+}
+/* line 68, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart .topInfo .liansai {
+  color: orange;
+}
+/* line 71, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart .topInfo .add {
+  margin-left: 1rem;
+  border: 1px solid;
+  border-radius: 0.5rem;
+  padding: 0.1rem;
+  color: green;
+}
+/* line 78, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart .topInfo .time {
+  float: right;
+  margin-right: 1rem;
+  font-size: 1.5rem;
+  color: #bebebe;
+}
+/* line 85, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart .bottomInfo {
+  height: 5rem;
+  padding-left: 1rem;
+  line-height: 5rem;
+  text-align: center;
+}
+/* line 90, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart .bottomInfo .left {
+  float: left;
+}
+/* line 93, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .leftPart .bottomInfo .right {
+  float: right;
+  margin-right: 1rem;
+}
+/* line 99, ../../app/theme/sass/pages/_mine.scss */
+.mine .items .specialItem .rightPart {
+  display: inline-block;
+  width: 20%;
+  line-height: 8rem;
+  box-sizing: border-box;
+  border-left: 1px solid;
+  border-color: #d9d9d9;
+  text-align: center;
+  color: red;
+  height: 8rem;
 }

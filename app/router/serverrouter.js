@@ -8,6 +8,9 @@ var patha = require('path');
 
 global.ajaxConfig = {url:"http://localhost:8080/api/app",header:{'Content-Type': 'application/json','X-KJT-Agent': 'h511111111111111111111111;h511111111111111111111111;h5;h5;;h5;h5;1.0.0;WIFI;h511111111111111111111111'}}
 global.ajaxQiushengConfig = {url:"http://localhost:8080/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
+
+global.qsH5Config = {url:"http://60.205.145.105/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
+
 // global.ajaxQiushengConfig = {url:"http://139.196.203.86:8080/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
 
 var DataInfoController = require('../controllers/datainfo');
@@ -22,6 +25,8 @@ var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 var Hotmatch = React.createFactory(require('../pages/hotmatch'));
 var HotmatchDetail = React.createFactory(require('../pages/hotmatchdetail'));
 var UserRank = React.createFactory(require('../pages/userrank'));
+var RecoDetail = React.createFactory(require('../pages/recodetail'));
+var Mine = React.createFactory(require('../pages/mine'));
 // var Vote = React.createFactory(require('../pages/vote'));
 // var Result = React.createFactory(require('../pages/result'));
 
@@ -112,8 +117,8 @@ router.get('/specialist',function(req,res){
   res.render('home', {reactOutput: reactHtml,title:'专家列表'});
 })
 
-router.get('/specialifo',function(req,res){
-  var reactHtml = ReactDOMServer.renderToString(Specialinfo());
+router.get('/specialinfo',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Specialinfo({id: req.query.id}));
   res.render('home', {reactOutput: reactHtml,title:'专家详情'});
 })
 
@@ -132,9 +137,19 @@ router.get('/hotmatchdetail',function(req,res){
   res.render('home', {reactOutput: reactHtml,title:'赛事推荐列表'});
 })
 
+router.get('/recodetail',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(RecoDetail());
+  res.render('home', {reactOutput: reactHtml,title:'推荐详情'});
+})
+
 router.get('/userrank',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(UserRank());
   res.render('home', {reactOutput: reactHtml,title:'红人榜'});
+})
+
+router.get('/mine',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Mine());
+  res.render('home', {reactOutput: reactHtml,title:'我的'});
 })
 
 function renderToPath(req,res,path){

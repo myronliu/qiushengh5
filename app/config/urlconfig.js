@@ -8,5 +8,9 @@ module.exports={// 不要加  '/'
   // url:'/lottery/trans'
   url: 'lottery/transO',
   urlToday: 'lottery/dailyRecommend',
-  getUserRec: 'getUserRec'
+  getUserRec: 'getUserRec',
+
+  expertlist: 'lottery/expert/list',
+  expertDetail: 'lottery/expert/detail',
+  expertRecommend: 'lottery/expert/recommend'
 }

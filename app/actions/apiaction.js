@@ -59,8 +59,8 @@ module.exports = EvoFlux.createAction("api",{
             }
 
         }else{
-            // console.log("result")
-            // console.log(result)
+            console.log("result")
+            console.log(result)
             var status=result.body.status || 0
             if(cb){
                 if(status===undefined){
