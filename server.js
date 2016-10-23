@@ -50,8 +50,10 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
 
 import router from './app/router/serverrouter';
 import apirouter from './app/router/api';
+import apiQSrouter from './app/router/apiQS';
 app.use('/', router);
 app.use('/api/',apirouter);
+app.use('/apiQS/',apiQSrouter);
 
 var server = app.listen(port,function(){
   var host = server.address().address;

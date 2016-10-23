@@ -6,21 +6,27 @@ import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
+import Loading from '../helper/loading';
 
 export default class extends BasePage {
   state={
-    list:[1,2]
+    list:[],
+    pic:''
   };
 
   apiSuccess(url,body){
-    // this.showLoading(false);
-    // switch(url){
-    //   case UrlConfig.getUserRec:
-    //     this.setState({
-    //       data: body
-    //     })
-    //     break;
-    // }
+    this.showLoading(false);
+    switch(url){
+      case UrlConfig.recommendDetail:
+        body=body||{};
+        body.detail = body.detail || {};
+        body.matches = body.matches || [];
+        this.setState({
+          list: body.matches,
+          pic: body.detail.picUrl || ''
+        })
+        break;
+    }
   }
 
   componentDidMount(){
@@ -28,10 +34,8 @@ export default class extends BasePage {
     // this.interval = setInterval(function(){
     //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
     // }.bind(this), 5000)
-  }
-
-  componentWillUnmount(){
-    
+    this.showLoading(true);
+    ApiAction.post(UrlConfig.recommendDetail, {recommendId: this.props.id, token: Cookie.getCookie("token") || 'dds'});
   }
 
   renderItems(){
@@ -39,22 +43,22 @@ export default class extends BasePage {
       return (
         <div className="item" key={"reco"+index}>
           <div className="line1">
-            <span className="left">徳乙</span>
-            <span className="right">10-22 00:30</span>
+            <span className="left">{item.matchName}</span>
+            <span className="right">{item.matchDate}</span>
           </div>
           <div className="line2">
-            <span className="left">斯图加特</span>
+            <span className="left">{item.homeTeam}</span>
             <span className="vs">vs</span>
-            <span className="right">慕尼黑1860</span>
+            <span className="right">{item.awayTeam}</span>
           </div>
           <div className="line3">
             <div className="left">
-              <span className="num">-1</span>
+              <span className="num">{item.letBalls}</span>
             </div>
             <div className="right">
-              <span className="first active">主胜 3.50</span>
-              <span className="middle">平局 3.95</span>
-              <span className="last">客胜 1.70</span>
+              <span className={"first" + (item.result & 1 ? " active" : "")}>{'主胜 ' + item.oddsS}</span>
+              <span className={"middle" + (item.result & 2 ? " active" : "")}>{'平局 ' + item.oddsP}</span>
+              <span className={"last" + (item.result & 4 ? " active" : "")}>{'客胜 ' + item.oddsF}</span>
             </div>
           </div>
         </div>
@@ -62,12 +66,20 @@ export default class extends BasePage {
     }.bind(this));
   }
 
+  renderPics(){
+    var pics = this.state.pic.split(',');
+    return pics.map(function(item, index){
+      return <img key={"recimg" + index} src={item} />
+    }.bind(this))
+  }
+
   render() {
     return (
       <Layout className={'recodetail'} title={'推荐详情'}>
+        <Loading showLoading={this.state.showLoading} />
         {this.renderItems()}
         <div className="img">
-          <img src="http://d.5857.com/qingchumein_150817/002.jpg" />
+          {this.renderPics()}
         </div>
       </Layout>
     )

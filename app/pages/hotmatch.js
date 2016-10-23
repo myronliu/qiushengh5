@@ -6,6 +6,7 @@ import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
+import Loading from '../helper/loading';
 
 export default class extends BasePage {
   state={
@@ -37,6 +38,7 @@ export default class extends BasePage {
   render() {
     return (
       <Layout className={'hotmatch'} title={'热门赛事'}>
+        <Loading showLoading={this.state.showLoading} />
         <div className="header">
           <span className="on">竞彩</span>
           <span className="end">已结束</span>

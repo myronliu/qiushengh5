@@ -14,6 +14,7 @@ global.qsH5Config = {url:"http://60.205.145.105/api",header:{'Content-Type': 'ap
 // global.ajaxQiushengConfig = {url:"http://139.196.203.86:8080/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
 
 var DataInfoController = require('../controllers/datainfo');
+var QsHomeController = require('../controllers/qshome');
 var Exp =require('../helper/expose');
 
 var ErrorView = React.createFactory(require('../pages/error'));
@@ -27,6 +28,7 @@ var HotmatchDetail = React.createFactory(require('../pages/hotmatchdetail'));
 var UserRank = React.createFactory(require('../pages/userrank'));
 var RecoDetail = React.createFactory(require('../pages/recodetail'));
 var Mine = React.createFactory(require('../pages/mine'));
+var Focus = React.createFactory(require('../pages/focus'));
 // var Vote = React.createFactory(require('../pages/vote'));
 // var Result = React.createFactory(require('../pages/result'));
 
@@ -80,7 +82,6 @@ router.get('/error',function(req,res){
 })
 
 router.get('/',function(req,res){
-
   DataInfoController.detail(req, res)
     .spread(function(content,recommendation,competition, recommendationToday){
       // .spread(function(content){
@@ -123,8 +124,34 @@ router.get('/specialinfo',function(req,res){
 })
 
 router.get('/qiusheng',function(req,res){
-  var reactHtml = ReactDOMServer.renderToString(QiuSheng());
-  res.render('home', {reactOutput: reactHtml,title:'首页'});
+  QsHomeController.detail(req, res)
+    .spread(function(banner,match,expert,recommend,hots){
+    // .spread(function(banner){
+      var data = {
+        banner: banner,
+        match: match,
+        expert:expert,
+        recommend:recommend,
+        hots:hots
+      };
+      res.expose(Exp.dehydrate(data));
+      var reactHtml = ReactDOMServer.renderToString(QiuSheng({data: data}));
+      res.render('home', {reactOutput: reactHtml,title:'首页', stateData: res.locals.state});
+    })
+    .catch(function(err){
+      var data={
+        banner: {},
+        match: {},
+        expert:{},
+        recommend:{},
+        hots:{}
+      }
+      console.log("server router error: /");
+      console.log(err);
+      res.expose(Exp.dehydrate({data}));
+      var reactHtml = ReactDOMServer.renderToString(QiuSheng({data: data}));
+      res.render('home', {reactOutput: reactHtml,title:'首页'});
+    })
 })
 
 router.get('/hotmatch',function(req,res){
@@ -138,7 +165,7 @@ router.get('/hotmatchdetail',function(req,res){
 })
 
 router.get('/recodetail',function(req,res){
-  var reactHtml = ReactDOMServer.renderToString(RecoDetail());
+  var reactHtml = ReactDOMServer.renderToString(RecoDetail({id: req.query.id}));
   res.render('home', {reactOutput: reactHtml,title:'推荐详情'});
 })
 
@@ -150,6 +177,11 @@ router.get('/userrank',function(req,res){
 router.get('/mine',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Mine());
   res.render('home', {reactOutput: reactHtml,title:'我的'});
+})
+
+router.get('/focus',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Focus());
+  res.render('home', {reactOutput: reactHtml,title:'我的关注'});
 })
 
 function renderToPath(req,res,path){

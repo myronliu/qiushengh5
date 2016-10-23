@@ -1630,6 +1630,10 @@ input[type="button"] {
   overflow-x: hidden;
 }
 /* line 3, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .block {
+  display: block;
+}
+/* line 6, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .swiper_div {
   background: white;
   float: left;
@@ -1637,11 +1641,11 @@ input[type="button"] {
   transition-property: transform;
   background-color: #efeff4;
 }
-/* line 11, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 14, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .marginTop07rem {
   margin-top: 0.7rem;
 }
-/* line 14, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 17, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .topInfo {
   height: 3rem;
   line-height: 3rem;
@@ -1651,67 +1655,67 @@ input[type="button"] {
   background-color: white;
   margin-top: 0.2rem;
 }
-/* line 22, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 25, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .topInfo .title {
   font-size: 3rem;
   color: black;
 }
-/* line 26, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 29, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .topInfo .link {
   color: orange;
   float: right;
   margin-right: 1rem;
   font-size: 1rem;
 }
-/* line 33, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 36, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi {
   background-color: white;
   padding-left: 1rem;
   border-bottom: 0.1rem solid;
   border-bottom-color: #cdcdcd;
 }
-/* line 38, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 41, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiLeft {
   display: inline-block;
   width: 30.33%;
   vertical-align: top;
 }
-/* line 42, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 45, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiLeft > img {
   width: 3rem;
   border-radius: 2rem;
   vertical-align: top;
   margin-top: 1.5rem;
 }
-/* line 48, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 51, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiLeft > span {
   line-height: 6rem;
   display: inline-block;
   height: 6rem;
   color: black;
 }
-/* line 55, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 58, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiRight {
   display: inline-block;
   width: 30.33%;
   vertical-align: top;
   text-align: right;
 }
-/* line 60, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 63, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiRight > img {
   width: 3rem;
   border-radius: 2rem;
   vertical-align: top;
   margin-top: 1.5rem;
 }
-/* line 66, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 69, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiRight > span {
   line-height: 6rem;
   display: inline-block;
   height: 6rem;
   color: black;
 }
-/* line 73, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 76, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiMiddle {
   display: inline-block;
   width: 39.33%;
@@ -1721,33 +1725,51 @@ input[type="button"] {
   font-size: 1rem;
   line-height: 2rem;
 }
-/* line 81, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 84, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiMiddle .o {
   color: orange;
 }
-/* line 84, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 87, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .saishi .saishiMiddle .g {
   color: green;
 }
-/* line 89, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 92, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .hongrenbang {
   height: 3rem;
   line-height: 3rem;
   padding-left: 1rem;
   background-color: white;
 }
-/* line 94, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 97, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .hongrenbang .leftInfo {
   color: red;
   font-weight: bold;
 }
 /* line 101, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .hongrenbang .middleInfo {
+  margin-left: 2rem;
+}
+/* line 104, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .hongrenbang .numInfo {
+  float: right;
+  margin-right: 1rem;
+  background-color: red;
+  display: inline-block;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  margin-top: 0.5rem;
+  border-radius: 1rem;
+  text-align: center;
+  color: white;
+}
+/* line 117, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .hongrenbang .rightInfo {
   float: right;
   margin-right: 1rem;
 }
-/* line 107, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .specialist .specialItem {
+/* line 123, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .specialistHome .specialItem {
   width: 25%;
   display: inline-block;
   text-align: center;
@@ -1756,48 +1778,49 @@ input[type="button"] {
   border-bottom: 0rem;
   background-color: white;
 }
-/* line 116, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .specialist .specialItem > img {
+/* line 132, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .specialistHome .specialItem > img {
   height: 4rem;
   border-radius: 2rem;
   background-color: #ffdcf5;
 }
-/* line 121, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .specialist .specialItem .name {
+/* line 137, ../../app/theme/sass/pages/_qiusheng.scss */
+.qiusheng .specialistHome .specialItem .name {
   font-size: 1rem;
   color: black;
 }
-/* line 129, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 145, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo {
   padding-left: 1rem;
   height: 4rem;
   background-color: white;
   border-bottom: 0.1rem solid;
   border-bottom-color: #d7d7d7;
+  display: block;
 }
-/* line 135, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 152, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo > img {
   width: 3rem;
   border-radius: 2rem;
   margin-top: 0.5rem;
   vertical-align: top;
 }
-/* line 141, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 158, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo .textInfo {
   display: inline-block;
 }
-/* line 143, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 160, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo .textInfo .tTitle {
   font-size: 3rem;
   line-height: 2.5rem;
   color: black;
 }
-/* line 148, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 165, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .specialInfo .textInfo .tDesc {
   font-size: 1rem;
   line-height: 1.5rem;
 }
-/* line 154, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 171, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem {
   height: 4rem;
   background-color: white;
@@ -1805,24 +1828,24 @@ input[type="button"] {
   padding-bottom: 0.5rem;
   margin-bottom: 1rem;
 }
-/* line 160, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 177, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart {
   display: inline-block;
   width: 80%;
   height: 4rem;
   vertical-align: top;
 }
-/* line 165, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 182, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo {
   height: 1.5rem;
   font-size: 1rem;
   padding-left: 1rem;
 }
-/* line 169, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 186, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .liansai {
   color: orange;
 }
-/* line 172, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 189, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .add {
   margin-left: 1rem;
   border: 0.1rem solid;
@@ -1830,30 +1853,30 @@ input[type="button"] {
   padding: 0.1rem;
   color: green;
 }
-/* line 179, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 196, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .time {
   float: right;
   margin-right: 1rem;
   font-size: 0.5rem;
   color: #bebebe;
 }
-/* line 186, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 203, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo {
   height: 2.5rem;
   padding-left: 1rem;
   line-height: 2.5rem;
   text-align: center;
 }
-/* line 191, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 208, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .left {
   float: left;
 }
-/* line 194, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 211, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .right {
   float: right;
   margin-right: 1rem;
 }
-/* line 200, ../../app/theme/sass/pages/_qiusheng.scss */
+/* line 217, ../../app/theme/sass/pages/_qiusheng.scss */
 .qiusheng .recList .recItem .saishiItem .rightPart {
   display: inline-block;
   width: 20%;
@@ -2769,4 +2792,158 @@ input[type="button"] {
   text-align: center;
   color: red;
   height: 8rem;
+}
+
+/* line 2, ../../app/theme/sass/pages/_focus.scss */
+.focus .item {
+  padding-left: 1rem;
+  height: 8rem;
+  background-color: white;
+  border-bottom: 1px solid;
+  border-bottom-color: #d7d7d7;
+  display: block;
+}
+/* line 9, ../../app/theme/sass/pages/_focus.scss */
+.focus .item > img {
+  width: 6rem;
+  border-radius: 3rem;
+  margin-top: 1rem;
+  vertical-align: top;
+}
+/* line 15, ../../app/theme/sass/pages/_focus.scss */
+.focus .item .textInfo {
+  display: inline-block;
+}
+/* line 17, ../../app/theme/sass/pages/_focus.scss */
+.focus .item .textInfo .tTitle {
+  font-size: 3rem;
+  line-height: 5rem;
+  color: black;
+  height: 5rem;
+}
+/* line 23, ../../app/theme/sass/pages/_focus.scss */
+.focus .item .textInfo .tDesc {
+  font-size: 2rem;
+  line-height: 3rem;
+  height: 3rem;
+}
+/* line 29, ../../app/theme/sass/pages/_focus.scss */
+.focus .item .right {
+  display: inline;
+}
+/* line 31, ../../app/theme/sass/pages/_focus.scss */
+.focus .item .right .rightInfo {
+  display: inline-block;
+  float: right;
+  font-size: 3rem;
+  line-height: 8rem;
+  color: black;
+  height: 8rem;
+  margin-right: 1rem;
+}
+/* line 40, ../../app/theme/sass/pages/_focus.scss */
+.focus .item .right .numInfo {
+  display: inline-block;
+  float: right;
+  font-size: 3rem;
+  line-height: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+  width: 4rem;
+  background-color: red;
+  text-align: center;
+  top: 2rem;
+  position: relative;
+  border-radius: 2rem;
+  color: white;
+}
+/* line 57, ../../app/theme/sass/pages/_focus.scss */
+.focus .add {
+  width: 80%;
+  height: 60%;
+  text-align: center;
+  margin-left: 10%;
+  background-color: white;
+  position: absolute;
+  margin-top: 10%;
+  border-radius: 1rem;
+}
+/* line 69, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .title {
+  height: 6rem;
+  line-height: 6rem;
+  font-size: 3rem;
+  color: black;
+  border-bottom: 1px solid;
+  border-bottom-color: #d7d7d7;
+}
+/* line 77, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .jump {
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 0;
+  width: 100%;
+  height: 6rem;
+  font-size: 3rem;
+  color: green;
+  line-height: 6rem;
+  background-color: white;
+}
+/* line 90, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list {
+  overflow-y: auto;
+  height: 75%;
+}
+/* line 93, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .fix {
+  height: 4rem;
+}
+/* line 96, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .new {
+  padding-left: 1rem;
+  height: 8rem;
+  background-color: white;
+  border-bottom: 1px solid;
+  border-bottom-color: #d7d7d7;
+  display: block;
+  text-align: left;
+}
+/* line 104, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .new > img {
+  width: 6rem;
+  border-radius: 3rem;
+  margin-top: 1rem;
+  vertical-align: top;
+}
+/* line 110, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .new .textInfo {
+  display: inline-block;
+}
+/* line 112, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .new .textInfo .tTitle {
+  font-size: 3rem;
+  line-height: 5rem;
+  color: black;
+  height: 5rem;
+}
+/* line 118, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .new .textInfo .tDesc {
+  font-size: 2rem;
+  line-height: 3rem;
+  height: 3rem;
+}
+/* line 124, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .new .right {
+  float: right;
+  height: 8rem;
+  line-height: 8rem;
+}
+/* line 128, ../../app/theme/sass/pages/_focus.scss */
+.focus .add .list .new .right .guanzhu {
+  margin-right: 1rem;
+  height: 4rem;
+  padding: 1rem 1rem;
+  border: 1px solid;
+  border-radius: 0.8rem;
+  color: green;
 }

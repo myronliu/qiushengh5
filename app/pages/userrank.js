@@ -9,6 +9,7 @@ import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
+import Loading from '../helper/loading';
 
 export default class extends BasePage {
   state={
@@ -61,6 +62,7 @@ export default class extends BasePage {
   render() {
     return (
       <Layout className={'userrank'} title={'红人馆'}>
+        <Loading showLoading={this.state.showLoading} />
         {this.renderItems()}
       </Layout>
     )

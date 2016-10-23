@@ -9,13 +9,16 @@ var Exp = require('../helper/expose');
 var Specialist = require('../pages/specialist');
 var Specialinfo = require('../pages/specialinfo');
 var QiuSheng = require('../pages/qiusheng');
-// var Vote = require('../pages/vote');
+var RecoDetail = require('../pages/recodetail');
+var Hotmatch = require('../pages/hotmatch');
+var UserRank = require('../pages/userrank');
+var Focus = require('../pages/focus');
 // var Result = require('../pages/result');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
 
-global.ajaxConfig = {url:"/api/",header:{'Content-Type': 'application/json','X-KJT-Agent': 'h511111111111111111111111;h511111111111111111111111;h5;h5;;h5;h5;1.0.0;WIFI;h511111111111111111111111','X-KJT-AUTH': '','X-API-VER': '2.0'}}
+global.ajaxConfig = {url:"/apiQS/",header:{'Content-Type': 'application/json','X-KJT-Agent': 'h511111111111111111111111;h511111111111111111111111;h5;h5;;h5;h5;1.0.0;WIFI;h511111111111111111111111','X-KJT-AUTH': '','X-API-VER': '2.0'}}
 
 var container = document.getElementById('container');
 var headerContainer = document.getElementById('header');
@@ -37,8 +40,26 @@ var Router = EvoFlux.createRouter({
     ReactDOM.render(<Specialinfo id={this.query("id")}/>, container);
   },
   '/qiusheng': function(){
-    ReactDOM.render(<QiuSheng />, container);
+    try{
+      Exp.rehydrate();
+      var items = Exp.getItems();
+      ReactDOM.render(<QiuSheng data={items}/>, container);
+    }catch(ex){
+      window.location.href = "/qiusheng";      
+    }
   },
+  '/recodetail': function(){
+    ReactDOM.render(<RecoDetail id={this.query("id")}/>, container);
+  },
+  '/hotmatch': function(){
+    ReactDOM.render(<Hotmatch />, container);
+  },
+  '/userrank': function(){
+    ReactDOM.render(<UserRank />, container);
+  },
+  '/focus': function(){
+    ReactDOM.render(<Focus />, container);
+  }
   // '/specialinfo': function(){
   //   ReactDOM.render(<Specialinfo />, container);
   // }

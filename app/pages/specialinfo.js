@@ -15,7 +15,7 @@ export default class extends BasePage {
     avarurl: '',
     expertname: '',
     detail: '',
-    recState: 'NOEND',
+    recState: 'NO',
     showAlert: false
   };
 
@@ -37,6 +37,11 @@ export default class extends BasePage {
           list: body
         })
         break;
+      case UrlConfig.recommendBuy:
+        showLoading(true);
+        ApiAction.post(UrlConfig.expertRecommend, {id: this.props.id, state: this.state.recState, token: Cookie.getCookie("token") || 'dds'});
+        break;
+
     }
   }
 
@@ -52,7 +57,7 @@ export default class extends BasePage {
   getUnEnd(){
     this.showLoading(true);
     this.setState({
-      recState: "NOEND"
+      recState: "NO"
     })
     ApiAction.post(UrlConfig.expertRecommend, {id: this.props.id, state: "NO", token: Cookie.getCookie("token") || 'dds'});
   }
@@ -60,20 +65,21 @@ export default class extends BasePage {
   getEnd(){
     this.showLoading(true);
     this.setState({
-      recState: "END"
+      recState: "YES"
     })
     ApiAction.post(UrlConfig.expertRecommend, {id: this.props.id, state: "YES", token: Cookie.getCookie("token") || 'dds'});
   }
 
-  pay(fee){
-    if(fee && fee != "0"){
+  pay(fee, id){
+    if(this.state.recState == "NO" && fee && fee != "0"){
       this.setState({
-        showAlert: true
+        showAlert: true,
+        alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
+        payId: id
       })
+    }else{
+      window.to('/recodetail?id=' + id);
     }
-    this.setState({
-        showAlert: true
-      })
   }
 
   handleCancle(){
@@ -83,15 +89,14 @@ export default class extends BasePage {
   }
 
   handleSure(){
-    this.setState({
-      showAlert: false
-    })
+    showLoading(true)
+    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || 'dds'});
   }
 
   renderItems(){
     return this.state.list.map(function(item, index){
       return (
-        <div className="specialItem" key={"s"+index} onTouchEnd={this.pay.bind(this, item.fee)}>
+        <div className="specialItem" key={"s"+index} onTouchEnd={this.pay.bind(this, item.fee, item.id)}>
           <div className="leftPart">
             <div className="topInfo">
               <span className="liansai">{item.matchName}</span>
@@ -105,7 +110,7 @@ export default class extends BasePage {
             </div>
           </div>
           <div className="rightPart">
-            {item.fee && item.fee != "0" ? item.fee+"粒米" : "免费"}
+            {this.state.recState == "NO" && item.fee && item.fee != "0" ? item.fee+"粒米" : "免费"}
           </div>
         </div>
       )
@@ -116,7 +121,7 @@ export default class extends BasePage {
     return (
       <Layout className={'specialinfo'} title={'专家详情'}>
         <Loading showLoading={this.state.showLoading} />
-        <TwoBtnAlert show={this.state.showAlert} title={"需支付" + "**" + "粒米查看专家推荐\n(1粒米=1元)"} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
+        <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
         <div className="header">
           <div className="divImg">
             <img src={this.state.avarurl ? this.state.avarurl : "../images/photo.png"} className="" />
@@ -133,8 +138,8 @@ export default class extends BasePage {
           </div>
         </div>
         <div className="tabs">
-          <div className={this.state.recState == "NOEND" ? "active" : "unactive"} onTouchEnd={this.getUnEnd.bind(this)}>未结束</div>
-          <div className={this.state.recState == "END" ? "active" : "unactive"} onTouchEnd={this.getEnd.bind(this)}>已结束</div>
+          <div className={this.state.recState == "NO" ? "active" : "unactive"} onTouchEnd={this.getUnEnd.bind(this)}>未结束</div>
+          <div className={this.state.recState == "YES" ? "active" : "unactive"} onTouchEnd={this.getEnd.bind(this)}>已结束</div>
         </div>
         <div className="items">
           {this.renderItems()}

@@ -9,6 +9,7 @@ import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
+import Loading from '../helper/loading';
 
 export default class extends BasePage {
   state={
@@ -64,6 +65,7 @@ export default class extends BasePage {
   render() {
     return (
       <Layout className={'mine'} title={'我的'}>
+        <Loading showLoading={this.state.showLoading} />
         <div className="header">
           <div className="divImg">
             <img src="../images/photo.png" className="" />

@@ -1,5 +1,8 @@
 .qiusheng{
   overflow-x: hidden;
+  .block{
+    display: block;
+  }
   .swiper_div{
     background: white;
     float: left;
@@ -96,14 +99,27 @@
       font-weight: bold;
     }
     .middleInfo{
-
+      margin-left: 2rem;
+    }
+    .numInfo{
+      float: right;
+      margin-right: 1rem;
+      background-color: red;
+      display: inline-block;
+      width: 2rem;
+      height: 2rem;
+      line-height: 2rem;
+      margin-top: 0.5rem;
+      border-radius: 1rem;
+      text-align: center;
+      color: white;
     }
     .rightInfo{
       float: right;
       margin-right: 1rem;
     }
   }
-  .specialist{
+  .specialistHome{
     .specialItem{
       width: 25%;
       display: inline-block;
@@ -132,6 +148,7 @@
         background-color: white;
         border-bottom: 0.1rem solid;
         border-bottom-color: #d7d7d7;
+        display: block;
         &>img{
           width: 3rem;
           border-radius: 2rem;
