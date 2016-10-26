@@ -29,12 +29,12 @@ export default class extends BasePage {
           avarurl: body.expert.avatar,
           expertname: body.expert.name,
           detail: body.expert.detail,
-          list: body.recommending
+          list: body.recommending || []
         })
         break;
       case UrlConfig.expertRecommend:
         this.setState({
-          list: body
+          list: body || []
         })
         break;
       case UrlConfig.recommendBuy:

@@ -160,7 +160,7 @@ router.get('/hotmatch',function(req,res){
 })
 
 router.get('/hotmatchdetail',function(req,res){
-  var reactHtml = ReactDOMServer.renderToString(HotmatchDetail());
+  var reactHtml = ReactDOMServer.renderToString(HotmatchDetail({id: req.query.id}));
   res.render('home', {reactOutput: reactHtml,title:'赛事推荐列表'});
 })
 

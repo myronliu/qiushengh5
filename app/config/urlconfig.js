@@ -15,6 +15,11 @@ module.exports={// 不要加  '/'
   expertRecommend: 'lottery/expert/recommend',
   recommendBuy: 'lottery/recommend/buy',
   recommendDetail: 'lottery/recommend/detail',
+  matchList: 'lottery/match/list',
+  matchDetail: 'lottery/match/detail',
+  concern: 'lottery/my/concern',
+  concernadd: 'lottery/my/concern/add',
+
 
   // server needs
   banner: 'lottery/banner',

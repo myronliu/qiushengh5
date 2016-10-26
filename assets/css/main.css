@@ -130,3 +130,6 @@ a:active {
   font-family: "微软雅黑";
   color: #4D4D4D;
 }
+.block{
+  display: block;
+}

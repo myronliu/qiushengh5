@@ -7,32 +7,72 @@ import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
+import TapAble from 'react-tappable';
 
 export default class extends BasePage {
   state={
-    
+    list: [],
+    status:"on",
   };
 
   apiSuccess(url,body){
-    // this.showLoading(false);
-    // switch(url){
-    //   case UrlConfig.getUserRec:
-    //     this.setState({
-    //       data: body
-    //     })
-    //     break;
-    // }
+    this.showLoading(false);
+    switch(url){
+      case UrlConfig.matchList:
+        this.setState({
+          list: body
+        })
+        break;
+    }
   }
 
   componentDidMount(){
     super.componentDidMount();
-    // this.interval = setInterval(function(){
-    //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
-    // }.bind(this), 5000)
+
+    this.showLoading(true)
+    ApiAction.post(UrlConfig.matchList, {status:2, matchTypes:'', token: Cookie.getCookie("token") || 'dds'});
   }
 
-  componentWillUnmount(){
-    
+  selectOn(){
+    this.showLoading(true);
+    this.setState({
+      status: 'on'
+    })
+    ApiAction.post(UrlConfig.matchList, {status:2, matchTypes:'', token: Cookie.getCookie("token") || 'dds'});
+  }
+
+  selectEnd(){
+    this.showLoading(true);
+    this.setState({
+      status: 'end'
+    })
+    ApiAction.post(UrlConfig.matchList, {status:5, matchTypes:'', token: Cookie.getCookie("token") || 'dds'});
+  }
+
+  gotoDetail(id){
+    window.to('/hotmatchdetail?id=' + id);
+  }
+
+  renderItems(){
+    return this.state.list.map(function(item, index){
+      return(
+        <TapAble className="saishi block" key={"hot" + index} onTap={this.gotoDetail.bind(this, item.id)}>
+          <div className="saishiLeft">
+            <img src="../images/photo.png" />
+            <span>{item.homeTeam}</span>
+          </div>
+          <div className="saishiMiddle">
+            <div><span className="o">{item.matchName.length > 3 ? item.matchName.substring(0,3) + '..' : item.matchName}</span><span className="oo">{item.matchDate.length>5?item.matchDate.substring(5):''}</span></div>
+            <div className="g">{item.finalScore || 'vs'}</div>
+            <div className="">{(item.experts || '0') + '位专家'}</div>
+          </div>
+          <div className="saishiRight">
+            <span>{item.awayTeam}</span>
+            <img src="../images/photo.png" />
+          </div>
+        </TapAble>
+      )
+    }.bind(this));
   }
 
   render() {
@@ -40,39 +80,10 @@ export default class extends BasePage {
       <Layout className={'hotmatch'} title={'热门赛事'}>
         <Loading showLoading={this.state.showLoading} />
         <div className="header">
-          <span className="on">竞彩</span>
-          <span className="end">已结束</span>
+          <span className={this.state.status === "on" ? "on" : "end"} onTouchEnd={this.selectOn.bind(this)}>竞彩</span>
+          <span className={this.state.status === "end" ? "on" : "end"} onTouchEnd={this.selectEnd.bind(this)}>已结束</span>
         </div>
-        <div className="saishi">
-          <div className="saishiLeft">
-            <img src="../images/photo.png" />
-            <span>乌克兰</span>
-          </div>
-          <div className="saishiMiddle">
-            <div><span className="o">世界杯</span><span className="oo">{"89'"}</span></div>
-            <div className="g">1:0</div>
-            <div className="">12位专家</div>
-          </div>
-          <div className="saishiRight">
-            <span>科索沃</span>
-            <img src="../images/photo.png" />
-          </div>
-        </div>
-        <div className="saishi">
-          <div className="saishiLeft">
-            <img src="../images/photo.png" />
-            <span>乌克兰</span>
-          </div>
-          <div className="saishiMiddle">
-            <div><span className="o">世界杯</span><span className="oo">10-16 21:00</span></div>
-            <div className="g">1:0</div>
-            <div className="">12位专家</div>
-          </div>
-          <div className="saishiRight">
-            <span>科索沃</span>
-            <img src="../images/photo.png" />
-          </div>
-        </div>
+        {this.renderItems()}
       </Layout>
     )
   }

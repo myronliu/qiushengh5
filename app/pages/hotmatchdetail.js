@@ -7,60 +7,90 @@ import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
+import TapAble from 'react-tappable';
+import TwoBtnAlert from '../components/twobtnalert';
 
 export default class extends BasePage {
   state={
-    recList:[1,2,3],
-    tabs:['推荐专家','特邀大咖','彩店专家','明星专家'],
-    currentTab: 0
+    recList:[],
+    tabs:[],//['推荐专家','特邀大咖','彩店专家','明星专家'],
+    currentTab: 0,
+    homeTeam: '',
+    awayTeam: '',
+    matchName: '',
+    matchDate: '',
+    showAlert: false
   };
 
   apiSuccess(url,body){
-    // this.showLoading(false);
-    // switch(url){
-    //   case UrlConfig.getUserRec:
-    //     this.setState({
-    //       data: body
-    //     })
-    //     break;
-    // }
+    this.showLoading(false);
+    switch(url){
+      case UrlConfig.matchDetail:
+        this.setState({
+          homeTeam: body.detail.homeTeam,
+          awayTeam: body.detail.awayTeam,
+          matchName: body.detail.matchName,
+          matchDate: body.detail.matchDate,
+          recList: body.recommends
+        })
+        break;
+    }
   }
 
   componentDidMount(){
     super.componentDidMount();
-    // this.interval = setInterval(function(){
-    //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
-    // }.bind(this), 5000)
+
+    this.showLoading(true)
+    ApiAction.post(UrlConfig.matchDetail, {id: this.props.id, token: Cookie.getCookie("token") || 'dds'});
   }
 
-  componentWillUnmount(){
-    
+  pay(fee, id){
+    if(fee && fee != "0"){
+      this.setState({
+        showAlert: true,
+        alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
+        payId: id
+      })
+    }else{
+      window.to('/recodetail?id=' + id);
+    }
+  }
+
+  handleCancle(){
+    this.setState({
+      showAlert: false
+    })
+  }
+
+  handleSure(){
+    this.showLoading(true)
+    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || 'dds'});
   }
 
   renderRecommondList(){
     return this.state.recList.map(function(item, index){
       return(
-        <div className="recItem" key={"rec" + index}>
+        <TapAble className="recItem block" key={"rec" + index} onTap={this.pay.bind(this, item.fee, item.id)}>
           <div className="specialInfo">
-            <img src="../images/photo.png" />
+            <img src={item.avatar ? item.avatar : "../images/photo.png"} />
             <div className="textInfo">
-              <div className="tTitle">一个专家</div>
-              <div className="tDesc">彩店店长</div>
+              <div className="tTitle">{item.expertName}</div>
+              <div className="tDesc">{item.expertTitle}</div>
             </div>
           </div>
           <div className="saishiItem" key={"s"+index}>
             <div className="leftPart">
               <div className="sTopInfo">
-                <span className="add">单关</span>
-                <span className="time">10-10 02:45</span>
+                <span className="add">{item.betsType}</span>
+                <span className="time">{item.createTimeStr}</span>
               </div>
               
             </div>
             <div className="rightPart">
-              {"58粒米"}
+              {item.fee + "粒米"}
             </div>
           </div>
-        </div>
+        </TapAble>
       )
     }.bind(this))
   }
@@ -85,28 +115,29 @@ export default class extends BasePage {
     return (
       <Layout className={'hotmatchdetail'} title={'赛事推荐列表'}>
         <Loading showLoading={this.state.showLoading} />
+        <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
         <div className="top">
           <div className="saishi">
             <div className="saishiLeft">
               <img src="../images/photo.png" />
-              <span>乌克兰</span>
+              <span>{this.state.homeTeam}</span>
             </div>
             <div className="saishiMiddle">
-              <div className="liansai"><span className="o">世界杯</span><span className="oo">{"89'"}</span></div>
+              <div className="liansai"><span className="o">{this.state.matchName}</span><span className="oo">{"89'"}</span></div>
               <div className="g">VS</div>
-              <div className="time">10-16 15:00</div>
+              <div className="time">{this.state.matchDate}</div>
             </div>
             <div className="saishiRight">
               <img src="../images/photo.png" />
-              <span>科索沃</span>
+              <span>{this.state.awayTeam}</span>
             </div>
           </div>
         </div>
-        <div className="header">
+        <div className="header hide">
           <span className="on">热门</span>
           <span className="end">专家</span>
         </div>
-        <div className="tabs">
+        <div className="tabs hide">
           {this.renderTabs()}
         </div>
         {this.renderRecommondList()}

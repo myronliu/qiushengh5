@@ -10,51 +10,52 @@ import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
+import TapAble from 'react-tappable';
 
 export default class extends BasePage {
   state={
-    list:[1,2,3,4,5,6,7,8,9,10,11,12]
+    list:[]
   };
 
   apiSuccess(url,body){
-    // this.showLoading(false);
-    // switch(url){
-    //   case UrlConfig.getUserRec:
-    //     this.setState({
-    //       data: body
-    //     })
-    //     break;
-    // }
+    this.showLoading(false);
+    switch(url){
+      case UrlConfig.hots:
+        this.setState({
+          list:body
+        })
+        break;
+    }
   }
 
   componentDidMount(){
     super.componentDidMount();
-    // this.interval = setInterval(function(){
-    //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
-    // }.bind(this), 5000)
+
+    this.showLoading(true)
+    ApiAction.post(UrlConfig.hots, {token: Cookie.getCookie("token") || 'dds'});
   }
 
-  componentWillUnmount(){
-    
+  gotoDetail(id){
+    window.to('/specialinfo?id=' + id);
   }
 
   renderItems(){
     return this.state.list.map(function(item, index){
       return (
-        <div className="item" key={"i"+index}>
+        <TapAble className="item block" key={"i"+index} onTap={this.gotoDetail.bind(this, item.id)}>
           <span className="ser">{index + 1}</span>
-          <img src={item.url ? item.url : '../images/photo.png'} className="photo" />
+          <img src={item.avatar ? item.avatar : '../images/photo.png'} className="photo" />
           <span className="info">
-            <span className="name">IT数据</span>
-            <span className="desc">金融玩家</span>
+            <span className="name">{item.name}</span>
+            <span className="desc">{item.title}</span>
           </span>
           <span className="right">
-            <img src={item.url ? item.url : '../images/metal.png'} className="metal" />
-            <span className="num">3</span>
+            <img src={'../images/metal.png'} className="metal" />
+            <span className="num">{item.hits || "0"}</span>
             <span className="text">场连红</span>
-            <img src={item.url ? item.url : '../images/right.png'} className="rightIcon" />
+            <img src={'../images/right.png'} className="rightIcon" />
           </span>
-        </div>
+        </TapAble>
       )
     }.bind(this));
   }

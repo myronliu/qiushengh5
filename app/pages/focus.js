@@ -12,61 +12,63 @@ import Loading from '../helper/loading';
 export default class extends BasePage {
   state={
     focusList:[],
-    newList: [1,2,3,4,5,6,7,8]
+    newList: []
   };
 
   apiSuccess(url,body){
-    // this.showLoading(false);
-    // switch(url){
-    //   case UrlConfig.getUserRec:
-    //     this.setState({
-    //       data: body
-    //     })
-    //     break;
-    // }
+    this.showLoading(false);
+    debugger;
+    switch(url){
+      case UrlConfig.concern:
+        this.setState({
+          focusList: (body.has ? body.experts : []),
+          newList: (!body.has ? body.experts : [])
+        })
+        break;
+      case UrlConfig.concernadd:
+        this.showLoading(true)
+        ApiAction.post(UrlConfig.concern, {token: Cookie.getCookie("token") || 'af80808157fa19f70157fa1a74a30001'});
+        break;
+    }
   }
 
   componentDidMount(){
     super.componentDidMount();
-    // this.interval = setInterval(function(){
-    //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
-    // }.bind(this), 5000)
+
+    this.showLoading(true)
+    ApiAction.post(UrlConfig.concern, {token: Cookie.getCookie("token") || 'df80808157fa19f70157fa1a74a30001'});
+
   }
 
   gotoSpecial(id){
     window.to('/specialinfo?id=' + id)
   }
 
+  focusUser(id){
+    this.showLoading(true)
+    ApiAction.post(UrlConfig.concernadd, {expertId: id, token: Cookie.getCookie("token") || 'df80808157fa19f70157fa1a74a30001'});
+  }
+
+  hideNew(){
+    this.setState({
+      newList:[]
+    })
+  }
+
   renderFocusList(){
-    if(this.state.focusList.length > 0){
-      return this.state.focusList.map(function(item, index){
-        return(
-          <TapAble className="item" onTab={this.gotoSpecial.bind(this)} key={"fo" + index}>
-            <img src={item.expert && item.expert.avatar ? item.expert.avatar : "../images/photo.png"} />
-            <div className="textInfo">
-              <div className="tTitle">{"Hua"}</div>
-              <div className="tDesc">{"李博操盘手"}</div>
-            </div>
-            <div className="right">
-              <div className="rightInfo">{">"}</div>
-              <div className="numInfo">{2}</div>
-            </div>
-          </TapAble>
-        )
-      }.bind(this));
-    }else{
+    if(this.state.newList.length > 0){
       var arrs = this.state.newList.map(function(item, index){
         return(
-          <TapAble className="new" onTab={this.gotoSpecial.bind(this)} key={"fn" + index}>
-            <img src={item.expert && item.expert.avatar ? item.expert.avatar : "../images/photo.png"} />
+          <div className="new" key={"fn" + index}>
+            <img src={item.avatar ? item.avatar : "../images/photo.png"} />
             <div className="textInfo">
-              <div className="tTitle">{"Hua"}</div>
-              <div className="tDesc">{"李博操盘手"}</div>
+              <div className="tTitle">{item.name}</div>
+              <div className="tDesc">{item.title}</div>
             </div>
             <div className="right">
-              <span className="guanzhu">{"+关注"}</span>
+              <TapAble className="guanzhu" onTap={this.focusUser.bind(this, item.id)}>{"+关注"}</TapAble>
             </div>
-          </TapAble>
+          </div>
         )
       }.bind(this));
       return(
@@ -75,9 +77,25 @@ export default class extends BasePage {
           <div className="list">
             {arrs}
           </div>
-          <div className="jump">跳过</div>
+          <div className="jump" onTouchEnd={this.hideNew.bind(this)}>跳过</div>
         </div>
       )
+    }else{
+      return this.state.focusList.map(function(item, index){
+        return(
+          <TapAble className="item" onTap={this.gotoSpecial.bind(this, item.id)} key={"fo" + index}>
+            <img src={item.avatar ? item.avatar : "../images/photo.png"} />
+            <div className="textInfo">
+              <div className="tTitle">{item.name}</div>
+              <div className="tDesc">{item.title}</div>
+            </div>
+            <div className="right">
+              <div className="rightInfo">{">"}</div>
+              <div className={ item.recommendings > 0 ? "numInfo" : 'hide'}>{item.recommendings}</div>
+            </div>
+          </TapAble>
+        )
+      }.bind(this));
     }
   }
 

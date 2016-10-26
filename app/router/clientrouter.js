@@ -13,7 +13,7 @@ var RecoDetail = require('../pages/recodetail');
 var Hotmatch = require('../pages/hotmatch');
 var UserRank = require('../pages/userrank');
 var Focus = require('../pages/focus');
-// var Result = require('../pages/result');
+var HotmatchDetail = require('../pages/hotmatchdetail');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -53,6 +53,9 @@ var Router = EvoFlux.createRouter({
   },
   '/hotmatch': function(){
     ReactDOM.render(<Hotmatch />, container);
+  },
+  '/hotmatchdetail': function(){
+    ReactDOM.render(<HotmatchDetail id={this.query("id")} />, container);
   },
   '/userrank': function(){
     ReactDOM.render(<UserRank />, container);
