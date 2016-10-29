@@ -19,12 +19,17 @@ export default class extends BasePage {
     switch(url){
       case UrlConfig.recommendDetail:
         body=body||{};
-        body.detail = body.detail || {};
-        body.matches = body.matches || [];
-        this.setState({
-          list: body.matches,
-          pic: body.detail.picUrl || ''
-        })
+        if(body.success){
+          body.detail = body.detail || {};
+          body.matches = body.matches || [];
+          this.setState({
+            list: body.matches,
+            pic: body.detail.picUrl || ''
+          })
+        }else{
+          Toast.show(body.msg)
+        }
+        
         break;
     }
   }

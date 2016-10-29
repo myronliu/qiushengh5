@@ -34,6 +34,16 @@ export default class extends BasePage {
           recList: body.recommends
         })
         break;
+      case UrlConfig.recommendBuy:
+        if(body.success){
+          this.setState({
+            showAlert: false
+          })
+          window.to('/recodetail?id=' + this.state.payId);
+        }else{
+          Toast.show(body.msg)
+        }
+        break;
     }
   }
 
@@ -41,7 +51,7 @@ export default class extends BasePage {
     super.componentDidMount();
 
     this.showLoading(true)
-    ApiAction.post(UrlConfig.matchDetail, {id: this.props.id, token: Cookie.getCookie("token") || 'dds'});
+    ApiAction.post(UrlConfig.matchDetail, {id: this.props.id, token: Cookie.getCookie("token") || ''});
   }
 
   pay(fee, id, ifBuy){
@@ -64,7 +74,7 @@ export default class extends BasePage {
 
   handleSure(){
     this.showLoading(true)
-    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || 'dds'});
+    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || ''});
   }
 
   renderRecommondList(){
