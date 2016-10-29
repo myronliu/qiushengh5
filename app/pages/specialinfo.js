@@ -32,7 +32,7 @@ export default class extends BasePage {
           expertname: body.expert.name,
           detail: body.expert.detail,
           list: body.recommending || [],
-          status: body.expert.ifConcern ? '取消关注' : '关注专家'
+          status: body.ifConcern ? '取消关注' : '关注专家'
         })
         break;
       case UrlConfig.expertRecommend:
