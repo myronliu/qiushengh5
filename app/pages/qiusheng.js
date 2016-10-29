@@ -222,7 +222,7 @@ export default class extends BasePage {
           </div>
           <div className="saishi">
             <div className="saishiLeft">
-              <img src="../images/photo.png" />
+              <img src={this.props.data.match.homeTeamAvatar ? this.props.data.match.homeTeamAvatar : "../images/photo.png"} />
               <span>{this.props.data.match.homeTeam}</span>
             </div>
             <div className="saishiMiddle">
@@ -232,7 +232,7 @@ export default class extends BasePage {
             </div>
             <div className="saishiLeft">
               <span>{this.props.data.match.awayTeam}</span>
-              <img src="../images/photo.png" />
+              <img src={this.props.data.match.awayTeamAvatar ? this.props.data.match.awayTeamAvatar : "../images/photo.png"} />
             </div>
           </div>
         </div>

@@ -59,7 +59,7 @@ export default class extends BasePage {
       return(
         <TapAble className="saishi block" key={"hot" + index} onTap={this.gotoDetail.bind(this, item.id)}>
           <div className="saishiLeft">
-            <img src="../images/photo.png" />
+            <img src={item.homeTeamAvatar ? item.homeTeamAvatar : "../images/photo.png"} />
             <span>{item.homeTeam}</span>
           </div>
           <div className="saishiMiddle">
@@ -69,7 +69,7 @@ export default class extends BasePage {
           </div>
           <div className="saishiRight">
             <span>{item.awayTeam}</span>
-            <img src="../images/photo.png" />
+            <img src={item.awayTeamAvatar ? item.awayTeamAvatar : "../images/photo.png"} />
           </div>
         </TapAble>
       )

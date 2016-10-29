@@ -19,7 +19,9 @@ export default class extends BasePage {
     awayTeam: '',
     matchName: '',
     matchDate: '',
-    showAlert: false
+    showAlert: false,
+    homeTeamAvatar:'',
+    awayTeamAvatar:''
   };
 
   apiSuccess(url,body){
@@ -31,6 +33,8 @@ export default class extends BasePage {
           awayTeam: body.detail.awayTeam,
           matchName: body.detail.matchName,
           matchDate: body.detail.matchDate,
+          homeTeamAvatar: body.detail.homeTeamAvatar,
+          awayTeamAvatar: body.detail.awayTeamAvatar,
           recList: body.recommends
         })
         break;
@@ -129,7 +133,7 @@ export default class extends BasePage {
         <div className="top">
           <div className="saishi">
             <div className="saishiLeft">
-              <img src="../images/photo.png" />
+              <img src={this.state.homeTeamAvatar ? this.state.homeTeamAvatar : "../images/photo.png"} />
               <span>{this.state.homeTeam}</span>
             </div>
             <div className="saishiMiddle">
@@ -138,7 +142,7 @@ export default class extends BasePage {
               <div className="time">{this.state.matchDate}</div>
             </div>
             <div className="saishiRight">
-              <img src="../images/photo.png" />
+              <img src={this.state.awayTeamAvatar ? this.state.awayTeamAvatar : "../images/photo.png"} />
               <span>{this.state.awayTeam}</span>
             </div>
           </div>
