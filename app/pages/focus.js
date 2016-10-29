@@ -109,6 +109,7 @@ export default class extends BasePage {
       <Layout  hideBack={true} className={'focus'} title={'我的关注'} rightItems={[rightBtn]}>
         <Loading showLoading={this.state.showLoading} />
         {this.renderFocusList()}
+        <div style={{height:'9rem'}}></div>
         <QsFooter page={"focus"}/>
       </Layout>
     )

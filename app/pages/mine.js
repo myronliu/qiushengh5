@@ -154,6 +154,7 @@ export default class extends BasePage {
         <div className="items">
           {this.renderItems()}
         </div>
+        <div style={{height:'9rem'}}></div>
         <QsFooter page={"mine"}/>
       </Layout>
     )

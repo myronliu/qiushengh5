@@ -85,6 +85,7 @@ export default class extends BasePage {
           <span className={this.state.status === "end" ? "on right" : "end right"} onTouchEnd={this.selectEnd.bind(this)}>已结束</span>
         </div>
         {this.renderItems()}
+        <div style={{height:'9rem'}}></div>
         <QsFooter page={"saishi"}/>
       </Layout>
     )
