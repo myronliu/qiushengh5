@@ -1,13 +1,9 @@
 {
   "apps":[
     {
-      "name": "hiapp_uat",
-      "script": "/opt/app/h5app/current/app.js",
-      "watch": true,
-      "log_file"   : "/opt/logs/h5logs/log.log",
-      "error_file" : "/opt/logs/h5logs/err.log",
-      "out_file"   : "/opt/logs/h5logs/out.log",
-      "pid_file"   : "/opt/logs/h5logs/pm2.pid",
+      "name": "qiusheng_uat",
+      "script": "./app.js",
+      "watch": false,
       "env": {
         "NODE_ENV": "staging"
       },

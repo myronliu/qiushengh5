@@ -25,7 +25,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/app/views');
 app.set('etag','strong');
 app.use(express.static(__dirname + '/assets'));
-var port    = process.env.PORT || 3002;
+var port    = process.env.PORT || 3000;
 
 console.log(process.env.NODE_ENV);
 if (process.env.NODE_ENV === 'development') {

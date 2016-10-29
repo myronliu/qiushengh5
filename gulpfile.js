@@ -45,7 +45,7 @@ gulp.task('browsersync',['packagejs'],function(){
     server: {
       baseDir:[__dirname],
     },
-    port: 3002,
+    port: 3000,
     open: true,
     browser:"chrome",
     minify: false
