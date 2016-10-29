@@ -7,7 +7,7 @@ module.exports ={
   detail : function(req,res,next){
     return Promise.resolve().then(function(){
       
-      var banner = QSInfo.banner()
+      var banner = QSInfo.banner(req.query.token || req.cookies.token)
         .then(function(result){
           if(result && result.body){
             result = typeof result.body == 'string' ? JSON.parse(result.body) : result.body;  
@@ -17,7 +17,7 @@ module.exports ={
           }
         }
       )
-      var match = QSInfo.match()
+      var match = QSInfo.match(req.query.token || req.cookies.token)
         .then(function(result){
           console.log("----->match")
           if(result && result.body){
@@ -28,7 +28,7 @@ module.exports ={
           }
         }
       )
-      var expert = QSInfo.expert()
+      var expert = QSInfo.expert(req.query.token || req.cookies.token)
         .then(function(result){
           console.log("----->expert")
           if(result && result.body){  
@@ -39,7 +39,7 @@ module.exports ={
           }
         }
       )
-      var recommend = QSInfo.recommend()
+      var recommend = QSInfo.recommend(req.query.token || req.cookies.token)
         .then(function(result){
           console.log("----->recommend")
           if(result && result.body){
@@ -50,7 +50,7 @@ module.exports ={
           }
         }
       )
-      var hots = QSInfo.hots()
+      var hots = QSInfo.hots(req.query.token || req.cookies.token)
         .then(function(result){
           console.log("----->hots")
           if(result && result.body){ 

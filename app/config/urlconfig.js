@@ -19,7 +19,8 @@ module.exports={// 不要加  '/'
   matchDetail: 'lottery/match/detail',
   concern: 'lottery/my/concern',
   concernadd: 'lottery/my/concern/add',
-
+  concerncancel: 'lottery/my/concern/cancel',
+  order: 'lottery/my/order',
 
   // server needs
   banner: 'lottery/banner',

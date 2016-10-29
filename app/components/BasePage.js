@@ -26,6 +26,9 @@ export default class Index extends React.Component {
   apiFail(url, status, message, body) {
     this.showLoading(false)
     Toast.show(message, 1500);
+    this.setState({
+      showAlert: false
+    })
   }
   showLoading(show) {
     this.setState({

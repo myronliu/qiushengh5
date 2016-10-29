@@ -8,6 +8,7 @@ import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import TapAble from 'react-tappable';
 import Loading from '../helper/loading';
+import QsFooter from '../components/qsfooter';
 
 export default class extends BasePage {
   state={
@@ -17,7 +18,6 @@ export default class extends BasePage {
 
   apiSuccess(url,body){
     this.showLoading(false);
-    debugger;
     switch(url){
       case UrlConfig.concern:
         this.setState({
@@ -36,17 +36,21 @@ export default class extends BasePage {
     super.componentDidMount();
 
     this.showLoading(true)
-    ApiAction.post(UrlConfig.concern, {token: Cookie.getCookie("token") || 'df80808157fa19f70157fa1a74a30001'});
+    ApiAction.post(UrlConfig.concern, {token: Cookie.getCookie("token") || ''});
 
   }
 
   gotoSpecial(id){
-    window.to('/specialinfo?id=' + id)
+    window.to('/specialinfo?id=' + id);
+  }
+
+  gotoSpecials(){
+    window.to('/specialist');
   }
 
   focusUser(id){
     this.showLoading(true)
-    ApiAction.post(UrlConfig.concernadd, {expertId: id, token: Cookie.getCookie("token") || 'df80808157fa19f70157fa1a74a30001'});
+    ApiAction.post(UrlConfig.concernadd, {expertId: id, token: Cookie.getCookie("token") || ''});
   }
 
   hideNew(){
@@ -83,7 +87,7 @@ export default class extends BasePage {
     }else{
       return this.state.focusList.map(function(item, index){
         return(
-          <TapAble className="item" onTap={this.gotoSpecial.bind(this, item.id)} key={"fo" + index}>
+          <TapAble className="fitem" onTap={this.gotoSpecial.bind(this, item.id)} key={"fo" + index}>
             <img src={item.avatar ? item.avatar : "../images/photo.png"} />
             <div className="textInfo">
               <div className="tTitle">{item.name}</div>
@@ -100,10 +104,12 @@ export default class extends BasePage {
   }
 
   render() {
+    let rightBtn={title:'新增',func:this.gotoSpecials.bind(this)};
     return (
-      <Layout className={'focus'} title={'我的关注'}>
+      <Layout  hideBack={true} className={'focus'} title={'我的关注'} rightItems={[rightBtn]}>
         <Loading showLoading={this.state.showLoading} />
         {this.renderFocusList()}
+        <QsFooter page={"focus"}/>
       </Layout>
     )
   }

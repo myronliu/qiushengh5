@@ -8,12 +8,13 @@ import TitleInput from '../components/titleinput';
 import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
-import BasePage from '../components/BasePage.js';
-import ReactSwipe from '../components/swiper/react-swipe.js';
-import HomeBanner from '../components/HomeBanner.js';
+import BasePage from '../components/BasePage';
+import ReactSwipe from '../components/swiper/react-swipe';
+import HomeBanner from '../components/HomeBanner';
 import Loading from '../helper/loading';
 import TwoBtnAlert from '../components/twobtnalert';
 import TapAble from 'react-tappable';
+import QsFooter from '../components/qsfooter';
 
 export default class extends BasePage {
   state={
@@ -30,8 +31,8 @@ export default class extends BasePage {
       ],
     },
     banners:[],
-    specialist:[1,2,3,4,5,6,7,8,9,10,11,12],
-    recList: [1,2,3,4,5,6],
+    specialist:[],
+    recList: [],
     showAlert: false
   };
 
@@ -39,6 +40,9 @@ export default class extends BasePage {
     this.showLoading(false);
     switch(url){
       case UrlConfig.recommendBuy:
+        this.setState({
+          showAlert: false
+        })
         window.to('/recodetail?id=' + this.state.payId);
         break;
     }
@@ -46,23 +50,35 @@ export default class extends BasePage {
 
   componentDidMount(){
     super.componentDidMount();
-    // this.interval = setInterval(function(){
-    //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
-    // }.bind(this), 5000)
+    if(this.props.token){
+      Cookie.setCookie("token", this.props.token, 7);
+    }
   }
 
   componentWillMount(){
-    console.log(this.props.data)
+    // console.log(this.props.data)
+    if(this.props.data && this.props.data.expert && this.props.data.expert.length>0){
+      if(this.props.data.expert.length % 4 === 1){
+        this.props.data.expert.push({})
+        this.props.data.expert.push({})
+        this.props.data.expert.push({})
+      }else if(this.props.data.expert.length % 4 === 2){
+        this.props.data.expert.push({})
+        this.props.data.expert.push({})
+      }else if(this.props.data.expert.length % 4 === 3){
+        this.props.data.expert.push({})
+      }
+    }
     this.setState({
-      banners: this.props.data.banner,
-      specialist: this.props.data.expert,
-      recList: this.props.data.recommend
+      banners: this.props.data.banner || [],
+      specialist: this.props.data.expert || [],
+      recList: this.props.data.recommend || []
     })
 
   }
 
-  pay(fee, id){
-    if(fee && fee != "0"){
+  pay(fee, id, ifBuy){
+    if(!ifBuy && fee && fee != "0"){
       this.setState({
         showAlert: true,
         alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
@@ -81,11 +97,13 @@ export default class extends BasePage {
 
   handleSure(){
     this.showLoading(true)
-    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || 'dds'});
+    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || ''});
   }
 
   gotoSpecial(id){
-    window.to('/specialinfo?id=' + id)
+    if(id !== null){
+      window.to('/specialinfo?id=' + id)
+    }
   }
 
   gotoSpecialist(){
@@ -119,66 +137,72 @@ export default class extends BasePage {
   }
 
   renderItems(){
-    return this.state.list.map(function(item, index){
-      return (
-        <div className="specialItem" key={"s"+index}>
-          <div className="img">
-            <img src={item.url} className="" />
+    if(this.state.list instanceof Array){
+      return this.state.list.map(function(item, index){
+        return (
+          <div className="specialItem" key={"s"+index}>
+            <div className="img">
+              <img src={item.url} className="" />
+            </div>
+            <div className="name">
+              {item.name}
+            </div>
           </div>
-          <div className="name">
-            {item.name}
-          </div>
-        </div>
-      )
-    }.bind(this));
+        )
+      }.bind(this));
+    }
   }
 
   renderSpecialist(){
-    return this.state.specialist.map(function(item, index){
-      return(
-          <TapAble className="specialItem" key={"s"+index} onTap={this.gotoSpecial.bind(this, item.id)}>
-            <img src={item.avatar ? item.avatar : '../images/photo.png'} className="" />
-            <div className="name">
-              {item.name ? item.name : '专家'}
-            </div>
-          </TapAble>
-      )
-    }.bind(this));
+    if(this.state.specialist instanceof Array){
+      return this.state.specialist.map(function(item, index){
+        return(
+            <TapAble className="specialItem" key={"s"+index} onTap={this.gotoSpecial.bind(this, item.id)}>
+              <img src={item.avatar ? item.avatar : '../images/photo.png'} className="" />
+              <div className="name">
+                {item.name ? item.name : '虚位以待'}
+              </div>
+            </TapAble>
+        )
+      }.bind(this));
+    }
   }
 
   renderRecommondList(){
-    return this.state.recList.map(function(item, index){
-      return(
-        <div className="recItem" key={"rec" + index}>
-          <TapAble className="specialInfo" onTap={this.gotoSpecial.bind(this, item.expert.id)}>
-            <img src={item.expert.avatar ? item.expert.avatar : "../images/photo.png"} />
-            <div className="textInfo">
-              <div className="tTitle">{item.expert.name}</div>
-              <div className="tDesc">{item.expert.title}</div>
-            </div>
-          </TapAble>
-          <div className="saishiItem" key={"s"+index} >
-            <TapAble onTap={this.pay.bind(this, item.recommend.fee, item.recommend.id)}>
-              <div className="leftPart">
-                <div className="sTopInfo">
-                  <span className="liansai">{item.recommend.matchName}</span>
-                  <span className="add">{item.recommend.betsType}</span>
-                  <span className="time">{item.recommend.matchDate}</span>
-                </div>
-                <div className="bottomInfo">
-                  <span className="left">{item.recommend.homeTeam}</span>
-                  <span className="">VS</span>
-                  <span className="right">{item.recommend.awayTeam}</span>
-                </div>
-              </div>
-              <div className="rightPart">
-                {item.recommend.fee + "粒米"}
+    if(this.state.recList instanceof Array){
+      return this.state.recList.map(function(item, index){
+        return(
+          <div className="recItem" key={"rec" + index}>
+            <TapAble className="specialInfo" onTap={this.gotoSpecial.bind(this, item.expert.id)}>
+              <img src={item.expert.avatar ? item.expert.avatar : "../images/photo.png"} />
+              <div className="textInfo">
+                <div className="tTitle">{item.expert.name}</div>
+                <div className="tDesc">{item.expert.title}</div>
               </div>
             </TapAble>
+            <div className="saishiItem" key={"s"+index} >
+              <TapAble onTap={this.pay.bind(this, item.recommend.fee, item.recommend.id, item.recommend.ifBuy)}>
+                <div className="leftPart">
+                  <div className="sTopInfo">
+                    <span className="liansai">{item.recommend.matchName}</span>
+                    <span className="add">{item.recommend.betsType}</span>
+                    <span className="time">{item.recommend.matchDate}</span>
+                  </div>
+                  <div className="bottomInfo">
+                    <span className="left">{item.recommend.homeTeam}</span>
+                    <span className="">VS</span>
+                    <span className="right">{item.recommend.awayTeam}</span>
+                  </div>
+                </div>
+                <div className="rightPart">
+                  {item.recommend.fee > 0 ? (item.recommend.ifBuy ? "查看" : (item.recommend.fee + "粒米")) : ("免费")}
+                </div>
+              </TapAble>
+            </div>
           </div>
-        </div>
-      )
-    }.bind(this))
+        )
+      }.bind(this))
+    }
   }
 
   render() {
@@ -228,6 +252,8 @@ export default class extends BasePage {
           </div>
           {this.renderRecommondList()}
         </div>
+        <div style={{height:'9rem'}}></div>
+        <QsFooter page={"home"}/>
       </Layout>
     )
   }

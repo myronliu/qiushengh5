@@ -1,4 +1,5 @@
 .mine{
+  margin-bottom: 5rem;
   .header{
     background-image: url(../images/back.jpg);
     padding: 1rem;
@@ -32,6 +33,7 @@
     line-height: 5rem;
     height: 5rem;
     font-size: 2.5rem;
+    margin-bottom: 1rem;
     .active{
       display: inline-block;
       width: 50%;
@@ -49,6 +51,9 @@
     }
   }
   .items{
+    .block{
+      display: block;
+    }
     .specialItem{
       height: 8rem;
       background-color: white;

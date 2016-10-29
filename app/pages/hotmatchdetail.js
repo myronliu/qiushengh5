@@ -44,8 +44,8 @@ export default class extends BasePage {
     ApiAction.post(UrlConfig.matchDetail, {id: this.props.id, token: Cookie.getCookie("token") || 'dds'});
   }
 
-  pay(fee, id){
-    if(fee && fee != "0"){
+  pay(fee, id, ifBuy){
+    if(!ifBuy && fee && fee != "0"){
       this.setState({
         showAlert: true,
         alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
@@ -70,7 +70,7 @@ export default class extends BasePage {
   renderRecommondList(){
     return this.state.recList.map(function(item, index){
       return(
-        <TapAble className="recItem block" key={"rec" + index} onTap={this.pay.bind(this, item.fee, item.id)}>
+        <TapAble className="recItem block" key={"rec" + index} onTap={this.pay.bind(this, item.fee, item.id, item.ifBuy)}>
           <div className="specialInfo">
             <img src={item.avatar ? item.avatar : "../images/photo.png"} />
             <div className="textInfo">
@@ -87,7 +87,7 @@ export default class extends BasePage {
               
             </div>
             <div className="rightPart">
-              {item.fee + "粒米"}
+              {item.fee > 0 ? (item.ifBuy ? "查看" : (item.fee + "粒米")) : ("免费")}
             </div>
           </div>
         </TapAble>

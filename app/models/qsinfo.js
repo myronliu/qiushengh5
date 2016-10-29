@@ -2,34 +2,34 @@ var ajax = require('../helper/ajaxp');
 var UrlConfig = require('../config/urlconfig');
 var Api = function(){ return ajax.init(global.qsH5Config).api; };
 var QSInfo = {}
-QSInfo.banner = function () {
+QSInfo.banner = function (token) {
   return Api().post(UrlConfig.banner)
     .send({
-      // url: UrlConfig.contentFootball
+      token: token
     });
 }
-QSInfo.match = function () {
+QSInfo.match = function (token) {
   return Api().post(UrlConfig.match)
     .send({
-      // url: UrlConfig.contentFootball
+      token: token
     });
 }
-QSInfo.expert = function () {
+QSInfo.expert = function (token) {
   return Api().post(UrlConfig.expert)
     .send({
-      // url: UrlConfig.contentFootball
+      token: token
     });
 }
-QSInfo.recommend = function () {
+QSInfo.recommend = function (token) {
   return Api().post(UrlConfig.recommend)
     .send({
-      // url: UrlConfig.contentFootball
+      token: token
     });
 }
-QSInfo.hots = function () {
+QSInfo.hots = function (token) {
   return Api().post(UrlConfig.hots)
     .send({
-      // url: UrlConfig.contentFootball
+      token: token
     });
 }
 

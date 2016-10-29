@@ -8,6 +8,7 @@ import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
+import TapAble from 'react-tappable';
 
 export default class extends BasePage {
   state={
@@ -16,7 +17,8 @@ export default class extends BasePage {
     expertname: '',
     detail: '',
     recState: 'NO',
-    showAlert: false
+    showAlert: false,
+    status: '关注专家'
   };
 
   apiSuccess(url,body){
@@ -29,7 +31,8 @@ export default class extends BasePage {
           avarurl: body.expert.avatar,
           expertname: body.expert.name,
           detail: body.expert.detail,
-          list: body.recommending || []
+          list: body.recommending || [],
+          status: body.expert.ifConcern ? '取消关注' : '关注专家'
         })
         break;
       case UrlConfig.expertRecommend:
@@ -38,10 +41,20 @@ export default class extends BasePage {
         })
         break;
       case UrlConfig.recommendBuy:
-        showLoading(true);
-        ApiAction.post(UrlConfig.expertRecommend, {id: this.props.id, state: this.state.recState, token: Cookie.getCookie("token") || 'dds'});
+        this.setState({
+          showAlert: false
+        })
+        window.to("/recodetail?id=" + this.state.payId);
         break;
-
+      case UrlConfig.concernadd:
+        this.setState({
+          status: '取消关注'
+        })
+        break;
+      case UrlConfig.concerncancel:
+        this.setState({
+          status: '关注专家'
+        })
     }
   }
 
@@ -51,7 +64,7 @@ export default class extends BasePage {
     //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
     // }.bind(this), 5000)
     this.showLoading(true);
-    ApiAction.post(UrlConfig.expertDetail, {id: this.props.id, token: Cookie.getCookie("token") || 'dds'});
+    ApiAction.post(UrlConfig.expertDetail, {id: this.props.id, token: Cookie.getCookie("token") || ''});
   }
 
   getUnEnd(){
@@ -70,8 +83,8 @@ export default class extends BasePage {
     ApiAction.post(UrlConfig.expertRecommend, {id: this.props.id, state: "YES", token: Cookie.getCookie("token") || 'dds'});
   }
 
-  pay(fee, id){
-    if(this.state.recState == "NO" && fee && fee != "0"){
+  pay(fee, id, ifBuy){
+    if(this.state.recState == "NO" && !ifBuy && fee && fee != "0"){
       this.setState({
         showAlert: true,
         alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
@@ -89,14 +102,23 @@ export default class extends BasePage {
   }
 
   handleSure(){
-    showLoading(true)
+    this.showLoading(true)
     ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || 'dds'});
+  }
+
+  focusUser(id){
+    this.showLoading(true)
+    if(this.state.status === "关注专家"){
+      ApiAction.post(UrlConfig.concernadd, {expertId: id, token: Cookie.getCookie("token") || ''});
+    }else{
+      ApiAction.post(UrlConfig.concerncancel, {expertId: id, token: Cookie.getCookie("token") || ''});
+    }
   }
 
   renderItems(){
     return this.state.list.map(function(item, index){
       return (
-        <div className="specialItem" key={"s"+index} onTouchEnd={this.pay.bind(this, item.fee, item.id)}>
+        <TapAble className="specialItem block" key={"s"+index} onTap={this.pay.bind(this, item.fee, item.id, item.ifBuy)}>
           <div className="leftPart">
             <div className="topInfo">
               <span className="liansai">{item.matchName}</span>
@@ -110,16 +132,17 @@ export default class extends BasePage {
             </div>
           </div>
           <div className="rightPart">
-            {this.state.recState == "NO" && item.fee && item.fee != "0" ? item.fee+"粒米" : "免费"}
+            {this.state.recState == "NO" ? (item.fee && item.fee > 0 (item.ifBuy ? "查看" : item.fee+"粒米")) : "免费"}
           </div>
-        </div>
+        </TapAble>
       )
     }.bind(this));
   }
 
   render() {
+    let rightBtn={title: this.state.status,func:this.focusUser.bind(this,this.props.id)};
     return (
-      <Layout className={'specialinfo'} title={'专家详情'}>
+      <Layout className={'specialinfo'} title={'专家详情'} rightItems={[rightBtn]}>
         <Loading showLoading={this.state.showLoading} />
         <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
         <div className="header">

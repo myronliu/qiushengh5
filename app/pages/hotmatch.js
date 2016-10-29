@@ -8,6 +8,7 @@ import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
+import QsFooter from '../components/qsfooter';
 
 export default class extends BasePage {
   state={
@@ -77,13 +78,14 @@ export default class extends BasePage {
 
   render() {
     return (
-      <Layout className={'hotmatch'} title={'热门赛事'}>
+      <Layout hideBack={true} className={'hotmatch'} title={'热门赛事'}>
         <Loading showLoading={this.state.showLoading} />
         <div className="header">
-          <span className={this.state.status === "on" ? "on" : "end"} onTouchEnd={this.selectOn.bind(this)}>竞彩</span>
-          <span className={this.state.status === "end" ? "on" : "end"} onTouchEnd={this.selectEnd.bind(this)}>已结束</span>
+          <span className={this.state.status === "on" ? "on left" : "end left"} onTouchEnd={this.selectOn.bind(this)}>竞彩</span>
+          <span className={this.state.status === "end" ? "on right" : "end right"} onTouchEnd={this.selectEnd.bind(this)}>已结束</span>
         </div>
         {this.renderItems()}
+        <QsFooter page={"saishi"}/>
       </Layout>
     )
   }

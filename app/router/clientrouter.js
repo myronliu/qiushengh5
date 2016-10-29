@@ -14,7 +14,7 @@ var Hotmatch = require('../pages/hotmatch');
 var UserRank = require('../pages/userrank');
 var Focus = require('../pages/focus');
 var HotmatchDetail = require('../pages/hotmatchdetail');
-
+var Mine = require('../pages/mine');
 // import Index from '../pages/financing/index';
 // console.log('host');
 
@@ -43,9 +43,10 @@ var Router = EvoFlux.createRouter({
     try{
       Exp.rehydrate();
       var items = Exp.getItems();
-      ReactDOM.render(<QiuSheng data={items}/>, container);
+      ReactDOM.render(<QiuSheng data={items} token={this.query("token")}/>, container);
     }catch(ex){
-      window.location.href = "/qiusheng";      
+      console.log(ex)
+      // window.location.href = "/qiusheng";      
     }
   },
   '/recodetail': function(){
@@ -62,10 +63,10 @@ var Router = EvoFlux.createRouter({
   },
   '/focus': function(){
     ReactDOM.render(<Focus />, container);
+  },
+  '/mine': function(){
+    ReactDOM.render(<Mine />, container);
   }
-  // '/specialinfo': function(){
-  //   ReactDOM.render(<Specialinfo />, container);
-  // }
   // '/guanka': function(){
   //   ReactDOM.render(<GuanKa />, container);
   // },
