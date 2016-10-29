@@ -38,13 +38,12 @@ export default class extends BasePage {
 
   apiSuccess(url,body){
     this.showLoading(false);
-    debugger;
     switch(url){
       case UrlConfig.recommendBuy:
+        this.setState({
+          showAlert: false
+        })
         if(body.success){
-          this.setState({
-            showAlert: false
-          })
           window.to('/recodetail?id=' + this.state.payId);
         }else{
           Toast.show(body.msg)

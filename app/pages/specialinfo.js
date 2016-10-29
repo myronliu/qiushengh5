@@ -41,14 +41,15 @@ export default class extends BasePage {
         })
         break;
       case UrlConfig.recommendBuy:
+        this.setState({
+          showAlert: false
+        })
         if(body.success){
-          this.setState({
-            showAlert: false
-          })
           window.to('/recodetail?id=' + this.state.payId);
         }else{
           Toast.show(body.msg)
         }
+        break;
       case UrlConfig.concernadd:
         this.setState({
           status: '取消关注'
@@ -58,6 +59,7 @@ export default class extends BasePage {
         this.setState({
           status: '关注专家'
         })
+        break;
     }
   }
 
