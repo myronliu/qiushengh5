@@ -131,7 +131,7 @@ export default class extends BasePage {
   render() {
     let rightBtn={title: '充值',func:this.gotoCharge.bind(this)};
     return (
-      <Layout  hideBack={true} className={'mine'} title={'我的'}>
+      <Layout  hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn]}>
         <Loading showLoading={this.state.showLoading} />
         <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
         <div className="header">
