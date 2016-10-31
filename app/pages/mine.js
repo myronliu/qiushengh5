@@ -77,7 +77,7 @@ export default class extends BasePage {
   }
 
   gotoCharge(){
-    window.location.href='http://60.205.145.105:8080/pay/test?token=' + Cookie.getCookie("token");
+    window.location.href='http://qiusheng.qingxinguoyuan.com/pay/home?token=' + Cookie.getCookie("token");
   }
 
   renderItems(){
