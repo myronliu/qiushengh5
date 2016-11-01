@@ -20,11 +20,12 @@ export default class extends BasePage {
       case UrlConfig.recommendDetail:
         body=body||{};
         if(body.success){
-          body.detail = body.detail || {};
-          body.matches = body.matches || [];
+          body.data = body.data || {};
+          body.data.detail = body.data.detail || {};
+          body.data.matches = body.data.matches || [];
           this.setState({
-            list: body.matches,
-            pic: body.detail.picUrl || ''
+            list: body.data.matches,
+            pic: body.data.detail.picUrl || ''
           })
         }else{
           Toast.show(body.msg)
