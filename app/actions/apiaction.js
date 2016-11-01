@@ -61,7 +61,10 @@ module.exports = EvoFlux.createAction("api",{
         }else{
             console.log("result")
             console.log(result)
-            var status=result.body.status || 0
+            var status=result.body.status || 0;
+            if(result.body.success){
+                status = 0;
+            }
             if(cb){
                 if(status===undefined){
                     cb({status:-1,message:'网络加载失败，请稍后重试'});

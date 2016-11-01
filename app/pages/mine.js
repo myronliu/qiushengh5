@@ -29,7 +29,7 @@ export default class extends BasePage {
         this.setState({
           avatar: body.my.avatar,
           name: body.my.name,
-          rices: body.my.rices,
+          rices: body.rices,
           overlist: body.orders.over || [],
           unoverlist: body.orders.unOver || []
         })
