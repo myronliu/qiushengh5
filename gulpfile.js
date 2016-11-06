@@ -12,6 +12,7 @@ var rename = require("gulp-rename");
 var htmlreplace = require('gulp-html-replace');
 var babel = require('gulp-babel');
 var babelify = require("babelify");
+var sass = require('gulp-sass');
 
 gulp.task('build', function(){
 
@@ -54,6 +55,7 @@ gulp.task('browsersync',['packagejs'],function(){
 
 gulp.task('watch',function(){
      gulp.watch(['./index.html','./src/**/*.js','./src/*.js'],['packagejs',browserSync.reload]);
+     gulp.watch('app/theme/sass/**/*.scss',['sassfile']);
 })
 
 gulp.task('demon',function(){
@@ -78,7 +80,12 @@ gulp.task('rejsurl',['packagejs'],function(){
     .pipe(gulp.dest('./app/distviews/'));
 })
 
+gulp.task('sassfile',function(){
+    return gulp.src('app/theme/sass/**/*.scss')
+        .pipe(sass()).pipe( gulp.dest( './assets/css' ) );
+});
+
 gulp.task('serve',['browsersync','watch']);
 gulp.task('s',['serve']);
 gulp.task('default',['packagejs']);
-gulp.task('n',['demon']);
+gulp.task('n',['demon','watch']);

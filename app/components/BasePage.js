@@ -79,7 +79,7 @@ export default class Index extends React.Component {
           func: this.login
         }]
       } >
-      < /Layout>
+      </Layout>
     )
   }
   static serverData(req, res) {

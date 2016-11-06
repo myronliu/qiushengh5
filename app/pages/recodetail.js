@@ -30,7 +30,7 @@ export default class extends BasePage {
         }else{
           Toast.show(body.msg)
         }
-        
+
         break;
     }
   }

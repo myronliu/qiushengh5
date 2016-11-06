@@ -1,370 +1,201 @@
 @charset "UTF-8";
-/* line 5, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed,
-figure, figcaption, footer, header, hgroup,
-menu, nav, output, ruby, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-/* line 22, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-html {
-  line-height: 1;
-}
-
-/* line 24, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
-
-/* line 26, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
-
-/* line 28, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-caption, th, td {
-  text-align: left;
-  font-weight: normal;
-  vertical-align: middle;
-}
-
-/* line 30, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-q, blockquote {
-  quotes: none;
-}
-/* line 103, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-q:before, q:after, blockquote:before, blockquote:after {
-  content: "";
-  content: none;
-}
-
-/* line 32, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-a img {
-  border: none;
-}
-
-/* line 116, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.3/stylesheets/compass/reset/_utilities.scss */
-article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
-  display: block;
-}
-
-/* line 40, ../../app/theme/sass/_base.scss */
 body {
   font: 14px/1.5 microsoft yahei;
   padding: 0;
   margin: 0;
   color: #878787;
-  background: #F2F2F2;
-}
+  background: #F2F2F2; }
 
-/* line 49, ../../app/theme/sass/_base.scss */
 em {
   color: #FB373F;
-  font-style: normal;
-}
+  font-style: normal; }
 
-/* line 54, ../../app/theme/sass/_base.scss */
 a {
   color: #666;
-  text-decoration: none;
-}
+  text-decoration: none; }
 
-/* line 59, ../../app/theme/sass/_base.scss */
 a:hover {
-  color: #f63;
-}
+  color: #f63; }
 
 /* 使float的元素可以撑开父级div */
-/* line 66, ../../app/theme/sass/_base.scss */
 .clearfix:after, .panel:after, .panel > .title:after, .panel > .content:after, .main-content:after, .main-content .inner-main-content:after, .main-content .inner-right-content:after, .icontitlecell:after, .icontitlecell .right:after, .navigetion:after, .smscodetext:after, .passwordtext:after, .myinvestcell > div:after, .nav_header > div:after, .DownLoadHeader:after {
   visibility: hidden;
   display: block;
   font-size: 0;
   content: ".";
   clear: both;
-  height: 0;
-}
+  height: 0; }
 
-/* line 75, ../../app/theme/sass/_base.scss */
 * html .clearfix, * html .panel, * html .panel > .title, * html .panel > .content, * html .main-content, * html .main-content .inner-main-content, .main-content * html .inner-main-content, * html .main-content .inner-right-content, .main-content * html .inner-right-content, * html .icontitlecell, * html .icontitlecell .right, .icontitlecell * html .right, * html .navigetion, * html .smscodetext, * html .passwordtext, * html .myinvestcell > div, * html .nav_header > div, * html .DownLoadHeader {
-  zoom: 1;
-}
+  zoom: 1; }
 
-/* line 77, ../../app/theme/sass/_base.scss */
 *:first-child + html .clearfix, *:first-child + html .panel, *:first-child + html .panel > .title, *:first-child + html .panel > .content, *:first-child + html .main-content, *:first-child + html .main-content .inner-main-content, .main-content *:first-child + html .inner-main-content, *:first-child + html .main-content .inner-right-content, .main-content *:first-child + html .inner-right-content, *:first-child + html .icontitlecell, *:first-child + html .icontitlecell .right, .icontitlecell *:first-child + html .right, *:first-child + html .navigetion, *:first-child + html .smscodetext, *:first-child + html .passwordtext, *:first-child + html .myinvestcell > div, *:first-child + html .nav_header > div, *:first-child + html .DownLoadHeader {
-  zoom: 1;
-}
+  zoom: 1; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f13 {
-  font-size: 13px;
-}
+  font-size: 13px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f14 {
-  font-size: 14px;
-}
+  font-size: 14px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f15 {
-  font-size: 15px;
-}
+  font-size: 15px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f16 {
-  font-size: 16px;
-}
+  font-size: 16px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f17 {
-  font-size: 17px;
-}
+  font-size: 17px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f18 {
-  font-size: 18px;
-}
+  font-size: 18px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f19 {
-  font-size: 19px;
-}
+  font-size: 19px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f20 {
-  font-size: 20px;
-}
+  font-size: 20px; }
 
-/* line 80, ../../app/theme/sass/_base.scss */
 .f21 {
-  font-size: 21px;
-}
+  font-size: 21px; }
 
-/* line 85, ../../app/theme/sass/_base.scss */
 .fl {
-  float: left;
-}
+  float: left; }
 
-/* line 89, ../../app/theme/sass/_base.scss */
 .fr {
-  float: right;
-}
+  float: right; }
 
-/* line 93, ../../app/theme/sass/_base.scss */
 .hide {
-  display: none;
-}
+  display: none; }
 
-/* line 97, ../../app/theme/sass/_base.scss */
 .show {
-  display: "";
-}
+  display: ""; }
 
-/* line 102, ../../app/theme/sass/_base.scss */
 .container, .l-container, .top-notify, .top-link, .main-menu, .main-content, .footer-corp, .footer-frq, .main-footer, .l-mainContainer, .main-content .inner-main-content, .l-sideContainer, .main-content .inner-right-content {
-  margin: 0px auto;
-}
+  margin: 0px auto; }
 
-/* line 106, ../../app/theme/sass/_base.scss */
 .btn, .btn-primary, .btn-secondary, .btn-myhry {
-  -moz-border-radius: 2px;
-  -webkit-border-radius: 2px;
   border-radius: 2px;
   border: 2px solid;
   padding: 5px 20px;
-  font-size: 18px;
-}
-/* line 112, ../../app/theme/sass/_base.scss */
-.btn.disabled, .disabled.btn-primary, .disabled.btn-secondary, .disabled.btn-myhry {
-  cursor: default;
-}
+  font-size: 18px; }
+  .btn.disabled, .disabled.btn-primary, .disabled.btn-secondary, .disabled.btn-myhry {
+    cursor: default; }
 
-/* line 117, ../../app/theme/sass/_base.scss */
 .btn-primary {
   border-color: #F5F5F5;
   background-color: #F74F19;
   border-color: #F74F19;
-  color: white;
-}
-/* line 124, ../../app/theme/sass/_base.scss */
-.btn-primary:hover {
-  background-color: #4cb0f9;
-  border-color: #4cb0f9;
-}
-/* line 129, ../../app/theme/sass/_base.scss */
-.btn-primary:active {
-  background: #df4c04;
-  border-color: #df4c04;
-}
+  color: white; }
+  .btn-primary:hover {
+    background-color: #4cb0f9;
+    border-color: #4cb0f9; }
+  .btn-primary:active {
+    background: #df4c04;
+    border-color: #df4c04; }
 
-/* line 135, ../../app/theme/sass/_base.scss */
 .btn-secondary {
-  background-color: white;
-}
-/* line 139, ../../app/theme/sass/_base.scss */
-.btn-secondary:hover {
-  background-color: #4cb0f9;
-  border-color: #4cb0f9;
-}
+  background-color: white; }
+  .btn-secondary:hover {
+    background-color: #4cb0f9;
+    border-color: #4cb0f9; }
 
-/* line 145, ../../app/theme/sass/_base.scss */
 .btn-myhry {
   background-color: white;
-  color: #999;
-}
-/* line 150, ../../app/theme/sass/_base.scss */
-.btn-myhry:hover {
-  background-color: #4cb0f9;
-  border-color: #ff884f;
-}
+  color: #999; }
+  .btn-myhry:hover {
+    background-color: #4cb0f9;
+    border-color: #ff884f; }
 
-/* line 156, ../../app/theme/sass/_base.scss */
 .btn-gray {
   border-color: #878787;
-  color: #878787;
-}
+  color: #878787; }
 
-/* line 161, ../../app/theme/sass/_base.scss */
 .panel {
-  border: solid 1px #F5F5F5;
-}
-/* line 165, ../../app/theme/sass/_base.scss */
-.panel > .title {
-  border-bottom: solid 1px #F5F5F5;
-  line-height: 30px;
-  padding: 10px 20px;
-  background-color: #FFFEFC;
-  color: #333;
-}
-/* line 174, ../../app/theme/sass/_base.scss */
-.panel > .title .caption {
-  color: #1C1C1C;
-  font-size: 20px;
-  float: left;
-}
-/* line 180, ../../app/theme/sass/_base.scss */
-.panel > .title .action {
-  float: right;
-}
+  border: solid 1px #F5F5F5; }
+  .panel > .title {
+    border-bottom: solid 1px #F5F5F5;
+    line-height: 30px;
+    padding: 10px 20px;
+    background-color: #FFFEFC;
+    color: #333; }
+    .panel > .title .caption {
+      color: #1C1C1C;
+      font-size: 20px;
+      float: left; }
+    .panel > .title .action {
+      float: right; }
 
-/* line 190, ../../app/theme/sass/_base.scss */
 .progress-bar {
-  background-color: #F5F5F5;
-}
-/* line 45, ../../app/theme/sass/_mixins.scss */
-.progress-bar > .inner {
-  background-color: #FB373F;
-  border: 0px;
-  height: 2px;
-}
+  background-color: #F5F5F5; }
+  .progress-bar > .inner {
+    background-color: #FB373F;
+    border: 0px;
+    height: 2px; }
 
-/* line 195, ../../app/theme/sass/_base.scss */
 .line {
   border-bottom: 1px dashed  #DBDBDD;
   padding: 12px 0 0 0;
   width: 100%;
   position: absolute;
-  left: 0px;
-}
+  left: 0px; }
 
-/* line 206, ../../app/theme/sass/_base.scss */
 .form-group label {
   color: #626262;
   min-width: 156px;
   display: inline-block;
   text-align: right;
-  *height: 66px;
-}
-/* line 214, ../../app/theme/sass/_base.scss */
+  *height: 66px; }
+
 .form-group .blue {
   color: #6589BB;
-  font-size: 16px;
-}
+  font-size: 16px; }
 
-/* line 221, ../../app/theme/sass/_base.scss */
 .lagre {
-  width: 340px !important;
-}
+  width: 340px !important; }
 
-/* line 225, ../../app/theme/sass/_base.scss */
 .lagre-s {
-  width: 150px !important;
-}
+  width: 150px !important; }
 
-/* line 229, ../../app/theme/sass/_base.scss */
 .medium {
-  width: 83px !important;
-}
+  width: 83px !important; }
 
-/* line 234, ../../app/theme/sass/_base.scss */
 .small {
-  width: 33px !important;
-}
+  width: 33px !important; }
 
-/* line 238, ../../app/theme/sass/_base.scss */
 input[type="button"] {
-  cursor: pointer;
-}
+  cursor: pointer; }
 
 /*------------------------------------------------*/
 /*   Layout Rules
 /*------------------------------------------------*/
 /*==========  Base  ==========*/
-/* line 11, ../../app/theme/sass/_layout.scss */
 .l-container, .top-notify, .top-link, .main-menu, .main-content, .footer-corp, .footer-frq, .main-footer {
-  width: 1200px;
-}
+  width: 1200px; }
 
-/* line 16, ../../app/theme/sass/_layout.scss */
 .l-mainContainer, .main-content .inner-main-content {
-  width: 881px;
-}
+  width: 881px; }
 
-/* line 21, ../../app/theme/sass/_layout.scss */
 .l-sideContainer, .main-content .inner-right-content {
-  width: 300px;
-}
+  width: 300px; }
 
-/* line 26, ../../app/theme/sass/_layout.scss */
 .l-top-notify {
   border: solid 1px #FEECBC;
   text-align: center;
   background-color: #FFFDF3;
-  line-height: 32px;
-}
+  line-height: 32px; }
 
-/* line 33, ../../app/theme/sass/_layout.scss */
 .l-top-link {
   border: solid 1px #F5F5F5;
-  line-height: 32px;
-}
+  line-height: 32px; }
 
 /*==========  Header  ==========*/
 /*==========  Content  ==========*/
-/* line 57, ../../app/theme/sass/_layout.scss */
 .main-content .inner-main-content {
-  float: left;
-}
-/* line 62, ../../app/theme/sass/_layout.scss */
+  float: left; }
+
 .main-content .inner-right-content {
-  float: right;
-}
+  float: right; }
 
 /*-----  End of Content  ------*/
 /*==========  Footer  ==========*/
@@ -377,7 +208,6 @@ input[type="button"] {
 /*------------------------------------------------*/
 /*   Theme Rules
 /*------------------------------------------------*/
-/* line 1, ../../app/theme/sass/components/_icontitlecell.scss */
 .icontitlecell {
   display: -webkit-box;
   -webkit-box-orient: horizontal;
@@ -386,54 +216,36 @@ input[type="button"] {
   padding-top: 10px;
   padding-bottom: 10px;
   color: #444444;
-  font-size: 15px;
-}
-/* line 11, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell .left {
-  -webkit-box-flex: 2;
-  /*font-weight: bold;*/
-}
-/* line 14, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell .left i {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-  margin-right: 8px;
-  background-size: contain;
-}
-/* line 23, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell .right {
-  position: absolute;
-  right: 10px;
-}
-/* line 27, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell .right > span {
-  display: inline-block;
-  margin-right: 5px;
-}
-/* line 31, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell .right > span:first-child > span:nth-child(2) {
-  color: #878787;
-}
-/* line 36, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell .moneycolor {
-  color: #DD461A;
-}
-/* line 39, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell .jianTou {
-  color: gray;
-  position: absolute;
-  right: -5px;
-  top: -2px;
-  font-size: 24px;
-}
-/* line 46, ../../app/theme/sass/components/_icontitlecell.scss */
-.icontitlecell p {
-  color: #444444;
-}
+  font-size: 15px; }
+  .icontitlecell .left {
+    -webkit-box-flex: 2;
+    /*font-weight: bold;*/ }
+    .icontitlecell .left i {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      vertical-align: middle;
+      margin-right: 8px;
+      background-size: contain; }
+  .icontitlecell .right {
+    position: absolute;
+    right: 10px; }
+    .icontitlecell .right > span {
+      display: inline-block;
+      margin-right: 5px; }
+    .icontitlecell .right > span:first-child > span:nth-child(2) {
+      color: #878787; }
+  .icontitlecell .moneycolor {
+    color: #DD461A; }
+  .icontitlecell .jianTou {
+    color: gray;
+    position: absolute;
+    right: -5px;
+    top: -2px;
+    font-size: 24px; }
+  .icontitlecell p {
+    color: #444444; }
 
-/* line 1, ../../app/theme/sass/components/_footer.scss */
 .footer {
   width: 100%;
   height: 70px;
@@ -442,80 +254,58 @@ input[type="button"] {
   padding-bottom: 9px;
   position: absolute;
   bottom: 0px;
-  left: 0px;
-}
-/* line 10, ../../app/theme/sass/components/_footer.scss */
-.footer > .copyright {
-  text-align: center;
-  margin-top: 13px;
-  font-size: 12px;
-}
-/* line 15, ../../app/theme/sass/components/_footer.scss */
-.footer > div:first-child {
-  text-align: center;
-  margin-top: 0px;
-  font-size: 14px;
-  padding: 0;
-}
-/* line 20, ../../app/theme/sass/components/_footer.scss */
-.footer > div:first-child a {
-  margin-right: 10px;
-  margin-left: 10px;
-}
+  left: 0px; }
+  .footer > .copyright {
+    text-align: center;
+    margin-top: 13px;
+    font-size: 12px; }
+  .footer > div:first-child {
+    text-align: center;
+    margin-top: 0px;
+    font-size: 14px;
+    padding: 0; }
+    .footer > div:first-child a {
+      margin-right: 10px;
+      margin-left: 10px; }
 
 /**
  * Created by jiang on 15/10/30.
  */
-/* line 4, ../../app/theme/sass/components/_navigation.scss */
 .navigetion {
   background-color: #014da1;
   padding: 6px;
-  position: relative;
-}
-/* line 9, ../../app/theme/sass/components/_navigation.scss */
-.navigetion > .back {
-  float: left;
-  line-height: 2.4em;
-  position: absolute;
-  margin-top: -1px;
-  width: 44px;
-}
-/* line 15, ../../app/theme/sass/components/_navigation.scss */
-.navigetion > .back > .jianTou {
-  color: white;
-  margin-left: 6px;
-  font-size: 34px;
-}
-/* line 23, ../../app/theme/sass/components/_navigation.scss */
-.navigetion .title {
-  color: #fff;
-  text-align: center;
-  line-height: 2em;
-  overflow: hidden;
-  width: 100%;
-  height: 32px;
-  font-size: 16px;
-}
-/* line 32, ../../app/theme/sass/components/_navigation.scss */
-.navigetion .right {
-  color: white;
-  right: 7px;
-  top: 12px;
-  position: absolute;
-}
-/* line 37, ../../app/theme/sass/components/_navigation.scss */
-.navigetion .right > .item {
-  margin-left: 4px;
-  margin-right: 4px;
-  padding: 10px 5px 10px 5px;
-}
-/* line 42, ../../app/theme/sass/components/_navigation.scss */
-.navigetion .right > .icon {
-  height: 25px;
-  width: 25px;
-}
+  position: relative; }
+  .navigetion > .back {
+    float: left;
+    line-height: 2.4em;
+    position: absolute;
+    margin-top: -1px;
+    width: 44px; }
+    .navigetion > .back > .jianTou {
+      color: white;
+      margin-left: 6px;
+      font-size: 34px; }
+  .navigetion .title {
+    color: #fff;
+    text-align: center;
+    line-height: 2em;
+    overflow: hidden;
+    width: 100%;
+    height: 32px;
+    font-size: 16px; }
+  .navigetion .right {
+    color: white;
+    right: 7px;
+    top: 12px;
+    position: absolute; }
+    .navigetion .right > .item {
+      margin-left: 4px;
+      margin-right: 4px;
+      padding: 10px 5px 10px 5px; }
+    .navigetion .right > .icon {
+      height: 25px;
+      width: 25px; }
 
-/* line 1, ../../app/theme/sass/components/_input.scss */
 ._input_text {
   width: 100%;
   height: 44px;
@@ -525,422 +315,286 @@ input[type="button"] {
   font-size: 15px;
   padding-left: 0px;
   padding-right: 0px;
-  text-indent: 10px;
-}
+  text-indent: 10px; }
 
-/* line 1, ../../app/theme/sass/components/_titleinput.scss */
 .title_input {
   padding-left: 15px;
-  font-size: 14px;
-}
-/* line 4, ../../app/theme/sass/components/_titleinput.scss */
-.title_input > .title {
-  color: black;
-  display: inline-block;
-}
-/* line 8, ../../app/theme/sass/components/_titleinput.scss */
-.title_input input[type=number]::-webkit-inner-spin-button,
-.title_input input[type=number]::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-/* line 13, ../../app/theme/sass/components/_titleinput.scss */
-.title_input > .input {
-  font-size: 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  -webkit-appearance: none;
-  outline: medium;
-  border: none;
-  outline: 0;
-}
+  font-size: 14px; }
+  .title_input > .title {
+    color: black;
+    display: inline-block; }
+  .title_input input[type=number]::-webkit-inner-spin-button,
+  .title_input input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0; }
+  .title_input > .input {
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    -webkit-appearance: none;
+    outline: medium;
+    border: none;
+    outline: 0; }
 
-/* line 1, ../../app/theme/sass/components/_layout.scss */
 .layout {
   min-height: 100%;
   position: relative;
-  background: #efeff4;
-}
-/* line 5, ../../app/theme/sass/components/_layout.scss */
-.layout .first_footer {
-  width: 100%;
-  height: 70px;
-  background: transparent;
-  padding-top: 20px;
-  position: relative;
-}
+  background: #efeff4; }
+  .layout .first_footer {
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    padding-top: 20px;
+    position: relative; }
 
-/* line 14, ../../app/theme/sass/components/_layout.scss */
 #container {
-  height: 100%;
-}
+  height: 100%; }
 
-/* line 1, ../../app/theme/sass/components/_smscodetext.scss */
 .smscodetext {
   padding-left: 15px;
-  font-size: 14px;
-}
-/* line 5, ../../app/theme/sass/components/_smscodetext.scss */
-.smscodetext .title {
-  margin-top: 5px;
-  color: black;
-  display: inline-block;
-}
-/* line 10, ../../app/theme/sass/components/_smscodetext.scss */
-.smscodetext .input {
-  margin-left: 5px;
-  font-size: 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-color: transparent;
-  width: 45%;
-}
-/* line 19, ../../app/theme/sass/components/_smscodetext.scss */
-.smscodetext .smsbutton {
-  float: right;
-  -webkit-appearance: none;
-  border: 0px;
-  border-left: 1px solid #F5F5F5;
-  color: #3FA9F5;
-  font-size: 14px;
-  text-align: center;
-  background: white;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  width: 30%;
-}
+  font-size: 14px; }
+  .smscodetext .title {
+    margin-top: 5px;
+    color: black;
+    display: inline-block; }
+  .smscodetext .input {
+    margin-left: 5px;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-color: transparent;
+    width: 45%; }
+  .smscodetext .smsbutton {
+    float: right;
+    -webkit-appearance: none;
+    border: 0px;
+    border-left: 1px solid #F5F5F5;
+    color: #3FA9F5;
+    font-size: 14px;
+    text-align: center;
+    background: white;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 30%; }
 
-/* line 1, ../../app/theme/sass/components/_passwordtext.scss */
 .passwordtext {
   padding-left: 15px;
-  font-size: 14px;
-}
-/* line 5, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .rightDiv {
-  float: right;
-}
-/* line 8, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .show {
-  display: block;
-}
-/* line 11, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .hide {
-  display: none;
-}
-/* line 14, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .imgMiddle {
-  float: right;
-  width: 3em;
-  padding-top: 5px;
-  display: table;
-  text-align: center;
-}
-/* line 21, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .imgMiddle > span {
-  display: table-cell;
-  vertical-align: middle;
-}
-/* line 25, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .passwordTextDiv {
-  float: left;
-  width: 84%;
-}
-/* line 29, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .title {
-  margin-top: 5px;
-  color: black;
-  display: inline-block;
-}
-/* line 34, ../../app/theme/sass/components/_passwordtext.scss */
-.passwordtext .passwordTextBox {
-  margin-left: 5px;
-  font-size: 14px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-  border-color: transparent;
-  width: 69%;
-}
+  font-size: 14px; }
+  .passwordtext .rightDiv {
+    float: right; }
+  .passwordtext .show {
+    display: block; }
+  .passwordtext .hide {
+    display: none; }
+  .passwordtext .imgMiddle {
+    float: right;
+    width: 3em;
+    padding-top: 5px;
+    display: table;
+    text-align: center; }
+  .passwordtext .imgMiddle > span {
+    display: table-cell;
+    vertical-align: middle; }
+  .passwordtext .passwordTextDiv {
+    float: left;
+    width: 84%; }
+  .passwordtext .title {
+    margin-top: 5px;
+    color: black;
+    display: inline-block; }
+  .passwordtext .passwordTextBox {
+    margin-left: 5px;
+    font-size: 14px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-color: transparent;
+    width: 69%; }
 
-/* line 1, ../../app/theme/sass/components/_checkbox.scss */
 .checkbox {
   display: table-cell;
-  vertical-align: middle;
-}
+  vertical-align: middle; }
 
-/* line 2, ../../app/theme/sass/components/_productlist.scss */
 .productlist {
   display: -webkit-box;
   -webkit-box-orient: vertical;
   border-top: 1px solid #DADADC;
   color: #1C1C1C;
   background-color: #ffffff;
-  margin-bottom: 10px;
-}
-/* line 9, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header {
-  padding-bottom: 10px;
-}
-/* line 11, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .title {
-  height: 30px;
-  padding-top: 8px;
-  margin-bottom: 7px;
-}
-/* line 16, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .hot-logo {
-  display: inline-block;
-  width: 25px;
-  height: 25px;
-  vertical-align: middle;
-}
-/* line 22, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .rexiao {
-  float: right;
-  margin-top: -9px;
-  width: 37px;
-  height: 37px;
-}
-/* line 28, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .item {
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  padding: 6px 0 10px 0;
-  line-height: 1.4;
-}
-/* line 34, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .item-summary {
-  -webkit-box-flex: 2;
-  /*border: 1px solid red;*/
-  display: block;
-  text-align: center;
-}
-/* line 40, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .rate {
-  margin-top: -17px;
-}
-/* line 43, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .ratenum {
-  font-size: 26px;
-}
-/* line 46, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .priceColor {
-  color: #FF3931;
-}
-/* line 49, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .miaoshu {
-  color: #878787;
-  font-size: 12px;
-}
-/* line 53, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .jianTou {
-  color: grey;
-  font-size: 24px;
-}
-/* line 57, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .progress-div {
-  display: -webkit-box;
-}
-/* line 59, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .progress-div > .first-progress {
-  -webkit-box-flex: 6;
-}
-/* line 62, ../../app/theme/sass/components/_productlist.scss */
-.productlist > .productlist_header .progress-div > .second-progress {
-  -webkit-box-flex: 1;
-}
-/* line 68, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemmore {
-  width: 100%;
-  background: #f0f0f0;
-  padding-bottom: 10px;
-  border-top: 1px solid #DADADC;
-  border-bottom: 1px solid #DADADC;
-}
-/* line 74, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemmore > .itemmore_center {
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-box-pack: center;
-  /*border: 1px solid red;*/
-  width: 90%;
-  margin: 0 auto;
-}
-/* line 81, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemmore > .itemmore_center > .licaiDiv {
-  margin-top: 5px;
-}
-/* line 83, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemmore > .itemmore_center > .licaiDiv > .miaoshu {
-  font-size: 13px;
-}
-/* line 87, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemmore > .itemmore_center > .licaiDiv > .licai > .checkboxStyle {
-  width: 20px;
-  height: 20px;
-  display: inline-block;
-  margin-right: 5px;
-}
-/* line 94, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemmore > .itemmore_center > .licaiDiv > .licai > .protocolStyle {
-  font-size: 13px;
-  display: inline-block;
-  position: absolute;
-  color: #1C1C1C;
-}
-/* line 99, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemmore > .itemmore_center > .licaiDiv > .licai > .protocolStyle > span:nth-child(2) {
-  color: #FF3830;
-}
-/* line 110, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemore-summary {
-  display: block;
-  line-height: 40px;
-}
-/* line 113, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemore-summary > .itemmore-input {
-  width: 100%;
-  background: white;
-  border: 1px solid #DADADC;
-}
-/* line 119, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemore-summary .buymoney {
-  width: 100%;
-  height: 36px;
-  border-radius: 3px;
-}
-/* line 124, ../../app/theme/sass/components/_productlist.scss */
-.productlist .option {
-  display: -webkit-box;
-  -webkit-box-orient: horizontal;
-  margin-top: 20px;
-}
-/* line 129, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemore-summary .optionbut {
-  height: 35px;
-  /*width: 44%;*/
-  border: none;
-  font-size: 16px;
-  border-radius: 5px;
-  display: block;
-  /*font-weight: bold;*/
-}
-/* line 138, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemore-summary .opt1 {
-  color: #3A3A3A;
-  background-color: #E0E0E0;
-  -webkit-box-flex: 1;
-  -webkit-appearance: none;
-}
-/* line 144, ../../app/theme/sass/components/_productlist.scss */
-.productlist .itemore-summary .opt2 {
-  color: #ffffff;
-  background-color: #3FA1ED;
-  -webkit-box-flex: 1;
-  margin-left: 10px;
-  -webkit-appearance: none;
-}
+  margin-bottom: 10px; }
+  .productlist > .productlist_header {
+    padding-bottom: 10px; }
+    .productlist > .productlist_header .title {
+      height: 30px;
+      padding-top: 8px;
+      margin-bottom: 7px; }
+    .productlist > .productlist_header .hot-logo {
+      display: inline-block;
+      width: 25px;
+      height: 25px;
+      vertical-align: middle; }
+    .productlist > .productlist_header .rexiao {
+      float: right;
+      margin-top: -9px;
+      width: 37px;
+      height: 37px; }
+    .productlist > .productlist_header .item {
+      display: -webkit-box;
+      -webkit-box-orient: horizontal;
+      padding: 6px 0 10px 0;
+      line-height: 1.4; }
+    .productlist > .productlist_header .item-summary {
+      -webkit-box-flex: 2;
+      /*border: 1px solid red;*/
+      display: block;
+      text-align: center; }
+    .productlist > .productlist_header .rate {
+      margin-top: -17px; }
+    .productlist > .productlist_header .ratenum {
+      font-size: 26px; }
+    .productlist > .productlist_header .priceColor {
+      color: #FF3931; }
+    .productlist > .productlist_header .miaoshu {
+      color: #878787;
+      font-size: 12px; }
+    .productlist > .productlist_header .jianTou {
+      color: grey;
+      font-size: 24px; }
+    .productlist > .productlist_header .progress-div {
+      display: -webkit-box; }
+      .productlist > .productlist_header .progress-div > .first-progress {
+        -webkit-box-flex: 6; }
+      .productlist > .productlist_header .progress-div > .second-progress {
+        -webkit-box-flex: 1; }
+  .productlist .itemmore {
+    width: 100%;
+    background: #f0f0f0;
+    padding-bottom: 10px;
+    border-top: 1px solid #DADADC;
+    border-bottom: 1px solid #DADADC; }
+    .productlist .itemmore > .itemmore_center {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-box-pack: center;
+      /*border: 1px solid red;*/
+      width: 90%;
+      margin: 0 auto; }
+      .productlist .itemmore > .itemmore_center > .licaiDiv {
+        margin-top: 5px; }
+        .productlist .itemmore > .itemmore_center > .licaiDiv > .miaoshu {
+          font-size: 13px; }
+        .productlist .itemmore > .itemmore_center > .licaiDiv > .licai > .checkboxStyle {
+          width: 20px;
+          height: 20px;
+          display: inline-block;
+          margin-right: 5px; }
+        .productlist .itemmore > .itemmore_center > .licaiDiv > .licai > .protocolStyle {
+          font-size: 13px;
+          display: inline-block;
+          position: absolute;
+          color: #1C1C1C; }
+          .productlist .itemmore > .itemmore_center > .licaiDiv > .licai > .protocolStyle > span:nth-child(2) {
+            color: #FF3830; }
+  .productlist .itemore-summary {
+    display: block;
+    line-height: 40px; }
+    .productlist .itemore-summary > .itemmore-input {
+      width: 100%;
+      background: white;
+      border: 1px solid #DADADC; }
+  .productlist .itemore-summary .buymoney {
+    width: 100%;
+    height: 36px;
+    border-radius: 3px; }
+  .productlist .option {
+    display: -webkit-box;
+    -webkit-box-orient: horizontal;
+    margin-top: 20px; }
+  .productlist .itemore-summary .optionbut {
+    height: 35px;
+    /*width: 44%;*/
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    display: block;
+    /*font-weight: bold;*/ }
+  .productlist .itemore-summary .opt1 {
+    color: #3A3A3A;
+    background-color: #E0E0E0;
+    -webkit-box-flex: 1;
+    -webkit-appearance: none; }
+  .productlist .itemore-summary .opt2 {
+    color: #ffffff;
+    background-color: #3FA1ED;
+    -webkit-box-flex: 1;
+    margin-left: 10px;
+    -webkit-appearance: none; }
 
-/* line 1, ../../app/theme/sass/components/_progress.scss */
 .progress {
   display: -webkit-box;
   -webkit-box-orient: horizontal;
   background-color: #ffffff;
-  -webkit-box-pack: center;
-}
-/* line 6, ../../app/theme/sass/components/_progress.scss */
-.progress > .progress_chart {
-  width: 80%;
-  height: 5px;
-  border-radius: 2px;
-  background-color: #E1E1E1;
-  display: block;
-  overflow: hidden;
-}
-/* line 13, ../../app/theme/sass/components/_progress.scss */
-.progress > .progress_chart > .progress_totalnum {
-  height: 100%;
-  background-color: #3FA1ED;
-  display: block;
-  border-radius: 2px;
-}
-/* line 20, ../../app/theme/sass/components/_progress.scss */
-.progress > .progress_num {
-  display: block;
-  margin-top: -10px;
-  margin-left: 10px;
-}
+  -webkit-box-pack: center; }
+  .progress > .progress_chart {
+    width: 80%;
+    height: 5px;
+    border-radius: 2px;
+    background-color: #E1E1E1;
+    display: block;
+    overflow: hidden; }
+    .progress > .progress_chart > .progress_totalnum {
+      height: 100%;
+      background-color: #3FA1ED;
+      display: block;
+      border-radius: 2px; }
+  .progress > .progress_num {
+    display: block;
+    margin-top: -10px;
+    margin-left: 10px; }
 
-/* line 1, ../../app/theme/sass/components/_myinvestcell.scss */
 .myinvestcell {
   margin-bottom: 10px;
   color: #1C1C1C;
   padding-top: 10px;
   padding-bottom: 5px;
   background: white;
-  border-top: 1px;
-}
-/* line 8, ../../app/theme/sass/components/_myinvestcell.scss */
-.myinvestcell > div {
-  padding-bottom: 5px;
-}
-/* line 11, ../../app/theme/sass/components/_myinvestcell.scss */
-.myinvestcell > div > span {
-  padding-left: 15px;
-  padding-right: 15px;
-}
-/* line 16, ../../app/theme/sass/components/_myinvestcell.scss */
-.myinvestcell > div > span:last-child {
-  float: right;
-}
-/* line 19, ../../app/theme/sass/components/_myinvestcell.scss */
-.myinvestcell > div > img {
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  margin-left: -9px;
-}
-/* line 25, ../../app/theme/sass/components/_myinvestcell.scss */
-.myinvestcell > div .myinvestcell-price {
-  color: #FF3830;
-}
-/* line 29, ../../app/theme/sass/components/_myinvestcell.scss */
-.myinvestcell > div:first-child {
-  font-size: 15px;
-}
-/* line 32, ../../app/theme/sass/components/_myinvestcell.scss */
-.myinvestcell > div:last-child {
-  font-size: 13px;
-}
+  border-top: 1px; }
+  .myinvestcell > div {
+    padding-bottom: 5px; }
+    .myinvestcell > div > span {
+      padding-left: 15px;
+      padding-right: 15px; }
+    .myinvestcell > div > span:last-child {
+      float: right; }
+    .myinvestcell > div > img {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      margin-left: -9px; }
+    .myinvestcell > div .myinvestcell-price {
+      color: #FF3830; }
+  .myinvestcell > div:first-child {
+    font-size: 15px; }
+  .myinvestcell > div:last-child {
+    font-size: 13px; }
 
-/* line 1, ../../app/theme/sass/components/_ScrolHeader.scss */
 ::-webkit-scrollbar {
   width: 0px;
-  height: 0px;
-}
+  height: 0px; }
 
-/* line 5, ../../app/theme/sass/components/_ScrolHeader.scss */
 .nav_header {
   padding: 10px 0px 10px 0px;
   color: #1C1C1C;
   background: white;
   margin-bottom: 10px;
-  overflow-x: scroll;
-}
-/* line 15, ../../app/theme/sass/components/_ScrolHeader.scss */
-.nav_header > div > span {
-  float: left;
-}
-/* line 17, ../../app/theme/sass/components/_ScrolHeader.scss */
-.nav_header > div > span > span {
-  padding-left: 10px;
-  padding-right: 10px;
-}
-/* line 23, ../../app/theme/sass/components/_ScrolHeader.scss */
-.nav_header .hight-light {
-  color: #3FA9F5;
-}
+  overflow-x: scroll; }
+  .nav_header > div > span {
+    float: left; }
+    .nav_header > div > span > span {
+      padding-left: 10px;
+      padding-right: 10px; }
+  .nav_header .hight-light {
+    color: #3FA9F5; }
 
-/* line 1, ../../app/theme/sass/components/_twobtnalert.scss */
 .twobtnalert {
   display: table;
   width: 100%;
@@ -949,585 +603,405 @@ input[type="button"] {
   opacity: 0.3;
   z-index: 999;
   background-color: rgba(0, 0, 0, 0.5);
-  top: 0;
-}
+  top: 0; }
 
-/* line 1, ../../app/theme/sass/components/_qsfooter.scss */
 .qsfooter {
   position: fixed;
   bottom: 0;
   width: 100%;
   background-color: #f2f2f2;
-  height: 8rem;
-}
-/* line 7, ../../app/theme/sass/components/_qsfooter.scss */
-.qsfooter .footer-item {
-  display: inline-block;
-  width: 25%;
-  text-align: center;
-  font-size: 2.5rem;
-}
-/* line 12, ../../app/theme/sass/components/_qsfooter.scss */
-.qsfooter .footer-item > img {
-  width: 2.5rem;
-  vertical-align: middle;
-}
-/* line 16, ../../app/theme/sass/components/_qsfooter.scss */
-.qsfooter .footer-item > div {
-  height: 4rem;
-}
-/* line 20, ../../app/theme/sass/components/_qsfooter.scss */
-.qsfooter .active {
-  color: #00b2ff;
-}
+  height: 8rem; }
+  .qsfooter .footer-item {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    font-size: 2.5rem; }
+    .qsfooter .footer-item > img {
+      width: 2.5rem;
+      vertical-align: middle; }
+    .qsfooter .footer-item > div {
+      height: 4rem; }
+  .qsfooter .active {
+    color: #00b2ff; }
 
-/* line 1, ../../app/theme/sass/components/_DownLoadHeader.scss */
 .DownLoadHeader {
   height: 44px;
   width: 100%;
   background: #29343e;
   color: #E4E0E0;
-  font-size: 12px;
-}
-/* line 8, ../../app/theme/sass/components/_DownLoadHeader.scss */
-.DownLoadHeader > div {
-  float: left;
-  height: 100%;
-  width: 45px;
-}
-/* line 12, ../../app/theme/sass/components/_DownLoadHeader.scss */
-.DownLoadHeader > div > i {
-  margin-top: 16px;
-  margin-left: 18px;
-  display: block;
-}
-/* line 19, ../../app/theme/sass/components/_DownLoadHeader.scss */
-.DownLoadHeader > img {
-  width: 33px;
-  height: 33px;
-  margin-top: 6px;
-  float: left;
-}
-/* line 25, ../../app/theme/sass/components/_DownLoadHeader.scss */
-.DownLoadHeader > span {
-  margin-top: 12px;
-  margin-left: 5px;
-  float: left;
-}
-/* line 30, ../../app/theme/sass/components/_DownLoadHeader.scss */
-.DownLoadHeader > .download {
-  height: 25px;
-  width: 75px;
-  border: none;
-  font-size: 12px;
-  border-radius: 5px;
-  color: white;
-  background: #fd8f25;
-  float: right;
-  margin-top: 10px;
-  margin-right: 7px;
-  -webkit-appearance: none;
-}
+  font-size: 12px; }
+  .DownLoadHeader > div {
+    float: left;
+    height: 100%;
+    width: 45px; }
+    .DownLoadHeader > div > i {
+      margin-top: 16px;
+      margin-left: 18px;
+      display: block; }
+  .DownLoadHeader > img {
+    width: 33px;
+    height: 33px;
+    margin-top: 6px;
+    float: left; }
+  .DownLoadHeader > span {
+    margin-top: 12px;
+    margin-left: 5px;
+    float: left; }
+  .DownLoadHeader > .download {
+    height: 25px;
+    width: 75px;
+    border: none;
+    font-size: 12px;
+    border-radius: 5px;
+    color: white;
+    background: #fd8f25;
+    float: right;
+    margin-top: 10px;
+    margin-right: 7px;
+    -webkit-appearance: none; }
 
-/* line 1, ../../app/theme/sass/pages/_home.scss */
 .home {
   height: 100%;
   width: 100%;
   background-image: url(/images/bg.jpg);
   text-align: center;
   background-repeat: no-repeat;
-  background-size: cover;
-}
-/* line 8, ../../app/theme/sass/pages/_home.scss */
-.home .top {
-  height: 2rem;
-  background-color: rgba(255, 0, 0, 0.6);
-  color: white;
-  line-height: 2rem;
-}
-/* line 14, ../../app/theme/sass/pages/_home.scss */
-.home .pop {
-  width: 50%;
-  height: 10rem;
-  position: absolute;
-  margin-left: 25%;
-  top: 25%;
-  margin-top: 2rem;
-  background-color: #c0bc4a;
-  z-index: 999;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  opacity: 0.9;
-}
-/* line 26, ../../app/theme/sass/pages/_home.scss */
-.home .pop > div {
-  height: 2rem;
-  line-height: 2rem;
-  color: white;
-}
-/* line 32, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop {
-  width: 50%;
-  height: 50%;
-  float: left;
-  border-right: solid 0.3rem;
-  border-right-color: #d4ffdb;
-  border-bottom: solid 0.3rem;
-  border-bottom-color: #d4ffdb;
-  position: relative;
-  box-sizing: border-box;
-}
-/* line 42, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content {
-  width: 80%;
-  height: 70%;
-  left: 10%;
-  position: absolute;
-  top: 15%;
-  background-color: rgba(15, 114, 15, 0.4);
-  border-radius: 0.4rem;
-}
-/* line 50, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .content_1 {
-  width: 9rem;
-  display: inline-block;
-  position: relative;
-}
-/* line 54, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .content_1 .first {
-  position: absolute;
-  left: 0;
-}
-/* line 58, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .content_1 .middle {
-  color: gold;
-}
-/* line 61, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .content_1 .right {
-  position: absolute;
-  right: 0;
-}
-/* line 66, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .title {
-  color: white;
-  font-size: 2rem;
-}
-/* line 70, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .item {
-  color: white;
-  font-size: 0.5rem;
-}
-/* line 73, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .item > span {
-  margin-right: 0.8rem;
-}
-/* line 76, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .item .infoC {
-  width: 50%;
-  display: inline-block;
-}
-/* line 81, ../../app/theme/sass/pages/_home.scss */
-.home .lefttop .content .reclast {
-  width: 7rem;
-  display: inline-block;
-  text-align: right;
-}
-/* line 88, ../../app/theme/sass/pages/_home.scss */
-.home .righttop {
-  width: 50%;
-  height: 50%;
-  float: right;
-  position: relative;
-  box-sizing: border-box;
-  border-bottom: solid 0.3rem;
-  border-bottom-color: #d4ffdb;
-}
-/* line 96, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: rgba(15, 114, 15, 0.4);
-  border-radius: 0.4rem;
-}
-/* line 102, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .content_1 {
-  width: 11rem;
-  display: inline-block;
-  position: relative;
-}
-/* line 106, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .content_1 .first {
-  position: absolute;
-  left: 0;
-}
-/* line 110, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .content_1 .middle {
-  color: gold;
-}
-/* line 113, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .content_1 .right {
-  position: absolute;
-  right: 0;
-}
-/* line 118, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .title {
-  color: white;
-  font-size: 2rem;
-}
-/* line 122, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .item {
-  margin-top: 0.5rem;
-  color: white;
-  font-size: 1rem;
-}
-/* line 126, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .item > span {
-  margin-right: 1rem;
-}
-/* line 129, ../../app/theme/sass/pages/_home.scss */
-.home .righttop .content .item > span:first-child {
-  margin-right: 1rem;
-  width: 7rem;
-  display: inline-block;
-  background-color: #005000;
-  border-radius: 0.2rem;
-}
-/* line 139, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom {
-  width: 50%;
-  height: 50%;
-  float: left;
-  border-right: solid 0.3rem;
-  border-right-color: #d4ffdb;
-  position: relative;
-  box-sizing: border-box;
-}
-/* line 147, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content {
-  width: 80%;
-  height: 70%;
-  left: 10%;
-  position: absolute;
-  top: 15%;
-  background-color: rgba(15, 114, 15, 0.4);
-  border-radius: 0.4rem;
-}
-/* line 155, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .content_1 {
-  width: 9rem;
-  display: inline-block;
-  position: relative;
-}
-/* line 159, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .content_1 .first {
-  position: absolute;
-  left: 0;
-}
-/* line 163, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .content_1 .middle {
-  color: gold;
-}
-/* line 166, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .content_1 .right {
-  position: absolute;
-  right: 0;
-}
-/* line 171, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .title {
-  color: white;
-  font-size: 2rem;
-}
-/* line 175, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .item {
-  color: white;
-  font-size: 0.5rem;
-}
-/* line 178, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .item > span {
-  margin-right: 0.8rem;
-}
-/* line 181, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .item .infoC {
-  width: 50%;
-  display: inline-block;
-}
-/* line 186, ../../app/theme/sass/pages/_home.scss */
-.home .leftbottom .content .reclast {
-  width: 7rem;
-  display: inline-block;
-  text-align: right;
-}
-/* line 193, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom {
-  width: 50%;
-  height: 50%;
-  float: right;
-  position: relative;
-  box-sizing: border-box;
-  border-bottom: solid 0.3rem;
-  border-bottom-color: #d4ffdb;
-}
-/* line 201, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content {
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  background-color: rgba(15, 114, 15, 0.4);
-  border-radius: 0.4rem;
-  padding-top: 1rem;
-}
-/* line 208, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .content_1 {
-  width: 15rem;
-  display: inline-block;
-  position: relative;
-}
-/* line 212, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .content_1 .first {
-  position: absolute;
-  left: 0;
-}
-/* line 216, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .content_1 .middle {
-  color: gold;
-}
-/* line 219, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .content_1 .right {
-  position: absolute;
-  right: 0;
-}
-/* line 224, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .title {
-  color: white;
-  font-size: 2rem;
-}
-/* line 228, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .item {
-  margin-top: 0.5rem;
-  color: white;
-  font-size: 1rem;
-}
-/* line 232, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .item > span {
-  margin-right: 1rem;
-}
-/* line 235, ../../app/theme/sass/pages/_home.scss */
-.home .rightbottom .content .item > span:first-child {
-  margin-right: 1rem;
-  width: 7rem;
-  display: inline-block;
-  background-color: #005000;
-  border-radius: 0.2rem;
-}
+  background-size: cover; }
+  .home .top {
+    height: 2rem;
+    background-color: rgba(255, 0, 0, 0.6);
+    color: white;
+    line-height: 2rem; }
+  .home .pop {
+    width: 50%;
+    height: 10rem;
+    position: absolute;
+    margin-left: 25%;
+    top: 25%;
+    margin-top: 2rem;
+    background-color: #c0bc4a;
+    z-index: 999;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    opacity: 0.9; }
+    .home .pop > div {
+      height: 2rem;
+      line-height: 2rem;
+      color: white; }
+  .home .lefttop {
+    width: 50%;
+    height: 50%;
+    float: left;
+    border-right: solid 0.3rem;
+    border-right-color: #d4ffdb;
+    border-bottom: solid 0.3rem;
+    border-bottom-color: #d4ffdb;
+    position: relative;
+    box-sizing: border-box; }
+    .home .lefttop .content {
+      width: 80%;
+      height: 70%;
+      left: 10%;
+      position: absolute;
+      top: 15%;
+      background-color: rgba(15, 114, 15, 0.4);
+      border-radius: 0.4rem; }
+      .home .lefttop .content .content_1 {
+        width: 9rem;
+        display: inline-block;
+        position: relative; }
+        .home .lefttop .content .content_1 .first {
+          position: absolute;
+          left: 0; }
+        .home .lefttop .content .content_1 .middle {
+          color: gold; }
+        .home .lefttop .content .content_1 .right {
+          position: absolute;
+          right: 0; }
+      .home .lefttop .content .title {
+        color: white;
+        font-size: 2rem; }
+      .home .lefttop .content .item {
+        color: white;
+        font-size: 0.5rem; }
+        .home .lefttop .content .item > span {
+          margin-right: 0.8rem; }
+        .home .lefttop .content .item .infoC {
+          width: 50%;
+          display: inline-block; }
+      .home .lefttop .content .reclast {
+        width: 7rem;
+        display: inline-block;
+        text-align: right; }
+  .home .righttop {
+    width: 50%;
+    height: 50%;
+    float: right;
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: solid 0.3rem;
+    border-bottom-color: #d4ffdb; }
+    .home .righttop .content {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(15, 114, 15, 0.4);
+      border-radius: 0.4rem; }
+      .home .righttop .content .content_1 {
+        width: 11rem;
+        display: inline-block;
+        position: relative; }
+        .home .righttop .content .content_1 .first {
+          position: absolute;
+          left: 0; }
+        .home .righttop .content .content_1 .middle {
+          color: gold; }
+        .home .righttop .content .content_1 .right {
+          position: absolute;
+          right: 0; }
+      .home .righttop .content .title {
+        color: white;
+        font-size: 2rem; }
+      .home .righttop .content .item {
+        margin-top: 0.5rem;
+        color: white;
+        font-size: 1rem; }
+        .home .righttop .content .item > span {
+          margin-right: 1rem; }
+        .home .righttop .content .item > span:first-child {
+          margin-right: 1rem;
+          width: 7rem;
+          display: inline-block;
+          background-color: #005000;
+          border-radius: 0.2rem; }
+  .home .leftbottom {
+    width: 50%;
+    height: 50%;
+    float: left;
+    border-right: solid 0.3rem;
+    border-right-color: #d4ffdb;
+    position: relative;
+    box-sizing: border-box; }
+    .home .leftbottom .content {
+      width: 80%;
+      height: 70%;
+      left: 10%;
+      position: absolute;
+      top: 15%;
+      background-color: rgba(15, 114, 15, 0.4);
+      border-radius: 0.4rem; }
+      .home .leftbottom .content .content_1 {
+        width: 9rem;
+        display: inline-block;
+        position: relative; }
+        .home .leftbottom .content .content_1 .first {
+          position: absolute;
+          left: 0; }
+        .home .leftbottom .content .content_1 .middle {
+          color: gold; }
+        .home .leftbottom .content .content_1 .right {
+          position: absolute;
+          right: 0; }
+      .home .leftbottom .content .title {
+        color: white;
+        font-size: 2rem; }
+      .home .leftbottom .content .item {
+        color: white;
+        font-size: 0.5rem; }
+        .home .leftbottom .content .item > span {
+          margin-right: 0.8rem; }
+        .home .leftbottom .content .item .infoC {
+          width: 50%;
+          display: inline-block; }
+      .home .leftbottom .content .reclast {
+        width: 7rem;
+        display: inline-block;
+        text-align: right; }
+  .home .rightbottom {
+    width: 50%;
+    height: 50%;
+    float: right;
+    position: relative;
+    box-sizing: border-box;
+    border-bottom: solid 0.3rem;
+    border-bottom-color: #d4ffdb; }
+    .home .rightbottom .content {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      background-color: rgba(15, 114, 15, 0.4);
+      border-radius: 0.4rem;
+      padding-top: 1rem; }
+      .home .rightbottom .content .content_1 {
+        width: 15rem;
+        display: inline-block;
+        position: relative; }
+        .home .rightbottom .content .content_1 .first {
+          position: absolute;
+          left: 0; }
+        .home .rightbottom .content .content_1 .middle {
+          color: gold; }
+        .home .rightbottom .content .content_1 .right {
+          position: absolute;
+          right: 0; }
+      .home .rightbottom .content .title {
+        color: white;
+        font-size: 2rem; }
+      .home .rightbottom .content .item {
+        margin-top: 0.5rem;
+        color: white;
+        font-size: 1rem; }
+        .home .rightbottom .content .item > span {
+          margin-right: 1rem; }
+        .home .rightbottom .content .item > span:first-child {
+          margin-right: 1rem;
+          width: 7rem;
+          display: inline-block;
+          background-color: #005000;
+          border-radius: 0.2rem; }
 
-/* line 1, ../../app/theme/sass/pages/_guanka.scss */
 .guanka {
   height: 736px;
   width: 100%;
   background-image: url(/images/yx.png);
   text-align: center;
   background-repeat: no-repeat;
-  background-size: 100% 736px;
-}
-/* line 8, ../../app/theme/sass/pages/_guanka.scss */
-.guanka > img {
-  width: 55px;
-}
-/* line 11, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .guan1 {
-  position: absolute;
-  top: 203px;
-  left: 31%;
-}
-/* line 16, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .guan2 {
-  position: absolute;
-  top: 317px;
-  left: 75%;
-}
-/* line 21, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .guan3 {
-  position: absolute;
-  top: 471px;
-  left: 9%;
-}
-/* line 26, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .guan4 {
-  position: absolute;
-  top: 495px;
-  left: 81%;
-}
-/* line 31, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .guan5 {
-  position: absolute;
-  top: 627px;
-  left: 33%;
-}
-/* line 36, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .bx {
-  width: 100px;
-}
-/* line 39, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .bx1 {
-  position: absolute;
-  top: 213px;
-  left: 5%;
-}
-/* line 44, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .bx2 {
-  position: absolute;
-  top: 297px;
-  left: 49%;
-}
-/* line 49, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .bx3 {
-  position: absolute;
-  top: 443px;
-  left: 16%;
-}
-/* line 54, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .bx4 {
-  position: absolute;
-  top: 536px;
-  left: 62%;
-}
-/* line 59, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .bx5 {
-  position: absolute;
-  top: 640px;
-  left: 5%;
-}
-/* line 64, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .title {
-  color: white;
-  font-size: 1.5rem;
-}
-/* line 68, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .title1 {
-  position: absolute;
-  top: 263px;
-  left: 29%;
-}
-/* line 73, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .title2 {
-  position: absolute;
-  top: 375px;
-  left: 72%;
-}
-/* line 78, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .title3 {
-  position: absolute;
-  top: 534px;
-  left: 1%;
-}
-/* line 83, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .title4 {
-  position: absolute;
-  top: 473px;
-  left: 83%;
-}
-/* line 88, ../../app/theme/sass/pages/_guanka.scss */
-.guanka .title5 {
-  position: absolute;
-  top: 606px;
-  left: 31%;
-}
+  background-size: 100% 736px; }
+  .guanka > img {
+    width: 55px; }
+  .guanka .guan1 {
+    position: absolute;
+    top: 203px;
+    left: 31%; }
+  .guanka .guan2 {
+    position: absolute;
+    top: 317px;
+    left: 75%; }
+  .guanka .guan3 {
+    position: absolute;
+    top: 471px;
+    left: 9%; }
+  .guanka .guan4 {
+    position: absolute;
+    top: 495px;
+    left: 81%; }
+  .guanka .guan5 {
+    position: absolute;
+    top: 627px;
+    left: 33%; }
+  .guanka .bx {
+    width: 100px; }
+  .guanka .bx1 {
+    position: absolute;
+    top: 213px;
+    left: 5%; }
+  .guanka .bx2 {
+    position: absolute;
+    top: 297px;
+    left: 49%; }
+  .guanka .bx3 {
+    position: absolute;
+    top: 443px;
+    left: 16%; }
+  .guanka .bx4 {
+    position: absolute;
+    top: 536px;
+    left: 62%; }
+  .guanka .bx5 {
+    position: absolute;
+    top: 640px;
+    left: 5%; }
+  .guanka .title {
+    color: white;
+    font-size: 1.5rem; }
+  .guanka .title1 {
+    position: absolute;
+    top: 263px;
+    left: 29%; }
+  .guanka .title2 {
+    position: absolute;
+    top: 375px;
+    left: 72%; }
+  .guanka .title3 {
+    position: absolute;
+    top: 534px;
+    left: 1%; }
+  .guanka .title4 {
+    position: absolute;
+    top: 473px;
+    left: 83%; }
+  .guanka .title5 {
+    position: absolute;
+    top: 606px;
+    left: 31%; }
 
-/* line 1, ../../app/theme/sass/pages/_guard1.scss */
 .guard1 {
   height: 100%;
   background-image: url(/images/guanka.png);
   background-size: contain;
-  text-align: center;
-}
-/* line 6, ../../app/theme/sass/pages/_guard1.scss */
-.guard1 .ka1 {
-  width: 80%;
-  margin-top: 25%;
-}
-/* line 10, ../../app/theme/sass/pages/_guard1.scss */
-.guard1 .ka2 {
-  width: 80%;
-  margin-top: 25%;
-}
+  text-align: center; }
+  .guard1 .ka1 {
+    width: 80%;
+    margin-top: 25%; }
+  .guard1 .ka2 {
+    width: 80%;
+    margin-top: 25%; }
 
-/* line 1, ../../app/theme/sass/pages/_guard2.scss */
 .guard1 {
   height: 100%;
   background-image: url(/images/guanka.png);
   background-size: contain;
-  text-align: center;
-}
-/* line 6, ../../app/theme/sass/pages/_guard2.scss */
-.guard1 .ka1 {
-  width: 80%;
-  margin-top: 25%;
-}
-/* line 10, ../../app/theme/sass/pages/_guard2.scss */
-.guard1 .ka2 {
-  width: 80%;
-  margin-top: 25%;
-}
+  text-align: center; }
+  .guard1 .ka1 {
+    width: 80%;
+    margin-top: 25%; }
+  .guard1 .ka2 {
+    width: 80%;
+    margin-top: 25%; }
 
-/* line 1, ../../app/theme/sass/pages/_question.scss */
 .question {
   height: 100%;
-  background-color: #ebebeb;
-}
-/* line 4, ../../app/theme/sass/pages/_question.scss */
-.question .header {
-  width: 100%;
-  height: 60px;
-  line-height: 60px;
-  background-image: url(/images/head1.png);
-  color: white;
-  font-size: 20px;
-  font-weight: bolder;
-  text-align: center;
-}
-/* line 15, ../../app/theme/sass/pages/_question.scss */
-.question .title {
-  height: 40px;
-  line-height: 40px;
-  color: white;
-  background-image: url(/images/head2.png);
-}
-/* line 21, ../../app/theme/sass/pages/_question.scss */
-.question .title .back {
-  width: 10%;
-  display: inline-block;
-  text-align: center;
-  font-weight: bolder;
-}
-/* line 28, ../../app/theme/sass/pages/_question.scss */
-.question .content {
-  margin-top: 30px;
-  padding-left: 10px;
-  color: black;
-  font-size: 16px;
-  font-weight: bolder;
-  line-height: 30px;
-}
-/* line 37, ../../app/theme/sass/pages/_question.scss */
-.question .answerItem {
-  margin-left: 10px;
-  margin-right: 10px;
-  margin-top: 1px;
-  background-color: white;
-  height: 40px;
-  line-height: 40px;
-  padding-left: 10px;
-}
-/* line 46, ../../app/theme/sass/pages/_question.scss */
-.question .button {
-  margin-top: 40px;
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 20px;
-}
+  background-color: #ebebeb; }
+  .question .header {
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    background-image: url(/images/head1.png);
+    color: white;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center; }
+  .question .title {
+    height: 40px;
+    line-height: 40px;
+    color: white;
+    background-image: url(/images/head2.png); }
+    .question .title .back {
+      width: 10%;
+      display: inline-block;
+      text-align: center;
+      font-weight: bolder; }
+  .question .content {
+    margin-top: 30px;
+    padding-left: 10px;
+    color: black;
+    font-size: 16px;
+    font-weight: bolder;
+    line-height: 30px; }
+  .question .answerItem {
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 1px;
+    background-color: white;
+    height: 40px;
+    line-height: 40px;
+    padding-left: 10px; }
+  .question .button {
+    margin-top: 40px;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-bottom: 20px; }
 
-/* line 1, ../../app/theme/sass/helper/_reward.scss */
 .bidlcjDialog {
   width: 100%;
   height: 100%;
@@ -1535,78 +1009,54 @@ input[type="button"] {
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 22;
-}
-/* line 9, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .boxMain {
-  text-align: center;
-}
-/* line 11, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .boxMain img {
-  width: 90%;
-}
-/* line 15, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .boxMain .signed {
-  width: 70%;
-  position: absolute;
-  left: 15%;
-  padding-top: 10px;
-}
-/* line 22, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .kuang {
-  background-image: url(/images/kuang.png);
-  background-repeat: no-repeat;
-  background-size: 200px;
-  width: 200px;
-  height: 100px;
-  margin: 0 auto;
-  text-align: center;
-}
-/* line 30, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .kuang .kuang-title {
-  color: red;
-  font-size: 18px;
-  font-weight: bolder;
-  padding: 10px;
-  padding-bottom: 2px;
-}
-/* line 37, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .kuang .jinbi {
-  text-align: center;
-}
-/* line 39, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .kuang .jinbi img {
-  width: 35px;
-  height: 35px;
-  display: inline-block;
-  vertical-align: top;
-}
-/* line 45, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .kuang .jinbi span {
-  height: 35px;
-  line-height: 35px;
-  display: inline-block;
-  margin-left: 10px;
-  font-size: 24px;
-  color: black;
-  font-weight: bolder;
-}
-/* line 56, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .reward-ok {
-  text-align: center;
-}
-/* line 58, ../../app/theme/sass/helper/_reward.scss */
-.bidlcjDialog .reward-ok img {
-  width: 100px;
-  margin-top: 15px;
-}
+  z-index: 22; }
+  .bidlcjDialog .boxMain {
+    text-align: center; }
+    .bidlcjDialog .boxMain img {
+      width: 90%; }
+    .bidlcjDialog .boxMain .signed {
+      width: 70%;
+      position: absolute;
+      left: 15%;
+      padding-top: 10px; }
+  .bidlcjDialog .kuang {
+    background-image: url(/images/kuang.png);
+    background-repeat: no-repeat;
+    background-size: 200px;
+    width: 200px;
+    height: 100px;
+    margin: 0 auto;
+    text-align: center; }
+    .bidlcjDialog .kuang .kuang-title {
+      color: red;
+      font-size: 18px;
+      font-weight: bolder;
+      padding: 10px;
+      padding-bottom: 2px; }
+    .bidlcjDialog .kuang .jinbi {
+      text-align: center; }
+      .bidlcjDialog .kuang .jinbi img {
+        width: 35px;
+        height: 35px;
+        display: inline-block;
+        vertical-align: top; }
+      .bidlcjDialog .kuang .jinbi span {
+        height: 35px;
+        line-height: 35px;
+        display: inline-block;
+        margin-left: 10px;
+        font-size: 24px;
+        color: black;
+        font-weight: bolder; }
+  .bidlcjDialog .reward-ok {
+    text-align: center; }
+    .bidlcjDialog .reward-ok img {
+      width: 100px;
+      margin-top: 15px; }
 
-/* line 65, ../../app/theme/sass/helper/_reward.scss */
 .display {
-  display: none;
-}
+  display: none; }
 
-/* line 1, ../../app/theme/sass/helper/_total.scss */
 .totalDialog {
   width: 100%;
   height: 100%;
@@ -1614,622 +1064,461 @@ input[type="button"] {
   left: 0;
   top: 0;
   background-color: rgba(0, 0, 0, 0.7);
-  z-index: 22;
-}
-/* line 9, ../../app/theme/sass/helper/_total.scss */
-.totalDialog .total-boxMain {
-  text-align: center;
-}
-/* line 11, ../../app/theme/sass/helper/_total.scss */
-.totalDialog .total-boxMain img {
-  width: 300px;
-}
-/* line 15, ../../app/theme/sass/helper/_total.scss */
-.totalDialog .total-boxMain span {
-  position: absolute;
-  display: block;
-  left: 37%;
-  top: 207px;
-  font-size: 24px;
-  color: white;
-}
-/* line 24, ../../app/theme/sass/helper/_total.scss */
-.totalDialog .total-kuang {
-  color: white;
-  text-align: center;
-  padding-top: 10px;
-}
-/* line 29, ../../app/theme/sass/helper/_total.scss */
-.totalDialog .total-reward-ok {
-  text-align: center;
-}
-/* line 31, ../../app/theme/sass/helper/_total.scss */
-.totalDialog .total-reward-ok img {
-  width: 100px;
-  margin-top: 15px;
-}
+  z-index: 22; }
+  .totalDialog .total-boxMain {
+    text-align: center; }
+    .totalDialog .total-boxMain img {
+      width: 300px; }
+    .totalDialog .total-boxMain span {
+      position: absolute;
+      display: block;
+      left: 37%;
+      top: 207px;
+      font-size: 24px;
+      color: white; }
+  .totalDialog .total-kuang {
+    color: white;
+    text-align: center;
+    padding-top: 10px; }
+  .totalDialog .total-reward-ok {
+    text-align: center; }
+    .totalDialog .total-reward-ok img {
+      width: 100px;
+      margin-top: 15px; }
 
-/* line 38, ../../app/theme/sass/helper/_total.scss */
 .display {
-  display: none;
-}
+  display: none; }
 
-/* line 1, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng {
-  overflow-x: hidden;
-}
-/* line 3, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .block {
-  display: block;
-}
-/* line 6, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .swiper_div {
-  background: white;
-  float: left;
+.checkbox {
+  display: table-cell;
+  vertical-align: middle; }
+
+.layout {
+  min-height: 100%;
   position: relative;
-  transition-property: transform;
-  background-color: #efeff4;
-}
-/* line 14, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .marginTop07rem {
-  margin-top: 0.7rem;
-}
-/* line 17, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .topInfo {
-  height: 5rem;
-  line-height: 5rem;
-  padding-left: 1rem;
-  border-bottom: 0.1rem solid;
-  border-bottom-color: #cdcdcd;
-  background-color: white;
-  margin-top: 0.2rem;
-}
-/* line 25, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .topInfo .title {
-  font-size: 2.5rem;
-  color: black;
-}
-/* line 29, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .topInfo .link {
-  color: orange;
-  float: right;
-  margin-right: 1rem;
-  font-size: 2rem;
-}
-/* line 36, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi {
-  background-color: white;
-  padding: 1rem;
-  border-bottom: 0.1rem solid;
-  border-bottom-color: #cdcdcd;
-  text-align: center;
-  height: 6rem;
-  line-height: 6rem;
-}
-/* line 44, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiLeft {
-  display: inline-block;
-  width: 30.33%;
-  vertical-align: top;
-}
-/* line 48, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiLeft > img {
-  height: 3rem;
-  border-radius: 2rem;
-  vertical-align: top;
-  margin-top: 1.5rem;
-}
-/* line 54, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiLeft > span {
-  line-height: 6rem;
-  display: inline-block;
-  height: 6rem;
-  color: black;
-}
-/* line 61, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiRight {
-  display: inline-block;
-  width: 30.33%;
-  vertical-align: top;
-  text-align: right;
-}
-/* line 66, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiRight > img {
-  height: 3rem;
-  border-radius: 2rem;
-  vertical-align: top;
-  margin-top: 1.5rem;
-}
-/* line 72, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiRight > span {
-  line-height: 6rem;
-  display: inline-block;
-  height: 6rem;
-  color: black;
-}
-/* line 79, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiMiddle {
-  display: inline-block;
-  width: 39.33%;
-  height: 6rem;
-  vertical-align: top;
-  text-align: center;
-  font-size: 1.5rem;
-  line-height: 2rem;
-}
-/* line 87, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiMiddle .o {
-  color: orange;
-}
-/* line 90, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .saishi .saishiMiddle .g {
-  color: green;
-}
-/* line 95, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .hongrenbang {
-  height: 5rem;
-  line-height: 5rem;
-  padding: 1rem;
-  background-color: white;
-}
-/* line 100, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .hongrenbang .leftInfo {
-  color: red;
-  font-weight: bold;
-}
-/* line 104, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .hongrenbang .middleInfo {
-  margin-left: 2rem;
-}
-/* line 107, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .hongrenbang .numInfo {
-  float: right;
-  margin-right: 1rem;
-  background-color: red;
-  display: inline-block;
-  width: 3rem;
-  height: 3rem;
-  line-height: 3rem;
-  margin-top: 1rem;
-  border-radius: 1.5rem;
-  text-align: center;
-  color: white;
-  font-size: 1.5rem;
-}
-/* line 121, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .hongrenbang .rightInfo {
-  float: right;
-  margin-right: 1rem;
-}
-/* line 127, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .specialistHome .specialItem {
-  width: 25%;
-  display: inline-block;
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 0rem;
-  background-color: white;
-}
-/* line 136, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .specialistHome .specialItem > img {
-  height: 4rem;
-  border-radius: 2rem;
-  background-color: #ffdcf5;
-}
-/* line 141, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .specialistHome .specialItem .name {
-  font-size: 2rem;
-  color: black;
-}
-/* line 149, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .specialInfo {
-  padding-left: 1rem;
-  height: 6rem;
-  background-color: white;
-  border-bottom: 1px solid;
-  border-bottom-color: #d7d7d7;
-  display: block;
-}
-/* line 156, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .specialInfo > img {
-  width: 4rem;
-  border-radius: 2rem;
-  margin-top: 0.5rem;
-  vertical-align: top;
-}
-/* line 162, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .specialInfo .textInfo {
-  display: inline-block;
-}
-/* line 164, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .specialInfo .textInfo .tTitle {
-  font-size: 2rem;
-  line-height: 3.5rem;
-  color: black;
-}
-/* line 169, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .specialInfo .textInfo .tDesc {
-  font-size: 1.5rem;
-  line-height: 2.5rem;
-}
-/* line 175, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem {
-  height: 6rem;
-  background-color: white;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
-/* line 181, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart {
-  display: inline-block;
-  width: 80%;
-  height: 6rem;
-  vertical-align: top;
-}
-/* line 186, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo {
-  height: 2.5rem;
-  line-height: 2.5rem;
-  font-size: 1.5rem;
-  padding-left: 1rem;
-}
-/* line 191, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .liansai {
-  color: orange;
-}
-/* line 194, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .add {
-  margin-left: 1rem;
-  border: 0.1rem solid;
-  border-radius: 0.2rem;
-  padding: 0.1rem;
-  color: green;
-}
-/* line 201, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .time {
-  float: right;
-  margin-right: 1rem;
-  font-size: 1rem;
-  color: #bebebe;
-}
-/* line 208, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo {
-  height: 3.5rem;
-  line-height: 3.5rem;
-  padding-left: 1rem;
-  text-align: center;
-}
-/* line 213, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .left {
-  float: left;
-}
-/* line 216, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .right {
-  float: right;
-  margin-right: 1rem;
-}
-/* line 222, ../../app/theme/sass/pages/_qiusheng.scss */
-.qiusheng .recList .recItem .saishiItem .rightPart {
-  display: inline-block;
-  width: 20%;
-  line-height: 6rem;
-  box-sizing: border-box;
-  border-left: 0.1rem solid;
-  border-color: #d9d9d9;
-  text-align: center;
-  color: red;
-  height: 6rem;
-}
+  background: #efeff4; }
+  .layout .first_footer {
+    width: 100%;
+    height: 70px;
+    background: transparent;
+    padding-top: 20px;
+    position: relative; }
 
-/* line 2, ../../app/theme/sass/pages/_specialinfo.scss */
+#container {
+  height: 100%; }
+
+.qiusheng {
+  overflow-x: hidden; }
+  .qiusheng .block {
+    display: block; }
+  .qiusheng .swiper_div {
+    background: white;
+    float: left;
+    position: relative;
+    transition-property: transform;
+    background-color: #efeff4; }
+  .qiusheng .marginTop07rem {
+    margin-top: 0.7rem; }
+  .qiusheng .topInfo {
+    height: 5rem;
+    line-height: 5rem;
+    padding-left: 1rem;
+    border-bottom: 0.1rem solid;
+    border-bottom-color: #cdcdcd;
+    background-color: white;
+    margin-top: 0.2rem; }
+    .qiusheng .topInfo .title {
+      font-size: 2.5rem;
+      color: black; }
+    .qiusheng .topInfo .link {
+      color: orange;
+      float: right;
+      margin-right: 1rem;
+      font-size: 2rem; }
+  .qiusheng .saishi {
+    background-color: white;
+    padding: 1rem;
+    border-bottom: 0.1rem solid;
+    border-bottom-color: #cdcdcd;
+    text-align: center;
+    height: 6rem;
+    line-height: 6rem; }
+    .qiusheng .saishi .saishiLeft {
+      display: inline-block;
+      width: 30.33%;
+      vertical-align: top; }
+      .qiusheng .saishi .saishiLeft > img {
+        height: 3rem;
+        border-radius: 2rem;
+        vertical-align: top;
+        margin-top: 1.5rem; }
+      .qiusheng .saishi .saishiLeft > span {
+        line-height: 6rem;
+        display: inline-block;
+        height: 6rem;
+        color: black; }
+    .qiusheng .saishi .saishiRight {
+      display: inline-block;
+      width: 30.33%;
+      vertical-align: top;
+      text-align: right; }
+      .qiusheng .saishi .saishiRight > img {
+        height: 3rem;
+        border-radius: 2rem;
+        vertical-align: top;
+        margin-top: 1.5rem; }
+      .qiusheng .saishi .saishiRight > span {
+        line-height: 6rem;
+        display: inline-block;
+        height: 6rem;
+        color: black; }
+    .qiusheng .saishi .saishiMiddle {
+      display: inline-block;
+      width: 39.33%;
+      height: 6rem;
+      vertical-align: top;
+      text-align: center;
+      font-size: 1.5rem;
+      line-height: 2rem; }
+      .qiusheng .saishi .saishiMiddle .o {
+        color: orange; }
+      .qiusheng .saishi .saishiMiddle .g {
+        color: green; }
+  .qiusheng .hongrenbang {
+    height: 5rem;
+    line-height: 5rem;
+    padding: 1rem;
+    background-color: white; }
+    .qiusheng .hongrenbang .leftInfo {
+      color: red;
+      font-weight: bold; }
+    .qiusheng .hongrenbang .middleInfo {
+      margin-left: 2rem; }
+    .qiusheng .hongrenbang .numInfo {
+      float: right;
+      margin-right: 1rem;
+      background-color: red;
+      display: inline-block;
+      width: 3rem;
+      height: 3rem;
+      line-height: 3rem;
+      margin-top: 1rem;
+      border-radius: 1.5rem;
+      text-align: center;
+      color: white;
+      font-size: 1.5rem; }
+    .qiusheng .hongrenbang .rightInfo {
+      float: right;
+      margin-right: 1rem; }
+  .qiusheng .specialistHome .specialItem {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 0rem;
+    background-color: white; }
+    .qiusheng .specialistHome .specialItem > img {
+      height: 4rem;
+      border-radius: 2rem;
+      background-color: #ffdcf5; }
+    .qiusheng .specialistHome .specialItem .name {
+      font-size: 2rem;
+      color: black; }
+  .qiusheng .recList .recItem .specialInfo {
+    padding-left: 1rem;
+    height: 6rem;
+    background-color: white;
+    border-bottom: 1px solid;
+    border-bottom-color: #d7d7d7;
+    display: block; }
+    .qiusheng .recList .recItem .specialInfo > img {
+      width: 4rem;
+      border-radius: 2rem;
+      margin-top: 0.5rem;
+      vertical-align: top; }
+    .qiusheng .recList .recItem .specialInfo .textInfo {
+      display: inline-block; }
+      .qiusheng .recList .recItem .specialInfo .textInfo .tTitle {
+        font-size: 2rem;
+        line-height: 3.5rem;
+        color: black; }
+      .qiusheng .recList .recItem .specialInfo .textInfo .tDesc {
+        font-size: 1.5rem;
+        line-height: 2.5rem; }
+  .qiusheng .recList .recItem .saishiItem {
+    height: 6rem;
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem; }
+    .qiusheng .recList .recItem .saishiItem .leftPart {
+      display: inline-block;
+      width: 80%;
+      height: 6rem;
+      vertical-align: top; }
+      .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo {
+        height: 2.5rem;
+        line-height: 2.5rem;
+        font-size: 1.5rem;
+        padding-left: 1rem; }
+        .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .liansai {
+          color: orange; }
+        .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .add {
+          margin-left: 1rem;
+          border: 0.1rem solid;
+          border-radius: 0.2rem;
+          padding: 0.1rem;
+          color: green; }
+        .qiusheng .recList .recItem .saishiItem .leftPart .sTopInfo .time {
+          float: right;
+          margin-right: 1rem;
+          font-size: 1rem;
+          color: #bebebe; }
+      .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo {
+        height: 3.5rem;
+        line-height: 3.5rem;
+        padding-left: 1rem;
+        text-align: center; }
+        .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .left {
+          float: left; }
+        .qiusheng .recList .recItem .saishiItem .leftPart .bottomInfo .right {
+          float: right;
+          margin-right: 1rem; }
+    .qiusheng .recList .recItem .saishiItem .rightPart {
+      display: inline-block;
+      width: 20%;
+      line-height: 6rem;
+      box-sizing: border-box;
+      border-left: 0.1rem solid;
+      border-color: #d9d9d9;
+      text-align: center;
+      color: red;
+      height: 6rem; }
+
 .specialinfo .header {
   background-image: url(../images/back.jpg);
-  padding: 1rem;
-}
-/* line 5, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .header .divImg {
-  text-align: center;
-}
-/* line 7, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .header .divImg > img {
-  width: 8rem;
-  border-radius: 4rem;
-  border: 0.1rem solid;
-  border-color: white;
-}
-/* line 14, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .header .name {
-  text-align: center;
-  color: white;
-  font-size: 2.5rem;
-}
-/* line 19, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .header .desc {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  text-align: center;
-  color: white;
-  font-size: 2.5rem;
-}
-/* line 27, ../../app/theme/sass/pages/_specialinfo.scss */
+  padding: 1rem; }
+  .specialinfo .header .divImg {
+    text-align: center; }
+    .specialinfo .header .divImg > img {
+      width: 8rem;
+      border-radius: 4rem;
+      border: 0.1rem solid;
+      border-color: white; }
+  .specialinfo .header .name {
+    text-align: center;
+    color: white;
+    font-size: 2.5rem; }
+  .specialinfo .header .desc {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    text-align: center;
+    color: white;
+    font-size: 2.5rem; }
+
 .specialinfo .tabs {
   line-height: 5rem;
   height: 5rem;
-  font-size: 2.5rem;
-}
-/* line 31, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .tabs .active {
-  display: inline-block;
-  width: 50%;
-  text-align: center;
-  background-color: #004700;
-  color: #e9e905;
-  box-sizing: border-box;
-}
-/* line 39, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .tabs .unactive {
-  display: inline-block;
-  width: 50%;
-  text-align: center;
-  background-color: green;
-  color: white;
-}
-/* line 48, ../../app/theme/sass/pages/_specialinfo.scss */
+  font-size: 2.5rem; }
+  .specialinfo .tabs .active {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    background-color: #004700;
+    color: #e9e905;
+    box-sizing: border-box; }
+  .specialinfo .tabs .unactive {
+    display: inline-block;
+    width: 50%;
+    text-align: center;
+    background-color: green;
+    color: white; }
+
 .specialinfo .items .block {
-  display: block;
-}
-/* line 51, ../../app/theme/sass/pages/_specialinfo.scss */
+  display: block; }
+
 .specialinfo .items .specialItem {
   height: 8rem;
   background-color: white;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
-/* line 57, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart {
-  display: inline-block;
-  width: 80%;
-  height: 8rem;
-  vertical-align: top;
-}
-/* line 62, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart .topInfo {
-  height: 3rem;
-  font-size: 2rem;
-  padding-left: 1rem;
-  height: 3rem;
-}
-/* line 67, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart .topInfo .liansai {
-  color: orange;
-}
-/* line 70, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart .topInfo .add {
-  margin-left: 1rem;
-  border: 1px solid;
-  border-radius: 0.5rem;
-  padding: 0.1rem;
-  color: green;
-}
-/* line 77, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart .topInfo .time {
-  float: right;
-  margin-right: 1rem;
-  font-size: 1.5rem;
-  color: #bebebe;
-}
-/* line 84, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart .bottomInfo {
-  height: 5rem;
-  padding-left: 1rem;
-  line-height: 5rem;
-  text-align: center;
-}
-/* line 89, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart .bottomInfo .left {
-  float: left;
-}
-/* line 92, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .leftPart .bottomInfo .right {
-  float: right;
-  margin-right: 1rem;
-}
-/* line 98, ../../app/theme/sass/pages/_specialinfo.scss */
-.specialinfo .items .specialItem .rightPart {
-  display: inline-block;
-  width: 20%;
-  line-height: 8rem;
-  box-sizing: border-box;
-  border-left: 1px solid;
-  border-color: #d9d9d9;
-  text-align: center;
-  color: red;
-  height: 8rem;
-}
+  margin-bottom: 1rem; }
+  .specialinfo .items .specialItem .leftPart {
+    display: inline-block;
+    width: 80%;
+    height: 8rem;
+    vertical-align: top; }
+    .specialinfo .items .specialItem .leftPart .topInfo {
+      height: 3rem;
+      font-size: 2rem;
+      padding-left: 1rem;
+      height: 3rem; }
+      .specialinfo .items .specialItem .leftPart .topInfo .liansai {
+        color: orange; }
+      .specialinfo .items .specialItem .leftPart .topInfo .add {
+        margin-left: 1rem;
+        border: 1px solid;
+        border-radius: 0.5rem;
+        padding: 0.1rem;
+        color: green; }
+      .specialinfo .items .specialItem .leftPart .topInfo .time {
+        float: right;
+        margin-right: 1rem;
+        font-size: 1.5rem;
+        color: #bebebe; }
+    .specialinfo .items .specialItem .leftPart .bottomInfo {
+      height: 5rem;
+      padding-left: 1rem;
+      line-height: 5rem;
+      text-align: center; }
+      .specialinfo .items .specialItem .leftPart .bottomInfo .left {
+        float: left; }
+      .specialinfo .items .specialItem .leftPart .bottomInfo .right {
+        float: right;
+        margin-right: 1rem; }
+  .specialinfo .items .specialItem .rightPart {
+    display: inline-block;
+    width: 20%;
+    line-height: 8rem;
+    box-sizing: border-box;
+    border-left: 1px solid;
+    border-color: #d9d9d9;
+    text-align: center;
+    color: red;
+    height: 8rem; }
 
-/* line 1, ../../app/theme/sass/pages/_specialist.scss */
 .specialist {
-  height: 100%;
-}
-/* line 3, ../../app/theme/sass/pages/_specialist.scss */
-.specialist .tabs {
-  border-bottom: 0.2rem solid;
-  border-bottom-color: #cdcdcd;
-}
-/* line 7, ../../app/theme/sass/pages/_specialist.scss */
-.specialist .tabItem {
-  display: inline-block;
-  width: 20%;
-  text-align: center;
-  height: 6rem;
-  line-height: 6rem;
-  color: #0000b5;
-  border-right-width: 1px;
-  border-right-style: solid;
-  border-right-color: #cdcdcd;
-  box-sizing: border-box;
-}
-/* line 19, ../../app/theme/sass/pages/_specialist.scss */
-.specialist .tabItemWithoutBorder {
-  display: inline-block;
-  width: 20%;
-  text-align: center;
-  height: 6rem;
-  line-height: 6rem;
-  color: #0000b5;
-}
-/* line 27, ../../app/theme/sass/pages/_specialist.scss */
-.specialist .tabItemWithLine {
-  background-color: gainsboro;
-}
-/* line 30, ../../app/theme/sass/pages/_specialist.scss */
-.specialist .specialItem {
-  width: 25%;
-  display: inline-block;
-  text-align: center;
-  padding-top: 1rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid;
-  border-bottom-color: #cdcdcd;
-  background-color: white;
-  height: 10rem;
-}
-/* line 40, ../../app/theme/sass/pages/_specialist.scss */
-.specialist .specialItem > img {
-  height: 6rem;
-  border-radius: 3rem;
-  background-color: #ffdcf5;
-}
-/* line 45, ../../app/theme/sass/pages/_specialist.scss */
-.specialist .specialItem .name {
-  font-size: 2rem;
-  height: 4rem;
-  line-height: 4rem;
-  color: black;
-}
+  height: 100%; }
+  .specialist .tabs {
+    border-bottom: 0.2rem solid;
+    border-bottom-color: #cdcdcd; }
+  .specialist .tabItem {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    height: 6rem;
+    line-height: 6rem;
+    color: #0000b5;
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: #cdcdcd;
+    box-sizing: border-box; }
+  .specialist .tabItemWithoutBorder {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    height: 6rem;
+    line-height: 6rem;
+    color: #0000b5; }
+  .specialist .tabItemWithLine {
+    background-color: gainsboro; }
+  .specialist .specialItem {
+    width: 25%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid;
+    border-bottom-color: #cdcdcd;
+    background-color: white;
+    height: 10rem; }
+    .specialist .specialItem > img {
+      height: 6rem;
+      border-radius: 3rem;
+      background-color: #ffdcf5; }
+    .specialist .specialItem .name {
+      font-size: 2rem;
+      height: 4rem;
+      line-height: 4rem;
+      color: black; }
 
-/* line 1, ../../app/theme/sass/pages/_hotmatch.scss */
 .hotmatch {
   overflow-x: hidden;
-  margin-bottom: 5rem;
-}
-/* line 4, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .header {
-  line-height: 6rem;
-  background-color: white;
-  text-align: center;
-  margin-bottom: 1rem;
-}
-/* line 9, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .header .left {
-  border-bottom-left-radius: 0.5rem;
-  border-top-left-radius: 0.5rem;
-}
-/* line 13, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .header .right {
-  border-bottom-right-radius: 0.5rem;
-  border-top-right-radius: 0.5rem;
-}
-/* line 17, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .header .on {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  display: inline-block;
-  background-color: #2244ae;
-  line-height: 4rem;
-  color: white;
-  box-sizing: border-box;
-  border: solid 1px;
-  border-color: #2244ae;
-}
-/* line 28, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .header .end {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  display: inline-block;
-  color: #2244ae;
-  line-height: 4rem;
-  border: solid 1px;
-  box-sizing: border-box;
-}
-/* line 38, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi {
-  background-color: white;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  border-bottom: 0.1rem solid;
-  border-bottom-color: #cdcdcd;
-  margin-bottom: 1rem;
-  height: 9rem;
-  line-height: 9rem;
-}
-/* line 47, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiLeft {
-  display: inline-block;
-  width: 30.33%;
-  vertical-align: top;
-  height: 9rem;
-  line-height: 9rem;
-}
-/* line 53, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiLeft > img {
-  height: 5rem;
-  border-radius: 2.5rem;
-  vertical-align: top;
-  margin-top: 2rem;
-}
-/* line 59, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiLeft > span {
-  line-height: 9rem;
-  display: inline-block;
-  height: 9rem;
-  color: black;
-}
-/* line 66, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiRight {
-  display: inline-block;
-  width: 30.33%;
-  vertical-align: top;
-  text-align: right;
-}
-/* line 71, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiRight > img {
-  height: 5rem;
-  border-radius: 2.5rem;
-  vertical-align: top;
-  margin-top: 2rem;
-}
-/* line 77, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiRight > span {
-  line-height: 9rem;
-  display: inline-block;
-  height: 9rem;
-  color: black;
-}
-/* line 84, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiMiddle {
-  display: inline-block;
-  width: 39.33%;
-  height: 9rem;
-  vertical-align: top;
-  text-align: center;
-  font-size: 2rem;
-  line-height: 3rem;
-}
-/* line 92, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiMiddle .o {
-  color: orange;
-  margin-right: 1rem;
-}
-/* line 96, ../../app/theme/sass/pages/_hotmatch.scss */
-.hotmatch .saishi .saishiMiddle .g {
-  color: green;
-}
+  margin-bottom: 5rem; }
+  .hotmatch .header {
+    line-height: 6rem;
+    background-color: white;
+    text-align: center;
+    margin-bottom: 1rem; }
+    .hotmatch .header .left {
+      border-bottom-left-radius: 0.5rem;
+      border-top-left-radius: 0.5rem; }
+    .hotmatch .header .right {
+      border-bottom-right-radius: 0.5rem;
+      border-top-right-radius: 0.5rem; }
+    .hotmatch .header .on {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display: inline-block;
+      background-color: #2244ae;
+      line-height: 4rem;
+      color: white;
+      box-sizing: border-box;
+      border: solid 1px;
+      border-color: #2244ae; }
+    .hotmatch .header .end {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      display: inline-block;
+      color: #2244ae;
+      line-height: 4rem;
+      border: solid 1px;
+      box-sizing: border-box; }
+  .hotmatch .saishi {
+    background-color: white;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    border-bottom: 0.1rem solid;
+    border-bottom-color: #cdcdcd;
+    margin-bottom: 1rem;
+    height: 9rem;
+    line-height: 9rem; }
+    .hotmatch .saishi .saishiLeft {
+      display: inline-block;
+      width: 30.33%;
+      vertical-align: top;
+      height: 9rem;
+      line-height: 9rem; }
+      .hotmatch .saishi .saishiLeft > img {
+        height: 5rem;
+        border-radius: 2.5rem;
+        vertical-align: top;
+        margin-top: 2rem; }
+      .hotmatch .saishi .saishiLeft > span {
+        line-height: 9rem;
+        display: inline-block;
+        height: 9rem;
+        color: black; }
+    .hotmatch .saishi .saishiRight {
+      display: inline-block;
+      width: 30.33%;
+      vertical-align: top;
+      text-align: right; }
+      .hotmatch .saishi .saishiRight > img {
+        height: 5rem;
+        border-radius: 2.5rem;
+        vertical-align: top;
+        margin-top: 2rem; }
+      .hotmatch .saishi .saishiRight > span {
+        line-height: 9rem;
+        display: inline-block;
+        height: 9rem;
+        color: black; }
+    .hotmatch .saishi .saishiMiddle {
+      display: inline-block;
+      width: 39.33%;
+      height: 9rem;
+      vertical-align: top;
+      text-align: center;
+      font-size: 2rem;
+      line-height: 3rem; }
+      .hotmatch .saishi .saishiMiddle .o {
+        color: orange;
+        margin-right: 1rem; }
+      .hotmatch .saishi .saishiMiddle .g {
+        color: green; }
 
-/* line 3, ../../app/theme/sass/pages/_hotmatchdetail.scss */
 .hotmatchdetail .top .saishi {
   background-color: white;
   border-bottom: 0.1rem solid;
@@ -2238,215 +1527,159 @@ input[type="button"] {
   background-image: url("../images/header.jpg");
   background-repeat: no-repeat;
   background-size: 100% 100%;
-  background-origin: content-box;
-}
-/* line 12, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiLeft {
-  display: inline-block;
-  width: 30.33%;
-  vertical-align: top;
-  text-align: center;
-}
-/* line 17, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiLeft > img {
-  width: 3rem;
-  border-radius: 2rem;
-  vertical-align: top;
-  margin-top: 1.5rem;
-  display: block;
-  left: 50%;
-  margin-left: -1.5rem;
-  position: relative;
-  background-color: white;
-}
-/* line 28, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiLeft > span {
-  line-height: 4rem;
-  display: block;
-  height: 4rem;
-  color: white;
-}
-/* line 35, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiRight {
-  display: inline-block;
-  width: 30.33%;
-  vertical-align: top;
-  text-align: center;
-}
-/* line 40, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiRight > img {
-  width: 3rem;
-  border-radius: 2rem;
-  vertical-align: top;
-  margin-top: 1.5rem;
-  display: block;
-  left: 50%;
-  margin-left: -1.5rem;
-  position: relative;
-  background-color: white;
-}
-/* line 51, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiRight > span {
-  line-height: 4rem;
-  display: block;
-  height: 4rem;
-  color: white;
-}
-/* line 58, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiMiddle {
-  display: inline-block;
-  width: 39.33%;
-  height: 8.5rem;
-  vertical-align: top;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 2rem;
-}
-/* line 66, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiMiddle .liansai {
-  height: 2.5rem;
-  line-height: 2.5rem;
-  color: white;
-}
-/* line 70, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiMiddle .liansai .o {
-  margin-right: 1rem;
-}
-/* line 75, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiMiddle .g {
-  color: #00da00;
-  font-size: 4rem;
-  height: 3rem;
-  line-height: 3rem;
-}
-/* line 81, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .top .saishi .saishiMiddle .time {
-  height: 2.5rem;
-  line-height: 2.5rem;
-  color: red;
-}
-/* line 89, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  background-origin: content-box; }
+  .hotmatchdetail .top .saishi .saishiLeft {
+    display: inline-block;
+    width: 30.33%;
+    vertical-align: top;
+    text-align: center; }
+    .hotmatchdetail .top .saishi .saishiLeft > img {
+      width: 3rem;
+      border-radius: 2rem;
+      vertical-align: top;
+      margin-top: 1.5rem;
+      display: block;
+      left: 50%;
+      margin-left: -1.5rem;
+      position: relative;
+      background-color: white; }
+    .hotmatchdetail .top .saishi .saishiLeft > span {
+      line-height: 4rem;
+      display: block;
+      height: 4rem;
+      color: white; }
+  .hotmatchdetail .top .saishi .saishiRight {
+    display: inline-block;
+    width: 30.33%;
+    vertical-align: top;
+    text-align: center; }
+    .hotmatchdetail .top .saishi .saishiRight > img {
+      width: 3rem;
+      border-radius: 2rem;
+      vertical-align: top;
+      margin-top: 1.5rem;
+      display: block;
+      left: 50%;
+      margin-left: -1.5rem;
+      position: relative;
+      background-color: white; }
+    .hotmatchdetail .top .saishi .saishiRight > span {
+      line-height: 4rem;
+      display: block;
+      height: 4rem;
+      color: white; }
+  .hotmatchdetail .top .saishi .saishiMiddle {
+    display: inline-block;
+    width: 39.33%;
+    height: 8.5rem;
+    vertical-align: top;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 2rem; }
+    .hotmatchdetail .top .saishi .saishiMiddle .liansai {
+      height: 2.5rem;
+      line-height: 2.5rem;
+      color: white; }
+      .hotmatchdetail .top .saishi .saishiMiddle .liansai .o {
+        margin-right: 1rem; }
+    .hotmatchdetail .top .saishi .saishiMiddle .g {
+      color: #00da00;
+      font-size: 4rem;
+      height: 3rem;
+      line-height: 3rem; }
+    .hotmatchdetail .top .saishi .saishiMiddle .time {
+      height: 2.5rem;
+      line-height: 2.5rem;
+      color: red; }
+
 .hotmatchdetail .header {
   line-height: 3rem;
   background-color: white;
   border-bottom: 1px solid;
   border-bottom-color: #d7d7d7;
   margin-bottom: 1rem;
-  text-align: center;
-}
-/* line 96, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .header .on {
-  width: 30%;
-  display: inline-block;
-  border-bottom: 2px solid;
-  border-bottom-color: #0000c4;
-  color: #0000c4;
-  margin-right: 10%;
-}
-/* line 104, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .header .end {
-  width: 30%;
-  display: inline-block;
-}
-/* line 110, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  text-align: center; }
+  .hotmatchdetail .header .on {
+    width: 30%;
+    display: inline-block;
+    border-bottom: 2px solid;
+    border-bottom-color: #0000c4;
+    color: #0000c4;
+    margin-right: 10%; }
+  .hotmatchdetail .header .end {
+    width: 30%;
+    display: inline-block; }
+
 .hotmatchdetail .recItem .specialInfo {
   padding-left: 1rem;
   height: 4rem;
   background-color: white;
   border-bottom: 0.1rem solid;
-  border-bottom-color: #d7d7d7;
-}
-/* line 116, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .specialInfo > img {
-  width: 3rem;
-  border-radius: 2rem;
-  margin-top: 0.5rem;
-  vertical-align: top;
-}
-/* line 122, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .specialInfo .textInfo {
-  display: inline-block;
-}
-/* line 124, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .specialInfo .textInfo .tTitle {
-  font-size: 3rem;
-  line-height: 2.5rem;
-  color: black;
-}
-/* line 129, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .specialInfo .textInfo .tDesc {
-  font-size: 1rem;
-  line-height: 1.5rem;
-}
-/* line 135, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  border-bottom-color: #d7d7d7; }
+  .hotmatchdetail .recItem .specialInfo > img {
+    width: 3rem;
+    border-radius: 2rem;
+    margin-top: 0.5rem;
+    vertical-align: top; }
+  .hotmatchdetail .recItem .specialInfo .textInfo {
+    display: inline-block; }
+    .hotmatchdetail .recItem .specialInfo .textInfo .tTitle {
+      font-size: 3rem;
+      line-height: 2.5rem;
+      color: black; }
+    .hotmatchdetail .recItem .specialInfo .textInfo .tDesc {
+      font-size: 1rem;
+      line-height: 1.5rem; }
+
 .hotmatchdetail .recItem .saishiItem {
   height: 1.5rem;
   background-color: white;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
-/* line 141, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart {
-  display: inline-block;
-  width: 80%;
-  height: 4rem;
-  vertical-align: top;
-}
-/* line 146, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo {
-  height: 1.5rem;
-  font-size: 1rem;
-  padding-left: 1rem;
-}
-/* line 150, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .liansai {
-  color: orange;
-}
-/* line 153, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .add {
-  margin-left: 1rem;
-  border: 0.1rem solid;
-  border-radius: 0.2rem;
-  padding: 0.1rem;
-  color: green;
-}
-/* line 160, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .time {
-  float: right;
-  margin-right: 1rem;
-  font-size: 0.5rem;
-  color: #bebebe;
-}
-/* line 167, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo {
-  height: 2.5rem;
-  padding-left: 1rem;
-  line-height: 2.5rem;
-  text-align: center;
-}
-/* line 172, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo .left {
-  float: left;
-}
-/* line 175, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo .right {
-  float: right;
-  margin-right: 1rem;
-}
-/* line 181, ../../app/theme/sass/pages/_hotmatchdetail.scss */
-.hotmatchdetail .recItem .saishiItem .rightPart {
-  display: inline-block;
-  width: 20%;
-  line-height: 1.5rem;
-  box-sizing: border-box;
-  border-left: 0.1rem solid;
-  border-color: #d9d9d9;
-  text-align: center;
-  color: red;
-  height: 1.5rem;
-}
-/* line 194, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  margin-bottom: 1rem; }
+  .hotmatchdetail .recItem .saishiItem .leftPart {
+    display: inline-block;
+    width: 80%;
+    height: 4rem;
+    vertical-align: top; }
+    .hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo {
+      height: 1.5rem;
+      font-size: 1rem;
+      padding-left: 1rem; }
+      .hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .liansai {
+        color: orange; }
+      .hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .add {
+        margin-left: 1rem;
+        border: 0.1rem solid;
+        border-radius: 0.2rem;
+        padding: 0.1rem;
+        color: green; }
+      .hotmatchdetail .recItem .saishiItem .leftPart .sTopInfo .time {
+        float: right;
+        margin-right: 1rem;
+        font-size: 0.5rem;
+        color: #bebebe; }
+    .hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo {
+      height: 2.5rem;
+      padding-left: 1rem;
+      line-height: 2.5rem;
+      text-align: center; }
+      .hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo .left {
+        float: left; }
+      .hotmatchdetail .recItem .saishiItem .leftPart .bottomInfo .right {
+        float: right;
+        margin-right: 1rem; }
+  .hotmatchdetail .recItem .saishiItem .rightPart {
+    display: inline-block;
+    width: 20%;
+    line-height: 1.5rem;
+    box-sizing: border-box;
+    border-left: 0.1rem solid;
+    border-color: #d9d9d9;
+    text-align: center;
+    color: red;
+    height: 1.5rem; }
+
 .hotmatchdetail .tabs {
   border-bottom: 1px solid;
   border-bottom-color: #cdcdcd;
@@ -2454,9 +1687,8 @@ input[type="button"] {
   padding-right: 2rem;
   background-color: white;
   padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-}
-/* line 203, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  padding-bottom: 0.5rem; }
+
 .hotmatchdetail .tabItem {
   display: inline-block;
   width: 23%;
@@ -2468,9 +1700,8 @@ input[type="button"] {
   border-style: solid;
   border-color: #364bff;
   box-sizing: border-box;
-  border-left-style: none;
-}
-/* line 216, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  border-left-style: none; }
+
 .hotmatchdetail .tabItemWithoutBorder {
   display: inline-block;
   width: 23%;
@@ -2482,532 +1713,615 @@ input[type="button"] {
   border-width: 0.1rem;
   border-style: solid;
   border-color: #364bff;
-  border-left-style: none;
-}
-/* line 229, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  border-left-style: none; }
+
 .hotmatchdetail .tabItemWithLine {
   background-color: #364bff;
-  color: white;
-}
-/* line 233, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  color: white; }
+
 .hotmatchdetail .leftRadius {
   border-bottom-left-radius: 0.3rem;
-  border-top-left-radius: 0.3rem;
-}
-/* line 237, ../../app/theme/sass/pages/_hotmatchdetail.scss */
+  border-top-left-radius: 0.3rem; }
+
 .hotmatchdetail .rightRadius {
   border-bottom-right-radius: 0.3rem;
-  border-top-right-radius: 0.3rem;
-}
+  border-top-right-radius: 0.3rem; }
 
-/* line 1, ../../app/theme/sass/pages/_userrank.scss */
 .userrank {
-  height: 100%;
-}
-/* line 3, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .item {
-  height: 8rem;
-  padding-left: 1rem;
-  padding-right: 1rem;
-  background-color: white;
-  margin-bottom: 1rem;
-}
-/* line 10, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .ser {
-  line-height: 8rem;
-  font-size: 3rem;
-  height: 8rem;
-  display: inline-block;
-}
-/* line 16, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .photo {
-  height: 5rem;
-  vertical-align: top;
-  margin-top: 1.5rem;
-  border-radius: 2.5rem;
-  background-color: #cfc6c6;
-  margin-left: 1rem;
-}
-/* line 24, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .info {
-  display: inline-block;
-  height: 6rem;
-  margin-left: 1rem;
-  line-height: 6rem;
-  position: relative;
-}
-/* line 30, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .info .name {
-  display: block;
-  line-height: 3.5rem;
-  font-size: 2.5rem;
-  color: black;
-  font-weight: bolder;
-  height: 3.5rem;
-  top: 1rem;
-  position: relative;
-}
-/* line 40, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .info .desc {
-  line-height: 2.5rem;
-  height: 2.5rem;
-  display: block;
-  font-size: 1.5rem;
-  position: relative;
-  top: 1rem;
-}
-/* line 49, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .right {
-  display: inline-block;
-  height: 8rem;
-  float: right;
-}
-/* line 53, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .right .metal {
-  height: 2.4rem;
-  vertical-align: top;
-  margin-top: 2.8rem;
-}
-/* line 58, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .right .num {
-  height: 8rem;
-  line-height: 8rem;
-  font-size: 2.5rem;
-  color: red;
-  margin-left: 1rem;
-}
-/* line 65, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .right .text {
-  height: 8rem;
-  line-height: 8rem;
-  margin-left: 0.5rem;
-  font-size: 2.5rem;
-}
-/* line 71, ../../app/theme/sass/pages/_userrank.scss */
-.userrank .right .rightIcon {
-  width: 2.4rem;
-  vertical-align: top;
-  margin-top: 2.8rem;
-  margin-left: 0.2rem;
-}
+  height: 100%; }
+  .userrank .item {
+    height: 8rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    background-color: white;
+    margin-bottom: 1rem; }
+  .userrank .ser {
+    line-height: 8rem;
+    font-size: 3rem;
+    height: 8rem;
+    display: inline-block; }
+  .userrank .photo {
+    height: 5rem;
+    vertical-align: top;
+    margin-top: 1.5rem;
+    border-radius: 2.5rem;
+    background-color: #cfc6c6;
+    margin-left: 1rem; }
+  .userrank .info {
+    display: inline-block;
+    height: 6rem;
+    margin-left: 1rem;
+    line-height: 6rem;
+    position: relative; }
+    .userrank .info .name {
+      display: block;
+      line-height: 3.5rem;
+      font-size: 2.5rem;
+      color: black;
+      font-weight: bolder;
+      height: 3.5rem;
+      top: 1rem;
+      position: relative; }
+    .userrank .info .desc {
+      line-height: 2.5rem;
+      height: 2.5rem;
+      display: block;
+      font-size: 1.5rem;
+      position: relative;
+      top: 1rem; }
+  .userrank .right {
+    display: inline-block;
+    height: 8rem;
+    float: right; }
+    .userrank .right .metal {
+      height: 2.4rem;
+      vertical-align: top;
+      margin-top: 2.8rem; }
+    .userrank .right .num {
+      height: 8rem;
+      line-height: 8rem;
+      font-size: 2.5rem;
+      color: red;
+      margin-left: 1rem; }
+    .userrank .right .text {
+      height: 8rem;
+      line-height: 8rem;
+      margin-left: 0.5rem;
+      font-size: 2.5rem; }
+    .userrank .right .rightIcon {
+      width: 2.4rem;
+      vertical-align: top;
+      margin-top: 2.8rem;
+      margin-left: 0.2rem; }
 
-/* line 1, ../../app/theme/sass/pages/_recodetail.scss */
 .recodetail {
-  height: 100%;
-}
-/* line 3, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  margin-top: 1rem;
-  background-color: white;
-}
-/* line 8, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line1 {
-  height: 3rem;
-  line-height: 3rem;
-}
-/* line 11, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line1 .left {
-  color: orange;
-  font-size: 2rem;
-}
-/* line 15, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line1 .right {
-  float: right;
-  font-size: 2rem;
-}
-/* line 20, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line2 {
-  height: 4rem;
-  line-height: 4rem;
-  text-align: center;
-  color: black;
-}
-/* line 25, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line2 .left {
-  font-size: 2.5rem;
-  float: left;
-}
-/* line 29, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line2 .vs {
-  font-size: 2rem;
-}
-/* line 32, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line2 .right {
-  font-size: 2.5rem;
-  float: right;
-}
-/* line 37, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line3 {
-  height: 6rem;
-  line-height: 6rem;
-  font-size: 2.5rem;
-}
-/* line 41, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line3 .left {
-  width: 10%;
-  display: inline-block;
-}
-/* line 44, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line3 .left .num {
-  display: block;
-  width: 3rem;
-  text-align: center;
-  background-color: #fcb2b2;
-  color: white;
-  height: 3rem;
-  border-radius: 4rem;
-  position: relative;
-  line-height: 3rem;
-}
-/* line 56, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line3 .right {
-  width: 90%;
-  display: inline-block;
-}
-/* line 59, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line3 .right .first {
-  width: 30%;
-  display: inline-block;
-  text-align: center;
-  height: 4rem;
-  border: 1px solid;
-  border-radius: 3px;
-  position: relative;
-  line-height: 4rem;
-  box-sizing: border-box;
-}
-/* line 70, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line3 .right .middle {
-  width: 30%;
-  display: inline-block;
-  text-align: center;
-  height: 4rem;
-  border: 1px solid;
-  border-radius: 3px;
-  position: relative;
-  line-height: 4rem;
-  box-sizing: border-box;
-  margin-left: 5%;
-}
-/* line 82, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .item .line3 .right .last {
-  width: 30%;
-  display: inline-block;
-  text-align: center;
-  height: 4rem;
-  border: 1px solid;
-  border-radius: 3px;
-  position: relative;
-  line-height: 4rem;
-  box-sizing: border-box;
-  margin-left: 5%;
-}
-/* line 97, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .active {
-  color: red;
-}
-/* line 100, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .img {
-  padding: 1rem;
-}
-/* line 102, ../../app/theme/sass/pages/_recodetail.scss */
-.recodetail .img > img {
-  width: 100%;
-}
+  height: 100%; }
+  .recodetail .item {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 1rem;
+    background-color: white; }
+    .recodetail .item .line1 {
+      height: 3rem;
+      line-height: 3rem; }
+      .recodetail .item .line1 .left {
+        color: orange;
+        font-size: 2rem; }
+      .recodetail .item .line1 .right {
+        float: right;
+        font-size: 2rem; }
+    .recodetail .item .line2 {
+      height: 4rem;
+      line-height: 4rem;
+      text-align: center;
+      color: black; }
+      .recodetail .item .line2 .left {
+        font-size: 2.5rem;
+        float: left; }
+      .recodetail .item .line2 .vs {
+        font-size: 2rem; }
+      .recodetail .item .line2 .right {
+        font-size: 2.5rem;
+        float: right; }
+    .recodetail .item .line3 {
+      height: 6rem;
+      line-height: 6rem;
+      font-size: 2.5rem; }
+      .recodetail .item .line3 .left {
+        width: 10%;
+        display: inline-block; }
+        .recodetail .item .line3 .left .num {
+          display: block;
+          width: 3rem;
+          text-align: center;
+          background-color: #fcb2b2;
+          color: white;
+          height: 3rem;
+          border-radius: 4rem;
+          position: relative;
+          line-height: 3rem; }
+      .recodetail .item .line3 .right {
+        width: 90%;
+        display: inline-block; }
+        .recodetail .item .line3 .right .first {
+          width: 30%;
+          display: inline-block;
+          text-align: center;
+          height: 4rem;
+          border: 1px solid;
+          border-radius: 3px;
+          position: relative;
+          line-height: 4rem;
+          box-sizing: border-box; }
+        .recodetail .item .line3 .right .middle {
+          width: 30%;
+          display: inline-block;
+          text-align: center;
+          height: 4rem;
+          border: 1px solid;
+          border-radius: 3px;
+          position: relative;
+          line-height: 4rem;
+          box-sizing: border-box;
+          margin-left: 5%; }
+        .recodetail .item .line3 .right .last {
+          width: 30%;
+          display: inline-block;
+          text-align: center;
+          height: 4rem;
+          border: 1px solid;
+          border-radius: 3px;
+          position: relative;
+          line-height: 4rem;
+          box-sizing: border-box;
+          margin-left: 5%; }
+  .recodetail .active {
+    color: red; }
+  .recodetail .img {
+    padding: 1rem; }
+    .recodetail .img > img {
+      width: 100%; }
 
-/* line 1, ../../app/theme/sass/pages/_mine.scss */
 .mine {
-  margin-bottom: 5rem;
-}
-/* line 3, ../../app/theme/sass/pages/_mine.scss */
-.mine .header {
-  background-image: url(../images/back.jpg);
-  padding: 1rem;
-}
-/* line 6, ../../app/theme/sass/pages/_mine.scss */
-.mine .header .divImg {
-  text-align: center;
-}
-/* line 8, ../../app/theme/sass/pages/_mine.scss */
-.mine .header .divImg > img {
-  width: 8rem;
-  border-radius: 4rem;
-  border: 0.1rem solid;
-  border-color: white;
-}
-/* line 15, ../../app/theme/sass/pages/_mine.scss */
-.mine .header .name {
-  text-align: center;
-  color: white;
-  font-size: 2.5rem;
-}
-/* line 20, ../../app/theme/sass/pages/_mine.scss */
-.mine .header .money {
-  padding-left: 1rem;
-  padding-right: 1rem;
-  text-align: left;
-  color: white;
-  font-size: 2.5rem;
-}
-/* line 26, ../../app/theme/sass/pages/_mine.scss */
-.mine .header .money .num {
-  color: #ffdb00;
-  margin-right: 0.5rem;
-}
-/* line 32, ../../app/theme/sass/pages/_mine.scss */
-.mine .tabs {
-  line-height: 5rem;
-  height: 5rem;
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-/* line 37, ../../app/theme/sass/pages/_mine.scss */
-.mine .tabs .active {
-  display: inline-block;
-  width: 50%;
-  text-align: center;
-  background-color: #004700;
-  color: #e9e905;
-  box-sizing: border-box;
-}
-/* line 45, ../../app/theme/sass/pages/_mine.scss */
-.mine .tabs .unactive {
-  display: inline-block;
-  width: 50%;
-  text-align: center;
-  background-color: green;
-  color: white;
-}
-/* line 54, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .block {
-  display: block;
-}
-/* line 57, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem {
-  height: 8rem;
-  background-color: white;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
-  margin-bottom: 1rem;
-}
-/* line 63, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart {
-  display: inline-block;
-  width: 80%;
-  height: 8rem;
-  vertical-align: top;
-}
-/* line 68, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart .topInfo {
-  height: 3rem;
-  font-size: 2rem;
-  padding-left: 1rem;
-  height: 3rem;
-}
-/* line 73, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart .topInfo .liansai {
-  color: orange;
-}
-/* line 76, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart .topInfo .add {
-  margin-left: 1rem;
-  border: 1px solid;
-  border-radius: 0.5rem;
-  padding: 0.1rem;
-  color: green;
-}
-/* line 83, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart .topInfo .time {
-  float: right;
-  margin-right: 1rem;
-  font-size: 1.5rem;
-  color: #bebebe;
-}
-/* line 90, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart .bottomInfo {
-  height: 5rem;
-  padding-left: 1rem;
-  line-height: 5rem;
-  text-align: center;
-}
-/* line 95, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart .bottomInfo .left {
-  float: left;
-}
-/* line 98, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .leftPart .bottomInfo .right {
-  float: right;
-  margin-right: 1rem;
-}
-/* line 104, ../../app/theme/sass/pages/_mine.scss */
-.mine .items .specialItem .rightPart {
-  display: inline-block;
-  width: 20%;
-  line-height: 8rem;
-  box-sizing: border-box;
-  border-left: 1px solid;
-  border-color: #d9d9d9;
-  text-align: center;
-  color: red;
-  height: 8rem;
-}
+  margin-bottom: 5rem; }
+  .mine .header {
+    background-image: url(../images/back.jpg);
+    padding: 1rem; }
+    .mine .header .divImg {
+      text-align: center; }
+      .mine .header .divImg > img {
+        width: 8rem;
+        border-radius: 4rem;
+        border: 0.1rem solid;
+        border-color: white; }
+    .mine .header .name {
+      text-align: center;
+      color: white;
+      font-size: 2.5rem; }
+    .mine .header .money {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      text-align: left;
+      color: white;
+      font-size: 2.5rem; }
+      .mine .header .money .num {
+        color: #ffdb00;
+        margin-right: 0.5rem; }
+  .mine .tabs {
+    line-height: 5rem;
+    height: 5rem;
+    font-size: 2.5rem;
+    margin-bottom: 1rem; }
+    .mine .tabs .active {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      background-color: #004700;
+      color: #e9e905;
+      box-sizing: border-box; }
+    .mine .tabs .unactive {
+      display: inline-block;
+      width: 50%;
+      text-align: center;
+      background-color: green;
+      color: white; }
+  .mine .items .block {
+    display: block; }
+  .mine .items .specialItem {
+    height: 8rem;
+    background-color: white;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem; }
+    .mine .items .specialItem .leftPart {
+      display: inline-block;
+      width: 80%;
+      height: 8rem;
+      vertical-align: top; }
+      .mine .items .specialItem .leftPart .topInfo {
+        height: 3rem;
+        font-size: 2rem;
+        padding-left: 1rem;
+        height: 3rem; }
+        .mine .items .specialItem .leftPart .topInfo .liansai {
+          color: orange; }
+        .mine .items .specialItem .leftPart .topInfo .add {
+          margin-left: 1rem;
+          border: 1px solid;
+          border-radius: 0.5rem;
+          padding: 0.1rem;
+          color: green; }
+        .mine .items .specialItem .leftPart .topInfo .time {
+          float: right;
+          margin-right: 1rem;
+          font-size: 1.5rem;
+          color: #bebebe; }
+      .mine .items .specialItem .leftPart .bottomInfo {
+        height: 5rem;
+        padding-left: 1rem;
+        line-height: 5rem;
+        text-align: center; }
+        .mine .items .specialItem .leftPart .bottomInfo .left {
+          float: left; }
+        .mine .items .specialItem .leftPart .bottomInfo .right {
+          float: right;
+          margin-right: 1rem; }
+    .mine .items .specialItem .rightPart {
+      display: inline-block;
+      width: 20%;
+      line-height: 8rem;
+      box-sizing: border-box;
+      border-left: 1px solid;
+      border-color: #d9d9d9;
+      text-align: center;
+      color: red;
+      height: 8rem; }
 
-/* line 1, ../../app/theme/sass/pages/_focus.scss */
 .focus {
-  margin-bottom: 5rem;
-}
-/* line 3, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem {
-  padding-left: 1rem;
-  height: 8rem;
-  background-color: white;
-  border-bottom: 1px solid;
-  border-bottom-color: #d7d7d7;
-  display: block;
-}
-/* line 10, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem > img {
-  width: 6rem;
-  border-radius: 3rem;
-  margin-top: 1rem;
-  vertical-align: top;
-}
-/* line 16, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem .textInfo {
-  display: inline-block;
-}
-/* line 18, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem .textInfo .tTitle {
-  font-size: 3rem;
-  line-height: 5rem;
-  color: black;
-  height: 5rem;
-}
-/* line 24, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem .textInfo .tDesc {
-  font-size: 2rem;
-  line-height: 3rem;
-  height: 3rem;
-}
-/* line 30, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem .right {
-  display: inline;
-}
-/* line 32, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem .right .rightInfo {
-  display: inline-block;
-  float: right;
-  font-size: 3rem;
-  line-height: 8rem;
-  color: black;
-  height: 8rem;
-  margin-right: 1rem;
-}
-/* line 41, ../../app/theme/sass/pages/_focus.scss */
-.focus .fitem .right .numInfo {
-  display: inline-block;
-  float: right;
-  font-size: 3rem;
-  line-height: 4rem;
-  height: 4rem;
-  margin-right: 1rem;
-  width: 4rem;
-  background-color: red;
-  text-align: center;
-  top: 2rem;
-  position: relative;
-  border-radius: 2rem;
-  color: white;
-}
-/* line 58, ../../app/theme/sass/pages/_focus.scss */
-.focus .add {
-  width: 80%;
-  height: 60%;
-  text-align: center;
-  margin-left: 10%;
-  background-color: white;
-  position: absolute;
-  margin-top: 10%;
-  border-radius: 1rem;
-}
-/* line 70, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .title {
-  height: 6rem;
-  line-height: 6rem;
-  font-size: 3rem;
-  color: black;
-  border-bottom: 1px solid;
-  border-bottom-color: #d7d7d7;
-}
-/* line 78, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .jump {
-  position: absolute;
+  margin-bottom: 5rem; }
+  .focus .fitem {
+    padding-left: 1rem;
+    height: 8rem;
+    background-color: white;
+    border-bottom: 1px solid;
+    border-bottom-color: #d7d7d7;
+    display: block; }
+    .focus .fitem > img {
+      width: 6rem;
+      border-radius: 3rem;
+      margin-top: 1rem;
+      vertical-align: top; }
+    .focus .fitem .textInfo {
+      display: inline-block; }
+      .focus .fitem .textInfo .tTitle {
+        font-size: 3rem;
+        line-height: 5rem;
+        color: black;
+        height: 5rem; }
+      .focus .fitem .textInfo .tDesc {
+        font-size: 2rem;
+        line-height: 3rem;
+        height: 3rem; }
+    .focus .fitem .right {
+      display: inline; }
+      .focus .fitem .right .rightInfo {
+        display: inline-block;
+        float: right;
+        font-size: 3rem;
+        line-height: 8rem;
+        color: black;
+        height: 8rem;
+        margin-right: 1rem; }
+      .focus .fitem .right .numInfo {
+        display: inline-block;
+        float: right;
+        font-size: 3rem;
+        line-height: 4rem;
+        height: 4rem;
+        margin-right: 1rem;
+        width: 4rem;
+        background-color: red;
+        text-align: center;
+        top: 2rem;
+        position: relative;
+        border-radius: 2rem;
+        color: white; }
+  .focus .add {
+    width: 80%;
+    height: 60%;
+    text-align: center;
+    margin-left: 10%;
+    background-color: white;
+    position: absolute;
+    margin-top: 10%;
+    border-radius: 1rem; }
+    .focus .add .title {
+      height: 6rem;
+      line-height: 6rem;
+      font-size: 3rem;
+      color: black;
+      border-bottom: 1px solid;
+      border-bottom-color: #d7d7d7; }
+    .focus .add .jump {
+      position: absolute;
+      bottom: 0;
+      margin-bottom: 0;
+      width: 100%;
+      height: 6rem;
+      font-size: 3rem;
+      color: green;
+      line-height: 6rem;
+      background-color: white; }
+    .focus .add .list {
+      overflow-y: auto;
+      height: 75%; }
+      .focus .add .list .fix {
+        height: 4rem; }
+      .focus .add .list .new {
+        padding-left: 1rem;
+        height: 8rem;
+        background-color: white;
+        border-bottom: 1px solid;
+        border-bottom-color: #d7d7d7;
+        display: block;
+        text-align: left; }
+        .focus .add .list .new > img {
+          width: 6rem;
+          border-radius: 3rem;
+          margin-top: 1rem;
+          vertical-align: top; }
+        .focus .add .list .new .textInfo {
+          display: inline-block; }
+          .focus .add .list .new .textInfo .tTitle {
+            font-size: 3rem;
+            line-height: 5rem;
+            color: black;
+            height: 5rem; }
+          .focus .add .list .new .textInfo .tDesc {
+            font-size: 2rem;
+            line-height: 3rem;
+            height: 3rem; }
+        .focus .add .list .new .right {
+          float: right;
+          height: 8rem;
+          line-height: 8rem; }
+          .focus .add .list .new .right .guanzhu {
+            margin-right: 1rem;
+            height: 4rem;
+            padding: 1rem 1rem;
+            border: 1px solid;
+            border-radius: 0.8rem;
+            color: green; }
+
+.recommendationBtn {
+  position: fixed;
   bottom: 0;
-  margin-bottom: 0;
   width: 100%;
-  height: 6rem;
-  font-size: 3rem;
-  color: green;
-  line-height: 6rem;
-  background-color: white;
-}
-/* line 91, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list {
-  overflow-y: auto;
-  height: 75%;
-}
-/* line 94, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .fix {
-  height: 4rem;
-}
-/* line 97, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .new {
-  padding-left: 1rem;
-  height: 8rem;
-  background-color: white;
-  border-bottom: 1px solid;
-  border-bottom-color: #d7d7d7;
-  display: block;
-  text-align: left;
-}
-/* line 105, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .new > img {
-  width: 6rem;
-  border-radius: 3rem;
-  margin-top: 1rem;
-  vertical-align: top;
-}
-/* line 111, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .new .textInfo {
-  display: inline-block;
-}
-/* line 113, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .new .textInfo .tTitle {
-  font-size: 3rem;
-  line-height: 5rem;
-  color: black;
-  height: 5rem;
-}
-/* line 119, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .new .textInfo .tDesc {
-  font-size: 2rem;
-  line-height: 3rem;
-  height: 3rem;
-}
-/* line 125, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .new .right {
-  float: right;
-  height: 8rem;
-  line-height: 8rem;
-}
-/* line 129, ../../app/theme/sass/pages/_focus.scss */
-.focus .add .list .new .right .guanzhu {
-  margin-right: 1rem;
-  height: 4rem;
-  padding: 1rem 1rem;
-  border: 1px solid;
-  border-radius: 0.8rem;
-  color: green;
-}
+  background-color: #f2f2f2;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  height: 8rem; }
+  .recommendationBtn .footer-item {
+    display: inline-block;
+    width: 25%;
+    text-align: center;
+    font-size: 2.5rem; }
+    .recommendationBtn .footer-item > img {
+      width: 2.5rem;
+      vertical-align: middle; }
+    .recommendationBtn .footer-item > div {
+      height: 4rem; }
+  .recommendationBtn .active {
+    color: #00b2ff; }
+
+.newAddItemWap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex: 1; }
+  .newAddItemWap .newAddItem {
+    flex: 1;
+    width: 97%;
+    margin: 0.5rem;
+    height: 6rem;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    background-color: #00BCD4;
+    color: white;
+    border-radius: 4px; }
+  .newAddItemWap .itemMatchWap {
+    width: 100%; }
+    .newAddItemWap .itemMatchWap .itemMatch {
+      border-radius: 4px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin: 0.5rem;
+      background-color: white;
+      width: 95%;
+      position: relative; }
+      .newAddItemWap .itemMatchWap .itemMatch .line1 {
+        width: 90%;
+        height: 3rem;
+        line-height: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+        .newAddItemWap .itemMatchWap .itemMatch .line1 .left {
+          color: orange;
+          font-size: 2rem;
+          flex: 1; }
+        .newAddItemWap .itemMatchWap .itemMatch .line1 .money {
+          font-size: 2rem;
+          flex: 1;
+          text-align: center;
+          color: red; }
+        .newAddItemWap .itemMatchWap .itemMatch .line1 .right {
+          font-size: 2rem;
+          flex: 1;
+          text-align: right; }
+      .newAddItemWap .itemMatchWap .itemMatch .line2 {
+        width: 90%;
+        height: 4rem;
+        line-height: 4rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: black; }
+        .newAddItemWap .itemMatchWap .itemMatch .line2 .left {
+          font-size: 2.5rem;
+          flex: 1; }
+        .newAddItemWap .itemMatchWap .itemMatch .line2 .vs {
+          font-size: 2rem;
+          flex: 1;
+          text-align: center; }
+        .newAddItemWap .itemMatchWap .itemMatch .line2 .right {
+          font-size: 2.5rem;
+          flex: 1;
+          text-align: right; }
+      .newAddItemWap .itemMatchWap .itemMatch .line3 {
+        height: 6rem;
+        line-height: 6rem;
+        font-size: 2.5rem;
+        width: 90%; }
+        .newAddItemWap .itemMatchWap .itemMatch .line3 .left {
+          width: 10%;
+          display: inline-block; }
+          .newAddItemWap .itemMatchWap .itemMatch .line3 .left .num {
+            display: block;
+            width: 3rem;
+            text-align: center;
+            background-color: #fcb2b2;
+            color: white;
+            height: 3rem;
+            border-radius: 4rem;
+            position: relative;
+            line-height: 3rem; }
+        .newAddItemWap .itemMatchWap .itemMatch .line3 .right {
+          width: 90%;
+          display: inline-block; }
+          .newAddItemWap .itemMatchWap .itemMatch .line3 .right .first {
+            width: 30%;
+            display: inline-block;
+            text-align: center;
+            height: 4rem;
+            border: 1px solid;
+            border-radius: 3px;
+            position: relative;
+            line-height: 4rem;
+            box-sizing: border-box; }
+          .newAddItemWap .itemMatchWap .itemMatch .line3 .right .middle {
+            width: 30%;
+            display: inline-block;
+            text-align: center;
+            height: 4rem;
+            border: 1px solid;
+            border-radius: 3px;
+            position: relative;
+            line-height: 4rem;
+            box-sizing: border-box;
+            margin-left: 5%; }
+          .newAddItemWap .itemMatchWap .itemMatch .line3 .right .last {
+            width: 30%;
+            display: inline-block;
+            text-align: center;
+            height: 4rem;
+            border: 1px solid;
+            border-radius: 3px;
+            position: relative;
+            line-height: 4rem;
+            box-sizing: border-box;
+            margin-left: 5%; }
+          .newAddItemWap .itemMatchWap .itemMatch .line3 .right > .selected {
+            color: red; }
+      .newAddItemWap .itemMatchWap .itemMatch .deleteBtn {
+        width: 10%;
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 100%;
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        background-color: #00BCD4;
+        color: white;
+        border-radius: 4px; }
+  .newAddItemWap .recommendReason {
+    margin: 1rem;
+    height: 16rem;
+    background: transparent; }
+    .newAddItemWap .recommendReason .reason {
+      flex: 1;
+      height: 100%;
+      font-size: 15px;
+      padding: 0.5rem;
+      border: none;
+      resize: none;
+      outline: none; }
+  .newAddItemWap .recommendFee {
+    background-color: transparent;
+    color: black;
+    justify-content: flex-start;
+    font-size: 16px; }
+    .newAddItemWap .recommendFee .seeFee {
+      padding: 8px;
+      font-size: 15px;
+      border: 0;
+      outline: 0;
+      margin-right: 1rem;
+      border-radius: 4px; }
+    .newAddItemWap .recommendFee .mili {
+      color: red; }
+
+.deployBtnWap {
+  margin-top: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; }
+  .deployBtnWap .deployBtn {
+    width: 97%;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    height: 6rem;
+    background-color: #00BCD4;
+    border-radius: 4px;
+    color: white; }
+
+.newAddAlert .messageDiv {
+  height: 50rem;
+  overflow-y: auto; }
+  .newAddAlert .messageDiv .matchWap.selected {
+    background-color: #ccc; }
+  .newAddAlert .messageDiv .matchWap {
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+    .newAddAlert .messageDiv .matchWap .item {
+      vertical-align: top;
+      height: 9rem;
+      line-height: 9rem;
+      flex: 1; }
+    .newAddAlert .messageDiv .matchWap .itemLeft > img, .newAddAlert .messageDiv .matchWap .itemRight > img {
+      height: 5rem;
+      border-radius: 2.5rem;
+      vertical-align: top;
+      margin-top: 2rem; }
+    .newAddAlert .messageDiv .matchWap .itemLeft > span, .newAddAlert .messageDiv .matchWap .itemRight > span {
+      line-height: 9rem;
+      height: 9rem;
+      color: black; }
+    .newAddAlert .messageDiv .matchWap .itemMiddle {
+      height: 9rem;
+      vertical-align: top;
+      text-align: center;
+      font-size: 2rem;
+      line-height: 3rem; }
+      .newAddAlert .messageDiv .matchWap .itemMiddle .o {
+        color: orange;
+        margin-right: 1rem; }
+      .newAddAlert .messageDiv .matchWap .itemMiddle .g {
+        color: green; }

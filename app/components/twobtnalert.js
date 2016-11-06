@@ -39,16 +39,16 @@ module.exports = React.createClass({
       paddingBottom:15,
       backgroundColor:'white',
       WebkitBorderRadius: 5
-    }
+    };
     var td={
       textAlign:'center',
       verticalAlign:'middle'
-    }
+    };
     var table={
       width:'100%',
       height:'100%',
       tableLayout:'fixed'
-    }
+    };
     var title={
       width:'100%',
       color:'#2E2E2E',
@@ -56,7 +56,7 @@ module.exports = React.createClass({
       paddingTop:17,
       paddingBottom:3,
       fontWeight: 'bold'
-    }
+    };
     var messageDiv={
       width:'100%',
       color:'#D1D1D1',
@@ -64,7 +64,7 @@ module.exports = React.createClass({
       wordWrap:'break-word',
       paddingTop:5,
       paddingBottom:15
-    }
+    };
     var textStyle={
       WebkitAppearance:'none',
       border:'1px solid #BEBEBE',
@@ -75,7 +75,7 @@ module.exports = React.createClass({
       width:'96%',
       paddingLeft:5,
       fontSize:15
-    }
+    };
     var cancleBtnStyle={
       marginRight:'10%',
       width:'44%',
@@ -86,7 +86,7 @@ module.exports = React.createClass({
       WebkitBorderRadius: 2,
       color:'#2E2E2E',
       fontSize:'15'
-    }
+    };
 
     var nextButtonStyle={
       width:'44%',
@@ -97,28 +97,28 @@ module.exports = React.createClass({
       WebkitBorderRadius: 2,
       color:'white',
       fontSize:'15'
-    }
+    };
     var iconStyle={
       display:this.props.icon===''?'none':'inline-block',
       width:18,
       height:18
-    }
+    };
     var messageStyle={
       color:'#2E2E2E',
       marginLeft:5,
       display:'inline'
-    }
+    };
     var iconDiv={
       display:'inline-block'
-    }
+    };
     var bottomMessageStyle={
       marginTop:5,
       display:this.props.icon===''?'none':'block',
       fontSize:12,
       color:'#FE0000'
-    }
-    var backStyle={opacity:1}
-    var margin54={height:45}
+    };
+    var backStyle={opacity:1};
+    var margin54={height:45};
     return (
       <div className={this.props.show ? "show" : "hide"}>
         <div style={backStyle} className="twobtnalert">
@@ -128,15 +128,18 @@ module.exports = React.createClass({
               <td style={td}>
                 <div style={center}>
                   <div style={title} dangerouslySetInnerHTML={{__html: this.props.title}} />
-                  <div style={messageDiv}>
+                  <div style={messageDiv} className="messageDiv">
                     <div  style={iconDiv}>
-                      <img style={iconStyle} src={this.props.icon}></img>
+                      <img style={iconStyle} src={this.props.icon}/>
                     </div>
-                    <div style={messageStyle}>{this.props.message}</div>
+                    {
+                      this.props.message ? <div style={messageStyle}>{this.props.message}</div>:
+                          this.props.children
+                    }
                   </div>
                   <div>
-                    <TapAble onTap={this.props.firstBtnOnTouchEnd}><input type="button" style={cancleBtnStyle} value={this.props.firstBtnTitle}></input></TapAble>
-                    <TapAble onTap={this.props.secondBtnOnTouchEnd}><input type="button" style={nextButtonStyle} value={this.props.secondBtnTitle}></input></TapAble>
+                    <TapAble onTap={this.props.firstBtnOnTouchEnd}><input type="button" style={cancleBtnStyle} value={this.props.firstBtnTitle}/></TapAble>
+                    <TapAble onTap={this.props.secondBtnOnTouchEnd}><input type="button" style={nextButtonStyle} value={this.props.secondBtnTitle}/></TapAble>
                     </div>
                   <div style={bottomMessageStyle}>
                     {this.props.bottomMessage}

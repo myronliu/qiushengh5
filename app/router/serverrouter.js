@@ -24,6 +24,8 @@ var Specialist = React.createFactory(require('../pages/specialist'));
 var Specialinfo = React.createFactory(require('../pages/specialinfo'));
 var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 var Hotmatch = React.createFactory(require('../pages/hotmatch'));
+var MyRecommendation = React.createFactory(require('../pages/MyRecommendation'));
+var NewAddRecommendation = React.createFactory(require('../pages/NewAddRecommendation'));
 var HotmatchDetail = React.createFactory(require('../pages/hotmatchdetail'));
 var UserRank = React.createFactory(require('../pages/userrank'));
 var RecoDetail = React.createFactory(require('../pages/recodetail'));
@@ -79,7 +81,7 @@ function sendMessage(){
 router.get('/error',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(ErrorView({message:"出错啦！"}));
   res.render('index', {reactOutput: reactHtml,title:'出错啦'});
-})
+});
 
 router.get('/',function(req,res){
   DataInfoController.detail(req, res)
@@ -104,24 +106,24 @@ router.get('/',function(req,res){
         recommendation:{},
         competition:{},
         recommendationToday:{}
-      }
+      };
       console.log("server router error: /");
       console.log(err);
       res.expose(Exp.dehydrate({data}));
       var reactHtml = ReactDOMServer.renderToString(Home({data: data}));
       res.render('home', {reactOutput: reactHtml,title:'首页'});
     })
-})
+});
 
 router.get('/specialist',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Specialist());
   res.render('home', {reactOutput: reactHtml,title:'专家列表'});
-})
+});
 
 router.get('/specialinfo',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Specialinfo({id: req.query.id}));
   res.render('home', {reactOutput: reactHtml,title:'专家详情'});
-})
+});
 
 router.get('/qiusheng',function(req,res){
   QsHomeController.detail(req, res)
@@ -145,44 +147,54 @@ router.get('/qiusheng',function(req,res){
         expert:{},
         recommend:{},
         hots:{}
-      }
+      };
       console.log("server router error: /");
       console.log(err);
       res.expose(Exp.dehydrate({data}));
       var reactHtml = ReactDOMServer.renderToString(QiuSheng({data: data}));
       res.render('home', {reactOutput: reactHtml,title:'首页'});
     })
-})
+});
 
 router.get('/hotmatch',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Hotmatch());
   res.render('home', {reactOutput: reactHtml,title:'热门赛事'});
-})
+});
 
 router.get('/hotmatchdetail',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(HotmatchDetail({id: req.query.id}));
   res.render('home', {reactOutput: reactHtml,title:'赛事推荐列表'});
-})
+});
 
 router.get('/recodetail',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(RecoDetail({id: req.query.id}));
   res.render('home', {reactOutput: reactHtml,title:'推荐详情'});
-})
+});
 
 router.get('/userrank',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(UserRank());
   res.render('home', {reactOutput: reactHtml,title:'红人榜'});
-})
+});
 
 router.get('/mine',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Mine());
   res.render('home', {reactOutput: reactHtml,title:'我的'});
-})
+});
+
+router.get('/myrecommendation',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(MyRecommendation());
+  res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
+});
+
+router.get('/newaddrecommendation',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(NewAddRecommendation());
+  res.render('home', {reactOutput: reactHtml,title:'新增推荐'});
+});
 
 router.get('/focus',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Focus());
   res.render('home', {reactOutput: reactHtml,title:'我的关注'});
-})
+});
 
 function renderToPath(req,res,path){
   let filePath=patha.join(__dirname,'..','/pages'+path+'.js');
@@ -193,7 +205,7 @@ function renderToPath(req,res,path){
     pageClass.serverData(req,res);
   }else{
     console.log('404'+path);
-    res.redirect('/error')
+    res.redirect('/error');
     // res.render('index', {reactOutput: '',title:'海融易'});
   }
 }

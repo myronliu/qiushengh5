@@ -104,7 +104,7 @@ a:hover{
 }
 
 .btn {
-  @include border-radius($btnRadius);
+  border-radius: $btnRadius;
   border: 2px solid;
   padding: 5px 20px;
   font-size: $btnFontSize;

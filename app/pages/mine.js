@@ -79,6 +79,10 @@ export default class extends BasePage {
   gotoCharge(){
     window.location.href='http://qiusheng.qingxinguoyuan.com/pay/test?token=' + Cookie.getCookie("token");
   }
+  gotoMyreRommendation(){
+    window.location.href='/myrecommendation?token=' + Cookie.getCookie("token");
+  }
+
 
   renderItems(){
     if(this.state.status == "unover" ){
@@ -130,8 +134,9 @@ export default class extends BasePage {
 
   render() {
     let rightBtn={title: '充值',func:this.gotoCharge.bind(this)};
+    let leftBtn={title: '我的推荐',func:this.gotoMyreRommendation.bind(this)};
     return (
-      <Layout  hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn]}>
+      <Layout  hideBack={true} className={'mine'} title={'我的'} rightItems={[leftBtn, rightBtn]}>
         <Loading showLoading={this.state.showLoading} />
         <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
         <div className="header">

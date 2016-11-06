@@ -15,6 +15,9 @@ var UserRank = require('../pages/userrank');
 var Focus = require('../pages/focus');
 var HotmatchDetail = require('../pages/hotmatchdetail');
 var Mine = require('../pages/mine');
+var MyRecommendation = require('../pages/MyRecommendation');
+var NewAddRecommendation = require('../pages/NewAddRecommendation');
+
 // import Index from '../pages/financing/index';
 // console.log('host');
 
@@ -66,7 +69,16 @@ var Router = EvoFlux.createRouter({
   },
   '/mine': function(){
     ReactDOM.render(<Mine />, container);
-  }
+  },
+  '/myrecommendation': function(){
+    ReactDOM.render(<MyRecommendation />, container);
+  },
+  '/newaddrecommendation': function(){
+    ReactDOM.render(<NewAddRecommendation />, container);
+  },
+
+
+
   // '/guanka': function(){
   //   ReactDOM.render(<GuanKa />, container);
   // },
