@@ -9,7 +9,8 @@ import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
-import {Post} from '../http/http';
+import ApiAction from '../actions/apiaction';
+// import {Post} from '../http/http';
 
 class MoreRecommendation extends BasePage {
 	constructor(props) {
@@ -30,13 +31,52 @@ class MoreRecommendation extends BasePage {
 
 
 	getMatchList(data) {
-		this.showLoading(false);
-		Post("/api/" + UrlConfig.matchList, data).then((res)=> {
-			this.setState({
-				list: res || [],
-			});
-		});
+		// this.showLoading(false);
+		// Post("/api/" + UrlConfig.matchList, data).then((res)=> {
+		// 	this.setState({
+		// 		list: res || [],
+		// 	});
+		// });
+
+    ApiAction.post(UrlConfig.matchList, data);
 	}
+
+	apiSuccess(url,body){
+    this.showLoading(false);
+    switch(url){
+      case UrlConfig.matchList:
+        body=body||[];
+        if(body.length > 0){
+          this.setState({
+            list: body,
+          })
+        }else{
+          this.setState({
+            list: []
+          })
+          Toast.show(body.msg)
+        }
+        break;
+      case UrlConfig.deployRecommendation:
+      	if (body.success) {
+          this.setState({
+            showWarnAlert: true,
+            alertWarnTitle: "发布成功！",
+            selectedMatchArray: [],
+            sureSelectedArray: [],
+            deployMatchInfo: {},
+            fee: -1,
+            content: ""
+          });
+        } else {
+          this.setState({
+            showWarnAlert: true,
+            alertWarnTitle: "网络出错，请重新发布！"
+          });
+        }
+        break;
+    }
+  }
 
 	handleCancle() {
 		this.setState({
@@ -156,32 +196,41 @@ class MoreRecommendation extends BasePage {
 			});
 			return;
 		}
-		Post(UrlConfig.deployRecommendation, {
+
+    ApiAction.post(UrlConfig.deployRecommendation, {
 			content: content,
 			fee: fee,
 			matchIds: deployMatchIds.join(","),
 			letBalls: deployLetBalls.join(","),
 			results: deployResults.join(",")
-		}).then((res)=> {
-			if (res.success) {
-				this.setState({
-					showWarnAlert: true,
-					alertWarnTitle: "发布成功！",
-					selectedMatchArray: [],
-					sureSelectedArray: [],
-					deployMatchInfo: {},
-					fee: -1,
-					content: ""
-				});
-				this.showLoading(false);
-			} else {
-				this.setState({
-					showWarnAlert: true,
-					alertWarnTitle: "网络出错，请重新发布！"
-				});
-				this.showLoading(false);
-			}
 		});
+
+		// Post(UrlConfig.deployRecommendation, {
+		// 	content: content,
+		// 	fee: fee,
+		// 	matchIds: deployMatchIds.join(","),
+		// 	letBalls: deployLetBalls.join(","),
+		// 	results: deployResults.join(",")
+		// }).then((res)=> {
+		// 	if (res.success) {
+		// 		this.setState({
+		// 			showWarnAlert: true,
+		// 			alertWarnTitle: "发布成功！",
+		// 			selectedMatchArray: [],
+		// 			sureSelectedArray: [],
+		// 			deployMatchInfo: {},
+		// 			fee: -1,
+		// 			content: ""
+		// 		});
+		// 		this.showLoading(false);
+		// 	} else {
+		// 		this.setState({
+		// 			showWarnAlert: true,
+		// 			alertWarnTitle: "网络出错，请重新发布！"
+		// 		});
+		// 		this.showLoading(false);
+		// 	}
+		// });
 	}
 
 	renderItems(list) {

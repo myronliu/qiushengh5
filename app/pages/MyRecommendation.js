@@ -12,7 +12,7 @@ import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
-import {Post} from '../http/http';
+// import {Post} from '../http/http';
 
 class MyRecommendation extends BasePage {
 	constructor(props) {
@@ -27,7 +27,6 @@ class MyRecommendation extends BasePage {
 			status: '关注专家'
 		};
 	}
-
 
 	componentDidMount() {
 		super.componentDidMount();
@@ -44,20 +43,50 @@ class MyRecommendation extends BasePage {
 	}
 
 	getRecommend(data) {
-		this.showLoading(false);
-		Post(UrlConfig.myRecommend, data).then((res)=> {
-			if (res && res.length > 0) {
-				this.setState({
-					list: res || [],
-				});
-			} else {
-				this.setState({
-					list: [],
-				});
-			}
-
-		});
+		this.showLoading(true);
+		// Post(UrlConfig.myRecommend, data).then((res)=> {
+		// 	if (res && res.length > 0) {
+		// 		this.setState({
+		// 			list: res || [],
+		// 		});
+		// 	} else {
+		// 		this.setState({
+		// 			list: [],
+		// 		});
+		// 	}
+		// });
+		
+    ApiAction.post(UrlConfig.myRecommend, data);
 	}
+
+	apiSuccess(url,body){
+    this.showLoading(false);
+    switch(url){
+      case UrlConfig.myRecommend:
+        body=body||[];
+        if(body.length > 0){
+          this.setState({
+            list: body
+          })
+        }else{
+        	this.setState({
+        		list: []
+        	})
+          Toast.show(body.msg)
+        }
+        break;
+      case UrlConfig.recommendBuy:
+        this.setState({
+          showAlert: false
+        })
+        if(body.success){
+          window.to('/recodetail?id=' + this.state.payId);
+        }else{
+          Toast.show(body.msg)
+        }
+        break;
+    }
+  }
 
 	getEnd() {
 		this.showLoading(true);
