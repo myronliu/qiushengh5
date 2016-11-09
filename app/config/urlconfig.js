@@ -22,8 +22,8 @@ module.exports={// 不要加  '/'
   concernadd: 'lottery/my/concern/add',
   concerncancel: 'lottery/my/concern/cancel',
   order: 'lottery/my/order',
-  myRecommend:'/api/lottery/my/recommend',
-  deployRecommendation:'/api/lottery/recommend/publish',
+  myRecommend:'lottery/my/recommend',
+  deployRecommendation:'lottery/recommend/publish',
 
   // server needs
   banner: 'lottery/banner',

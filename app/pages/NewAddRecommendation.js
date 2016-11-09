@@ -10,6 +10,7 @@ import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 import ApiAction from '../actions/apiaction';
+import Cookie from '../helper/cookie';
 // import {Post} from '../http/http';
 
 class MoreRecommendation extends BasePage {
@@ -196,13 +197,14 @@ class MoreRecommendation extends BasePage {
 			});
 			return;
 		}
-
+		debugger;
     ApiAction.post(UrlConfig.deployRecommendation, {
 			content: content,
 			fee: fee,
 			matchIds: deployMatchIds.join(","),
 			letBalls: deployLetBalls.join(","),
-			results: deployResults.join(",")
+			results: deployResults.join(","),
+			token: Cookie.getCookie("token") || ''
 		});
 
 		// Post(UrlConfig.deployRecommendation, {

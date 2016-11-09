@@ -44,6 +44,8 @@ class MyRecommendation extends BasePage {
 
 	getRecommend(data) {
 		this.showLoading(true);
+		data = data || {};
+		data.token = Cookie.getCookie("token") || '';
 		// Post(UrlConfig.myRecommend, data).then((res)=> {
 		// 	if (res && res.length > 0) {
 		// 		this.setState({
@@ -72,7 +74,6 @@ class MyRecommendation extends BasePage {
         	this.setState({
         		list: []
         	})
-          Toast.show(body.msg)
         }
         break;
       case UrlConfig.recommendBuy:
@@ -97,15 +98,7 @@ class MyRecommendation extends BasePage {
 	}
 
 	pay(fee, id, ifBuy) {
-		if (this.state.recState == "NO" && !ifBuy && fee && fee != "0") {
-			this.setState({
-				showAlert: true,
-				alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
-				payId: id
-			})
-		} else {
-			window.to('/recodetail?id=' + id);
-		}
+		window.to('/recodetail?id=' + id);
 	}
 
 	handleCancle() {
@@ -118,7 +111,7 @@ class MyRecommendation extends BasePage {
 		this.showLoading(true)
 		ApiAction.post(UrlConfig.recommendBuy, {
 			recommendId: this.state.payId,
-			token: Cookie.getCookie("token") || 'dds'
+			token: Cookie.getCookie("token") || ''
 		});
 	}
 

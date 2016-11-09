@@ -13,7 +13,7 @@ module.exports = EvoFlux.createAction("api",{
             ajaxSet.header['X-KJT-AUTH']=(auth===undefined?'':auth);
             // ajaxSet.header['X-SSO-Auth']=(ssoToken===undefined?'':ssoToken);
         }
-        console.log(ajaxSet)
+        // console.log(ajaxSet)
 
         Api.init(ajaxSet).api.post(url)
             .send(param)
@@ -59,8 +59,8 @@ module.exports = EvoFlux.createAction("api",{
             }
 
         }else{
-            console.log("result")
-            console.log(result)
+            // console.log("result")
+            // console.log(result)
             var status=result.body.status || 0;
             if(result.body.success){
                 status = 0;
@@ -72,9 +72,9 @@ module.exports = EvoFlux.createAction("api",{
                     cb(result.body);
                 }
             }else{
-                console.log('===============')
-                console.log(result.body.status);
-                console.log(result.body)
+                // console.log('===============')
+                // console.log(result.body.status);
+                // console.log(result.body)
                 if(status===0){
                     this.dispatch({
                         actionType:"success",
