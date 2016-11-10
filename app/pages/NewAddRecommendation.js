@@ -197,7 +197,6 @@ class MoreRecommendation extends BasePage {
 			});
 			return;
 		}
-		debugger;
     ApiAction.post(UrlConfig.deployRecommendation, {
 			content: content,
 			fee: fee,
