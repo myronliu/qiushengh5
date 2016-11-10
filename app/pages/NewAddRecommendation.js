@@ -11,7 +11,7 @@ import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 import ApiAction from '../actions/apiaction';
 import Cookie from '../helper/cookie';
-// import {Post} from '../http/http';
+import {Post} from '../http/http';
 
 class MoreRecommendation extends BasePage {
 	constructor(props) {
@@ -32,14 +32,15 @@ class MoreRecommendation extends BasePage {
 
 
 	getMatchList(data) {
-		// this.showLoading(false);
-		// Post("/api/" + UrlConfig.matchList, data).then((res)=> {
-		// 	this.setState({
-		// 		list: res || [],
-		// 	});
-		// });
-
-    ApiAction.post(UrlConfig.matchList, data);
+		this.showLoading(false);
+		Post("/api/" + UrlConfig.matchList, data).then((res)=> {
+			this.setState({
+				list: res || [],
+			});
+		})
+		
+    // data.token = Cookie.getCookie("token") || "";
+    // ApiAction.post(UrlConfig.matchList, data);
 	}
 
 	apiSuccess(url,body){
@@ -48,6 +49,7 @@ class MoreRecommendation extends BasePage {
       case UrlConfig.matchList:
         body=body||[];
         if(body.length > 0){
+          alert('success')
           this.setState({
             list: body,
           })
@@ -197,44 +199,47 @@ class MoreRecommendation extends BasePage {
 			});
 			return;
 		}
-    ApiAction.post(UrlConfig.deployRecommendation, {
-			content: content,
-			fee: fee,
-			matchIds: deployMatchIds.join(","),
-			letBalls: deployLetBalls.join(","),
-			results: deployResults.join(","),
-			token: Cookie.getCookie("token") || ''
-		});
-
-		// Post(UrlConfig.deployRecommendation, {
+  //   ApiAction.post(UrlConfig.deployRecommendation, {
 		// 	content: content,
 		// 	fee: fee,
 		// 	matchIds: deployMatchIds.join(","),
 		// 	letBalls: deployLetBalls.join(","),
-		// 	results: deployResults.join(",")
-		// }).then((res)=> {
-		// 	if (res.success) {
-		// 		this.setState({
-		// 			showWarnAlert: true,
-		// 			alertWarnTitle: "发布成功！",
-		// 			selectedMatchArray: [],
-		// 			sureSelectedArray: [],
-		// 			deployMatchInfo: {},
-		// 			fee: -1,
-		// 			content: ""
-		// 		});
-		// 		this.showLoading(false);
-		// 	} else {
-		// 		this.setState({
-		// 			showWarnAlert: true,
-		// 			alertWarnTitle: "网络出错，请重新发布！"
-		// 		});
-		// 		this.showLoading(false);
-		// 	}
+		// 	results: deployResults.join(","),
+		// 	token: Cookie.getCookie("token") || ''
 		// });
+
+		Post(UrlConfig.deployRecommendation, {
+			content: content,
+			fee: fee,
+			matchIds: deployMatchIds.join(","),
+			letBalls: deployLetBalls.join(","),
+			results: deployResults.join(",")
+		}).then((res)=> {
+			if (res.success) {
+				this.setState({
+					showWarnAlert: true,
+					alertWarnTitle: "发布成功！",
+					selectedMatchArray: [],
+					sureSelectedArray: [],
+					deployMatchInfo: {},
+					fee: -1,
+					content: ""
+				});
+				this.showLoading(false);
+			} else {
+				this.setState({
+					showWarnAlert: true,
+					alertWarnTitle: "网络出错，请重新发布！"
+				});
+				this.showLoading(false);
+			}
+		});
 	}
 
 	renderItems(list) {
+    // if(process.browser){
+    //   alert('renderItems')
+    // }
 		return list.map(function (item, index) {
 			return (
 				<TapAble className="saishi block" key={"hot" + index}

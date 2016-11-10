@@ -80,7 +80,7 @@ export default class extends BasePage {
     window.location.href='http://qiusheng.qingxinguoyuan.com/pay/test?token=' + Cookie.getCookie("token");
   }
   gotoMyreRommendation(){
-    window.location.href='/myrecommendation?token=' + Cookie.getCookie("token");
+    window.to('/myrecommendation');
   }
 
 

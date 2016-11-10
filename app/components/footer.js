@@ -1,7 +1,7 @@
 import React from 'react';
 export default class Footer extends React.Component{
   toHome(){
-    window.to('/');
+    window.location.href = '/';
   }
   toDownLoad(){
     window.to(WebUrl.download);

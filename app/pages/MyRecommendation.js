@@ -116,7 +116,7 @@ class MyRecommendation extends BasePage {
 	}
 
 	gotoMoreRecommendation() {
-		window.location.href = '/newaddrecommendation?token=' + Cookie.getCookie("token");
+		window.to('/newaddrecommendation');
 	}
 
 	renderItems() {
