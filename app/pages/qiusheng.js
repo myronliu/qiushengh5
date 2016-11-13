@@ -225,7 +225,7 @@ export default class extends BasePage {
 
   render() {
     return (
-      <Layout hideBack={true} className={'qiusheng'} title={'首页'}>
+      <Layout hideBack={true} className={'qiusheng'} title={'球盛体育'}>
         <Loading showLoading={this.state.showLoading} />
         <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
         {this.rendScrolBanner()}

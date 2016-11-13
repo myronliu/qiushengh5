@@ -139,7 +139,7 @@ router.get('/qiusheng',function(req,res){
       };
       res.expose(Exp.dehydrate(data));
       var reactHtml = ReactDOMServer.renderToString(QiuSheng({data: data}));
-      res.render('home', {reactOutput: reactHtml,title:'首页', stateData: res.locals.state});
+      res.render('home', {reactOutput: reactHtml,title:'球盛体育', stateData: res.locals.state});
     })
     .catch(function(err){
       var data={
