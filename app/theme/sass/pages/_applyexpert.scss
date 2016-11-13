@@ -1,0 +1,64 @@
+.applyExpert{
+  width: 100%;
+  .switchApply{
+    .switchArea{
+      width: 50%;
+      margin: 0.5rem auto;
+      font-size: 0;
+      border-radius: 0.5rem;
+      overflow: hidden;
+      &>div{
+        display: inline-block;
+        font-size: 14px;
+        text-align: center;
+        color: #fff;
+        width: 50%;
+        padding: 1rem 0;
+        &.active{
+          background-color: #014da1;
+        }
+        &.unactive{
+          background-color: #5190d5;
+        }
+      }
+    }
+  }
+  .userInput{
+    .inputArea{
+      text-align: center;
+      &>input{
+        width: 90%;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.3rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+      }
+      &>textarea{
+        width: 90%;
+        border: 1px solid #e5e5e5;
+        border-radius: 0.3rem;
+        margin-bottom: 0.5rem;
+        padding: 0.5rem;
+        resize: none;
+      }
+    }
+    .roleArea{
+      padding-left: 1%;
+      margin-bottom: 1rem;
+    }
+    .applyButton{
+      width: 90%;
+      margin: 0 auto;
+      background-color: #014da1;
+      padding: 0.6rem;
+      text-align: center;
+      border-radius: 0.4rem;
+      color: #fff;
+      font-size: 18px;
+    }
+    .tips{
+      text-align: center;
+      color: #014da1;
+    }
+  }
+}

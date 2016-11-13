@@ -1398,6 +1398,16 @@ input[type="button"] {
     color: red;
     height: 8rem; }
 
+.specialinfo .items .itemCategoryTitle {
+  padding: 1rem;
+  margin-bottom: 1rem; }
+  .specialinfo .items .itemCategoryTitle.recommended {
+    background-color: #004700; }
+  .specialinfo .items .itemCategoryTitle.recommending {
+    background-color: green; }
+  .specialinfo .items .itemCategoryTitle.article {
+    background-color: #acc894; }
+
 .specialist {
   height: 100%; }
   .specialist .tabs {
@@ -1912,15 +1922,26 @@ input[type="button"] {
       text-align: center;
       color: white;
       font-size: 2.5rem; }
-    .mine .header .money {
-      padding-left: 1rem;
-      padding-right: 1rem;
-      text-align: left;
-      color: white;
-      font-size: 2.5rem; }
-      .mine .header .money .num {
-        color: #ffdb00;
-        margin-right: 0.5rem; }
+    .mine .header .infoArea {
+      overflow: hidden; }
+      .mine .header .infoArea .money {
+        float: left;
+        padding-left: 1rem;
+        padding-right: 1rem;
+        text-align: left;
+        color: white;
+        font-size: 2.5rem; }
+        .mine .header .infoArea .money .num {
+          color: #ffdb00;
+          margin-right: 0.5rem; }
+      .mine .header .infoArea .options {
+        float: right;
+        color: #fff; }
+        .mine .header .infoArea .options .optionButton {
+          border: 1px solid #fff;
+          border-radius: 0.2rem;
+          padding: 0 0.1rem;
+          margin-left: 0.2rem; }
   .mine .tabs {
     line-height: 5rem;
     height: 5rem;
@@ -2339,3 +2360,79 @@ input[type="button"] {
         margin-right: 1rem; }
       .newAddAlert .messageDiv .matchWap .itemMiddle .g {
         color: green; }
+
+.applyExpert {
+  width: 100%; }
+  .applyExpert .switchApply .switchArea {
+    width: 50%;
+    margin: 0.5rem auto;
+    font-size: 0;
+    border-radius: 0.5rem;
+    overflow: hidden; }
+    .applyExpert .switchApply .switchArea > div {
+      display: inline-block;
+      font-size: 14px;
+      text-align: center;
+      color: #fff;
+      width: 50%;
+      padding: 1rem 0; }
+      .applyExpert .switchApply .switchArea > div.active {
+        background-color: #014da1; }
+      .applyExpert .switchApply .switchArea > div.unactive {
+        background-color: #5190d5; }
+  .applyExpert .userInput .inputArea {
+    text-align: center; }
+    .applyExpert .userInput .inputArea > input {
+      width: 90%;
+      border: 1px solid #e5e5e5;
+      border-radius: 0.3rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem; }
+    .applyExpert .userInput .inputArea > textarea {
+      width: 90%;
+      border: 1px solid #e5e5e5;
+      border-radius: 0.3rem;
+      margin-bottom: 0.5rem;
+      padding: 0.5rem;
+      resize: none; }
+  .applyExpert .userInput .roleArea {
+    padding-left: 1%;
+    margin-bottom: 1rem; }
+  .applyExpert .userInput .applyButton {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #014da1;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-size: 18px; }
+  .applyExpert .userInput .tips {
+    text-align: center;
+    color: #014da1; }
+
+.writeArticle {
+  text-align: center;
+  padding-top: 0.5rem; }
+  .writeArticle .articleTitle {
+    width: 90%;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.3rem;
+    margin: 0.5rem 0;
+    padding: 0.5rem; }
+  .writeArticle .articleContent {
+    width: 90%;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    resize: none; }
+  .writeArticle .publishButton {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #014da1;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-size: 18px; }

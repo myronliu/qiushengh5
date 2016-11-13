@@ -17,6 +17,8 @@ var HotmatchDetail = require('../pages/hotmatchdetail');
 var Mine = require('../pages/mine');
 var MyRecommendation = require('../pages/MyRecommendation');
 var NewAddRecommendation = require('../pages/NewAddRecommendation');
+var ApplyExpert = require('../pages/applyexpert');
+var WriteArticle = require('../pages/writearticle');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -49,7 +51,7 @@ var Router = EvoFlux.createRouter({
       ReactDOM.render(<QiuSheng data={items} token={this.query("token")}/>, container);
     }catch(ex){
       console.log(ex)
-      // window.location.href = "/qiusheng";      
+      // window.location.href = "/qiusheng";
     }
   },
   '/recodetail': function(){
@@ -76,6 +78,12 @@ var Router = EvoFlux.createRouter({
   '/newaddrecommendation': function(){
     ReactDOM.render(<NewAddRecommendation />, container);
   },
+  '/applyexpert': function(){
+    ReactDOM.render(<ApplyExpert />, container);
+  },
+  '/writearticle': function(){
+    ReactDOM.render(<WriteArticle />, container);
+  },
 
 
 
@@ -99,7 +107,7 @@ window.to = function(url){
 //handle href event.
 //相对路径的url click 或者touch事件使用h5方式跳转。绝对路径的使用原生跳转(包含native url)。
 //事件已经绑定了href，所以不管里面什么元素的点击都是往上冒泡到a元素运行这个链接。
-var handLink = function(e) { 
+var handLink = function(e) {
   var el = e.target;
   var isLink = false;
   var hackLink = function(){

@@ -1,0 +1,24 @@
+.writeArticle {
+  text-align: center; }
+  .writeArticle .articleTitle {
+    width: 90%;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem; }
+  .writeArticle .articleName {
+    width: 90%;
+    border: 1px solid #e5e5e5;
+    border-radius: 0.3rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    resize: none; }
+  .writeArticle .publishButton {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #014da1;
+    padding: 0.6rem;
+    text-align: center;
+    border-radius: 0.4rem;
+    color: #fff;
+    font-size: 18px; }

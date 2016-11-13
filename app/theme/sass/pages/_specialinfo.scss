@@ -107,5 +107,18 @@
         height: 8rem;
       }
     }
+    .itemCategoryTitle{
+      padding: 1rem;
+      margin-bottom: 1rem;
+      &.recommended{
+        background-color: #004700;
+      }
+      &.recommending{
+        background-color: green;
+      }
+      &.article{
+        background-color: #acc894;
+      }
+    }
   }
 }

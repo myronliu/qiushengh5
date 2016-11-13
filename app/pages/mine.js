@@ -1,5 +1,4 @@
-import Layout from '../components/layout'
-
+import Layout from '../components/layout';
 import Cookie from '../helper/cookie';
 import Toast from '../helper/toast';
 import NextButton from '../components/nextbutton';
@@ -7,7 +6,7 @@ import Input from '../components/Input';
 import TitleInput from '../components/titleinput';
 import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
-import UrlConfig from '../config/urlconfig'
+import UrlConfig from '../config/urlconfig';
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 import TwoBtnAlert from '../components/twobtnalert';
@@ -29,6 +28,7 @@ export default class extends BasePage {
         this.setState({
           avatar: body.my.avatar,
           name: body.my.name,
+          ifCommon: body.my.ifCommon === 'YES',
           rices: body.rices,
           overlist: body.orders.over || [],
           unoverlist: body.orders.unOver || []
@@ -83,6 +83,32 @@ export default class extends BasePage {
     window.to('/myrecommendation');
   }
 
+  applyExpert(){
+    window.to('/applyexpert');
+  }
+  writeArticle(){
+    window.to('/writearticle');
+  }
+  withdraw(){
+    alert('申请提现，等待接口');
+  }
+
+  renderOptions(){
+    if(this.state.ifCommon){
+      return (
+        <div className="options">
+          <span className="optionButton" onTouchEnd={this.applyExpert.bind(this)}>申请专家</span>
+        </div>
+      );
+    }else{
+      return (
+        <div className="options">
+          <span className="optionButton" onTouchEnd={this.writeArticle.bind(this)}>发表文章</span>
+          <span className="optionButton" onTouchEnd={this.withdraw.bind(this)}>申请提现</span>
+        </div>
+      );
+    }
+  }
 
   renderItems(){
     if(this.state.status == "unover" ){
@@ -146,10 +172,13 @@ export default class extends BasePage {
           <div className="name">
             { this.state.name || '' }
           </div>
-          <div className="money">
-            <span>米仓：</span>
-            <span className="num">{this.state.rices || '0'}</span>
-            <span>{CommonConfig.unit}</span>
+          <div className="infoArea">
+            <div className="money">
+              <span>米仓：</span>
+              <span className="num">{this.state.rices || '0'}</span>
+              <span>{CommonConfig.unit}</span>
+            </div>
+            {this.renderOptions()}
           </div>
         </div>
         <div className="tabs">

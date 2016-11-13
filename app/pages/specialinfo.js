@@ -1,18 +1,19 @@
-import Layout from '../components/layout'
+import Layout from '../components/layout';
 
 import Cookie from '../helper/cookie';
 import Toast from '../helper/toast';
 import TwoBtnAlert from '../components/twobtnalert';
 import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
-import UrlConfig from '../config/urlconfig'
+import UrlConfig from '../config/urlconfig';
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 
 export default class extends BasePage {
   state={
-    list:[],
+    recommending:[],
+    recommended:[],
     avarurl: '',
     expertname: '',
     detail: '',
@@ -31,9 +32,12 @@ export default class extends BasePage {
           avarurl: body.expert.avatar,
           expertname: body.expert.name,
           detail: body.expert.detail,
-          list: body.recommending || [],
+          recommending: body.recommending || [],
+          recommended: body.recommended || [],
+          articles: body.articles || [],
           status: body.ifConcern ? '取消关注' : '关注专家'
-        })
+        });
+        console.log('body',body);
         break;
       case UrlConfig.expertRecommend:
         this.setState({
@@ -110,6 +114,10 @@ export default class extends BasePage {
     this.showLoading(true)
     ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || 'dds'});
   }
+  handleApplyExpert(){
+    window.to('/applyexpert');
+  }
+
 
   focusUser(id){
     this.showLoading(true)
@@ -120,8 +128,34 @@ export default class extends BasePage {
     }
   }
 
-  renderItems(){
-    return this.state.list.map(function(item, index){
+  renderRecommending(){
+    return (
+      <div>
+        <p className="itemCategoryTitle recommending">未结束</p>
+        { this.renderItems(this.state.recommending) }
+      </div>
+    );
+  }
+
+  renderRecommended(){
+    return (
+      <div>
+        <p className="itemCategoryTitle recommended">历史推荐</p>
+        { this.renderItems(this.state.recommended) }
+      </div>
+    );
+  }
+
+  renderArticles(){
+    return (
+      <div>
+        <p className="itemCategoryTitle article">文章</p>
+      </div>
+    );
+  }
+
+  renderItems(sourceList){
+    return sourceList.map(function(item, index){
       return (
         <TapAble className="specialItem block" key={"s"+index} onTap={this.pay.bind(this, item.fee, item.id, item.ifBuy)}>
           <div className="leftPart">
@@ -143,7 +177,11 @@ export default class extends BasePage {
       )
     }.bind(this));
   }
-
+  componentWillUpdate(){
+    this.renderRecommended();
+    this.renderRecommending();
+    this.renderArticles();
+  }
   render() {
     let rightBtn={title: this.state.status,func:this.focusUser.bind(this,this.props.id)};
     return (
@@ -165,12 +203,10 @@ export default class extends BasePage {
             }
           </div>
         </div>
-        <div className="tabs">
-          <div className={this.state.recState == "NO" ? "active" : "unactive"} onTouchEnd={this.getUnEnd.bind(this)}>未结束</div>
-          <div className={this.state.recState == "YES" ? "active" : "unactive"} onTouchEnd={this.getEnd.bind(this)}>已结束</div>
-        </div>
         <div className="items">
-          {this.renderItems()}
+          {this.renderRecommending()}
+          {this.renderRecommended()}
+          {this.renderArticles()}
         </div>
       </Layout>
     )

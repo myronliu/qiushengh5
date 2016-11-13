@@ -33,7 +33,8 @@ var Mine = React.createFactory(require('../pages/mine'));
 var Focus = React.createFactory(require('../pages/focus'));
 // var Vote = React.createFactory(require('../pages/vote'));
 // var Result = React.createFactory(require('../pages/result'));
-
+var ApplyExpert = React.createFactory(require('../pages/applyexpert'));
+var WriteArticle = React.createFactory(require('../pages/writearticle'));
 
 
 
@@ -70,13 +71,13 @@ function sendMessage(){
       global.socket.emit('message', JSON.stringify(data));
     })
     .catch(function(err){
-      
+
     })
 }
 
-// global.socket.on('message',function(event){ 
-//   console.log('Received message from client!',event); 
-// }); 
+// global.socket.on('message',function(event){
+//   console.log('Received message from client!',event);
+// });
 
 router.get('/error',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(ErrorView({message:"出错啦！"}));
@@ -95,7 +96,7 @@ router.get('/',function(req,res){
         competition:competition
       };
       res.expose(Exp.dehydrate(data));
-      
+
       var reactHtml = ReactDOMServer.renderToString(Home({data: data}));
       res.render('home', {reactOutput: reactHtml,title:'首页', stateData: res.locals.state});
     })
@@ -194,6 +195,16 @@ router.get('/newaddrecommendation',function(req,res){
 router.get('/focus',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Focus());
   res.render('home', {reactOutput: reactHtml,title:'我的关注'});
+});
+
+router.get('/applyexpert',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(ApplyExpert());
+  res.render('home', {reactOutput: reactHtml,title:'申请站长'});
+});
+
+router.get('/writearticle',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(WriteArticle());
+  res.render('home', {reactOutput: reactHtml,title:'发表文章'});
 });
 
 function renderToPath(req,res,path){
