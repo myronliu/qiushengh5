@@ -58,6 +58,7 @@ export default class extends BasePage {
     return this.state.list.map(function(item, index){
       return(
         <TapAble className="saishi block" key={"hot" + index} onTap={this.gotoDetail.bind(this, item.id)}>
+          <div className="bh">{item.bh}</div>
           <div className="saishiLeft">
             <img src={item.homeTeamAvatar ? item.homeTeamAvatar : "../images/photo.png"} />
             <span>{item.homeTeam}</span>

@@ -44,9 +44,14 @@
     margin-bottom: 1rem;
     height: 9rem;
     line-height: 9rem;
+    font-size: 2rem;
+    .bh{
+      width:8%;
+      display: inline-block;
+    }
     .saishiLeft{
       display: inline-block;
-      width: 30.33%;
+      width: 28%;
       vertical-align: top;
       height: 9rem;
       line-height: 9rem;
@@ -65,7 +70,7 @@
     }
     .saishiRight{
       display: inline-block;
-      width: 30.33%;
+      width: 28%;
       vertical-align: top;
       text-align: right;
       &>img{
@@ -83,7 +88,7 @@
     }
     .saishiMiddle{
       display: inline-block;
-      width: 39.33%;
+      width: 36%;
       height: 9rem;
       vertical-align: top;
       text-align: center;
