@@ -51,7 +51,9 @@ var Router = EvoFlux.createRouter({
       ReactDOM.render(<QiuSheng data={items} token={this.query("token")}/>, container);
     }catch(ex){
       console.log(ex)
-      // window.location.href = "/qiusheng";
+      if(ex.toString().indexOf("TypeError: Cannot read property 'items' of undefined" > -1)){
+        window.location.href = "/qiusheng";
+      }
     }
   },
   '/recodetail': function(){
