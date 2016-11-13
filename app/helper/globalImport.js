@@ -13,6 +13,7 @@ import Toast from '../helper/toast';
 import BasePage from '../components/BasePage.js';
 import TapAble from 'react-tappable';
 import WebUrl from '../config/WebUrl.js';
+import CommonConfig from '../config/common';
 
 let main={}
 if(isService){
@@ -34,5 +35,5 @@ main.ReactDOMServer=ReactDOMServer;
 main.Toast=Toast;
 main.TapAble=TapAble;
 main.WebUrl=WebUrl;
-
+main.CommonConfig=CommonConfig;
 

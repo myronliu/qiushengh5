@@ -122,6 +122,16 @@
       float: right;
       margin-right: 1rem;
     }
+    .scrolldivs{
+      height: 4rem;
+      // width: 340px;
+      overflow: hidden;
+      .scrollul{
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        font-size: 2rem;
+      }
+    }
   }
   .specialistHome{
     .specialItem{
@@ -141,6 +151,9 @@
       .name{
         font-size: 2rem;
         color:black;
+        white-space:nowrap;
+        overflow:hidden;
+        text-overflow:ellipsis;
       }
     }
   }

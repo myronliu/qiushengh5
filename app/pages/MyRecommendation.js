@@ -137,7 +137,7 @@ class MyRecommendation extends BasePage {
 						</div>
 					</div>
 					<div className="rightPart">
-						{this.state.recState == "NO" ? (item.fee && item.fee > 0 ? (item.ifBuy ? "查看" : item.fee + "粒米") : "免费") : "免费"}
+						{this.state.recState == "NO" ? (item.fee && item.fee > 0 ? (item.ifBuy ? "查看" : item.fee + CommonConfig.unit) : "免费") : "免费"}
 					</div>
 				</TapAble>
 			)

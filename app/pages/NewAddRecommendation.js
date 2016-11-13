@@ -291,7 +291,7 @@ class MoreRecommendation extends BasePage {
 		return <div className="itemMatch" key={index}>
 			<div className="line1">
 				<span className="left">{item.matchName}</span>
-				{/*{<span className="money">1粒米</span>}*/}
+				{/*{<span className="money">1球币</span>}*/}
 				<span className="right">{item.matchDate}</span>
 			</div>
 			<div className="line2">

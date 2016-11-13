@@ -57,6 +57,7 @@ export default class extends BasePage {
     if(this.props.token){
       Cookie.setCookie("token", this.props.token, 7);
     }
+    $("#scrollDiv").Scroll({line:1,speed:500,timer:3000,up:"but_up",down:"but_down"});
   }
 
   componentWillMount(){
@@ -85,7 +86,7 @@ export default class extends BasePage {
     if(!ifBuy && fee && fee != "0"){
       this.setState({
         showAlert: true,
-        alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
+        alertTitle: "需支付" + fee  + CommonConfig.unit + "查看专家推荐<br />(1" + CommonConfig.unit + "=1元)",
         payId: id
       })
     }else{
@@ -199,7 +200,7 @@ export default class extends BasePage {
                   </div>
                 </div>
                 <div className="rightPart">
-                  {item.recommend.fee > 0 ? (item.recommend.ifBuy ? "查看" : (item.recommend.fee + "粒米")) : ("免费")}
+                  {item.recommend.fee > 0 ? (item.recommend.ifBuy ? "查看" : (item.recommend.fee  + CommonConfig.unit)) : ("免费")}
                 </div>
               </TapAble>
             </div>
@@ -207,6 +208,19 @@ export default class extends BasePage {
         )
       }.bind(this))
     }
+  }
+
+  renderHots(){
+    return this.props.data.hots.map(function(item, index){
+      return(
+        <li key={"li"+index}>
+          <span className="leftInfo">竞彩红人榜</span>
+          <span className="middleInfo">{item.name}</span>
+          <span className="rightInfo">{">"}</span>
+          <span className="numInfo">{item.hits}</span>
+        </li>
+      )
+    })
   }
 
   render() {
@@ -237,24 +251,26 @@ export default class extends BasePage {
           </div>
         </div>
         <TapAble className="hongrenbang block" onTap={this.gotoHots.bind(this)}>
-          <span className="leftInfo">竞彩红人榜</span>
-          <span className="middleInfo">{this.props.data.hots[0].name}</span>
-          <span className="rightInfo">{">"}</span>
-          <span className="numInfo">{this.props.data.hots[0].hits}</span>
-        </TapAble>
-        <div className="specialistHome marginTop07rem">
-          <div className="topInfo">
-            <span className="title">{"竞彩专家"}</span>
-            <span className="link" onTouchEnd={this.gotoSpecialist.bind(this)}>{"更多>"}</span>
+          <div id="scrollDiv" className="scrolldivs">
+            <ul className="scrollul">
+              {this.renderHots()}
+            </ul>
           </div>
-          {this.renderSpecialist()}
-        </div>
+        </TapAble>
+        
         <div className="recList marginTop07rem">
           <div className="topInfo">
             <span className="title">{"最新推荐"}</span>
             <span className="link">{"推荐有风险 投注请谨慎"}</span>
           </div>
           {this.renderRecommondList()}
+        </div>
+        <div className="specialistHome marginTop07rem">
+          <div className="topInfo">
+            <span className="title">{"竞彩专家"}</span>
+            <span className="link" onTouchEnd={this.gotoSpecialist.bind(this)}>{"更多>"}</span>
+          </div>
+          {this.renderSpecialist()}
         </div>
         <div style={{height:'9rem'}}></div>
         <QsFooter page={"home"}/>

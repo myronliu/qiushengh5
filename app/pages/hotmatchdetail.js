@@ -62,7 +62,7 @@ export default class extends BasePage {
     if(!ifBuy && fee && fee != "0"){
       this.setState({
         showAlert: true,
-        alertTitle: "需支付" + fee + "粒米查看专家推荐<br />(1粒米=1元)",
+        alertTitle: "需支付" + fee + CommonConfig.unit + "查看专家推荐<br />(1" + CommonConfig.unit + "=1元)",
         payId: id
       })
     }else{
