@@ -149,7 +149,7 @@ export default class extends BasePage {
           <div className="money">
             <span>米仓：</span>
             <span className="num">{this.state.rices || '0'}</span>
-            <span>粒米</span>
+            <span>{CommonConfig.unit}</span>
           </div>
         </div>
         <div className="tabs">

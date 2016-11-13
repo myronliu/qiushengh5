@@ -1210,6 +1210,13 @@ input[type="button"] {
     .qiusheng .hongrenbang .rightInfo {
       float: right;
       margin-right: 1rem; }
+    .qiusheng .hongrenbang .scrolldivs {
+      height: 4rem;
+      overflow: hidden; }
+      .qiusheng .hongrenbang .scrolldivs .scrollul {
+        margin-top: 0rem;
+        margin-bottom: 0rem;
+        font-size: 2rem; }
   .qiusheng .specialistHome .specialItem {
     width: 25%;
     display: inline-block;
@@ -1224,7 +1231,10 @@ input[type="button"] {
       background-color: #ffdcf5; }
     .qiusheng .specialistHome .specialItem .name {
       font-size: 2rem;
-      color: black; }
+      color: black;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
   .qiusheng .recList .recItem .specialInfo {
     padding-left: 1rem;
     height: 6rem;
