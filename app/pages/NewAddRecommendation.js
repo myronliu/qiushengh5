@@ -49,9 +49,8 @@ class MoreRecommendation extends BasePage {
       case UrlConfig.matchList:
         body=body||[];
         if(body.length > 0){
-          alert('success')
           this.setState({
-            list: body,
+            list: body
           })
         }else{
           this.setState({
@@ -93,7 +92,7 @@ class MoreRecommendation extends BasePage {
 		let {selectedMatchArray, list}= preState;
 		preState.deployMatchInfo = {};
 		list.map(matchItem=> {
-			if (selectedMatchArray.includes(matchItem.matchId)) {
+			if (selectedMatchArray.join(",").indexOf(matchItem.matchId)!==-1) {
 				preState.deployMatchInfo[matchItem.matchId] = {};
 				preState.deployMatchInfo[matchItem.matchId]["letBall"] = [0, matchItem.handicap];
 				preState.deployMatchInfo[matchItem.matchId]["selectType"] = {0: [], [matchItem.handicap]: []};
@@ -114,7 +113,7 @@ class MoreRecommendation extends BasePage {
 		let preState = _.fromJS(this.state).toJS();
 		let selectType = preState.deployMatchInfo[matchId]["selectType"];
 		let array = selectType[letBall];
-		if (array.includes(type)) {
+		if (array.join(",").indexOf(type)!==-1) {
 			array = array.filter(t=>t !== type);
 		} else {
 			array.push(type);
@@ -137,7 +136,7 @@ class MoreRecommendation extends BasePage {
 	selectHandler(matchId) {
 		let {selectedMatchArray} = this.state;
 		let array = _.fromJS(selectedMatchArray).toJS();
-		if (array.includes(matchId)) {
+		if (array.join(",").indexOf(matchId)!==-1) {
 			array = array.filter(id=>id !== matchId);
 		} else {
 			array.push(matchId);
@@ -199,41 +198,43 @@ class MoreRecommendation extends BasePage {
 			});
 			return;
 		}
-  //   ApiAction.post(UrlConfig.deployRecommendation, {
-		// 	content: content,
-		// 	fee: fee,
-		// 	matchIds: deployMatchIds.join(","),
-		// 	letBalls: deployLetBalls.join(","),
-		// 	results: deployResults.join(","),
-		// 	token: Cookie.getCookie("token") || ''
-		// });
-
-		Post(UrlConfig.deployRecommendation, {
+    	ApiAction.post(UrlConfig.deployRecommendation, {
 			content: content,
 			fee: fee,
 			matchIds: deployMatchIds.join(","),
 			letBalls: deployLetBalls.join(","),
-			results: deployResults.join(",")
-		}).then((res)=> {
-			if (res.success) {
-				this.setState({
-					showWarnAlert: true,
-					alertWarnTitle: "发布成功！",
-					selectedMatchArray: [],
-					sureSelectedArray: [],
-					deployMatchInfo: {},
-					fee: -1,
-					content: ""
-				});
-				this.showLoading(false);
-			} else {
-				this.setState({
-					showWarnAlert: true,
-					alertWarnTitle: "网络出错，请重新发布！"
-				});
-				this.showLoading(false);
-			}
+			results: deployResults.join(","),
+			token: Cookie.getCookie("token") || ''
 		});
+
+		// alert(deployMatchIds.join(","))
+
+		// Post(UrlConfig.deployRecommendation, {
+		// 	content: content,
+		// 	fee: fee,
+		// 	matchIds: deployMatchIds.join(","),
+		// 	letBalls: deployLetBalls.join(","),
+		// 	results: deployResults.join(",")
+		// }).then((res)=> {
+		// 	if (res.success) {
+		// 		this.setState({
+		// 			showWarnAlert: true,
+		// 			alertWarnTitle: "发布成功！",
+		// 			selectedMatchArray: [],
+		// 			sureSelectedArray: [],
+		// 			deployMatchInfo: {},
+		// 			fee: -1,
+		// 			content: ""
+		// 		});
+		// 		this.showLoading(false);
+		// 	} else {
+		// 		this.setState({
+		// 			showWarnAlert: true,
+		// 			alertWarnTitle: "网络出错，请重新发布！"
+		// 		});
+		// 		this.showLoading(false);
+		// 	}
+		// });
 	}
 
 	renderItems(list) {
@@ -245,7 +246,7 @@ class MoreRecommendation extends BasePage {
 				<TapAble className="saishi block" key={"hot" + index}
 				         onTap={this.selectHandler.bind(this, item.matchId)}>
 					<div
-						className={this.state.selectedMatchArray.includes(item.matchId) ? "matchWap selected" : "matchWap"}>
+						className={this.state.selectedMatchArray.join(",").indexOf(item.matchId)!==-1 ? "matchWap selected" : "matchWap"}>
 						<div className="item itemLeft">
 							<img src={item.homeTeamAvatar ? item.homeTeamAvatar : "../images/photo.png"}/>
 							<span>{item.homeTeam}</span>
@@ -271,7 +272,7 @@ class MoreRecommendation extends BasePage {
 
 	renderDetailMatch() {
 		let {sureSelectedArray, list, deployMatchInfo} = this.state;
-		return list.filter(item=>sureSelectedArray.includes(item.matchId))
+		return list.filter(item=>sureSelectedArray.join(",").indexOf(item.matchId)!==-1)
 			.map(function (item, index) {
 				return (
 					<div className="itemMatchWap" key={"recommendation" + index}>
@@ -304,11 +305,11 @@ class MoreRecommendation extends BasePage {
 				</div>
 				<div className="right">
 					<span onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, letBall)}
-					      className={"first" + (deployMatchInfo[item.matchId]["selectType"][letBall].includes(1) ? " selected" : "")}>{'主胜 ' + (letBall ? item.oddsRs : item.oddsS)}</span>
+					      className={"first" + (deployMatchInfo[item.matchId]["selectType"][letBall].join(",").indexOf(1)!==-1 ? " selected" : "")}>{'主胜 ' + (letBall ? item.oddsRs : item.oddsS)}</span>
 					<span onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, letBall)}
-					      className={"middle" + (deployMatchInfo[item.matchId]["selectType"][letBall].includes(2) ? " selected" : "")}>{'平局 ' + (letBall ? item.oddsRp : item.oddsP)}</span>
+					      className={"middle" + (deployMatchInfo[item.matchId]["selectType"][letBall].join(",").indexOf(2)!==-1 ? " selected" : "")}>{'平局 ' + (letBall ? item.oddsRp : item.oddsP)}</span>
 					<span onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, letBall)}
-					      className={"last" + (deployMatchInfo[item.matchId]["selectType"][letBall].includes(4) ? " selected" : "")}>{'客胜 ' + (letBall ? item.oddsRf : item.oddsF)}</span>
+					      className={"last" + (deployMatchInfo[item.matchId]["selectType"][letBall].join(",").indexOf(4)!==-1 ? " selected" : "")}>{'客胜 ' + (letBall ? item.oddsRf : item.oddsF)}</span>
 				</div>
 			</div>
 			<div className="deleteBtn" onTouchEnd={this.deleteHandler.bind(this, item.matchId, letBall)}>删除</div>
@@ -339,7 +340,7 @@ class MoreRecommendation extends BasePage {
 					     onTouchEnd={this.getMoreRecommendation.bind(this)}>
 						<div>选择赛事</div>
 					</div>
-					{this.renderDetailMatch(this.state.list.filter(item=>selectedMatchArray.includes(item.id)))}
+					{this.renderDetailMatch(this.state.list.filter(item=>selectedMatchArray.join(",").indexOf(item.id)!==-1))}
 					<div className="newAddItem recommendReason">
 						<textarea className="reason" placeholder="推荐理由" value={content} onChange={(e)=> {
 							this.setState({content: e.target.value.trim()});
@@ -378,8 +379,15 @@ class MoreRecommendation extends BasePage {
 	componentDidMount() {
 		super.componentDidMount();
 		this.showLoading(true);
-		this.getMatchList({status: 1, matchTypes: ''});
+		let data={
+			status: 1,
+			matchTypes: '',
+			token: Cookie.getCookie("token") || ""
+		};
+		ApiAction.post(UrlConfig.matchList, data);
 	}
+
+
 }
 
 export default MoreRecommendation;
