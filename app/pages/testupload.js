@@ -26,7 +26,7 @@ export default class extends BasePage {
   render() {
     return (
       <Layout hideBack={true} className={'hotmatch'} title={'热门赛事'}>
-        <form action="/api/upload" encType="multipart/form-data" method="post">
+        <form action="/apiQS/upload" encType="multipart/form-data" method="post">
           <input type="hidden" name="url" value="" /><br />
           <input type="hidden" name="username" value="liu" /><br />
           <input type="file" name="upload" multiple="multiple" /><br />
