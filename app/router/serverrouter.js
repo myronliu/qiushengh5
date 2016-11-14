@@ -35,10 +35,7 @@ var Focus = React.createFactory(require('../pages/focus'));
 // var Result = React.createFactory(require('../pages/result'));
 var ApplyExpert = React.createFactory(require('../pages/applyexpert'));
 var WriteArticle = React.createFactory(require('../pages/writearticle'));
-
-
-
-
+var TestUpload = React.createFactory(require('../pages/testupload'));
 
 // 加入定时计划
 var later = require('later');
@@ -205,6 +202,11 @@ router.get('/applyexpert',function(req,res){
 router.get('/writearticle',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(WriteArticle());
   res.render('home', {reactOutput: reactHtml,title:'发表文章'});
+});
+
+router.get('/testupload',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(TestUpload());
+  res.render('home', {reactOutput: reactHtml,title:'testupload'});
 });
 
 function renderToPath(req,res,path){

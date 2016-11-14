@@ -68,7 +68,7 @@ ajax.api = {
             if(param&&param.password!=undefined){
               param.password='';
             }
-            console.log('params:'+JSON.stringify(param))
+            // console.log('params:'+JSON.stringify(param))
             if(err){
               console.log('服务器错误:'+err.message)
             }else{
