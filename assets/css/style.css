@@ -2175,108 +2175,101 @@ input[type="button"] {
       padding-right: 1rem;
       margin: 0.5rem;
       background-color: white;
-      width: 95%;
-      position: relative; }
-      .newAddItemWap .itemMatchWap .itemMatch .line1 {
-        width: 90%;
-        height: 3rem;
-        line-height: 3rem;
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-        .newAddItemWap .itemMatchWap .itemMatch .line1 .left {
-          color: orange;
-          font-size: 2rem;
-          flex: 1; }
-        .newAddItemWap .itemMatchWap .itemMatch .line1 .money {
-          font-size: 2rem;
-          flex: 1;
-          text-align: center;
-          color: red; }
-        .newAddItemWap .itemMatchWap .itemMatch .line1 .right {
-          font-size: 2rem;
-          flex: 1;
-          text-align: right; }
-      .newAddItemWap .itemMatchWap .itemMatch .line2 {
-        width: 90%;
-        height: 4rem;
-        line-height: 4rem;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        color: black; }
-        .newAddItemWap .itemMatchWap .itemMatch .line2 .left {
-          font-size: 2.5rem;
-          flex: 1; }
-        .newAddItemWap .itemMatchWap .itemMatch .line2 .vs {
-          font-size: 2rem;
-          flex: 1;
-          text-align: center; }
-        .newAddItemWap .itemMatchWap .itemMatch .line2 .right {
-          font-size: 2.5rem;
-          flex: 1;
-          text-align: right; }
-      .newAddItemWap .itemMatchWap .itemMatch .line3 {
-        height: 6rem;
-        line-height: 6rem;
-        font-size: 2.5rem;
-        width: 90%; }
-        .newAddItemWap .itemMatchWap .itemMatch .line3 .left {
-          width: 10%;
-          display: inline-block; }
-          .newAddItemWap .itemMatchWap .itemMatch .line3 .left .num {
-            display: block;
-            width: 3rem;
+      width: 95%; }
+      .newAddItemWap .itemMatchWap .itemMatch .middleWap {
+        position: relative; }
+        .newAddItemWap .itemMatchWap .itemMatch .middleWap .line1 {
+          height: 3rem;
+          line-height: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line1 .left {
+            color: orange;
+            font-size: 2rem;
+            flex: 1; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line1 .money {
+            font-size: 2rem;
+            flex: 1;
             text-align: center;
-            background-color: #fcb2b2;
-            color: white;
-            height: 3rem;
-            border-radius: 4rem;
-            position: relative;
-            line-height: 3rem; }
-        .newAddItemWap .itemMatchWap .itemMatch .line3 .right {
-          width: 90%;
-          display: inline-block; }
-          .newAddItemWap .itemMatchWap .itemMatch .line3 .right .first {
-            width: 30%;
-            display: inline-block;
-            text-align: center;
-            height: 4rem;
-            border: 1px solid;
-            border-radius: 3px;
-            position: relative;
-            line-height: 4rem;
-            box-sizing: border-box; }
-          .newAddItemWap .itemMatchWap .itemMatch .line3 .right .middle {
-            width: 30%;
-            display: inline-block;
-            text-align: center;
-            height: 4rem;
-            border: 1px solid;
-            border-radius: 3px;
-            position: relative;
-            line-height: 4rem;
-            box-sizing: border-box;
-            margin-left: 5%; }
-          .newAddItemWap .itemMatchWap .itemMatch .line3 .right .last {
-            width: 30%;
-            display: inline-block;
-            text-align: center;
-            height: 4rem;
-            border: 1px solid;
-            border-radius: 3px;
-            position: relative;
-            line-height: 4rem;
-            box-sizing: border-box;
-            margin-left: 5%; }
-          .newAddItemWap .itemMatchWap .itemMatch .line3 .right > .selected {
             color: red; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line1 .right {
+            font-size: 2rem;
+            flex: 1;
+            text-align: right; }
+        .newAddItemWap .itemMatchWap .itemMatch .middleWap .line2 {
+          height: 4rem;
+          line-height: 4rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line2 .left {
+            font-size: 2.5rem;
+            flex: 1; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line2 .vs {
+            font-size: 2rem;
+            flex: 1;
+            text-align: center; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line2 .right {
+            font-size: 2.5rem;
+            flex: 1;
+            text-align: right; }
+        .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 {
+          height: 6rem;
+          line-height: 6rem;
+          font-size: 2.5rem; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 .left {
+            width: 10%;
+            display: inline-block; }
+            .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 .left .num {
+              display: block;
+              width: 3rem;
+              text-align: center;
+              background-color: #fcb2b2;
+              color: white;
+              height: 3rem;
+              border-radius: 4rem;
+              position: relative;
+              line-height: 3rem; }
+          .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 .right {
+            width: 90%;
+            display: inline-block; }
+            .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 .right .first {
+              width: 30%;
+              display: inline-block;
+              text-align: center;
+              height: 4rem;
+              border: 1px solid;
+              border-radius: 3px;
+              position: relative;
+              line-height: 4rem;
+              box-sizing: border-box; }
+            .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 .right .middle {
+              width: 30%;
+              display: inline-block;
+              text-align: center;
+              height: 4rem;
+              border: 1px solid;
+              border-radius: 3px;
+              position: relative;
+              line-height: 4rem;
+              box-sizing: border-box;
+              margin-left: 5%; }
+            .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 .right .last {
+              width: 30%;
+              display: inline-block;
+              text-align: center;
+              height: 4rem;
+              border: 1px solid;
+              border-radius: 3px;
+              position: relative;
+              line-height: 4rem;
+              box-sizing: border-box;
+              margin-left: 5%; }
+            .newAddItemWap .itemMatchWap .itemMatch .middleWap .line3 .right > .selected {
+              color: red; }
       .newAddItemWap .itemMatchWap .itemMatch .deleteBtn {
-        width: 10%;
-        position: absolute;
-        bottom: 0;
-        right: 0;
-        height: 100%;
         justify-content: center;
         display: flex;
         align-items: center;
@@ -2361,6 +2354,7 @@ input[type="button"] {
       .newAddAlert .messageDiv .matchWap .itemMiddle .g {
         color: green; }
 
+<<<<<<< HEAD
 .applyExpert {
   width: 100%; }
   .applyExpert .switchApply .switchArea {
@@ -2436,3 +2430,232 @@ input[type="button"] {
     border-radius: 0.4rem;
     color: #fff;
     font-size: 18px; }
+=======
+.lanchrecommendation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+  flex-direction: column; }
+  .lanchrecommendation .flexItem {
+    flex: 1;
+    border: 1px solid;
+    width: 96%;
+    margin-top: 1rem;
+    background-color: white;
+    height: 6rem;
+    border-radius: 4px;
+    display: flex;
+    align-items: center; }
+    .lanchrecommendation .flexItem .btnSelect {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .lanchrecommendation .flexItem .btnSelect .btnDiv {
+        padding-left: 1.5rem;
+        flex: 1; }
+      .lanchrecommendation .flexItem .btnSelect .btnImage {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 1rem; }
+        .lanchrecommendation .flexItem .btnSelect .btnImage .icon {
+          height: 3rem;
+          line-height: 3rem;
+          width: 3rem;
+          border: 1px solid;
+          border-radius: 100%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-size: 17px;
+          color: #ccc; }
+    .lanchrecommendation .flexItem .btnDiv {
+      padding-left: 1.5rem;
+      flex: 1; }
+    .lanchrecommendation .flexItem .btnImage {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 1rem; }
+      .lanchrecommendation .flexItem .btnImage .icon {
+        height: 3rem;
+        line-height: 3rem;
+        width: 3rem;
+        border: 1px solid;
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 17px;
+        color: #ccc; }
+  .lanchrecommendation .preLoadImg {
+    width: 94%;
+    border: 1rem solid white;
+    border-radius: 4px;
+    margin-top: 1rem; }
+  .lanchrecommendation .reasonDiv {
+    height: 16rem; }
+    .lanchrecommendation .reasonDiv .reason {
+      font-size: 14px;
+      height: 90%;
+      width: 100%;
+      border: 0;
+      padding-left: 1rem;
+      outline: none;
+      resize: none; }
+  .lanchrecommendation .moneyTitle {
+    height: 4rem;
+    border: 0;
+    background: transparent;
+    color: black; }
+  .lanchrecommendation .moneyDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    border: 0;
+    background: transparent;
+    height: 4rem; }
+    .lanchrecommendation .moneyDiv .feebox {
+      background-color: white;
+      flex: 1;
+      border: 1px solid;
+      margin-left: 1rem;
+      margin-right: 1rem;
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%; }
+    .lanchrecommendation .moneyDiv .myDefineFee {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding-right: 1rem;
+      padding-left: 1rem; }
+      .lanchrecommendation .moneyDiv .myDefineFee > input {
+        width: 100%;
+        border: 0;
+        outline: none; }
+    .lanchrecommendation .moneyDiv > .selected {
+      color: red;
+      border-color: red; }
+  .lanchrecommendation .itemMatchWap {
+    width: 98%; }
+    .lanchrecommendation .itemMatchWap .itemMatch {
+      border-radius: 4px;
+      padding-left: 1rem;
+      padding-right: 1rem;
+      margin: 0.5rem;
+      background-color: white;
+      width: 95%; }
+      .lanchrecommendation .itemMatchWap .itemMatch .middleWap {
+        position: relative; }
+        .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line1 {
+          height: 3rem;
+          line-height: 3rem;
+          display: flex;
+          justify-content: center;
+          align-items: center; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line1 .left {
+            color: orange;
+            font-size: 2rem;
+            flex: 1; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line1 .money {
+            font-size: 2rem;
+            flex: 1;
+            text-align: center;
+            color: red; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line1 .right {
+            font-size: 2rem;
+            flex: 1;
+            text-align: right; }
+        .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line2 {
+          height: 4rem;
+          line-height: 4rem;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: black; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line2 .left {
+            font-size: 2.5rem;
+            flex: 1; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line2 .vs {
+            font-size: 2rem;
+            flex: 1;
+            text-align: center; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line2 .right {
+            font-size: 2.5rem;
+            flex: 1;
+            text-align: right; }
+        .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 {
+          height: 6rem;
+          line-height: 6rem;
+          font-size: 2.5rem; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 .left {
+            width: 10%;
+            display: inline-block; }
+            .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 .left .num {
+              display: block;
+              width: 3rem;
+              text-align: center;
+              background-color: #fcb2b2;
+              color: white;
+              height: 3rem;
+              border-radius: 4rem;
+              position: relative;
+              line-height: 3rem; }
+          .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 .right {
+            width: 90%;
+            display: inline-block; }
+            .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 .right .first {
+              width: 30%;
+              display: inline-block;
+              text-align: center;
+              height: 4rem;
+              border: 1px solid;
+              border-radius: 3px;
+              position: relative;
+              line-height: 4rem;
+              box-sizing: border-box; }
+            .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 .right .middle {
+              width: 30%;
+              display: inline-block;
+              text-align: center;
+              height: 4rem;
+              border: 1px solid;
+              border-radius: 3px;
+              position: relative;
+              line-height: 4rem;
+              box-sizing: border-box;
+              margin-left: 5%; }
+            .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 .right .last {
+              width: 30%;
+              display: inline-block;
+              text-align: center;
+              height: 4rem;
+              border: 1px solid;
+              border-radius: 3px;
+              position: relative;
+              line-height: 4rem;
+              box-sizing: border-box;
+              margin-left: 5%; }
+            .lanchrecommendation .itemMatchWap .itemMatch .middleWap .line3 .right > .selected {
+              color: red; }
+      .lanchrecommendation .itemMatchWap .itemMatch .deleteBtn {
+        justify-content: center;
+        display: flex;
+        align-items: center;
+        background-color: #00BCD4;
+        color: white;
+        border-radius: 4px; }
+  .lanchrecommendation .recommendationType {
+    padding-left: 1rem;
+    border: 0;
+    background: transparent;
+    color: black; }
+    .lanchrecommendation .recommendationType .selectType {
+      width: 20%; }
+>>>>>>> devvvvzhangsj

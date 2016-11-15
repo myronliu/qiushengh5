@@ -19,6 +19,7 @@ var MyRecommendation = require('../pages/MyRecommendation');
 var NewAddRecommendation = require('../pages/NewAddRecommendation');
 var ApplyExpert = require('../pages/applyexpert');
 var WriteArticle = require('../pages/writearticle');
+var LanchRecommendation = require('../pages/LanchRecommendation');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -83,8 +84,11 @@ var Router = EvoFlux.createRouter({
   '/applyexpert': function(){
     ReactDOM.render(<ApplyExpert />, container);
   },
-  '/writearticle': function(){
+  '/writearticle': function() {
     ReactDOM.render(<WriteArticle />, container);
+  },
+  '/lanchrecommendation': function(){
+    ReactDOM.render(<LanchRecommendation />, container);
   },
 
 

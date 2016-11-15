@@ -1,5 +1,5 @@
 /**
- * Created by sjzhang on 2016/11/3.
+ * Created by sjzhang on 2016/11/13.
  */
 import Layout from '../components/layout'
 
@@ -11,8 +11,10 @@ import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 import ApiAction from '../actions/apiaction';
 import Cookie from '../helper/cookie';
+import FileUpload from '../components/FileUpload';
 
-class NewAddRecommendation extends BasePage {
+
+class LanchRecommendation extends BasePage {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -25,7 +27,10 @@ class NewAddRecommendation extends BasePage {
 			sureSelectedArray: [],
 			deployMatchInfo: {},
 			fee: -1,
-			content: ""
+			myDefineFee: -1,
+			content: "",
+			imgUrl: "",
+			recommendationType: "COMMON"
 		};
 	}
 
@@ -41,7 +46,7 @@ class NewAddRecommendation extends BasePage {
 				} else {
 					this.setState({
 						list: []
-					});
+					})
 					Toast.show(body.msg)
 				}
 				break;
@@ -131,7 +136,7 @@ class NewAddRecommendation extends BasePage {
 	}
 
 	deployRecommendation() {
-		let {deployMatchInfo, fee, content} = this.state;
+		let {deployMatchInfo, fee, myDefineFee, content} = this.state;
 
 		let matchIdArray = Object.keys(deployMatchInfo);
 
@@ -142,10 +147,17 @@ class NewAddRecommendation extends BasePage {
 			});
 			return;
 		}
-		if (fee === -1 || content.trim() === "") {
+		if (fee === -1 && myDefineFee == -1) {
 			this.setState({
 				showWarnAlert: true,
-				alertWarnTitle: "请填写推荐信息！"
+				alertWarnTitle: "请选择方案定价！"
+			});
+			return;
+		}
+		if (content.trim() === "" || content.trim().length < 30) {
+			this.setState({
+				showWarnAlert: true,
+				alertWarnTitle: "分析文字不少于30字！"
 			});
 			return;
 		}
@@ -277,11 +289,14 @@ class NewAddRecommendation extends BasePage {
 		</div>
 	}
 
+	goHomePage() {
+	}
 
 	render() {
-		let {selectedMatchArray, list, content, fee} = this.state;
+		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, recommendationType} = this.state;
+		let rightBtn = {icon: './images/home_1.png', func: this.goHomePage.bind(this)};
 		return (
-			<Layout className='hotmatch' title={'新增推荐'}>
+			<Layout className='hotmatch' title={'发起推荐'} rightItems={[rightBtn]}>
 				<Loading showLoading={this.state.showLoading}/>
 				<div className="newAddAlert">
 					<TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
@@ -295,36 +310,77 @@ class NewAddRecommendation extends BasePage {
 				             firstBtnOnTouchEnd={()=>this.setState({showWarnAlert: false})}
 				             secondBtnOnTouchEnd={()=>this.setState({showWarnAlert: false})}>
 				</TwoBtnAlert>
-				<div className="newAddItemWap">
 
-					<div className="newAddItem newAddBtn"
+				<div className="lanchrecommendation">
+					<div className="flexItem"
 					     onTouchEnd={this.getMoreRecommendation.bind(this)}>
-						<div>选择赛事</div>
+						<div className="btnDiv">选择赛事、推荐项</div>
+						<div className="btnImage">
+							<div className="icon">+</div>
+						</div>
 					</div>
 					{this.renderDetailMatch(this.state.list.filter(item=>selectedMatchArray.join(",").indexOf(item.id) !== -1))}
-					<div className="newAddItem recommendReason">
-						<textarea className="reason" placeholder="推荐理由" value={content} onChange={(e)=> {
-							this.setState({content: e.target.value.trim()});
-						}}/>
-					</div>
-					<div className="newAddItem recommendFee">
-						<input placeholder="查看费用"
-						       value={fee === -1 ? "" : fee}
-						       className="seeFee"
-						       onChange={(e)=> {
-							       let value = e.target.value.trim();
-							       if (!/^[0-9]*$/.test(value)) {
-								       this.setState({
-									       showWarnAlert: true,
-									       alertWarnTitle: "请填写整数！"
-								       });
-								       return;
-							       }
-							       this.setState({fee: e.target.value.trim()});
-						       }}/>
-						<span className="mili">球币</span>
-					</div>
 
+					<FileUpload className="flexItem" url=""
+					            style={{display: recommendationType === "COMMON" ? "none" : ""}}
+					            onError={()=> {
+						            this.showLoading(true);
+						            this.setState({showWarnAlert: true, alertWarnTitle: "上传图片失败！"})
+					            }}
+					            onChoose={this.preLoadImg.bind(this)}
+					            beforeUpload={this.beforeUpload.bind(this)}>
+						<div className="btnSelect">
+							<div className="btnDiv">晒方案截图（限一张）</div>
+							<div className="btnImage">
+								<div className="icon">+</div>
+							</div>
+						</div>
+					</FileUpload>
+
+					<img style={{display: imgUrl === "" || recommendationType === "COMMON" ? "none" : "block"}}
+					     className="preLoadImg" src={imgUrl}/>
+
+					<div className="flexItem reasonDiv">
+                        <textarea className="reason" placeholder="输入你的分析文字" value={content} onChange={(e)=> {
+	                        this.setState({content: e.target.value.trim()});
+                        }}/>
+					</div>
+					<div className="flexItem moneyTitle">
+						<div>方案定价</div>
+					</div>
+					<div className="flexItem moneyDiv">
+						<div className={"feebox" + (fee === 0 ? " selected" : "")}
+						     onTouchEnd={this.selectFee.bind(this, 0)}>免费
+						</div>
+						<div className={"feebox" + (fee === 8 ? " selected" : "")}
+						     onTouchEnd={this.selectFee.bind(this, 8)}>8元
+						</div>
+						<div className={"feebox" + (fee === 28 ? " selected" : "")}
+						     onTouchEnd={this.selectFee.bind(this, 28)}>28元
+						</div>
+						<div className={"feebox" + (fee === 58 ? " selected" : "")}
+						     onTouchEnd={this.selectFee.bind(this, 58)}>58元
+						</div>
+						<div className={"feebox myDefineFee" + (myDefineFee !== -1 ? " selected" : "")}>
+							<input placeholder="自定义" value={myDefineFee === -1 ? "" : myDefineFee}
+							       onChange={this.changeMyDefineFee.bind(this)}
+							       onFocus={()=> {
+								       this.setState({fee: -1})
+							       }}/>
+							<div>元</div>
+						</div>
+					</div>
+					<div className="flexItem recommendationType">
+						<div className="typeLabel">推荐类型：</div>
+						<select className="selectType"
+						        onChange={($e)=> {
+							        this.setState({recommendationType: $e.target.value})
+						        }}
+						        value={recommendationType}>
+							<option value="COMMON">普通</option>
+							<option value="REAL">实单</option>
+						</select>
+					</div>
 				</div>
 				<div className="deployBtnWap" onTouchEnd={this.deployRecommendation.bind(this, "mine")}>
 					<div className="deployBtn">
@@ -335,6 +391,53 @@ class NewAddRecommendation extends BasePage {
 				</div>
 			</Layout>
 		)
+	}
+
+	selectFee(money) {
+		let {fee} = this.state;
+		if (fee === money) {
+			this.setState({fee: -1, myDefineFee: -1});
+		} else {
+			this.setState({fee: money, myDefineFee: -1});
+		}
+	}
+
+	changeMyDefineFee($e) {
+		let value = $e.target.value.trim();
+		if (!/^[0-9]*$/.test(value)) {
+			this.setState({
+				showWarnAlert: true,
+				alertWarnTitle: "请填写整数！"
+			});
+			return;
+		}
+		this.setState({
+			fee: -1,
+			myDefineFee: value === "" ? -1 : value
+		});
+	}
+
+	preLoadImg(file) {
+		var reader = new FileReader();
+		let _this = this;
+		reader.readAsDataURL(file);
+		reader.onload = function (e) {
+			_this.showLoading(false);
+			_this.setState({imgUrl: e.target.result});
+		};
+	}
+
+	beforeUpload(file) {
+		if (file.type.indexOf("image") === -1) {
+			this.setState({
+				showWarnAlert: true,
+				alertWarnTitle: "请上传图片文件！"
+			});
+			return false;
+		} else {
+			this.showLoading(true);
+			return true;
+		}
 	}
 
 	componentDidMount() {
@@ -351,4 +454,4 @@ class NewAddRecommendation extends BasePage {
 
 }
 
-export default NewAddRecommendation;
+export default LanchRecommendation;
