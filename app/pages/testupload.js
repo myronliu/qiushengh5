@@ -68,16 +68,12 @@ export default class extends BasePage {
 
   retrieveFormData(){
     var me = this;
-
     var _frmdata = this.refs.pageForm.getFormData();
-    
     _frmdata["qsFile"] = ReactDOM.findDOMNode(this.refs.qsFile).files[0];
-
     return _frmdata;
   }
 
   doSubmit(){
-    debugger;
     event.preventDefault();
 
     // 表单验证
@@ -94,7 +90,6 @@ export default class extends BasePage {
     }
   }
 
-
   doValid(){
     // 验证文件类型和文件大小
     var _qs = ReactDOM.findDOMNode(this.refs.qsFile).files;
@@ -103,7 +98,6 @@ export default class extends BasePage {
       Toast.show("请上传文件。");
       return false;
     }
-
     var _fileExt = _qs[0].name.substring(_qs[0].name.lastIndexOf("."));
 
     if(!_fileExt || (_fileExt.toLowerCase() !== ".jpg" && _fileExt.toLowerCase() !== ".jpeg" && _fileExt.toLowerCase() !== ".png" && _fileExt.toLowerCase() !== ".gif")){
@@ -111,19 +105,16 @@ export default class extends BasePage {
 
       return false;
     }
-
     if(_qs[0].size == 0){
       Toast.show("文件大小不能为0。");
 
       return false;
     }
-
     if(_qs[0].size > 2 * 1024 * 1024){
       Toast.show("文件大小不能大于2M。");
 
       return false;
     }
-
     return true;
   }
   // <form action="/apiQS/upload" encType="multipart/form-data" method="post">
