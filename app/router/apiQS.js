@@ -59,11 +59,6 @@ function handleApiWithFile(req, res, config){
               }
           }
       }
-      //文件移动的目录文件夹，不存在时创建目标文件夹
-      // var targetDir = path.join(__dirname, 'upload');
-      // if (!fs.existsSync(targetDir)) {
-      //     fs.mkdir(targetDir);
-      // }
       var fileExt = filePath.substring(filePath.lastIndexOf('.'));
       //判断文件类型是否允许上传
       if (('.jpg.jpeg.png.gif').indexOf(fileExt.toLowerCase()) === -1) {
@@ -72,29 +67,25 @@ function handleApiWithFile(req, res, config){
       } else {
           //以当前时间戳对上传文件进行重命名
           var fileName = new Date().getTime()+ '/'  + fields.username + fileExt;
-          // var targetFile = path.join(targetDir, fileName);
           
           //生成上传 Token
           var token = uptoken(bucket, fileName);
 
-          //要上传文件的本地路径
-          // filePath = filePath;
-
           //调用uploadFile上传
           uploadFile(token, fileName, filePath);
           req.body[fields.param] = 'http://ogk4g82l7.bkt.clouddn.com/' + fileName;
-          // console.log(fields);
-          // res.json({status: 0, body:{success: true, msg:''}})
           fs.unlink(filePath);
           ApiAction.post(req.url,fields,function(data){
-              res.json(data);
+            res.json(data);
+            // res.json({status: 0, body:{success: true, msg:''}})
           }, config)
       }
   });
 }
 
 router.post('/upload', function(req,res){
-    handleApiWithFile(req, res, global.qsH5Config);
+  console.log('test')
+  handleApiWithFile(req, res, global.qsH5Config);
 })
 
 router.post('/getUserRec',function(req,res){

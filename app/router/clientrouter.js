@@ -19,6 +19,7 @@ var MyRecommendation = require('../pages/MyRecommendation');
 var NewAddRecommendation = require('../pages/NewAddRecommendation');
 var ApplyExpert = require('../pages/applyexpert');
 var WriteArticle = require('../pages/writearticle');
+var TestUpload = require('../pages/testupload');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -86,7 +87,9 @@ var Router = EvoFlux.createRouter({
   '/writearticle': function(){
     ReactDOM.render(<WriteArticle />, container);
   },
-
+  '/testupload':function(){
+    ReactDOM.render(<TestUpload />, container);
+  }
 
 
   // '/guanka': function(){
