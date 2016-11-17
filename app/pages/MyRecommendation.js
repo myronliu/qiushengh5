@@ -116,7 +116,7 @@ class MyRecommendation extends BasePage {
 	}
 
 	gotoMoreRecommendation() {
-		window.to('/newaddrecommendation');
+		window.to('/lanchrecommendation');
 	}
 
 	renderItems() {

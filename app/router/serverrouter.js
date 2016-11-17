@@ -26,6 +26,7 @@ var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 var Hotmatch = React.createFactory(require('../pages/hotmatch'));
 var MyRecommendation = React.createFactory(require('../pages/MyRecommendation'));
 var NewAddRecommendation = React.createFactory(require('../pages/NewAddRecommendation'));
+var LanchRecommendation = React.createFactory(require('../pages/LanchRecommendation'));
 var HotmatchDetail = React.createFactory(require('../pages/hotmatchdetail'));
 var UserRank = React.createFactory(require('../pages/userrank'));
 var RecoDetail = React.createFactory(require('../pages/recodetail'));
@@ -187,6 +188,10 @@ router.get('/myrecommendation',function(req,res){
 router.get('/newaddrecommendation',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(NewAddRecommendation());
   res.render('home', {reactOutput: reactHtml,title:'新增推荐'});
+});
+router.get('/lanchrecommendation',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(LanchRecommendation());
+  res.render('home', {reactOutput: reactHtml,title:'发起推荐'});
 });
 
 router.get('/focus',function(req,res){

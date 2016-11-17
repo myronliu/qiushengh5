@@ -1,23 +1,135 @@
-.newAddItemWap {
+.lanchrecommendation {
 	display: flex;
-	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	flex: 1;
-	.newAddItem {
+	flex-direction: column;
+	.flexItem {
 		flex: 1;
-		width: 97%;
-		margin: 0.5rem;
+		border: 1px solid;
+		width: 96%;
+		margin-top: 1rem;
+		background-color: white;
 		height: 6rem;
+		border-radius: 4px;
+		display: flex;
+		align-items: center;
+		.btnSelect {
+			width: 100%;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			.btnDiv {
+				padding-left: 1.5rem;
+				flex: 1;
+			}
+			.btnImage {
+				flex: 1;
+				display: flex;
+				justify-content: flex-end;
+				padding-right: 1rem;
+				.icon {
+					height: 3rem;
+					line-height: 3rem;
+					width: 3rem;
+					border: 1px solid;
+					border-radius: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					font-size: 17px;
+					color: #ccc;
+				}
+			}
+		}
+		.btnDiv {
+			padding-left: 1.5rem;
+			flex: 1;
+		}
+		.btnImage {
+			flex: 1;
+			display: flex;
+			justify-content: flex-end;
+			padding-right: 1rem;
+			.icon {
+				height: 3rem;
+				line-height: 3rem;
+				width: 3rem;
+				border: 1px solid;
+				border-radius: 100%;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				font-size: 17px;
+				color: #ccc;
+			}
+		}
+	}
+
+	.preLoadImg {
+		width: 94%;
+		border: 1rem solid white;
+		border-radius: 4px;
+		margin-top: 1rem;
+	}
+	.reasonDiv {
+		height: 16rem;
+		.reason {
+			font-size: 14px;
+			height: 90%;
+			width: 100%;
+			border: 0;
+			padding-left: 1rem;
+			outline: none;
+			resize: none;
+		}
+	}
+	.moneyTitle {
+		height: 4rem;
+		border: 0;
+		background: transparent;
+		color: black;
+	}
+
+	.moneyDiv {
+		display: flex;
 		justify-content: center;
 		align-items: center;
-		display: flex;
-		background-color: #00BCD4;
-		color: white;
-		border-radius: 4px;
+		flex-direction: row;
+		border: 0;
+		background: transparent;
+		height: 4rem;
+		.feebox {
+			background-color: white;
+			flex: 1;
+			border: 1px solid;
+			margin-left: 1rem;
+			margin-right: 1rem;
+			border-radius: 4px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			height: 100%;
+		}
+		.myDefineFee {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			padding-right: 1rem;
+			padding-left: 1rem;
+			> input {
+				width: 100%;
+				border: 0;
+				outline: none;
+			}
+		}
+		> .selected {
+			color: red;
+			border-color: red;
+		}
 	}
 	.itemMatchWap {
-		width: 100%;
+		width: 98%;
 		.itemMatch {
 			border-radius: 4px;
 			padding-left: 1rem;
@@ -133,6 +245,7 @@
 							color: red;
 						}
 					}
+
 				}
 			}
 			.deleteBtn {
@@ -145,104 +258,17 @@
 			}
 		}
 	}
-	.recommendReason {
-		margin: 1rem;
-		height: 16rem;
+	.recommendationType{
+		padding-left: 1rem;
+		border: 0;
 		background: transparent;
-		.reason {
-			flex: 1;
-			height: 100%;
-			font-size: 15px;
-			padding: 0.5rem;
-			border: none;
-			resize: none;
-			outline: none;
-		}
-	}
-	.recommendFee {
-		background-color: transparent;
 		color: black;
-		justify-content: flex-start;
-		font-size: 16px;
-		.seeFee {
-			padding: 8px;
-			font-size: 15px;
-			border: 0;
-			outline: 0;
-			margin-right: 1rem;
-			border-radius: 4px;
+		.typeLabel{
+
 		}
-		.mili {
-			color: red;
+		.selectType{
+			width: 20%;
 		}
 	}
-}
 
-.deployBtnWap {
-	margin-top: 0.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	width: 100%;
-	.deployBtn {
-		width: 97%;
-		justify-content: center;
-		align-items: center;
-		display: flex;
-		height: 6rem;
-		background-color: #00BCD4;
-		border-radius: 4px;
-		color: white;
-	}
-}
-
-.newAddAlert {
-	.messageDiv {
-		height: 50rem;
-		overflow-y: auto;
-
-		.matchWap.selected {
-			background-color: #ccc;
-		}
-
-		.matchWap {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			.item {
-				vertical-align: top;
-				height: 9rem;
-				line-height: 9rem;
-				flex: 1;
-			}
-
-			.itemLeft, .itemRight {
-				> img {
-					height: 5rem;
-					border-radius: 2.5rem;
-					vertical-align: top;
-					margin-top: 2rem;
-				}
-				> span {
-					line-height: 9rem;
-					height: 9rem;
-					color: black;
-				}
-			}
-			.itemMiddle {
-				height: 9rem;
-				vertical-align: top;
-				text-align: center;
-				font-size: 2rem;
-				line-height: 3rem;
-				.o {
-					color: orange;
-					margin-right: 1rem;
-				}
-				.g {
-					color: green;
-				}
-			}
-		}
-	}
 }
