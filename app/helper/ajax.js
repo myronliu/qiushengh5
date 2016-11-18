@@ -73,7 +73,7 @@ ajax.api = {
               console.log('服务器错误:'+err.message)
             }else{
               var status=res.body.status
-              if(status!=0) {
+              if(status!=0 && !res.body.success) {
                 console.log('业务错误:' + JSON.stringify(res.body))
                 console.log(res.body)
               }else{
