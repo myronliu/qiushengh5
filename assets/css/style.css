@@ -272,7 +272,7 @@ input[type="button"] {
  * Created by jiang on 15/10/30.
  */
 .navigetion {
-  background-color: #014da1;
+  background-color: #dc594b;
   padding: 6px;
   position: relative; }
   .navigetion > .back {
@@ -2354,7 +2354,6 @@ input[type="button"] {
       .newAddAlert .messageDiv .matchWap .itemMiddle .g {
         color: green; }
 
-<<<<<<< HEAD
 .applyExpert {
   width: 100%; }
   .applyExpert .switchApply .switchArea {
@@ -2407,30 +2406,24 @@ input[type="button"] {
 
 .writeArticle {
   text-align: center;
-  padding-top: 0.5rem; }
+  background-color: #fff;
+  overflow-x: hidden; }
   .writeArticle .articleTitle {
-    width: 90%;
-    border: 1px solid #e5e5e5;
-    border-radius: 0.3rem;
-    margin: 0.5rem 0;
-    padding: 0.5rem; }
+    width: 100%;
+    border: 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+    font-size: 20px;
+    border-bottom: 1px solid #e7e7e7;
+    outline: none; }
   .writeArticle .articleContent {
-    width: 90%;
-    border: 1px solid #e5e5e5;
-    border-radius: 0.3rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    resize: none; }
-  .writeArticle .publishButton {
-    width: 90%;
-    margin: 0 auto;
-    background-color: #014da1;
-    padding: 0.6rem;
-    text-align: center;
-    border-radius: 0.4rem;
-    color: #fff;
-    font-size: 18px; }
-=======
+    width: 100%;
+    border: 0;
+    padding: 1rem 0 0 1rem;
+    margin-bottom: 0;
+    resize: none;
+    font-size: 18px;
+    outline: none; }
+
 .lanchrecommendation {
   display: flex;
   justify-content: center;
@@ -2658,4 +2651,30 @@ input[type="button"] {
     color: black; }
     .lanchrecommendation .recommendationType .selectType {
       width: 20%; }
->>>>>>> devvvvzhangsj
+
+.deposit .chooseDepositArea {
+  background-color: #fff;
+  padding: 10px;
+  font-size: 0; }
+  .deposit .chooseDepositArea .choose-guide-text {
+    font-size: 16px; }
+  .deposit .chooseDepositArea .deposit-item {
+    width: 30%;
+    display: inline-block;
+    text-align: center;
+    font-size: 16px;
+    border: 1px solid #b1b6bf;
+    border-radius: 5px;
+    margin-left: 4%;
+    box-sizing: border-box;
+    margin-bottom: 4%; }
+    .deposit .chooseDepositArea .deposit-item:first-of-type, .deposit .chooseDepositArea .deposit-item:nth-of-type(4) {
+      margin-left: 0; }
+    .deposit .chooseDepositArea .deposit-item.selected {
+      border: 1px solid #e47d6a; }
+    .deposit .chooseDepositArea .deposit-item .deposit-item-price {
+      color: #e47d6a; }
+    .deposit .chooseDepositArea .deposit-item .deposit-item-benefit {
+      color: #b1b6bf; }
+      .deposit .chooseDepositArea .deposit-item .deposit-item-benefit .benefit-num {
+        color: #e47d6a; }

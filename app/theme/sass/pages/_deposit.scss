@@ -1,0 +1,38 @@
+.deposit{
+  .chooseDepositArea{
+    background-color: #fff;
+    padding: 10px;
+    font-size: 0;
+    .choose-guide-text{
+      font-size: 16px;
+    }
+    .deposit-item{
+      width: 30%;
+      display: inline-block;
+      text-align: center;
+      font-size: 16px;
+      border: 1px solid #b1b6bf;
+      border-radius: 5px;
+      margin-left: 4%;
+      box-sizing: border-box;
+      margin-bottom: 4%;
+      &:first-of-type, &:nth-of-type(4){
+        margin-left: 0;
+      }
+      &.selected{
+        border: 1px solid #e47d6a;
+      }
+
+      .deposit-item-price{
+        color: #e47d6a;
+      }
+      .deposit-item-benefit{
+        color: #b1b6bf;
+        .benefit-num{
+          color: #e47d6a;
+        }
+      }
+
+    }
+  }
+}

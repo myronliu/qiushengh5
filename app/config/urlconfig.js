@@ -25,6 +25,7 @@ module.exports={// 不要加  '/'
   myRecommend:'lottery/my/recommend',
   deployRecommendation:'lottery/recommend/publish',
   publishArticle: 'lottery/article/publish',
+  depositRecord: 'lottery/draw/records',
 
   // server needs
   banner: 'lottery/banner',
