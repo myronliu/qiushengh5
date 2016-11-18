@@ -272,7 +272,7 @@ input[type="button"] {
  * Created by jiang on 15/10/30.
  */
 .navigetion {
-  background-color: #014da1;
+  background-color: #dc594b;
   padding: 6px;
   position: relative; }
   .navigetion > .back {
@@ -2354,7 +2354,6 @@ input[type="button"] {
       .newAddAlert .messageDiv .matchWap .itemMiddle .g {
         color: green; }
 
-<<<<<<< HEAD
 .applyExpert {
   width: 100%; }
   .applyExpert .switchApply .switchArea {
@@ -2430,7 +2429,7 @@ input[type="button"] {
     border-radius: 0.4rem;
     color: #fff;
     font-size: 18px; }
-=======
+
 .lanchrecommendation {
   display: flex;
   justify-content: center;
@@ -2658,4 +2657,3 @@ input[type="button"] {
     color: black; }
     .lanchrecommendation .recommendationType .selectType {
       width: 20%; }
->>>>>>> devvvvzhangsj

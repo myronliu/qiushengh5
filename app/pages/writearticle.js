@@ -3,6 +3,7 @@ import Layout from '../components/layout';
 import Cookie from '../helper/cookie';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig';
+import Toast from '../helper/toast';
 
 export default class extends BasePage {
 
@@ -10,6 +11,10 @@ export default class extends BasePage {
       var titleData = this.refs.articleTitle.value;
       var contentData = this.refs.articleContent.value;
       ApiAction.post(UrlConfig.publishArticle, {title: titleData, content: contentData, token: Cookie.getCookie("token") || ''});
+  }
+
+  apiSuccess(url,body){
+    Toast.show('发布成功', 1000);
   }
 
   render(){
