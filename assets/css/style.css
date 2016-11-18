@@ -2406,29 +2406,23 @@ input[type="button"] {
 
 .writeArticle {
   text-align: center;
-  padding-top: 0.5rem; }
+  background-color: #fff;
+  overflow-x: hidden; }
   .writeArticle .articleTitle {
-    width: 90%;
-    border: 1px solid #e5e5e5;
-    border-radius: 0.3rem;
-    margin: 0.5rem 0;
-    padding: 0.5rem; }
+    width: 100%;
+    border: 0;
+    padding: 0.5rem 0 0.5rem 1rem;
+    font-size: 20px;
+    border-bottom: 1px solid #e7e7e7;
+    outline: none; }
   .writeArticle .articleContent {
-    width: 90%;
-    border: 1px solid #e5e5e5;
-    border-radius: 0.3rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    resize: none; }
-  .writeArticle .publishButton {
-    width: 90%;
-    margin: 0 auto;
-    background-color: #014da1;
-    padding: 0.6rem;
-    text-align: center;
-    border-radius: 0.4rem;
-    color: #fff;
-    font-size: 18px; }
+    width: 100%;
+    border: 0;
+    padding: 1rem 0 0 1rem;
+    margin-bottom: 0;
+    resize: none;
+    font-size: 18px;
+    outline: none; }
 
 .lanchrecommendation {
   display: flex;

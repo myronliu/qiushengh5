@@ -18,11 +18,11 @@ export default class extends BasePage {
   }
 
   render(){
+    let publishBtn={title: '发布',func:this.publishArticle.bind(this)};
     return (
-      <Layout hideBack={false} className={'writeArticle'} title={'发表文章'}>
-        <input className="articleTitle" placeholder="文章标题" ref="articleTitle" />
-        <textarea className="articleContent" rows="15" placeholder="文章内容" ref="articleContent"/>
-        <div className="publishButton" onTouchEnd={this.publishArticle.bind(this)}>发表</div>
+      <Layout hideBack={false} className={'writeArticle'} title={'发表文章'} rightItems={[publishBtn]}>
+        <input className="articleTitle" placeholder="请输入标题" ref="articleTitle" />
+        <textarea className="articleContent" rows="30" placeholder="请输入正文" ref="articleContent"/>
       </Layout>
     )
   }
