@@ -14,34 +14,6 @@
 		border-radius: 4px;
 		display: flex;
 		align-items: center;
-		.btnSelect {
-			width: 100%;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			.btnDiv {
-				padding-left: 1.5rem;
-				flex: 1;
-			}
-			.btnImage {
-				flex: 1;
-				display: flex;
-				justify-content: flex-end;
-				padding-right: 1rem;
-				.icon {
-					height: 3rem;
-					line-height: 3rem;
-					width: 3rem;
-					border: 1px solid;
-					border-radius: 100%;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					font-size: 17px;
-					color: #ccc;
-				}
-			}
-		}
 		.btnDiv {
 			padding-left: 1.5rem;
 			flex: 1;
@@ -259,7 +231,6 @@
 		}
 	}
 	.recommendationType{
-		padding-left: 1rem;
 		border: 0;
 		background: transparent;
 		color: black;

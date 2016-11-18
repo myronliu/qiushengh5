@@ -41,7 +41,7 @@ export default class extends BasePage {
     //   ApiAction.post(UrlConfig.getUserRec,{username: this.props.username})
     // }.bind(this), 5000)
     this.showLoading(true);
-    ApiAction.post(UrlConfig.recommendDetail, {recommendId: this.props.id, token: Cookie.getCookie("token") || 'F609B5A9939A581A003FAE893C3A077B084DE12B61E9D472586EF81FE7F641488A09697850D76AE76D3AAB036905852D2D0E5002E45C2FF43B516D2060ABC861'});
+    ApiAction.post(UrlConfig.recommendDetail, {recommendId: this.props.id, token: Cookie.getCookie("token") || ''});
   }
 
   renderItems(){

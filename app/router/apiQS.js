@@ -86,7 +86,12 @@ function handleApiWithFile(req, res, config){
 router.post('/upload', function(req,res){
   console.log('test')
   handleApiWithFile(req, res, global.qsH5Config);
-})
+});
+
+router.post('/lottery/recommend/publish', function(req,res){
+    handleApiWithFile(req, res, global.qsH5Config);
+});
+
 
 router.post('/getUserRec',function(req,res){
     req.query.username = req.body.username;

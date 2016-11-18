@@ -15,10 +15,12 @@ var UserRank = require('../pages/userrank');
 var Focus = require('../pages/focus');
 var HotmatchDetail = require('../pages/hotmatchdetail');
 var Mine = require('../pages/mine');
-var MyRecommendation = require('../pages/MyRecommendation');
-var NewAddRecommendation = require('../pages/NewAddRecommendation');
+var MyRecommendation = require('../pages/myrecommendation');
+var RecommendationDetail = require('../pages/recommendationdetail');
+var NewAddRecommendation = require('../pages/newaddrecommendation');
 var ApplyExpert = require('../pages/applyexpert');
 var WriteArticle = require('../pages/writearticle');
+
 var TestUpload = require('../pages/testupload');
 var LanchRecommendation = require('../pages/LanchRecommendation');
 var Deposit = require('../pages/deposit');
@@ -80,6 +82,9 @@ var Router = EvoFlux.createRouter({
   },
   '/myrecommendation': function(){
     ReactDOM.render(<MyRecommendation />, container);
+  },
+  '/recommendationdetail': function(){
+    ReactDOM.render(<RecommendationDetail id={this.query("id")}/>, container);
   },
   '/newaddrecommendation': function(){
     ReactDOM.render(<NewAddRecommendation />, container);

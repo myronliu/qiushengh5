@@ -11,7 +11,9 @@ import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 import ApiAction from '../actions/apiaction';
 import Cookie from '../helper/cookie';
-import FileUpload from '../components/FileUpload';
+import PageForm from '../components/pageform';
+import UploadAction from '../actions/uploadaction';
+import ReactDOM from 'react-dom';
 
 
 class LanchRecommendation extends BasePage {
@@ -136,7 +138,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	deployRecommendation() {
-		let {deployMatchInfo, fee, myDefineFee, content} = this.state;
+		let {deployMatchInfo, fee, myDefineFee, content, recommendationType, imgUrl} = this.state;
 
 		let matchIdArray = Object.keys(deployMatchInfo);
 
@@ -196,14 +198,69 @@ class LanchRecommendation extends BasePage {
 			});
 			return;
 		}
-		ApiAction.post(UrlConfig.deployRecommendation, {
+
+		let params = {
 			content: content,
 			fee: fee,
 			matchIds: deployMatchIds.join(","),
 			letBalls: deployLetBalls.join(","),
 			results: deployResults.join(","),
 			token: Cookie.getCookie("token") || ''
-		});
+		};
+
+		debugger;
+		if (recommendationType === "COMMON") {
+			this.showLoading(true);
+			ApiAction.post(UrlConfig.deployRecommendation, params);
+		} else {
+			var frmdata = this.retrieveFormData();
+			// 表单验证
+			if (this.doValid()) {
+				this.showLoading(true);
+				["content", "fee", "matchIds", "letBalls", "results", "token"].map(key=> {
+					frmdata[key] = params[key];
+				});
+				frmdata.recommendWay = "REAL";
+				frmdata.paramUrl = 'pics';
+				frmdata.username = Cookie.getCookie("token").substring(Cookie.getCookie("token").length - 6);
+				UploadAction.uploadfile("/" + UrlConfig.deployRecommendation, frmdata);
+			}
+		}
+	}
+
+	retrieveFormData() {
+		var me = this;
+		var _frmdata = this.refs.pageForm.getFormData();
+		_frmdata["qsFile"] = ReactDOM.findDOMNode(this.refs.qsFile).files[0];
+		return _frmdata;
+	}
+
+	doValid() {
+		// 验证文件类型和文件大小
+		var _qs = ReactDOM.findDOMNode(this.refs.qsFile).files;
+
+		if (_qs.length == 0) {
+			Toast.show("请上传文件。");
+			return false;
+		}
+		var _fileExt = _qs[0].name.substring(_qs[0].name.lastIndexOf("."));
+
+		if (!_fileExt || (_fileExt.toLowerCase() !== ".jpg" && _fileExt.toLowerCase() !== ".jpeg" && _fileExt.toLowerCase() !== ".png" && _fileExt.toLowerCase() !== ".gif")) {
+			Toast.show("明细文件需为图片。");
+
+			return false;
+		}
+		if (_qs[0].size == 0) {
+			Toast.show("文件大小不能为0。");
+
+			return false;
+		}
+		if (_qs[0].size > 2 * 1024 * 1024) {
+			Toast.show("文件大小不能大于2M。");
+
+			return false;
+		}
+		return true;
 	}
 
 	renderItems(list) {
@@ -290,6 +347,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	goHomePage() {
+		window.to('/qiusheng');
 	}
 
 	render() {
@@ -319,23 +377,18 @@ class LanchRecommendation extends BasePage {
 							<div className="icon">+</div>
 						</div>
 					</div>
-					{this.renderDetailMatch(this.state.list.filter(item=>selectedMatchArray.join(",").indexOf(item.id) !== -1))}
+					{this.renderDetailMatch()}
 
-					<FileUpload className="flexItem" url=""
-					            style={{display: recommendationType === "COMMON" ? "none" : ""}}
-					            onError={()=> {
-						            this.showLoading(true);
-						            this.setState({showWarnAlert: true, alertWarnTitle: "上传图片失败！"})
-					            }}
-					            onChoose={this.preLoadImg.bind(this)}
-					            beforeUpload={this.beforeUpload.bind(this)}>
-						<div className="btnSelect">
-							<div className="btnDiv">晒方案截图（限一张）</div>
-							<div className="btnImage">
-								<div className="icon">+</div>
-							</div>
+					<div className="flexItem"
+					     onTouchEnd={()=> {
+						     this.refs.qsFile.click();
+					     }}
+					     style={{display: recommendationType === "COMMON" ? "none" : ""}}>
+						<div className="btnDiv">晒方案截图（限一张）</div>
+						<div className="btnImage">
+							<div className="icon">+</div>
 						</div>
-					</FileUpload>
+					</div>
 
 					<img style={{display: imgUrl === "" || recommendationType === "COMMON" ? "none" : "block"}}
 					     className="preLoadImg" src={imgUrl}/>
@@ -374,7 +427,8 @@ class LanchRecommendation extends BasePage {
 						<div className="typeLabel">推荐类型：</div>
 						<select className="selectType"
 						        onChange={($e)=> {
-							        this.setState({recommendationType: $e.target.value})
+							        this.setState({recommendationType: $e.target.value, imgUrl: ""});
+							        this.refs.qsFile.value = "";
 						        }}
 						        value={recommendationType}>
 							<option value="COMMON">普通</option>
@@ -382,13 +436,21 @@ class LanchRecommendation extends BasePage {
 						</select>
 					</div>
 				</div>
-				<div className="deployBtnWap" onTouchEnd={this.deployRecommendation.bind(this, "mine")}>
+				<div className="deployBtnWap" onTouchEnd={this.deployRecommendation.bind(this)}>
 					<div className="deployBtn">
 						<div className="footer-item">
 							<div>发布</div>
 						</div>
 					</div>
 				</div>
+				<PageForm ref="pageForm" className="form-horizontal" action="/apiQS/upload"
+				          enctype="multipart/form-data">
+					<input style={{display: "none"}} type="file" ref="qsFile" name="qsFile" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+						let files = $e.target.files;
+						if (files.length == 0) return;
+						this.beforeUpload && this.preLoadImg(files[0]);
+					}}/>
+				</PageForm>
 			</Layout>
 		)
 	}
