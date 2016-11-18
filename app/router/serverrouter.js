@@ -37,6 +37,8 @@ var Focus = React.createFactory(require('../pages/focus'));
 var ApplyExpert = React.createFactory(require('../pages/applyexpert'));
 var WriteArticle = React.createFactory(require('../pages/writearticle'));
 var TestUpload = React.createFactory(require('../pages/testupload'));
+var Deposit = React.createFactory(require('../pages/deposit'));
+var DepositRecord = React.createFactory(require('../pages/depositrecord'));
 
 // 加入定时计划
 var later = require('later');
@@ -212,6 +214,16 @@ router.get('/writearticle',function(req,res){
 router.get('/testupload',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(TestUpload());
   res.render('home', {reactOutput: reactHtml,title:'testupload'});
+});
+
+router.get('/deposit',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Deposit());
+  res.render('home', {reactOutput: reactHtml,title:'充值'});
+});
+
+router.get('/depositrecord',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(DepositRecord());
+  res.render('home', {reactOutput: reactHtml,title:'充值记录'});
 });
 
 function renderToPath(req,res,path){
