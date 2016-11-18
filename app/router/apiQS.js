@@ -73,7 +73,7 @@ function handleApiWithFile(req, res, config){
 
           //调用uploadFile上传
           uploadFile(token, fileName, filePath);
-          req.body[fields.param] = 'http://ogk4g82l7.bkt.clouddn.com/' + fileName;
+          fields[fields.paramUrl] = 'http://ogk4g82l7.bkt.clouddn.com/' + fileName;
           fs.unlink(filePath);
           ApiAction.post(req.url,fields,function(data){
             res.json(data);

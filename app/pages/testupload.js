@@ -84,7 +84,7 @@ export default class extends BasePage {
       
       this.showLoading(true)
       // ApiAction.post(UrlConfig.matchList, {status:2, matchTypes:'', token: Cookie.getCookie("token") || 'dds'});
-      frmdata.meituUrl = '';
+      frmdata.paramUrl = 'picUrl';
       frmdata.username = 'liu';
       UploadAction.uploadfile('/upload', frmdata);
     }
