@@ -22,7 +22,7 @@ var ApplyExpert = require('../pages/applyexpert');
 var WriteArticle = require('../pages/writearticle');
 
 var TestUpload = require('../pages/testupload');
-var LanchRecommendation = require('../pages/LanchRecommendation');
+var LanchRecommendation = require('../pages/lanchrecommendation');
 var Deposit = require('../pages/deposit');
 var DepositRecord = require('../pages/depositrecord');
 
