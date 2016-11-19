@@ -41,6 +41,7 @@ var WriteArticle = React.createFactory(require('../pages/writearticle'));
 var TestUpload = React.createFactory(require('../pages/testupload'));
 var Deposit = React.createFactory(require('../pages/deposit'));
 var DepositRecord = React.createFactory(require('../pages/depositrecord'));
+var Contract = React.createFactory(require('../pages/contract'));
 
 // 加入定时计划
 var later = require('later');
@@ -225,6 +226,11 @@ router.get('/testupload',function(req,res){
 router.get('/deposit',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Deposit());
   res.render('home', {reactOutput: reactHtml,title:'充值'});
+});
+
+router.get('/contract',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Contract({type: req.query.type}));
+  res.render('home', {reactOutput: reactHtml,title:'协议'});
 });
 
 router.get('/depositrecord',function(req,res){

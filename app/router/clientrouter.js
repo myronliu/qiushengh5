@@ -25,6 +25,7 @@ var TestUpload = require('../pages/testupload');
 var LanchRecommendation = require('../pages/lanchrecommendation');
 var Deposit = require('../pages/deposit');
 var DepositRecord = require('../pages/depositrecord');
+var Contract = require('../pages/contract');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -107,7 +108,9 @@ var Router = EvoFlux.createRouter({
   '/depositrecord': function(){
     ReactDOM.render(<DepositRecord />, container);
   },
-
+  '/contract': function(){
+    ReactDOM.render(<Contract type={this.query('type')}/>, container);
+  }
 
 
   // '/guanka': function(){
