@@ -15,3 +15,4 @@ app/distviews
 .idea
 bundle.js
 bundle.min.js
+assets/css/style.css
