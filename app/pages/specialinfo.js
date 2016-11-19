@@ -14,6 +14,7 @@ export default class extends BasePage {
   state={
     recommending:[],
     recommended:[],
+    articles: [],
     avarurl: '',
     expertname: '',
     detail: '',
@@ -152,8 +153,22 @@ export default class extends BasePage {
     return (
       <div>
         <p className="itemCategoryTitle article">文章</p>
+        { this.renderArticleItems(this.state.articles) }
       </div>
     );
+  }
+
+  renderArticleItems(articles){
+    return articles.map(function(item, index){
+      return (
+        <TapAble className="article block" key={"s"+index}>
+          <div className='article-item'>
+            <p className='article-title'>{item.title}</p>
+            <p className='article-creator'>{item.creator === '' ? '球胜体育': item.creator}</p>
+          </div>
+        </TapAble>
+      )
+    }.bind(this));
   }
 
   renderItems(sourceList){

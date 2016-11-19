@@ -114,4 +114,19 @@
       font-size: 2.8rem;
     }
   }
+
+  .article-item{
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    .article-title{
+      font-size: 3rem;
+      color: #414b59;
+      margin-bottom: 1rem;
+    }
+    .article-creator{
+      font-size: 3rem;
+      color: #b0b6bf;
+    }
+  }
 }
