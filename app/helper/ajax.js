@@ -62,7 +62,7 @@ ajax.api = {
     this.superagent.end(
         function(err,res){
           if(isService){
-            console.log('**********************************************start')    
+            console.log('**********************************************start')
             console.log(new Date())
             console.timeEnd(url);
             if(param&&param.password!=undefined){

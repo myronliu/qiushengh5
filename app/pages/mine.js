@@ -85,7 +85,7 @@ export default class extends BasePage {
         window.to('/myrecommendation');
     }
     gotoNewAddRecommendation() {
-        window.to('/NewAddRecommendation');
+        window.to('/lanchrecommendation');
     }
 
     applyExpert() {
