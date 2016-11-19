@@ -244,23 +244,23 @@ class LanchRecommendation extends BasePage {
 		var _qs = ReactDOM.findDOMNode(this.refs.qsFile).files;
 
 		if (_qs.length == 0) {
-			Toast.show("请上传文件。");
+			Toast.show("请上传文件");
 			return false;
 		}
 		var _fileExt = _qs[0].name.substring(_qs[0].name.lastIndexOf("."));
 
 		if (!_fileExt || (_fileExt.toLowerCase() !== ".jpg" && _fileExt.toLowerCase() !== ".jpeg" && _fileExt.toLowerCase() !== ".png" && _fileExt.toLowerCase() !== ".gif")) {
-			Toast.show("明细文件需为图片。");
+			Toast.show("明细文件需为图片");
 
 			return false;
 		}
 		if (_qs[0].size == 0) {
-			Toast.show("文件大小不能为0。");
+			Toast.show("文件大小不能为0");
 
 			return false;
 		}
 		if (_qs[0].size > 2 * 1024 * 1024) {
-			Toast.show("文件大小不能大于2M。");
+			Toast.show("文件大小不能大于2M");
 
 			return false;
 		}

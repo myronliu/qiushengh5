@@ -14,7 +14,7 @@ export default class extends BasePage {
   }
 
   apiSuccess(url,body){
-    Toast.show('发布成功', 1000);
+    Toast.show('发布成功', 'success', 1000);
   }
 
   render(){

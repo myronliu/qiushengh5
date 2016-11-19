@@ -57,7 +57,7 @@ class MyRecommendation extends BasePage {
 		// 		});
 		// 	}
 		// });
-		
+
     ApiAction.post(UrlConfig.myRecommend, data);
 	}
 
@@ -83,7 +83,7 @@ class MyRecommendation extends BasePage {
         if(body.success){
           window.to('/recodetail?id=' + this.state.payId);
         }else{
-          Toast.show(body.msg)
+          Toast.show(body.msg, 'error')
         }
         break;
     }
