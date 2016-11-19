@@ -21,8 +21,7 @@ module.exports = EvoFlux.createAction("api",{
                 this.requestEnd(err,result,url,cb)
             }.bind(this))
     },
-    get:function(url, param,cb,ajaxSet){
-
+    get:function(url,cb,ajaxSet){
         if(!ajaxSet){
             ajaxSet=global.ajaxConfig
         }
@@ -31,7 +30,6 @@ module.exports = EvoFlux.createAction("api",{
             .end(function(err,result){
                 this.requestEnd(err,result,url,cb)
             }.bind(this))
-
     },
     requestEnd:function(err,result,url,cb){
         //console.log(err);

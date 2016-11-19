@@ -72,7 +72,10 @@ ajax.api = {
             if(err){
               console.log('服务器错误:'+err.message)
             }else{
-              var status=res.body.status
+              var status=res.body.status;
+              if(res.statusCode === 200){
+                status = 0;
+              }
               if(status!=0 && !res.body.success) {
                 console.log('业务错误:' + JSON.stringify(res.body))
                 console.log(res.body)
@@ -82,7 +85,7 @@ ajax.api = {
                   if(body.auth!=undefined){
                     body.auth='';
                   }
-                  console.log('返回参数:' + JSON.stringify(body))
+                  // console.log('返回参数:' + JSON.stringify(body))
                 }
               }
             }

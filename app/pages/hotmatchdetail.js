@@ -9,153 +9,144 @@ import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 import TwoBtnAlert from '../components/twobtnalert';
+import Saishi from '../components/Saishi';
 
 export default class extends BasePage {
-  state={
-    recList:[],
-    tabs:[],//['推荐专家','特邀大咖','彩店专家','明星专家'],
-    currentTab: 0,
-    homeTeam: '',
-    awayTeam: '',
-    matchName: '',
-    matchDate: '',
-    showAlert: false,
-    homeTeamAvatar:'',
-    awayTeamAvatar:''
-  };
+    state = {
+        recList: [],
+        tabs: ['热门', '专家'],//['推荐专家','特邀大咖','彩店专家','明星专家'],
+        currentTab: 0,
+        homeTeam: '桑托斯',
+        awayTeam: '圣保罗',
+        matchName: '巴西',
+        matchDate: '11-11',
+        showAlert: false,
+        homeTeamAvatar: '',
+        awayTeamAvatar: ''
+    };
 
-  apiSuccess(url,body){
-    this.showLoading(false);
-    switch(url){
-      case UrlConfig.matchDetail:
-        this.setState({
-          homeTeam: body.detail.homeTeam,
-          awayTeam: body.detail.awayTeam,
-          matchName: body.detail.matchName,
-          matchDate: body.detail.matchDate,
-          homeTeamAvatar: body.detail.homeTeamAvatar,
-          awayTeamAvatar: body.detail.awayTeamAvatar,
-          recList: body.recommends
-        })
-        break;
-      case UrlConfig.recommendBuy:
-        this.setState({
-          showAlert: false
-        })
-        if(body.success){
-          window.to('/recodetail?id=' + this.state.payId);
-        }else{
-          Toast.show(body.msg, 'error');
+    apiSuccess(url,body){
+        this.showLoading(false);
+        switch(url){
+          case UrlConfig.matchDetail:
+            this.setState({
+              homeTeam: body.detail.homeTeam,
+              awayTeam: body.detail.awayTeam,
+              matchName: body.detail.matchName,
+              matchDate: body.detail.matchDate,
+              homeTeamAvatar: body.detail.homeTeamAvatar,
+              awayTeamAvatar: body.detail.awayTeamAvatar,
+              recList: body.recommends
+            })
+            break;
+          case UrlConfig.recommendBuy:
+            this.setState({
+              showAlert: false
+            })
+            if(body.success){
+              window.to('/recommendationdetail?id=' + this.state.payId);
+            }else{
+              Toast.show(body.msg, 'error');
+            }
+            break;
         }
-        break;
     }
-  }
 
-  componentDidMount(){
-    super.componentDidMount();
+    componentDidMount() {
+        super.componentDidMount();
 
-    this.showLoading(true)
-    ApiAction.post(UrlConfig.matchDetail, {id: this.props.id, token: Cookie.getCookie("token") || ''});
-  }
-
-  pay(fee, id, ifBuy){
-    if(!ifBuy && fee && fee != "0"){
-      this.setState({
-        showAlert: true,
-        alertTitle: "需支付" + fee + CommonConfig.unit + "查看专家推荐<br />(1" + CommonConfig.unit + "=1元)",
-        payId: id
-      })
-    }else{
-      window.to('/recodetail?id=' + id);
+        this.showLoading(true)
+        ApiAction.post(UrlConfig.matchDetail, {id: this.props.id, token: Cookie.getCookie("token") || ''});
     }
-  }
 
-  handleCancle(){
-    this.setState({
-      showAlert: false
-    })
-  }
+    pay(fee, id, ifBuy){
+        if(!ifBuy && fee && fee != "0"){
+          this.setState({
+            showAlert: true,
+            alertTitle: "需支付" + fee + CommonConfig.unit + "查看专家推荐<br />(1" + CommonConfig.unit + "=1元)",
+            payId: id
+          })
+        }else{
+          window.to('/recommendationdetail?id=' + id);
+        }
+    }
 
-  handleSure(){
-    this.showLoading(true)
-    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || ''});
-  }
+    handleCancle() {
+        this.setState({
+            showAlert: false
+        })
+    }
 
-  renderRecommondList(){
-    return this.state.recList.map(function(item, index){
-      return(
-        <TapAble className="recItem block" key={"rec" + index} onTap={this.pay.bind(this, item.fee, item.id, item.ifBuy)}>
-          <div className="specialInfo">
-            <img src={item.avatar ? item.avatar : "../images/photo.png"} />
-            <div className="textInfo">
-              <div className="tTitle">{item.expertName}</div>
-              <div className="tDesc">{item.expertTitle}</div>
-            </div>
-          </div>
-          <div className="saishiItem" key={"s"+index}>
-            <div className="leftPart">
-              <div className="sTopInfo">
-                <span className="add">{item.betsType}</span>
-                <span className="time">{item.createTimeStr}</span>
-              </div>
+    handleSure() {
+        this.showLoading(true)
+        ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || ''});
+    }
 
-            </div>
-            <div className="rightPart">
-              {item.fee > 0 ? (item.ifBuy ? "查看" : (item.fee + "粒米")) : ("免费")}
-            </div>
-          </div>
-        </TapAble>
-      )
-    }.bind(this))
-  }
+    renderRecommondList() {
+        return this.state.recList.map(function (item, index) {
+            return (
+                <TapAble className="recItem block" key={"rec" + index}
+                         onTap={this.pay.bind(this, item.fee, item.id, item.ifBuy)}>
+                    <div className="specialInfo">
+                        <img src={item.avatar ? item.avatar : "../images/photo.png"}/>
+                        <div className="textInfo">
+                            <div className="tTitle">{item.expertName}</div>
+                            <div className="tDesc">{item.expertTitle}</div>
+                        </div>
+                    </div>
+                    <div className="saishiItem" key={"s" + index}>
+                        <div className="leftPart">
+                            <div className="sTopInfo">
+                                <span className="add">{item.betsType}</span>
+                                <span className="time">{item.createTimeStr}</span>
+                            </div>
 
-  changeTab(index){
-    this.setState({
-      currentTab: index
-    })
-  }
+                        </div>
+                        <div className="rightPart">
+                            {item.fee > 0 ? (item.ifBuy ? "查看" : (item.fee + "粒米")) : ("免费")}
+                        </div>
+                    </div>
+                </TapAble>
+            )
+        }.bind(this))
+    }
 
-  renderTabs(){
-    return this.state.tabs.map(function(item, index){
-      return (
-        <div onTouchEnd={this.changeTab.bind(this, index)} className={(this.state.tabs.length === index +1 ? "tabItemWithoutBorder" : "tabItem") + (this.state.currentTab === index ? " tabItemWithLine" : '') + (index === 0?" leftRadius" : '') + (index + 1 === this.state.tabs.length ? " rightRadius" : '')} key={index}>
-          {item}
-        </div>
-      )
-    }.bind(this));
-  }
+    changeTab(index) {
+        this.setState({
+            currentTab: index
+        })
+    }
 
-  render() {
-    return (
-      <Layout className={'hotmatchdetail'} title={'赛事推荐列表'}>
-        <Loading showLoading={this.state.showLoading} />
-        <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"} secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)} secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
-        <div className="top">
-          <div className="saishi">
-            <div className="saishiLeft">
-              <img src={this.state.homeTeamAvatar ? this.state.homeTeamAvatar : "../images/photo.png"} />
-              <span>{this.state.homeTeam}</span>
-            </div>
-            <div className="saishiMiddle">
-              <div className="liansai"><span className="o">{this.state.matchName}</span><span className="oo">{"89'"}</span></div>
-              <div className="g">VS</div>
-              <div className="time">{this.state.matchDate}</div>
-            </div>
-            <div className="saishiRight">
-              <img src={this.state.awayTeamAvatar ? this.state.awayTeamAvatar : "../images/photo.png"} />
-              <span>{this.state.awayTeam}</span>
-            </div>
-          </div>
-        </div>
-        <div className="header hide">
-          <span className="on">热门</span>
-          <span className="end">专家</span>
-        </div>
-        <div className="tabs hide">
-          {this.renderTabs()}
-        </div>
-        {this.renderRecommondList()}
-      </Layout>
-    )
-  }
+    renderTabs() {
+        return this.state.tabs.map(function (item, index) {
+            return (
+                <span onTouchEnd={this.changeTab.bind(this, index)}
+                      className={"tabItem" + (this.state.currentTab === index ? " active" : '')}
+                      key={index}>
+                    {item}
+                </span>
+            )
+        }.bind(this));
+    }
+
+    render() {
+        return (
+            <Layout className={'hotmatchdetail'} title={'赛事详情'}>
+                <Loading showLoading={this.state.showLoading}/>
+                <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
+                             secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
+                             secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
+
+                <div className="top">
+                    <Saishi
+                        type="saishi"
+                        data={this.state}/>
+                </div>
+                <div className="tabs">
+                    {this.renderTabs()}
+                </div>
+                {this.renderRecommondList()}
+            </Layout>
+        )
+    }
 }

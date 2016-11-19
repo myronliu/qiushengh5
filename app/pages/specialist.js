@@ -50,9 +50,15 @@ export default class extends BasePage {
             body.push({})
           }
         }
-        this.setState({
-          list: body
-        })
+        if(!body.length) {
+          this.setState({
+            list: []
+          })
+        }else{
+          this.setState({
+            list: body
+          })
+        }
         break;
     }
   }

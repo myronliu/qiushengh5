@@ -50,7 +50,7 @@ export default class extends BasePage {
           showAlert: false
         })
         if(body.success){
-          window.to('/recodetail?id=' + this.state.payId);
+          window.to('/recommendationdetail?id=' + this.state.payId);
         }else{
           Toast.show(body.msg, 'error')
         }
@@ -103,7 +103,7 @@ export default class extends BasePage {
         payId: id
       })
     }else{
-      window.to('/recodetail?id=' + id);
+      window.to('/recommendationdetail?id=' + id);
     }
   }
 

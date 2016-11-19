@@ -81,7 +81,7 @@ class MyRecommendation extends BasePage {
           showAlert: false
         })
         if(body.success){
-          window.to('/recodetail?id=' + this.state.payId);
+          window.to('/recommendationdetail?id=' + this.state.payId);
         }else{
           Toast.show(body.msg, 'error')
         }
@@ -98,7 +98,7 @@ class MyRecommendation extends BasePage {
 	}
 
 	pay(fee, id, ifBuy) {
-		window.to('/recodetail?id=' + id);
+		window.to('/recommendationdetail?id=' + id);
 	}
 
 	handleCancle() {

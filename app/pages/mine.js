@@ -39,7 +39,7 @@ export default class extends BasePage {
                 this.setState({
                     showAlert: false
                 })
-                window.to("/recodetail?id=" + this.state.payId);
+                window.to("/recommendationdetail?id=" + this.state.payId);
                 break;
         }
     }
@@ -63,7 +63,7 @@ export default class extends BasePage {
     }
 
     pay(fee, id) {
-        window.to('/recodetail?id=' + id);
+        window.to('/recommendationdetail?id=' + id);
     }
 
     handleCancle() {
