@@ -361,7 +361,7 @@ class LanchRecommendation extends BasePage {
 
 	render() {
 		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, recommendationType, kbdShow} = this.state;
-		let rightBtn = {icon: './images/home_1.png', func: this.goHomePage.bind(this)};
+		let rightBtn = {icon: '../icons/nav_sy_pre.png', func: this.goHomePage.bind(this)};
 		return (
 			<Layout className='hotmatch' title={'发起推荐'} rightItems={[rightBtn]}>
 				<Loading showLoading={this.state.showLoading}/>

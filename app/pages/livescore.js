@@ -34,10 +34,12 @@ class LiveScore extends BasePage {
 			recState: "NO"
 		});
 		this.getMatchList({status: "2"});
+		this.intervalId = setInterval(()=> {
+			this.getMatchList({status: "2"});
+		}, 5000);
 	}
 
 	getMatchList(data) {
-		this.showLoading(true);
 		let params = {
 			...data,
 			matchTypes: '',
@@ -81,6 +83,7 @@ class LiveScore extends BasePage {
 			recState: "YES"
 		});
 		this.getMatchList({status: "5"});
+		clearInterval(this.intervalId);
 	}
 
 	pay(fee, id, ifBuy) {
@@ -169,6 +172,9 @@ class LiveScore extends BasePage {
 		super.componentDidMount();
 		this.showLoading(true);
 		this.getMatchList({status: "2"});
+		this.intervalId = setInterval(()=> {
+			this.getMatchList({status: "2"});
+		}, 5000);
 	}
 }
 
