@@ -84,6 +84,9 @@ export default class extends BasePage {
     gotoMyreRommendation() {
         window.to('/myrecommendation');
     }
+    gotoNewAddRecommendation() {
+        window.to('/NewAddRecommendation');
+    }
 
     applyExpert() {
         window.to('/applyexpert');
@@ -115,7 +118,7 @@ export default class extends BasePage {
                         <img src="../images/mine/icon-withdraw.png"/>
                         申请提现
                     </span>
-                    <span className="optionButton" onTouchEnd={this.deposit.bind(this)}>
+                    <span className="optionButton" onTouchEnd={this.gotoCharge.bind(this)}>
                         <img src="../images/mine/icon-deposit.png"/>
                         快速充值</span>
                 </div>
@@ -190,8 +193,7 @@ export default class extends BasePage {
     }
 
     render() {
-        let rightBtn = {title: '新增推荐', func: this.gotoCharge.bind(this)};
-        let leftBtn = {title: '我的推荐', func: this.gotoMyreRommendation.bind(this)};
+        let rightBtn = {title: '新增推荐', func: this.gotoNewAddRecommendation.bind(this)};
         return (
             <Layout hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn]}>
                 <Loading showLoading={this.state.showLoading}/>

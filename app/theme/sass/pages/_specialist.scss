@@ -28,24 +28,33 @@
             border-bottom: 1rem solid $main_red;
         }
     }
+    .specialistInner{
+        background: #fff;
+        border-top: 0.1rem solid $light_gray;
+    }
     .specialItem {
         width: 25%;
         display: inline-block;
         text-align: center;
-        padding-top: 3rem;
+        border-bottom: none;
         background-color: #fff;
-        height: 20rem;
+        border-bottom: 0.1rem solid $light_gray;
+        border-right: none;
+        border-left: none;
+        font-size: 0;
         & > img {
-            height: 8rem;
-            border-radius: 4rem;
-            margin-bottom: 2rem;
+            width: 43%;
+            border-radius: 50%;
+            margin: 18% 0 11%;
+            background-color: #fff;
         }
         .name {
-            font-size: 2rem;
+            font-size: 2.6rem;
             color: $black;
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin-bottom: 18%;
         }
     }
 }
