@@ -62,7 +62,7 @@ ajax.api = {
     this.superagent.end(
         function(err,res){
           if(isService){
-            console.log('**********************************************')
+            console.log('**********************************************start')
             console.log(new Date())
             console.timeEnd(url);
             if(param&&param.password!=undefined){
@@ -78,7 +78,7 @@ ajax.api = {
                 console.log(res.body)
               }else{
                 if(process.env.NODE_ENV==='development'||process.env.NODE_ENV==='uat'){
-                  var body=deepCopy(res.body.body);
+                  var body=deepCopy(res.body.body || res.body);
                   if(body.auth!=undefined){
                     body.auth='';
                   }
@@ -86,7 +86,7 @@ ajax.api = {
                 }
               }
             }
-            console.log('**********************************************')
+            console.log('**********************************************end')
           }
           cb(err,res)
         }

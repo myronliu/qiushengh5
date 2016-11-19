@@ -88,10 +88,6 @@ router.post('/upload', function(req,res){
   handleApiWithFile(req, res, global.qsH5Config);
 });
 
-router.post('/lottery/recommend/publish', function(req,res){
-    handleApiWithFile(req, res, global.qsH5Config);
-});
-
 router.post('/lottery/expert/apply', function(req,res){
     handleApiWithFile(req, res, global.qsH5Config);
 });

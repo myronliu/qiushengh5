@@ -18,56 +18,53 @@ export default class extends BasePage {
     });
   }
 
-  retrieveFormData(){
+  retrieveFormData(formRef, fileRef){
     var me = this;
-    var _frmdata = this.refs.pageForm.getFormData();
-      _frmdata["qsFile"] = ReactDOM.findDOMNode(this.refs.qsFile).files[0];
+    var _frmdata = this.refs[formRef].getFormData();
+      _frmdata[fileRef] = ReactDOM.findDOMNode(this.refs[fileRef]).files[0];
     return _frmdata;
   }
 
   submitExpertForm(){
     event.preventDefault();
-    // token,name,phone,cardPic,content
     // 表单验证
-    if(this.doValid()){
+    if(this.doValid('expertCard')){
       this.setState({submitState: "submitted"});
-
-      var frmdata = this.retrieveFormData();
+      var frmdata = this.retrieveFormData('expertForm', 'expertCard');
       var token = Cookie.getCookie("token") || '';
-      console.log(token);
       this.showLoading(true)
       // ApiAction.post(UrlConfig.matchList, {status:2, matchTypes:'', token: Cookie.getCookie("token") || 'dds'});
       frmdata.token = token;
+      frmdata.name = this.refs.expertName.value;
+      frmdata.phone = this.refs.expertPhone.value;
+      frmdata.content = this.refs.expertDescribe.value;
       frmdata.paramUrl = 'cardPic';
       frmdata.username = token.substr(token.length-6);
-      console.log('data---',frmdata);
-      // UploadAction.uploadfile('/lottery/expert/apply', frmdata);
+      console.log('form data:',frmdata);
+      UploadAction.uploadfile('/lottery/expert/apply', frmdata);
     }
   }
 
-  doValid(){
+  doValid(fileRef){
     // 验证文件类型和文件大小
-    var _qs = ReactDOM.findDOMNode(this.refs.qsFile).files;
+    var _qs = ReactDOM.findDOMNode(this.refs[fileRef]).files;
 
     if(_qs.length == 0){
-      Toast.show("请上传文件。");
+      Toast.show("请上传文件", 'info');
       return false;
     }
     var _fileExt = _qs[0].name.substring(_qs[0].name.lastIndexOf("."));
 
     if(!_fileExt || (_fileExt.toLowerCase() !== ".jpg" && _fileExt.toLowerCase() !== ".jpeg" && _fileExt.toLowerCase() !== ".png" && _fileExt.toLowerCase() !== ".gif")){
-      Toast.show("明细文件需为图片。");
-
+      Toast.show("明细文件需为图片", 'info');
       return false;
     }
     if(_qs[0].size == 0){
-      Toast.show("文件大小不能为0。");
-
+      Toast.show("文件大小不能为0", 'info');
       return false;
     }
     if(_qs[0].size > 2 * 1024 * 1024){
-      Toast.show("文件大小不能大于2M。");
-
+      Toast.show("文件大小不能大于2M", 'info');
       return false;
     }
     return true;
@@ -86,10 +83,10 @@ export default class extends BasePage {
           <div className="inputArea">
             <input type="text" ref='expertName' placeholder="姓名"/>
             <input type="text" ref='expertPhone' placeholder="联系电话"/>
-            <PageForm ref="pageForm" className="form-horizontal" action="/apiQS/upload" enctype="multipart/form-data">
-              <input type="file" name="qsFile" ref="qsFile" accept=".jpg,.jpeg,.png,.gif" />
+            <PageForm ref="expertForm" className="form-horizontal" action="/apiQS/upload" enctype="multipart/form-data">
+              <input type="file" name="qsFile" ref="expertCard" accept=".jpg,.jpeg,.png,.gif" />
             </PageForm>
-            <textarea placeholder="输入简介" red='expertDescribe' rows="6"></textarea>
+            <textarea placeholder="输入简介" ref='expertDescribe' rows="6"></textarea>
           </div>
           <div className="roleArea">
             <input type="checkbox" />
@@ -123,12 +120,12 @@ export default class extends BasePage {
 
     UploadStore.uploadfile(function(data){
       if(data && data.status == 0) {
-        Toast.show("发送成功！");
+        Toast.show("发送成功！", 'success');
         this.reset();
       } else if(data && data.message){
-        Toast.show(data.message);
+        Toast.show(data.message, 'info');
       } else {
-        Toast.show("发送失败，请稍候再试！");
+        Toast.show("发送失败，请稍候再试！", 'error');
       }
 
       this.setState({

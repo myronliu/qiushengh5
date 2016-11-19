@@ -51,7 +51,7 @@ export default class extends BasePage {
         if(body.success){
           window.to('/recodetail?id=' + this.state.payId);
         }else{
-          Toast.show(body.msg)
+          Toast.show(body.msg, 'error')
         }
         break;
       case UrlConfig.concernadd:

@@ -14,6 +14,7 @@ import Cookie from '../helper/cookie';
 import PageForm from '../components/pageform';
 import UploadAction from '../actions/uploadaction';
 import ReactDOM from 'react-dom';
+import UploadStore from '../stores/uploadstore';
 
 
 class LanchRecommendation extends BasePage {
@@ -52,6 +53,7 @@ class LanchRecommendation extends BasePage {
 					Toast.show(body.msg)
 				}
 				break;
+
 			case UrlConfig.deployRecommendation:
 				if (body.success) {
 					this.setState({
@@ -61,7 +63,10 @@ class LanchRecommendation extends BasePage {
 						sureSelectedArray: [],
 						deployMatchInfo: {},
 						fee: -1,
-						content: ""
+						myDefineFee: -1,
+						content: "",
+						imgUrl: "",
+						recommendationType: "COMMON"
 					});
 				} else {
 					this.setState({
@@ -208,7 +213,6 @@ class LanchRecommendation extends BasePage {
 			token: Cookie.getCookie("token") || ''
 		};
 
-		debugger;
 		if (recommendationType === "COMMON") {
 			this.showLoading(true);
 			ApiAction.post(UrlConfig.deployRecommendation, params);
@@ -240,23 +244,23 @@ class LanchRecommendation extends BasePage {
 		var _qs = ReactDOM.findDOMNode(this.refs.qsFile).files;
 
 		if (_qs.length == 0) {
-			Toast.show("请上传文件。");
+			Toast.show("请上传文件");
 			return false;
 		}
 		var _fileExt = _qs[0].name.substring(_qs[0].name.lastIndexOf("."));
 
 		if (!_fileExt || (_fileExt.toLowerCase() !== ".jpg" && _fileExt.toLowerCase() !== ".jpeg" && _fileExt.toLowerCase() !== ".png" && _fileExt.toLowerCase() !== ".gif")) {
-			Toast.show("明细文件需为图片。");
+			Toast.show("明细文件需为图片");
 
 			return false;
 		}
 		if (_qs[0].size == 0) {
-			Toast.show("文件大小不能为0。");
+			Toast.show("文件大小不能为0");
 
 			return false;
 		}
 		if (_qs[0].size > 2 * 1024 * 1024) {
-			Toast.show("文件大小不能大于2M。");
+			Toast.show("文件大小不能大于2M");
 
 			return false;
 		}
@@ -445,7 +449,8 @@ class LanchRecommendation extends BasePage {
 				</div>
 				<PageForm ref="pageForm" className="form-horizontal" action="/apiQS/upload"
 				          enctype="multipart/form-data">
-					<input style={{display: "none"}} type="file" ref="qsFile" name="qsFile" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+					<input style={{display: "none"}} type="file" ref="qsFile" name="qsFile"
+					       accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
 						let files = $e.target.files;
 						if (files.length == 0) return;
 						this.beforeUpload && this.preLoadImg(files[0]);
@@ -511,9 +516,30 @@ class LanchRecommendation extends BasePage {
 			token: Cookie.getCookie("token") || ""
 		};
 		ApiAction.post(UrlConfig.matchList, data);
+
+		UploadStore.uploadfile(function (body) {
+			this.showLoading(false);
+			if (body.success) {
+				this.setState({
+					showWarnAlert: true,
+					alertWarnTitle: "发布成功！",
+					selectedMatchArray: [],
+					sureSelectedArray: [],
+					deployMatchInfo: {},
+					fee: -1,
+					myDefineFee: -1,
+					content: "",
+					imgUrl: "",
+					recommendationType: "COMMON"
+				});
+			} else {
+				this.setState({
+					showWarnAlert: true,
+					alertWarnTitle: "网络出错，请重新发布！"
+				});
+			}
+		}.bind(this));
 	}
-
-
 }
 
 export default LanchRecommendation;

@@ -68,7 +68,7 @@ class RecommendationDetail extends BasePage {
 
 					})
 				} else {
-					Toast.show(body.msg)
+					Toast.show(body.msg, 'error')
 				}
 
 				break;

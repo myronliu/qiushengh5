@@ -28,7 +28,7 @@ export default class extends BasePage {
             pic: body.data.detail.picUrl || ''
           })
         }else{
-          Toast.show(body.msg)
+          Toast.show(body.msg, 'error')
         }
 
         break;
