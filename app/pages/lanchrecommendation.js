@@ -14,6 +14,7 @@ import Cookie from '../helper/cookie';
 import PageForm from '../components/pageform';
 import UploadAction from '../actions/uploadaction';
 import ReactDOM from 'react-dom';
+import UploadStore from '../stores/uploadstore';
 
 
 class LanchRecommendation extends BasePage {
@@ -52,6 +53,7 @@ class LanchRecommendation extends BasePage {
 					Toast.show(body.msg)
 				}
 				break;
+
 			case UrlConfig.deployRecommendation:
 				if (body.success) {
 					this.setState({
@@ -61,7 +63,10 @@ class LanchRecommendation extends BasePage {
 						sureSelectedArray: [],
 						deployMatchInfo: {},
 						fee: -1,
-						content: ""
+						myDefineFee: -1,
+						content: "",
+						imgUrl: "",
+						recommendationType: "COMMON"
 					});
 				} else {
 					this.setState({
@@ -205,10 +210,9 @@ class LanchRecommendation extends BasePage {
 			matchIds: deployMatchIds.join(","),
 			letBalls: deployLetBalls.join(","),
 			results: deployResults.join(","),
-			token: Cookie.getCookie("token") || ''
+			token: Cookie.getCookie("token") || 'D3EB44780D4B29EDD4E22B3A1B9316B7D47DB679AA57559225B9D2C624A1F70A48949DF715957AB41E86F56B205FB4D339142BE590EAF32F071F44336744302BEB1A61EA0730C0B31A5E4B7CA740A8A6'
 		};
 
-		debugger;
 		if (recommendationType === "COMMON") {
 			this.showLoading(true);
 			ApiAction.post(UrlConfig.deployRecommendation, params);
@@ -445,7 +449,8 @@ class LanchRecommendation extends BasePage {
 				</div>
 				<PageForm ref="pageForm" className="form-horizontal" action="/apiQS/upload"
 				          enctype="multipart/form-data">
-					<input style={{display: "none"}} type="file" ref="qsFile" name="qsFile" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+					<input style={{display: "none"}} type="file" ref="qsFile" name="qsFile"
+					       accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
 						let files = $e.target.files;
 						if (files.length == 0) return;
 						this.beforeUpload && this.preLoadImg(files[0]);
@@ -511,9 +516,30 @@ class LanchRecommendation extends BasePage {
 			token: Cookie.getCookie("token") || ""
 		};
 		ApiAction.post(UrlConfig.matchList, data);
+
+		UploadStore.uploadfile(function (body) {
+			this.showLoading(false);
+			if (body.success) {
+				this.setState({
+					showWarnAlert: true,
+					alertWarnTitle: "发布成功！",
+					selectedMatchArray: [],
+					sureSelectedArray: [],
+					deployMatchInfo: {},
+					fee: -1,
+					myDefineFee: -1,
+					content: "",
+					imgUrl: "",
+					recommendationType: "COMMON"
+				});
+			} else {
+				this.setState({
+					showWarnAlert: true,
+					alertWarnTitle: "网络出错，请重新发布！"
+				});
+			}
+		}.bind(this));
 	}
-
-
 }
 
 export default LanchRecommendation;
