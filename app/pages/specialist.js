@@ -108,7 +108,7 @@ export default class extends BasePage {
         <div className="tabs">
           {this.renderTabs()}
         </div>
-        <div>
+        <div className="specialistInner">
           {this.renderItems()}
         </div>
       </Layout>
