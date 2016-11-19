@@ -11,6 +11,8 @@ global.ajaxQiushengConfig = {url:"http://localhost:8080/api",header:{'Content-Ty
 
 global.qsH5Config = {url:"http://60.205.145.105/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
 
+global.qsFCKConfig = {url:"http://b.fencaike.com/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
+
 // global.ajaxQiushengConfig = {url:"http://139.196.203.86:8080/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
 
 var DataInfoController = require('../controllers/datainfo');
@@ -42,6 +44,7 @@ var TestUpload = React.createFactory(require('../pages/testupload'));
 var Deposit = React.createFactory(require('../pages/deposit'));
 var DepositRecord = React.createFactory(require('../pages/depositrecord'));
 var Contract = React.createFactory(require('../pages/contract'));
+var Limits = React.createFactory(require('../pages/limits'));
 
 // 加入定时计划
 var later = require('later');
@@ -231,6 +234,11 @@ router.get('/deposit',function(req,res){
 router.get('/contract',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Contract({type: req.query.type}));
   res.render('home', {reactOutput: reactHtml,title:'协议'});
+});
+
+router.get('/limits',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Limits());
+  res.render('home', {reactOutput: reactHtml,title:'极限追盘'});
 });
 
 router.get('/depositrecord',function(req,res){

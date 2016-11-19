@@ -45,7 +45,7 @@ export default class extends BasePage {
                     showAlert: false
                 })
                 if (body.success) {
-                    window.to('/recodetail?id=' + this.state.payId);
+                    window.to('/recommendationdetail?id=' + this.state.payId);
                 } else {
                     Toast.show(body.msg, 'error')
                 }
@@ -91,7 +91,7 @@ export default class extends BasePage {
                 payId: id
             })
         } else {
-            window.to('/recodetail?id=' + id);
+            window.to('/recommendationdetail?id=' + id);
         }
     }
 
@@ -122,6 +122,12 @@ export default class extends BasePage {
 
     gotoHots() {
         window.to('/userrank')
+    }
+
+    gotoPage(url){
+        if(url){
+            window.to(url)
+        }
     }
 
     renderBanner() {
@@ -267,14 +273,15 @@ export default class extends BasePage {
 
     render() {
         var navContent = [
+            // {
+            //     id: 'hotNews',
+            //     title: '火线资讯',
+            //     direct_url: '',
+            // }, 
             {
-                id: 'hotNews',
-                title: '火线资讯',
-                direct_url: '',
-            }, {
                 id: 'runChart',
                 title: '极限追盘',
-                direct_url: '',
+                direct_url: '/limits',
             },
             {
                 id: 'scoreLive',
@@ -303,12 +310,12 @@ export default class extends BasePage {
                     {
                         navContent.map(function (item, index) {
                             return (
-                                <li key={"navBar" + index}>
+                                <li key={"navBar" + index} onTouchEnd={this.gotoPage.bind(this, item.direct_url)}>
                                     <img src={"../images/qiusheng/icon-" + item.id + ".png"}/>
                                     <div>{item.title}</div>
                                 </li>
                             )
-                        })
+                        }.bind(this))
                     }
                 </div>
                 <div className="content hotmatchHome">

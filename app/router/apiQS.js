@@ -125,7 +125,14 @@ router.post('*',function(req,res){
     }, global.qsH5Config)
 })
 
+router.get('/index.php',function(req,res){
+    ApiAction.get(req.url,function(data){
+        res.json(data);
+    }, global.qsFCKConfig)
+})
+
 router.get('*',function(req,res){
+  console.log(req.url);
     ApiAction.get(req.url,function(data){
         res.json(data);
     })
