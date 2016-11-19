@@ -18,7 +18,7 @@
     var recalc = function () {
             var clientWidth = docEl.clientWidth;
             if (!clientWidth) return;
-            var fontSize = 10 * (clientWidth / 640);
+            var fontSize = 10 * (clientWidth / 750);
             fontSize = (fontSize > 54) ? 54: fontSize;
             //如果是pc访问
             if(!/windows phone|iphone|android|iPad/ig.test(window.navigator.userAgent)) {

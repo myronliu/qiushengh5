@@ -1,0 +1,154 @@
+@import "../_base";
+
+//样式-1，出现在"赛事"
+.saishi {
+    position: relative;
+    background-color: white;
+    padding: 4rem 2rem;
+    border-bottom: 0.02rem solid #eee;
+    text-align: center;
+    font-size: 2.4rem;
+    .line-1 {
+        height: 2.4rem;
+        line-height: 2.4rem;
+        .matchName {
+            color: #FF3830;
+            margin-right: 1rem;
+        }
+        .matchTime {
+            color: #e3e3e3;
+        }
+    }
+    .line-2 {
+        position: relative;
+        height: 6rem;
+        line-height: 6rem;
+
+        .saishiLeft, .saishiRight {
+            display: inline-block;
+            width: 40%;
+            vertical-align: top;
+            & > img {
+                vertical-align: middle;
+                height: 6rem;
+                border-radius: 3rem;
+                border: 0.02rem solid #eee;
+                background: #fff;
+                margin: 0 1rem;
+            }
+            & > span {
+                line-height: 6rem;
+                display: inline-block;
+                height: 6rem;
+                color: #000;
+                font-size: 3.2rem;
+            }
+        }
+        .saishiLeft {
+            text-align: left;
+            float: left;
+        }
+        .saishiRight {
+            text-align: right;
+            float: right;
+        }
+        .saishiMiddle {
+            color: $green;
+            font-size: 3.2rem;
+            position: absolute;
+            left: 40%;
+            width: 20%;
+            text-align: center;
+        }
+    }
+    .line-3 {
+        .specialCountInfo {
+            height: 3.6rem;
+            line-height: 3.6rem;
+            width: 12rem;
+            border-radius: 1.8rem;
+            background: $light_gray;
+            display: inline-block;
+        }
+        .specialCount {
+            color: $red;
+        }
+    }
+}
+
+
+//样式-2，出现在"最新推荐"和"我的"
+.saishiAttachPrice {
+    position: relative;
+    background: $light_gray;
+    border-radius: 0.4rem;
+    width: 100%;
+    height: 12rem;
+    //&:before {
+    //    content: '';
+    //    display: block;
+    //    position: absolute;
+    //    left: 3rem;
+    //    top: -1rem;
+    //    width: 0;
+    //    height: 0;
+    //    border-style: solid;
+    //    border-width: 0 1rem 1rem 1rem;
+    //    border-color: transparent transparent $light_gray transparent;
+    //}
+    .leftPart {
+        box-sizing: border-box;
+        display: inline-block;
+        width: 74%;
+        vertical-align: top;
+        padding-left: 3rem;
+        padding-bottom: 3rem;
+        .sTopInfo {
+            height: 6rem;
+            line-height: 6rem;
+            font-size: 2.4rem;
+            .liansai {
+                color: $red;
+                margin-right: 1rem;
+                vertical-align: middle;
+            }
+            .add {
+                border: 0.1rem solid $blue;
+                border-radius: 0.2rem;
+                padding: 0.1rem;
+                color: $blue;
+                font-size: 2rem;
+            }
+            .time {
+                float: right;
+                margin-right: 3rem;
+                color: $gray;
+            }
+        }
+        .bottomInfo {
+            height: 3rem;
+            line-height: 3rem;
+            text-align: center;
+            font-size: 3rem;
+            color: $black;
+            .left {
+                float: left;
+            }
+            .right {
+                float: right;
+                margin-right: 3rem;
+            }
+        }
+    }
+    .rightPart {
+        display: inline-block;
+        width: 26%;
+        line-height: 12rem;
+        height: 12rem;
+        box-sizing: border-box;
+        border-left: 0.1rem solid $light_gray;
+        text-align: center;
+        color: $red;
+        font-size: 3rem;
+    }
+}

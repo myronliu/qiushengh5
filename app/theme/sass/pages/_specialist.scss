@@ -1,52 +1,51 @@
-.specialist{
-  height:100%;
-  .tabs{
-    border-bottom: 0.2rem solid;
-    border-bottom-color: #cdcdcd;
-  }
-  .tabItem{
-    display: inline-block;
-    width: 20%;
-    text-align: center;
-    height: 6rem;
-    line-height: 6rem;
-    color: #0000b5;
-    border-right-width: 1px;
-    border-right-style: solid;
-    border-right-color: #cdcdcd;
-    box-sizing: border-box;
-  }
-  .tabItemWithoutBorder{
-    display: inline-block;
-    width: 20%;
-    text-align: center;
-    height: 6rem;
-    line-height: 6rem;
-    color: #0000b5;
-  }
-  .tabItemWithLine{
-    background-color: gainsboro;
-  }
-  .specialItem{
-    width: 25%;
-    display: inline-block;
-    text-align: center;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    border-bottom: 1px solid;
-    border-bottom-color: #cdcdcd;
-    background-color: white;
-    height: 10rem;
-    &>img{
-      height: 6rem;
-      border-radius: 3rem;
-      background-color: #ffdcf5;
+@import "../_base";
+
+.specialist {
+    height: 100%;
+    overflow: hidden;
+    .tabs {
+        border-bottom: 0.1rem solid $light_gray;
+        height: 8rem;
+        line-height: 8rem;
+        overflow-y: auto;
+        background: #fff;
+        width: 80rem;
+        box-sizing: border-box;
     }
-    .name{
-      font-size: 2rem;
-      height:4rem;
-      line-height: 4rem;
-      color:black;
+    .tabItem {
+        display: inline-block;
+        width: 16rem;
+        line-height: 7.5rem;
+        text-align: center;
+        color: $black;
+        border-right: 0.1rem solid $light_gray;
+        border-bottom: 1rem solid #fff;
+        font-size: 3rem;
+        &:last-child {
+            border: none;
+        }
+        &.active {
+            border-bottom: 1rem solid $main_red;
+        }
     }
-  }
+    .specialItem {
+        width: 25%;
+        display: inline-block;
+        text-align: center;
+        padding-top: 3rem;
+        background-color: #fff;
+        height: 20rem;
+        & > img {
+            height: 8rem;
+            border-radius: 4rem;
+            margin-bottom: 2rem;
+        }
+        .name {
+            font-size: 2rem;
+            color: $black;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
 }

@@ -81,9 +81,9 @@ export default class extends BasePage {
   renderTabs(){
     return this.state.tabs.map(function(item, index){
       return (
-        <div onTouchEnd={this.changeTab.bind(this, index)} className={(this.state.tabs.length === index +1 ? "tabItemWithoutBorder" : "tabItem") + (this.state.currentTab === index ? " tabItemWithLine" : '')} key={index}>
+        <span onTouchEnd={this.changeTab.bind(this, index)} className={"tabItem" + (this.state.currentTab === index ? " active" : '')} key={index}>
           {item.title}
-        </div>
+        </span>
       )
     }.bind(this));
   }

@@ -35,10 +35,26 @@ $btnRadius: 2px;
 //* 15px */
 $px15: 15px;
 
+
+//* 新的设计 */
+$main_red: #DB594B;
+$main_black: #414B59;
+$red: #F47564;
+$green: #8FD6D6;
+$blue: #8AB5EF;
+$dark_gray: #7F8691;
+$gray: #B0B6BF;
+$light_gray: #F5F5F5;
+$black: #414B59;
+
 //*==========  基础元素样式  ==========*/
 
+
+html{
+  font-size:10px;
+}
 body {
-	font: #{$baseFontSize + 2}/1.5 microsoft yahei;
+	//font: #{$baseFontSize + 2}/1.5 microsoft yahei;
 	padding: 0;
 	margin: 0;
 	color: $ftColor;
@@ -59,6 +75,13 @@ a {
 a:hover{
   color: #f63;
 }
+li{
+  list-style: none;
+}
+*{
+  box-sizing: border-box;
+}
+
 
 //*==========  基础样式类  ==========*/
 

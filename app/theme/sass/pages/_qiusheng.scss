@@ -1,249 +1,213 @@
-.qiusheng{
-  overflow-x: hidden;
-  .block{
-    display: block;
-  }
-  .swiper_div{
-    background: white;
-    float: left;
-    position: relative;
-    transition-property:transform;
-    // height:10rem;
-    background-color:#efeff4;
-  }
-  .marginTop07rem{
-    margin-top: 0.7rem;
-  }
-  .topInfo{
-    height: 5rem;
-    line-height: 5rem;
-    padding-left: 1rem;
-    border-bottom: 0.1rem solid;
-    border-bottom-color: #cdcdcd;
-    background-color: white;
-    margin-top: 0.2rem;
-    .title{
-      font-size: 2.5rem;
-      color: black;
-    }
-    .link{
-      color: orange;
-      float: right;
-      margin-right: 1rem;
-      font-size:2rem;
-    }
-  }
-  .saishi{
-    background-color: white;
-    padding: 1rem;
-    border-bottom: 0.1rem solid;
-    border-bottom-color: #cdcdcd;
-    text-align: center;
-    height: 6rem;
-    line-height: 6rem;
-    .saishiLeft{
-      display: inline-block;
-      width: 30.33%;
-      vertical-align: top;
-      &>img{
-        height: 3rem;
-        border-radius: 2rem;
-        vertical-align: top;
-        margin-top: 1.5rem;
-      }
-      &>span{
-        line-height: 6rem;
-        display: inline-block;
-        height: 6rem;
-        color: black;
-      }
-    }
-    .saishiRight{
-      display: inline-block;
-      width: 30.33%;
-      vertical-align: top;
-      text-align: right;
-      &>img{
-        height: 3rem;
-        border-radius: 2rem;
-        vertical-align: top;
-        margin-top: 1.5rem;
-      }
-      &>span{
-        line-height: 6rem;
-        display: inline-block;
-        height: 6rem;
-        color: black;
-      }
-    }
-    .saishiMiddle{
-      display: inline-block;
-      width: 39.33%;
-      height: 6rem;
-      vertical-align: top;
-      text-align: center;
-      font-size: 1.5rem;
-      line-height: 2rem;
-      .o{
-        color: orange;
-      }
-      .g{
-        color: green;
-      }
-    }
-  }
-  .hongrenbang{
-    height: 5rem;
-    line-height: 5rem;
-    padding: 1rem;
-    background-color: white;
-    .leftInfo{
-      color: red;
-      font-weight: bold;
-    }
-    .middleInfo{
-      margin-left: 2rem;
-    }
-    .numInfo{
-      float: right;
-      margin-right: 1rem;
-      background-color: red;
-      display: inline-block;
-      width: 3rem;
-      height: 3rem;
-      line-height: 3rem;
-      margin-top: 1rem;
-      border-radius: 1.5rem;
-      text-align: center;
-      color: white;
-      font-size: 1.5rem;
-    }
-    .rightInfo{
-      float: right;
-      margin-right: 1rem;
-    }
-    .scrolldivs{
-      height: 4rem;
-      // width: 340px;
-      overflow: hidden;
-      .scrollul{
-        margin-top: 0rem;
-        margin-bottom: 0rem;
-        font-size: 2rem;
-      }
-    }
-  }
-  .specialistHome{
-    .specialItem{
-      width: 25%;
-      display: inline-block;
-      text-align: center;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-      border-bottom: 0rem;
-      // border-bottom-color: #cdcdcd;
-      background-color: white;
-      &>img{
-        height: 4rem;
-        border-radius: 2rem;
-        background-color: #ffdcf5;
-      }
-      .name{
-        font-size: 2rem;
-        color:black;
-        white-space:nowrap;
-        overflow:hidden;
-        text-overflow:ellipsis;
-      }
-    }
-  }
-  .recList{
-    .recItem{
-      .specialInfo{
-        padding-left: 1rem;
-        height: 6rem;
-        background-color: white;
-        border-bottom: 1px solid;
-        border-bottom-color: #d7d7d7;
+@import "../_base";
+@import "../components/_saishiItem";
+
+.qiusheng {
+    overflow-x: hidden;
+    .block {
         display: block;
-        &>img{
-          width: 4rem;
-          border-radius: 2rem;
-          margin-top: 0.5rem;
-          vertical-align: top;
-        }
-        .textInfo{
-          display: inline-block;
-          .tTitle{
-            font-size: 2rem;
-            line-height: 3.5rem;
-            color: black;
-          }
-          .tDesc{
-            font-size: 1.5rem;
-            line-height: 2.5rem;
-          }
-        }
-      }
-      .saishiItem{
-        height: 6rem;
-        background-color: white;
-        padding-top: 0.5rem;
-        padding-bottom: 0.5rem;
-        margin-bottom: 1rem;
-        .leftPart{
-          display: inline-block;
-          width: 80%;
-          height: 6rem;
-          vertical-align: top;
-          .sTopInfo{
-            height: 2.5rem;
-            line-height: 2.5rem;
-            font-size: 1.5rem;
-            padding-left: 1rem;
-            .liansai{
-              color: orange;
-            }
-            .add{
-              margin-left: 1rem;
-              border: 0.1rem solid;
-              border-radius: 0.2rem;
-              padding: 0.1rem;
-              color: green;
-            }
-            .time{
-              float: right;
-              margin-right: 1rem;
-              font-size: 1rem;
-              color: #bebebe;
-            }
-          }
-          .bottomInfo{
-            height: 3.5rem;
-            line-height: 3.5rem;
-            padding-left: 1rem;
-            text-align: center;
-            .left{
-              float: left;
-            }
-            .right{
-              float: right;
-              margin-right: 1rem;
-            }
-          }
-        }
-        .rightPart{
-          display: inline-block;
-          width: 20%;
-          line-height: 6rem;
-          box-sizing: border-box;
-          border-left: 0.1rem solid;
-          border-color: #d9d9d9;
-          text-align: center;
-          color: red;
-          height: 6rem;
-        }
-      }
     }
-  }
-};
+    .swiper_div {
+        float: left;
+        position: relative;
+        transition-property: transform;
+        // height:10rem;
+        background-color: #efeff4;
+    }
+    .navBar {
+        width: 100%;
+        height: 20rem;
+        padding: 1% 0;
+        background-color: #fff;
+        li {
+            font-size: 0;
+            list-style: none;
+            display: inline-block;
+            width: 20%;
+            text-align: center;
+            div {
+                color: $black;
+                font-size: 2.3rem;
+            }
+            img {
+                width: 8rem;
+                margin: 3rem;
+            }
+        }
+    }
+    .content {
+        margin-top: 2rem;
+        &.hotmatchHome .topInfo .title {
+            border-left: 0.2rem solid $green;
+        }
+        &.recListHome .topInfo .title {
+            border-left: 0.2rem solid $red;
+        }
+        &.specialistHome .topInfo .title {
+            border-left: 0.2rem solid $blue;
+        }
+    }
+
+    .topInfo {
+        height: 7rem;
+        line-height: 7rem;
+        padding-left: 4%;
+        background: #fff;
+        border-bottom: 0.02rem solid #eee;
+        .title {
+            font-size: 2.8rem;
+            border-left: 0.4rem solid $gray;
+            padding-left: 2%;
+            color: $dark_gray;
+        }
+        .subTitle {
+            font-size: 2.4rem;
+            padding-left: 2rem;
+            color: $gray;
+        }
+        .link {
+            position: relative;
+            color: $red;
+            float: right;
+            margin-right: 3rem;
+            font-size: 2.4rem;
+            padding-right: 3rem;
+            &:after {
+                content: '';
+                display: inline;
+                position: absolute;
+                background: url(../images/right.png) 0 50% no-repeat;
+                background-size: contain;
+                right: 0;
+                top: 33%;
+                width: 2rem;
+                height: 33%;
+            }
+        }
+    }
+    .hongrenbang {
+        box-sizing: border-box;
+        height: 7rem;
+        line-height: 3.5rem;
+        padding: 2rem 3rem;
+        background-color: white;
+        .middleInfo {
+            margin-left: 7rem;
+        }
+        .numInfo {
+            float: right;
+            margin-right: 4rem;
+            margin-top: 1rem;
+            background-color: $red;
+            display: inline-block;
+            width: 1.4rem;
+            height: 1.4rem;
+            //line-height: 1.5rem;
+            border-radius: 0.7rem;
+            text-align: center;
+            //color: white;
+            font-size: 0; //0.5rem;
+            &:after {
+                content: '';
+                display: inline-block;
+                position: absolute;
+                background: url(../images/right.png) 0 50% no-repeat;
+                background-size: contain;
+                right: 0;
+                top: 0.75rem;
+                width: 2rem;
+                height: 2rem;
+            }
+        }
+        .scrolldivs {
+            position: relative;
+            height: 3.5rem;
+            // width: 340px;
+            overflow: hidden;
+            .leftInfo {
+                position: absolute;
+                left: 0;
+                display: inline-block;
+                height: 3.5rem;
+            }
+            .scrollul {
+                margin-top: 0;
+                margin-bottom: 0;
+                font-size: 2.8rem;
+            }
+        }
+    }
+    .specialistHome {
+        background: #fff;
+        .specialItem {
+            width: 25%;
+            display: inline-block;
+            text-align: center;
+            padding-top: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 0rem;
+            // border-bottom-color: #cdcdcd;
+            background-color: white;
+            & > img {
+                height: 8rem;
+                border-radius: 4rem;
+                background-color: #fff;
+            }
+            .name {
+                font-size: 2.6rem;
+                color: $black;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
+        }
+    }
+    .recListHome {
+        .recItem {
+            padding: 2rem 3rem;
+            background: #fff;
+            border-bottom: 1px solid $light_gray;
+            .specialInfo {
+                height: 6.8rem;
+                display: block;
+                margin: 2rem 0;
+                & > img {
+                    width: 6.8rem;
+                    border-radius: 3.4rem;
+                    display: inline-block;
+                    vertical-align: top;
+                    margin-right: 3rem;
+                    font-size: 0;
+                }
+                .textInfo {
+                    display: inline-block;
+                    .tTitle {
+                        font-size: 3rem;
+                        line-height: 3.7rem;
+                        color: $black;
+                    }
+                    .tDesc {
+                        color: $dark_gray;
+                        font-size: 2.4rem;
+                        line-height: 3.1rem;
+                    }
+                }
+            }
+            .saishiAttachPrice{
+                &:before {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    left: 3rem;
+                    top: -1rem;
+                    width: 0;
+                    height: 0;
+                    border-style: solid;
+                    border-width: 0 1rem 1rem 1rem;
+                    border-color: transparent transparent $light_gray transparent;
+                }
+            }
+        }
+    }
+}
+
+;

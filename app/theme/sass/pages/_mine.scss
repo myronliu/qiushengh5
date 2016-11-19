@@ -1,131 +1,117 @@
-.mine{
-  margin-bottom: 5rem;
-  .header{
-    background-image: url(../images/back.jpg);
-    padding: 1rem;
-    .divImg{
-      text-align: center;
-      &>img{
-        width: 8rem;
-        border-radius: 4rem;
-        border: 0.1rem solid;
-        border-color: white;
-      }
+@import "../_base";
+
+.userInfo {
+    position: relative;
+    padding: 3.5rem 3rem 4.5rem;
+    text-align: left;
+    border-bottom: 0.1rem solid $light_gray;
+    & > img {
+        width: 10rem;
+        border-radius: 4.5rem;
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 3rem;
+        font-size: 0;
     }
-    .name{
-      text-align: center;
-      color: white;
-      font-size: 2.5rem;
-    }
-    .infoArea{
-      overflow: hidden;
-      .money{
-        float: left;
-        padding-left: 1rem;
-        padding-right: 1rem;
-        text-align: left;
-        color: white;
-        font-size: 2.5rem;
-        .num{
-          color: #ffdb00;
-          margin-right: 0.5rem;
+    .textInfo {
+        display: inline-block;
+        vertical-align: middle;
+        .tTitle {
+            font-size: 3.2rem;
+            line-height: 5rem;
+            color: $black;
         }
-      }
-      .options{
+        .tDesc {
+            color: $gray;
+            font-size: 2.8rem;
+            line-height: 4rem;
+        }
+    }
+    .right {
         float: right;
-        color: #fff;
-        .optionButton{
-          border: 1px solid #fff;
-          border-radius: 0.2rem;
-          padding: 0 0.1rem;
-          margin-left: 0.2rem;
-        }
-      }
-    }
-  }
-  .tabs{
-    line-height: 5rem;
-    height: 5rem;
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    .active{
-      display: inline-block;
-      width: 50%;
-      text-align: center;
-      background-color: #004700;
-      color: #e9e905;
-      box-sizing: border-box;
-    }
-    .unactive{
-      display: inline-block;
-      width: 50%;
-      text-align: center;
-      background-color: green;
-      color: white;
-    }
-  }
-  .items{
-    .block{
-      display: block;
-    }
-    .specialItem{
-      height: 8rem;
-      background-color: white;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-      .leftPart{
+        margin-top: 1.4rem;
         display: inline-block;
-        width: 80%;
-        height: 8rem;
-        vertical-align: top;
-        .topInfo{
-          height: 3rem;
-          font-size: 2rem;
-          padding-left: 1rem;
-          height: 3rem;
-          .liansai{
-            color: orange;
-          }
-          .add{
-            margin-left: 1rem;
-            border: 1px solid;
-            border-radius: 0.5rem;
-            padding: 0.1rem;
-            color: green;
-          }
-          .time{
-            float: right;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-            color: #bebebe;
-          }
-        }
-        .bottomInfo{
-          height: 5rem;
-          padding-left: 1rem;
-          line-height: 5rem;
-          text-align: center;
-          .left{
-            float: left;
-          }
-          .right{
-            float: right;
-            margin-right: 1rem;
-          }
-        }
-      }
-      .rightPart{
-        display: inline-block;
-        width: 20%;
-        line-height: 8rem;
-        box-sizing: border-box;
-        border-left: 1px solid;
-        border-color: #d9d9d9;
-        text-align: center;
-        color: red;
-        height: 8rem;
-      }
     }
-  }
+}
+
+.articlePreview {
+    background: #fff;
+    padding: 2rem 3rem;
+    .articleTitle {
+        color: $black;
+        font-size: 3rem;
+        line-height: 5rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    .articleDesc {
+        color: $gray;
+        font-size: 2.8rem;
+        line-height: 4rem;
+    }
+    .articleDesc +  .articleDesc{
+        margin-top: 2rem;
+    }
+}
+
+.mine {
+    background: $light_gray;
+    margin-bottom: 5rem;
+    .header {
+        background: #fff;
+        .userInfo {
+            .money {
+                color: $main_red;
+                margin-right: 0.5rem;
+            }
+            .right {
+                margin-top: 3.5rem;
+                .writeArticleBtn {
+                    font-size: 2.6rem;
+                    color: $blue;
+                    padding: 0.2rem;
+                    border: 0.1rem solid $blue;
+                }
+            }
+        }
+        .options {
+            padding: 1rem 0;
+            .optionButton {
+                height: 8rem;
+                line-height: 8rem;
+                display: inline-block;
+                font-size: 3.2rem;
+                width: 50%;
+                text-align: center;
+                color: $black;
+                &:nth-child(1) {
+                    border-right: 0.1rem solid $light_gray;
+                }
+                img {
+                    height: 3.2rem;
+                    display: inline-block;
+                    vertical-align: text-bottom;
+                    margin: 0 1rem;
+                }
+            }
+        }
+    }
+    .contentWrap {
+        .contentTitle {
+            height: 7rem;
+            line-height: 7rem;
+            color: $gray;
+            font-size: 2.8rem;
+            margin-left: 3rem;
+        }
+        .contentInner {
+            .saishiAttachPrice{
+                background: #fff;
+            }
+            .saishiAttachPrice + .saishiAttachPrice {
+                margin-top: 2rem;
+            }
+        }
+    }
 }
