@@ -25,6 +25,7 @@ var Specialinfo = React.createFactory(require('../pages/specialinfo'));
 var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 var Hotmatch = React.createFactory(require('../pages/hotmatch'));
 var MyRecommendation = React.createFactory(require('../pages/myrecommendation'));
+var LiveScore = React.createFactory(require('../pages/livescore'));
 var NewAddRecommendation = React.createFactory(require('../pages/newaddrecommendation'));
 var RecommendationDetail = React.createFactory(require('../pages/recommendationdetail'));
 
@@ -189,6 +190,11 @@ router.get('/mine',function(req,res){
 router.get('/myrecommendation',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(MyRecommendation());
   res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
+});
+
+router.get('/livescore',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(LiveScore());
+  res.render('home', {reactOutput: reactHtml,title:'比分直播'});
 });
 
 router.get('/newaddrecommendation',function(req,res){

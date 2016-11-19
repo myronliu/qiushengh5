@@ -16,6 +16,7 @@ var Focus = require('../pages/focus');
 var HotmatchDetail = require('../pages/hotmatchdetail');
 var Mine = require('../pages/mine');
 var MyRecommendation = require('../pages/myrecommendation');
+var LiveScore = require('../pages/livescore');
 var RecommendationDetail = require('../pages/recommendationdetail');
 var NewAddRecommendation = require('../pages/newaddrecommendation');
 var ApplyExpert = require('../pages/applyexpert');
@@ -84,6 +85,9 @@ var Router = EvoFlux.createRouter({
   },
   '/myrecommendation': function(){
     ReactDOM.render(<MyRecommendation />, container);
+  },
+  '/livescore': function(){
+    ReactDOM.render(<LiveScore />, container);
   },
   '/recommendationdetail': function(){
     ReactDOM.render(<RecommendationDetail id={this.query("id")}/>, container);
