@@ -51,9 +51,12 @@ if (process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'staging')
 import router from './app/router/serverrouter';
 import apirouter from './app/router/api';
 import apiQSrouter from './app/router/apiQS';
+import apiFSrouter from './app/router/apiFS';
 app.use('/', router);
 app.use('/api/',apirouter);
 app.use('/apiQS/',apiQSrouter);
+app.use('/apiFS/',apiFSrouter);
+
 
 var server = app.listen(port,function(){
   var host = server.address().address;
@@ -62,22 +65,22 @@ var server = app.listen(port,function(){
 });
 /*
 // 需要HTTP 模块来启动服务器和Socket.IO
-var io= require('socket.io'); 
+var io= require('socket.io');
 
 
 // 创建一个Socket.IO实例，把它传递给服务器
-global.socket= io.listen(server); 
+global.socket= io.listen(server);
 
 // 添加一个连接监听器
-global.socket.on('connection', function(client){ 
+global.socket.on('connection', function(client){
   console.log('a user connected');
   // socket.emit('message', new Date().toLocaleString());
   // 成功！现在开始监听接收到的消息
-  client.on('message',function(event){ 
-    console.log('Received message from client!',event); 
-  }); 
-  client.on('disconnect',function(){ 
-    // clearInterval(interval); 
-    console.log('Server has disconnected'); 
-  }); 
+  client.on('message',function(event){
+    console.log('Received message from client!',event);
+  });
+  client.on('disconnect',function(){
+    // clearInterval(interval);
+    console.log('Server has disconnected');
+  });
 });*/

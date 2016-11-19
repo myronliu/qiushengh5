@@ -88,50 +88,8 @@ router.post('/upload', function(req,res){
   handleApiWithFile(req, res, global.qsH5Config);
 });
 
-router.post('/lottery/recommend/publish', function(req,res){
-    handleApiWithFile(req, res, global.qsH5Config);
-});
-
-router.post('/lottery/expert/apply', function(req,res){
-    handleApiWithFile(req, res, global.qsH5Config);
-});
-
-router.post('/getUserRec',function(req,res){
-    req.query.username = req.body.username;
-    DataInfoController.detail(req, res)
-    .spread(function(content,recommendation,competition, recommendationToday){
-      var data = {
-        time: new Date().toLocaleString(),
-        recommendationToday: recommendationToday,
-        content:content,
-        recommendation:recommendation,
-        competition:competition
-      };
-      res.json(data);
-    })
-    .catch(function(err){
-      var data={
-        time: new Date().toLocaleString(),
-        content: {},
-        recommendation:{},
-        competition:{},
-        recommendationToday:{}
-      }
-      res.json(data);
-    })
-})
 
 router.post('*',function(req,res){
-    // let auth=req.cookies.auth
-    // let ssoToken=req.cookies.ssoToken
-    ApiAction.post(req.url,req.body,function(data){
-        res.json(data);
-    }, global.qsH5Config)
-})
-
-router.get('*',function(req,res){
-    ApiAction.get(req.url,function(data){
-        res.json(data);
-    })
+    handleApiWithFile(req, res, global.qsH5Config);
 })
 module.exports = router;

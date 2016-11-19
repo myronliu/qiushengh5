@@ -9,7 +9,7 @@ var Api = function(){ return ajax.init(global.ajaxConfigBack).api; }
 module.exports = EvoFlux.createAction("uploadfile", {
   // 增加活动规则
   uploadfile: function(url, data, cb){
-    var url = '/apiQS' + url;
+    var url = '/apiFS' + url;
 
     var request = superagent.post(url);
 
@@ -24,7 +24,7 @@ module.exports = EvoFlux.createAction("uploadfile", {
     }
 
     request.end(function(err, res){
-      
+
       if(cb){
           cb(res.body);
       } else {
