@@ -49,23 +49,25 @@
       display: block;
     }
     .specialItem{
-      height: 8rem;
+      height: 12rem;
       background-color: white;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      margin-bottom: 2rem;
+      &:last-of-type{
+        margin-bottom: 0;
+      }
       .leftPart{
         display: inline-block;
         width: 80%;
-        height: 8rem;
+        height: 12rem;
         vertical-align: top;
+        padding: 1rem 2rem;
         .topInfo{
-          height: 3rem;
-          font-size: 2rem;
-          padding-left: 1rem;
-          height: 3rem;
+          height: 4rem;
+          line-height: 4rem;
+          font-size: 2.4rem;
+          margin-bottom: 2rem;
           .liansai{
-            color: orange;
+            color: #f47564;
           }
           .add{
             margin-left: 1rem;
@@ -77,15 +79,14 @@
           .time{
             float: right;
             margin-right: 1rem;
-            font-size: 1.5rem;
-            color: #bebebe;
+            color: #b0b6bf;
           }
         }
         .bottomInfo{
           height: 5rem;
-          padding-left: 1rem;
           line-height: 5rem;
           text-align: center;
+          font-size: 3rem;
           .left{
             float: left;
           }
@@ -98,27 +99,34 @@
       .rightPart{
         display: inline-block;
         width: 20%;
-        line-height: 8rem;
+        line-height: 12rem;
         box-sizing: border-box;
         border-left: 1px solid;
         border-color: #d9d9d9;
         text-align: center;
         color: red;
-        height: 8rem;
+        height: 12rem;
+        font-size: 3rem;
       }
     }
     .itemCategoryTitle{
-      padding: 1rem;
+      padding: 2rem;
+      font-size: 2.8rem;
+    }
+  }
+
+  .article-item{
+    background-color: #fff;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    .article-title{
+      font-size: 3rem;
+      color: #414b59;
       margin-bottom: 1rem;
-      &.recommended{
-        background-color: #004700;
-      }
-      &.recommending{
-        background-color: green;
-      }
-      &.article{
-        background-color: #acc894;
-      }
+    }
+    .article-creator{
+      font-size: 3rem;
+      color: #b0b6bf;
     }
   }
 }

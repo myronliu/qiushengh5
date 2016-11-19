@@ -23,21 +23,19 @@ export default class Saishi extends React.Component {
                 {this.props.children}
                 <div className="line-1">
                     <span className="matchName">{data.matchName}</span>
-                    <span className="matchTime">11-11 10:00</span>
+                    <span className="matchTime">{data.matchDate}</span>
                 </div>
                 <div className="line-2">
                     <div className="saishiLeft">
-                        <img
-                            src={data.homeTeamAvatar ? data.homeTeamAvatar : "../images/photo.png"}/>
+                        <img src={data.homeTeamAvatar ? data.homeTeamAvatar : "../images/photo.png"}/>
                         <span>{data.homeTeam}</span>
                     </div>
                     <div className="saishiMiddle">
                         <span>{data.finalScore ? data.finalScore : 'vs'}</span>
                     </div>
                     <div className="saishiRight">
+                        <img src={data.awayTeamAvatar ? data.awayTeamAvatar : "../images/photo.png"}/>
                         <span>{data.awayTeam}</span>
-                        <img
-                            src={data.awayTeamAvatar ? data.awayTeamAvatar : "../images/photo.png"}/>
                     </div>
                 </div>
                 <div className="line-3">

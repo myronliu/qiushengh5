@@ -124,12 +124,6 @@ export default class extends BasePage {
         window.to('/userrank')
     }
 
-    gotoPage(url){
-        if(url){
-            window.to(url)
-        }
-    }
-
     renderBanner() {
         var count = this.state.banners.length;
         if (!process.browser && count > 0) {
@@ -271,6 +265,12 @@ export default class extends BasePage {
         })
     }
 
+    gotoListItem(url){
+        if(url){
+            window.to(url)
+        }
+    }
+
     render() {
         var navContent = [
             // {
@@ -291,12 +291,12 @@ export default class extends BasePage {
             {
                 id: 'freeRecommend',
                 title: '免费推荐',
-                direct_url: ''
+                direct_url: '/recommend?type=free'
             },
             {
                 id: 'lotteryOrder',
                 title: '彩店实单',
-                direct_url: ''
+                direct_url: '/recommend?type=caidian'
             }
         ];
         return (
@@ -310,7 +310,7 @@ export default class extends BasePage {
                     {
                         navContent.map(function (item, index) {
                             return (
-                                <li key={"navBar" + index} onTouchEnd={this.gotoPage.bind(this, item.direct_url)}>
+                                <li key={"navBar" + index} onTouchEnd={this.gotoListItem.bind(this, item.direct_url)}>
                                     <img src={"../images/qiusheng/icon-" + item.id + ".png"}/>
                                     <div>{item.title}</div>
                                 </li>

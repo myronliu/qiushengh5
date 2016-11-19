@@ -16,6 +16,7 @@ var Focus = require('../pages/focus');
 var HotmatchDetail = require('../pages/hotmatchdetail');
 var Mine = require('../pages/mine');
 var MyRecommendation = require('../pages/myrecommendation');
+var LiveScore = require('../pages/livescore');
 var RecommendationDetail = require('../pages/recommendationdetail');
 var NewAddRecommendation = require('../pages/newaddrecommendation');
 var ApplyExpert = require('../pages/applyexpert');
@@ -25,6 +26,7 @@ var TestUpload = require('../pages/testupload');
 var LanchRecommendation = require('../pages/lanchrecommendation');
 var Deposit = require('../pages/deposit');
 var DepositRecord = require('../pages/depositrecord');
+var Recommend = require('../pages/recommend');
 var Contract = require('../pages/contract');
 var Limits = require('../pages/limits');
 
@@ -85,6 +87,9 @@ var Router = EvoFlux.createRouter({
   '/myrecommendation': function(){
     ReactDOM.render(<MyRecommendation />, container);
   },
+  '/livescore': function(){
+    ReactDOM.render(<LiveScore />, container);
+  },
   '/recommendationdetail': function(){
     ReactDOM.render(<RecommendationDetail id={this.query("id")}/>, container);
   },
@@ -112,9 +117,13 @@ var Router = EvoFlux.createRouter({
   '/limits': function(){
     ReactDOM.render(<Limits />, container);
   },
+  '/recommend': function(){
+    ReactDOM.render(<Recommend type={this.query("type")} />, container);
+  },
   '/contract': function(){
     ReactDOM.render(<Contract type={this.query('type')}/>, container);
-  }
+  },
+
 
 
   // '/guanka': function(){

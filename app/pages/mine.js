@@ -84,9 +84,6 @@ export default class extends BasePage {
     gotoMyreRommendation() {
         window.to('/myrecommendation');
     }
-    gotoNewAddRecommendation() {
-        window.to('/lanchrecommendation');
-    }
 
     applyExpert() {
         window.to('/applyexpert');
@@ -193,7 +190,7 @@ export default class extends BasePage {
     }
 
     render() {
-        let rightBtn = {title: '新增推荐', func: this.gotoNewAddRecommendation.bind(this)};
+        let rightBtn = {title: '我的推荐', func: this.gotoMyreRommendation.bind(this)};
         return (
             <Layout hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn]}>
                 <Loading showLoading={this.state.showLoading}/>

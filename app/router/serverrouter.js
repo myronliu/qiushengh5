@@ -27,6 +27,7 @@ var Specialinfo = React.createFactory(require('../pages/specialinfo'));
 var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 var Hotmatch = React.createFactory(require('../pages/hotmatch'));
 var MyRecommendation = React.createFactory(require('../pages/myrecommendation'));
+var LiveScore = React.createFactory(require('../pages/livescore'));
 var NewAddRecommendation = React.createFactory(require('../pages/newaddrecommendation'));
 var RecommendationDetail = React.createFactory(require('../pages/recommendationdetail'));
 
@@ -43,6 +44,7 @@ var WriteArticle = React.createFactory(require('../pages/writearticle'));
 var TestUpload = React.createFactory(require('../pages/testupload'));
 var Deposit = React.createFactory(require('../pages/deposit'));
 var DepositRecord = React.createFactory(require('../pages/depositrecord'));
+var Recommend = React.createFactory(require('../pages/recommend'));
 var Contract = React.createFactory(require('../pages/contract'));
 var Limits = React.createFactory(require('../pages/limits'));
 
@@ -193,6 +195,11 @@ router.get('/myrecommendation',function(req,res){
   res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
 });
 
+router.get('/livescore',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(LiveScore());
+  res.render('home', {reactOutput: reactHtml,title:'比分直播'});
+});
+
 router.get('/newaddrecommendation',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(NewAddRecommendation());
   res.render('home', {reactOutput: reactHtml,title:'新增推荐'});
@@ -244,6 +251,11 @@ router.get('/limits',function(req,res){
 router.get('/depositrecord',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(DepositRecord());
   res.render('home', {reactOutput: reactHtml,title:'充值记录'});
+});
+
+router.get('/recommend',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Recommend({type: req.query.type}));
+  res.render('home', {reactOutput: reactHtml,title:'免费推荐'});
 });
 
 function renderToPath(req,res,path){

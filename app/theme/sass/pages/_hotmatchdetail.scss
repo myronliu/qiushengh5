@@ -1,90 +1,7 @@
+@import "../_base";
 .hotmatchdetail{
   .top{
-    .saishi{
-      background-color: white;
-      border-bottom: 0.1rem solid;
-      border-bottom-color: #cdcdcd;
-      margin-bottom: 1rem;
-      background-image: url('../images/header.jpg');
-      background-repeat: no-repeat;
-      background-size: 100% 100%;
-      background-origin: content-box;
-      .saishiLeft{
-        display: inline-block;
-        width: 30.33%;
-        vertical-align: top;
-        text-align: center;
-        &>img{
-          width: 3rem;
-          border-radius: 2rem;
-          vertical-align: top;
-          margin-top: 1.5rem;
-          display: block;
-          left: 50%;
-          margin-left: -1.5rem;
-          position: relative;
-          background-color:white;
-        }
-        &>span{
-          line-height: 4rem;
-          display: block;
-          height: 4rem;
-          color: white;
-        }
-      }
-      .saishiRight{
-        display: inline-block;
-        width: 30.33%;
-        vertical-align: top;
-        text-align: center;
-        &>img{
-          width: 3rem;
-          border-radius: 2rem;
-          vertical-align: top;
-          margin-top: 1.5rem;
-          display: block;
-          left: 50%;
-          margin-left: -1.5rem;
-          position: relative;
-          background-color:white;
-        }
-        &>span{
-          line-height: 4rem;
-          display: block;
-          height: 4rem;
-          color: white;
-        }
-      }
-      .saishiMiddle{
-        display: inline-block;
-        width: 39.33%;
-        height: 8.5rem;
-        vertical-align: top;
-        text-align: center;
-        font-size: 1rem;
-        line-height: 2rem;
-        .liansai{
-          height: 2.5rem;
-          line-height: 2.5rem;
-          color: white; 
-          .o{
-            margin-right: 1rem
-          }
-          
-        }
-        .g{
-          color: #00da00;
-          font-size: 4rem;
-          height: 3rem;
-          line-height: 3rem;
-        }
-        .time{
-          height: 2.5rem;
-          line-height: 2.5rem;
-          color: red;
-        }
-      }
-    }
+
   }
   .header{
     line-height: 3rem;
@@ -104,6 +21,66 @@
     .end{
       width: 30%;
       display: inline-block;
+    }
+  }
+  .saishi {
+    background-color: green;
+    height: 13rem;
+    padding: 8% 0;
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing: content-box;
+    //background: url('../images/header.jpg') 0 0 no-repeat;
+    //background-size: 100% 100%;
+    .line-1 {
+      .matchName {
+        margin-right: 0;
+        font-size: 2.4rem;
+        margin-bottom: 8rem;
+        display: block;
+        color: $light_gray;
+      }
+      .matchTime {
+        margin-right: 0;
+        font-size: 2rem;
+        display: block;
+        color: $light_gray;
+      }
+    }
+    .line-2 {
+      position: relative;
+      height: 6rem;
+      line-height: 6rem;
+      .saishiLeft, .saishiRight {
+        display: inline-block;
+        width: 40%;
+        vertical-align: top;
+        & > img {
+          display: block;
+          margin: 0 auto;
+        }
+        & > span {
+          display: block;
+          font-size: 3rem;
+          color: $light_gray;
+        }
+      }
+      .saishiLeft {
+        text-align: center;
+      }
+      .saishiRight {
+        text-align: center;
+        &>img{
+          float: none;
+        }
+      }
+      .saishiMiddle {
+        color: $green;
+        font-size: 6rem;
+      }
+    }
+    .line-3 {
+      display: none;
     }
   }
   .recItem{
@@ -191,51 +168,30 @@
       }
     }
   }
-  .tabs{
-    border-bottom: 1px solid;
-    border-bottom-color: #cdcdcd;
-    padding-left: 2rem;
-    padding-right: 2rem;
-    background-color: white;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-  }
-  .tabItem{
-    display: inline-block;
-    width: 23%;
-    text-align: center;
-    height: 2rem;
-    line-height: 2rem;
-    color: #364bff;
-    border-width: 0.1rem;
-    border-style: solid;
-    border-color: #364bff;
-    box-sizing: border-box;
-    border-left-style: none;
-  }
-  .tabItemWithoutBorder{
-    display: inline-block;
-    width: 23%;
-    text-align: center;
-    height: 2rem;
-    line-height: 2rem;
-    color: #364bff;
-    box-sizing: border-box;
-    border-width: 0.1rem;
-    border-style: solid;
-    border-color: #364bff;
-    border-left-style: none;
-  }
-  .tabItemWithLine{
-    background-color: #364bff;
-    color: white;
-  }
-  .leftRadius{
-    border-bottom-left-radius: 0.3rem;
-    border-top-left-radius: 0.3rem;
-  }
-  .rightRadius{
-    border-bottom-right-radius: 0.3rem;
-    border-top-right-radius: 0.3rem;
+
+}
+
+.tabs {
+  border-bottom: 0.1rem solid $light_gray;
+  height: 8rem;
+  line-height: 8rem;
+  overflow-y: auto;
+  background: #fff;
+  width: 80rem;
+  box-sizing: border-box;
+}
+.tabItem {
+  margin: 0 15.6%;
+  width: 18.6%;
+  height: 8rem;
+  color: $gray;
+  font-size: 3rem;
+  line-height: 8rem;
+  display: inline-block;
+  text-align: center;
+  box-sizing: border-box;
+  &.active {
+    color: $black;
+    border-bottom: 0.6rem solid $main_red;
   }
 }

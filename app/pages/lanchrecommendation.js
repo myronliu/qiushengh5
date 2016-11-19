@@ -15,8 +15,12 @@ import PageForm from '../components/pageform';
 import UploadAction from '../actions/uploadaction';
 import ReactDOM from 'react-dom';
 import UploadStore from '../stores/uploadstore';
+import Keyboard from '../components/keyboard';
 
-
+const recommendType = {
+	COMMON: "普通推荐",
+	REAL: "实单推荐"
+};
 class LanchRecommendation extends BasePage {
 	constructor(props) {
 		super(props);
@@ -29,11 +33,12 @@ class LanchRecommendation extends BasePage {
 			selectedMatchArray: [],
 			sureSelectedArray: [],
 			deployMatchInfo: {},
-			fee: -1,
+			fee: 5,
 			myDefineFee: -1,
 			content: "",
 			imgUrl: "",
-			recommendationType: "COMMON"
+			recommendationType: "COMMON",
+			kbdShow: false
 		};
 	}
 
@@ -154,17 +159,17 @@ class LanchRecommendation extends BasePage {
 			});
 			return;
 		}
-		if (fee === -1 && myDefineFee == -1) {
+		if (fee === 0) {
 			this.setState({
 				showWarnAlert: true,
-				alertWarnTitle: "请选择方案定价！"
+				alertWarnTitle: "请选择费用！"
 			});
 			return;
 		}
 		if (content.trim() === "" || content.trim().length < 30) {
 			this.setState({
 				showWarnAlert: true,
-				alertWarnTitle: "分析文字不少于30字！"
+				alertWarnTitle: "推荐理由不少于30字！"
 			});
 			return;
 		}
@@ -355,7 +360,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	render() {
-		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, recommendationType} = this.state;
+		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, recommendationType, kbdShow} = this.state;
 		let rightBtn = {icon: './images/home_1.png', func: this.goHomePage.bind(this)};
 		return (
 			<Layout className='hotmatch' title={'发起推荐'} rightItems={[rightBtn]}>
@@ -374,70 +379,72 @@ class LanchRecommendation extends BasePage {
 				</TwoBtnAlert>
 
 				<div className="lanchrecommendation">
-					<div className="flexItem"
-					     onTouchEnd={this.getMoreRecommendation.bind(this)}>
-						<div className="btnDiv">选择赛事、推荐项</div>
+					<div className="flexItem">
+						<div className="btnDiv">推荐类型</div>
 						<div className="btnImage">
-							<div className="icon">+</div>
+							<div className="recommendType">{recommendType[recommendationType]}</div>
+							<div className="icon selectType">{">"}</div>
 						</div>
-					</div>
-					{this.renderDetailMatch()}
-
-					<div className="flexItem"
-					     onTouchEnd={()=> {
-						     this.refs.qsFile.click();
-					     }}
-					     style={{display: recommendationType === "COMMON" ? "none" : ""}}>
-						<div className="btnDiv">晒方案截图（限一张）</div>
-						<div className="btnImage">
-							<div className="icon">+</div>
-						</div>
-					</div>
-
-					<img style={{display: imgUrl === "" || recommendationType === "COMMON" ? "none" : "block"}}
-					     className="preLoadImg" src={imgUrl}/>
-
-					<div className="flexItem reasonDiv">
-                        <textarea className="reason" placeholder="输入你的分析文字" value={content} onChange={(e)=> {
-	                        this.setState({content: e.target.value.trim()});
-                        }}/>
-					</div>
-					<div className="flexItem moneyTitle">
-						<div>方案定价</div>
-					</div>
-					<div className="flexItem moneyDiv">
-						<div className={"feebox" + (fee === 0 ? " selected" : "")}
-						     onTouchEnd={this.selectFee.bind(this, 0)}>免费
-						</div>
-						<div className={"feebox" + (fee === 8 ? " selected" : "")}
-						     onTouchEnd={this.selectFee.bind(this, 8)}>8元
-						</div>
-						<div className={"feebox" + (fee === 28 ? " selected" : "")}
-						     onTouchEnd={this.selectFee.bind(this, 28)}>28元
-						</div>
-						<div className={"feebox" + (fee === 58 ? " selected" : "")}
-						     onTouchEnd={this.selectFee.bind(this, 58)}>58元
-						</div>
-						<div className={"feebox myDefineFee" + (myDefineFee !== -1 ? " selected" : "")}>
-							<input placeholder="自定义" value={myDefineFee === -1 ? "" : myDefineFee}
-							       onChange={this.changeMyDefineFee.bind(this)}
-							       onFocus={()=> {
-								       this.setState({fee: -1})
-							       }}/>
-							<div>元</div>
-						</div>
-					</div>
-					<div className="flexItem recommendationType">
-						<div className="typeLabel">推荐类型：</div>
-						<select className="selectType"
+						<select className="selectRecommendType"
 						        onChange={($e)=> {
 							        this.setState({recommendationType: $e.target.value, imgUrl: ""});
 							        this.refs.qsFile.value = "";
 						        }}
 						        value={recommendationType}>
-							<option value="COMMON">普通</option>
-							<option value="REAL">实单</option>
+							<option value="COMMON">普通推荐</option>
+							<option value="REAL">实单推荐</option>
 						</select>
+					</div>
+
+					<div className="flexItem"
+					     onTouchEnd={this.getMoreRecommendation.bind(this)}>
+						<div className="btnDiv">选择赛事</div>
+						<div className="btnImage">
+							<div className="icon addMatch"></div>
+						</div>
+					</div>
+
+					{this.renderDetailMatch()}
+
+					<div className="imageView"
+					     style={{display: imgUrl === "" || recommendationType === "COMMON" ? "none" : "block"}}>
+						<img className="preLoadImg" src={imgUrl}/>
+						<div className="deleteImgBtn"
+						     onTouchEnd={()=> {
+							     this.setState({
+								     imgUrl: ""
+							     });
+							     this.refs.qsFile.value = "";
+						     }}>X
+						</div>
+					</div>
+
+					<div className="flexItem reasonDiv">
+                        <textarea className="reason" placeholder="描述一下你的推荐理由" value={content} onChange={(e)=> {
+	                        this.setState({content: e.target.value.trim()});
+                        }}/>
+					</div>
+					<div className="flexItem addImageFlex"
+					     style={{display: recommendationType === "REAL" && imgUrl === "" ? "" : "none"}}>
+						<div className="addImageWap"
+						     onTouchEnd={()=> {
+							     this.refs.qsFile.click();
+						     }}>
+							<div className="addBtn">
+								<div className="add">
+									<div className="adddd addRow"></div>
+									<div className="adddd addColumn"></div>
+								</div>
+							</div>
+							<div className="text">添加图片</div>
+						</div>
+					</div>
+					<div className="flexItem" onTouchEnd={()=> this.setState({kbdShow: true})}>
+						<div className="btnDiv">选择费用</div>
+						<div className="btnImage">
+							<div className="recommendType">{fee + "球币"}</div>
+							<div className="icon selectType">{">"}</div>
+						</div>
 					</div>
 				</div>
 				<div className="deployBtnWap" onTouchEnd={this.deployRecommendation.bind(this)}>
@@ -456,8 +463,33 @@ class LanchRecommendation extends BasePage {
 						this.beforeUpload && this.preLoadImg(files[0]);
 					}}/>
 				</PageForm>
+				<Keyboard show={kbdShow}
+				          handleDel={this.handleDel.bind(this)}
+				          handleAdd={this.handleAdd.bind(this)}
+				          close={this.closeKbd.bind(this)}/>
 			</Layout>
 		)
+	}
+
+	handleDel() {
+		let {fee} = this.state;
+		if (fee !== 0) {
+			fee = fee.substring(0, fee.length - 1) === "" ? 0 : fee.substring(0, fee.length - 1);
+			this.setState({fee});
+		}
+	}
+
+	handleAdd(num) {
+		let {fee} = this.state;
+		if (fee === 0) {
+			this.setState({fee: num});
+		} else {
+			this.setState({fee: fee + num});
+		}
+	}
+
+	closeKbd() {
+		this.setState({kbdShow: false});
 	}
 
 	selectFee(money) {

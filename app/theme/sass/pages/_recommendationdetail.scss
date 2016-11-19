@@ -7,11 +7,10 @@
 	.flexItem {
 		flex: 1;
 		border: 1px solid;
-		width: 96%;
+		width: 100%;
 		margin-top: 1rem;
 		background-color: white;
 		height: 6rem;
-		border-radius: 4px;
 		display: flex;
 		align-items: center;
 	}
@@ -58,14 +57,13 @@
 	}
 
 	.itemMatchWap {
-		width: 98%;
+		width: 100%;
 		.itemMatch {
-			border-radius: 4px;
 			padding-left: 1rem;
 			padding-right: 1rem;
-			margin: 0.5rem;
+			margin-top: 1rem;
 			background-color: white;
-			width: 95%;
+			width: 100%;
 			position: relative;
 			.line1 {
 				height: 3rem;
@@ -179,18 +177,17 @@
 		}
 	}
 
-	.content{
-		width: 96%;
+	.content {
+		width: 100%;
 		overflow-wrap: break-word;
 		background-color: white;
-		border-radius: 4px;
-		padding-left: 0.5rem;
+		padding-left: 1rem;
+		margin-top: 1rem;
+		padding-top: 1rem;
 	}
 	.showImg {
-		width: 94%;
+		width: 100%;
 		border: 1rem solid white;
-		border-radius: 4px;
-		margin-top: 1rem;
 	}
 	.likeUnlikeShareDiv {
 		.doBtn {

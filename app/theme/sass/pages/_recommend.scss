@@ -1,0 +1,64 @@
+.recommend{
+  .block{
+    display: block;
+  }
+  .specialItem{
+    height: 12rem;
+    background-color: white;
+    margin-bottom: 2rem;
+    .leftPart{
+      display: inline-block;
+      width: 80%;
+      height: 12rem;
+      vertical-align: top;
+      padding: 1rem 2rem;
+      .topInfo{
+        height: 4rem;
+        line-height: 4rem;
+        font-size: 2.4rem;
+        margin-bottom: 2rem;
+        .liansai{
+          color: #f47564;
+        }
+        .add{
+          margin-left: 1rem;
+          border: 1px solid;
+          border-radius: 0.5rem;
+          padding: 0.1rem;
+          color: green;
+        }
+        .time{
+          float: right;
+          margin-right: 1rem;
+          color: #b0b6bf;
+        }
+      }
+      .bottomInfo{
+        height: 5rem;
+        line-height: 5rem;
+        text-align: center;
+        font-size: 3rem;
+        .left{
+          float: left;
+        }
+        .right{
+          float: right;
+          margin-right: 1rem;
+        }
+      }
+    }
+    .rightPart{
+      display: inline-block;
+      width: 20%;
+      line-height: 12rem;
+      box-sizing: border-box;
+      border-left: 1px solid;
+      border-color: #d9d9d9;
+      text-align: center;
+      color: red;
+      height: 12rem;
+      font-size: 3rem;
+    }
+  }
+
+}

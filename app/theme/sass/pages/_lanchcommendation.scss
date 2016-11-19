@@ -6,12 +6,10 @@
 	flex-direction: column;
 	.flexItem {
 		flex: 1;
-		border: 1px solid;
-		width: 96%;
+		width: 100%;
 		margin-top: 1rem;
 		background-color: white;
 		height: 6rem;
-		border-radius: 4px;
 		display: flex;
 		align-items: center;
 		.btnDiv {
@@ -23,29 +21,67 @@
 			display: flex;
 			justify-content: flex-end;
 			padding-right: 1rem;
+			.recommendType {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
 			.icon {
 				height: 3rem;
 				line-height: 3rem;
 				width: 3rem;
-				border: 1px solid;
-				border-radius: 100%;
 				display: flex;
 				justify-content: center;
 				align-items: center;
 				font-size: 17px;
-				color: #ccc;
 			}
+			.selectType {
+				border: 0;
+			}
+		}
+		.selectRecommendType {
+			position: absolute;
+			height: 6rem;
+			width: 100%;
+			left: 0;
+			filter: alpha(opacity=0);
+			-moz-opacity: 0;
+			-khtml-opacity: 0;
+			opacity: 0;
+		}
+		.addMatch {
+			background: url("../icons/btn_add.png");
+			background-size: 100%;
 		}
 	}
 
-	.preLoadImg {
-		width: 94%;
-		border: 1rem solid white;
-		border-radius: 4px;
-		margin-top: 1rem;
+	.imageView {
+		width: 100%;
+		position: relative;
+		.preLoadImg {
+			width: 100%;
+			border: 1rem solid white;
+			border-radius: 4px;
+			margin-top: 1rem;
+		}
+		.deleteImgBtn {
+			display: flex;
+			position: absolute;
+			right: 1rem;
+			top: 2rem;
+			border: 1px solid;
+			width: 2rem;
+			height: 2rem;
+			align-items: center;
+			justify-content: center;
+			border-radius: 2px;
+			background: url("../icons/btn_delete.png");
+			background-size: 100%;
+		}
 	}
+
 	.reasonDiv {
-		height: 16rem;
+		height: 10rem;
 		.reason {
 			font-size: 14px;
 			height: 90%;
@@ -54,6 +90,47 @@
 			padding-left: 1rem;
 			outline: none;
 			resize: none;
+		}
+	}
+	.addImageFlex {
+		margin-top: 0;
+		height: 8rem;
+		.addImageWap {
+			background-color: #F5F5F5;
+			height: 6rem;
+			width: 6rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-direction: column;
+			margin-left: 1rem;
+			> div {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: 100%;
+			}
+			.addBtn {
+				flex: 2;
+				width: 60%;
+				.add {
+					width: 66%;
+					height: 100%;
+					position: relative;
+					.adddd {
+						width: 100%;
+						border: 1px solid;
+						position: absolute;
+						top: 50%;
+					}
+					.addColumn {
+						transform: rotate(90deg);
+					}
+				}
+			}
+			.text {
+				flex: 1;
+			}
 		}
 	}
 	.moneyTitle {
@@ -230,14 +307,14 @@
 			}
 		}
 	}
-	.recommendationType{
+	.recommendationType {
 		border: 0;
 		background: transparent;
 		color: black;
-		.typeLabel{
+		.typeLabel {
 
 		}
-		.selectType{
+		.selectType {
 			width: 20%;
 		}
 	}

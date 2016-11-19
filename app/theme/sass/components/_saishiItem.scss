@@ -1,6 +1,6 @@
 @import "../_base";
 
-//样式-1，出现在"赛事"
+//样式-1，出现在首页"赛事"
 .saishi {
     position: relative;
     background-color: white;
@@ -51,6 +51,9 @@
         .saishiRight {
             text-align: right;
             float: right;
+            & > img{
+                float: right;
+            }
         }
         .saishiMiddle {
             color: $green;
