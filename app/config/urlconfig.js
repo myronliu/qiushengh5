@@ -26,6 +26,10 @@ module.exports={// 不要加  '/'
   deployRecommendation:'lottery/recommend/publish',
   publishArticle: 'lottery/article/publish',
   depositRecord: 'lottery/draw/records',
+  freeRecommendList: 'lottery/recommend/free',
+  // 彩店实单
+  recommendList: 'lottery/recommend/list',
+
 
   // server needs
   banner: 'lottery/banner',

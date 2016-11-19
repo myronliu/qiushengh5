@@ -25,6 +25,8 @@ var TestUpload = require('../pages/testupload');
 var LanchRecommendation = require('../pages/lanchrecommendation');
 var Deposit = require('../pages/deposit');
 var DepositRecord = require('../pages/depositrecord');
+var Recommend = require('../pages/recommend');
+
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -106,6 +108,9 @@ var Router = EvoFlux.createRouter({
   },
   '/depositrecord': function(){
     ReactDOM.render(<DepositRecord />, container);
+  },
+  '/recommend': function(){
+    ReactDOM.render(<Recommend type={this.query("type")} />, container);
   },
 
 

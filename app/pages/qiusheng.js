@@ -265,6 +265,10 @@ export default class extends BasePage {
         })
     }
 
+    gotoListItem(url){
+      window.to(url);
+    }
+
     render() {
         var navContent = [
             {
@@ -284,12 +288,12 @@ export default class extends BasePage {
             {
                 id: 'freeRecommend',
                 title: '免费推荐',
-                direct_url: ''
+                direct_url: '/recommend?type=free'
             },
             {
                 id: 'lotteryOrder',
                 title: '彩店实单',
-                direct_url: ''
+                direct_url: '/recommend?type=caidian'
             }
         ];
         return (
@@ -303,12 +307,12 @@ export default class extends BasePage {
                     {
                         navContent.map(function (item, index) {
                             return (
-                                <li key={"navBar" + index}>
+                                <li key={"navBar" + index} onTouchEnd={this.gotoListItem.bind(this, item.direct_url)}>
                                     <img src={"../images/qiusheng/icon-" + item.id + ".png"}/>
                                     <div>{item.title}</div>
                                 </li>
                             )
-                        })
+                        }.bind(this))
                     }
                 </div>
                 <div className="content hotmatchHome">

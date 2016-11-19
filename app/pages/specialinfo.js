@@ -19,7 +19,7 @@ export default class extends BasePage {
     detail: '',
     recState: 'NO',
     showAlert: false,
-    status: '关注专家'
+    status: '加关注'
   };
 
   apiSuccess(url,body){
@@ -35,7 +35,7 @@ export default class extends BasePage {
           recommending: body.recommending || [],
           recommended: body.recommended || [],
           articles: body.articles || [],
-          status: body.ifConcern ? '取消关注' : '关注专家'
+          status: body.ifConcern ? '取消关注' : '加关注'
         });
         console.log('body',body);
         break;
@@ -57,12 +57,14 @@ export default class extends BasePage {
       case UrlConfig.concernadd:
         this.setState({
           status: '取消关注'
-        })
+        });
+        Toast.show('关注成功', 'success');
         break;
       case UrlConfig.concerncancel:
         this.setState({
-          status: '关注专家'
-        })
+          status: '加关注'
+        });
+
         break;
     }
   }
@@ -121,7 +123,7 @@ export default class extends BasePage {
 
   focusUser(id){
     this.showLoading(true)
-    if(this.state.status === "关注专家"){
+    if(this.state.status === "加关注"){
       ApiAction.post(UrlConfig.concernadd, {expertId: id, token: Cookie.getCookie("token") || ''});
     }else{
       ApiAction.post(UrlConfig.concerncancel, {expertId: id, token: Cookie.getCookie("token") || ''});

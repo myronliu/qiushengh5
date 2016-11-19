@@ -41,6 +41,7 @@ var WriteArticle = React.createFactory(require('../pages/writearticle'));
 var TestUpload = React.createFactory(require('../pages/testupload'));
 var Deposit = React.createFactory(require('../pages/deposit'));
 var DepositRecord = React.createFactory(require('../pages/depositrecord'));
+var Recommend = React.createFactory(require('../pages/recommend'));
 
 // 加入定时计划
 var later = require('later');
@@ -230,6 +231,11 @@ router.get('/deposit',function(req,res){
 router.get('/depositrecord',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(DepositRecord());
   res.render('home', {reactOutput: reactHtml,title:'充值记录'});
+});
+
+router.get('/recommend',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Recommend({type: req.query.type}));
+  res.render('home', {reactOutput: reactHtml,title:'免费推荐'});
 });
 
 function renderToPath(req,res,path){

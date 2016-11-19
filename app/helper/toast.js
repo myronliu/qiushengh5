@@ -26,7 +26,7 @@ Toast.show = function(msg, type, duration){
     img.style.cssText = "width: 30%;";
   };
   m.style.cssText="width:100%;height:40px;top:40%;position:fixed;z-index: 999999;";
-  s.style.cssText="width: 30%; font-size: 2.5em; min-width: 1em; opacity: 0.8; height: 1; color: rgb(255, 255, 255); line-height: 1.5em; text-align: center; border-radius: 0.3em; z-index: 999999; font-weight: bold; margin: 0px auto; background-color: #000;padding: 1.5rem 0;";
+  s.style.cssText="width: 28%; font-size: 2.8em; min-width: 1em; opacity: 0.8; height: 1; color: rgb(255, 255, 255); line-height: 1.5em; text-align: center; border-radius: 0.3em; z-index: 999999; font-weight: bold; margin: 0px auto; background-color: #000;padding: 2rem 0;";
   s.appendChild(img);
   s.appendChild(p);
   m.appendChild(s);

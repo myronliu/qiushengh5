@@ -67,6 +67,22 @@ export default class extends BasePage {
       Toast.show("文件大小不能大于2M", 'info');
       return false;
     }
+    if(this.refs.expertName.value.trim() === ""){
+      Toast.show("请填写您的姓名", 'info');
+      return false;
+    }
+    if(this.refs.expertPhone.value.trim() === ""){
+      Toast.show("请填写您的手机号", 'info');
+      return false;
+    }
+    if(this.refs.expertDescribe.value.trim() === ""){
+      Toast.show("请填写简介", 'info');
+      return false;
+    }
+    if(!this.refs.expertContract.checked){
+      Toast.show("请仔细阅读并同意专家协议", 'info');
+      return false;
+    }
     return true;
   }
 
@@ -89,7 +105,7 @@ export default class extends BasePage {
             <textarea placeholder="输入简介" ref='expertDescribe' rows="6"></textarea>
           </div>
           <div className="roleArea">
-            <input type="checkbox" />
+            <input type="checkbox" ref="expertContract"/>
             <span>已阅读并同意<a>《专家协议》</a></span>
           </div>
           <div className="applyButton" onTouchEnd={this.submitExpertForm.bind(this)}>申请</div>
@@ -105,7 +121,7 @@ export default class extends BasePage {
               <input type="text" placeholder="彩票站点地址"/>
             </div>
             <div className="roleArea">
-              <input type="checkbox" />
+              <input type="checkbox"/>
               <span>已阅读并同意<a>《站长协议》</a></span>
             </div>
             <div className="applyButton" onTouchEnd={this.submitShopkeeperForm.bind(this)}>申请</div>
@@ -119,7 +135,7 @@ export default class extends BasePage {
     super.componentDidMount();
 
     UploadStore.uploadfile(function(data){
-      if(data && data.status == 0) {
+      if(data && data.success) {
         Toast.show("发送成功！", 'success');
         this.reset();
       } else if(data && data.message){
@@ -127,7 +143,6 @@ export default class extends BasePage {
       } else {
         Toast.show("发送失败，请稍候再试！", 'error');
       }
-
       this.setState({
         submitState: "ready"
       });
