@@ -1,322 +1,407 @@
-.lanchrecommendation {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex: 1;
-	flex-direction: column;
-	.flexItem {
-		flex: 1;
-		width: 100%;
-		margin-top: 1rem;
-		background-color: white;
-		height: 6rem;
-		display: flex;
-		align-items: center;
-		.btnDiv {
-			padding-left: 1.5rem;
-			flex: 1;
-		}
-		.btnImage {
-			flex: 1;
-			display: flex;
-			justify-content: flex-end;
-			padding-right: 1rem;
-			.recommendType {
-				display: flex;
-				align-items: center;
-				justify-content: center;
-			}
-			.icon {
-				height: 3rem;
-				line-height: 3rem;
-				width: 3rem;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				font-size: 17px;
-			}
-			.selectType {
-				border: 0;
-			}
-		}
-		.selectRecommendType {
-			position: absolute;
-			height: 6rem;
-			width: 100%;
-			left: 0;
-			filter: alpha(opacity=0);
-			-moz-opacity: 0;
-			-khtml-opacity: 0;
-			opacity: 0;
-		}
-		.addMatch {
-			background: url("../icons/btn_add.png");
-			background-size: 100%;
-		}
-	}
 
-	.imageView {
-		width: 100%;
-		position: relative;
-		.preLoadImg {
-			width: 100%;
-			border: 1rem solid white;
-			border-radius: 4px;
-			margin-top: 1rem;
-		}
-		.deleteImgBtn {
-			display: flex;
-			position: absolute;
-			right: 1rem;
-			top: 2rem;
-			border: 1px solid;
-			width: 2rem;
-			height: 2rem;
-			align-items: center;
-			justify-content: center;
-			border-radius: 2px;
-			background: url("../icons/btn_delete.png");
-			background-size: 100%;
+.lanchRecommendation {
+	.navigetion {
+		.right {
+			top: 10.25%
 		}
 	}
-
-	.reasonDiv {
-		height: 10rem;
-		.reason {
-			font-size: 14px;
-			height: 90%;
-			width: 100%;
-			border: 0;
-			padding-left: 1rem;
-			outline: none;
-			resize: none;
-		}
-	}
-	.addImageFlex {
-		margin-top: 0;
-		height: 8rem;
-		.addImageWap {
-			background-color: #F5F5F5;
-			height: 6rem;
-			width: 6rem;
-			display: flex;
-			align-items: center;
-			justify-content: center;
-			flex-direction: column;
-			margin-left: 1rem;
-			> div {
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				width: 100%;
-			}
-			.addBtn {
-				flex: 2;
-				width: 60%;
-				.add {
-					width: 66%;
-					height: 100%;
-					position: relative;
-					.adddd {
-						width: 100%;
-						border: 1px solid;
-						position: absolute;
-						top: 50%;
-					}
-					.addColumn {
-						transform: rotate(90deg);
-					}
-				}
-			}
-			.text {
-				flex: 1;
-			}
-		}
-	}
-	.moneyTitle {
-		height: 4rem;
-		border: 0;
-		background: transparent;
-		color: black;
-	}
-
-	.moneyDiv {
+	.lanchrecommendationItem {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		flex-direction: row;
-		border: 0;
-		background: transparent;
-		height: 4rem;
-		.feebox {
-			background-color: white;
+		flex: 1;
+		flex-direction: column;
+		.flexItem {
 			flex: 1;
-			border: 1px solid;
-			margin-left: 1rem;
-			margin-right: 1rem;
-			border-radius: 4px;
+			width: 100%;
+			margin-top: 1rem;
+			background-color: white;
+			height: 4.5rem;
 			display: flex;
 			align-items: center;
-			justify-content: center;
-			height: 100%;
+			.btnDiv {
+				padding-left: 1.5rem;
+				flex: 1;
+				font-size: 1.6rem;
+				color: $black;
+			}
+			.btnImage {
+				flex: 1;
+				display: flex;
+				justify-content: flex-end;
+				align-items: center;
+				padding-right: 1.5rem;
+				font-size: 1.6rem;
+				.recommendType {
+					display: flex;
+					align-items: center;
+					justify-content: center;
+				}
+				.icon {
+					height: 1.6rem;
+					width: 1.6rem;
+					background: url("../icons/btn_next.png");
+					background-size: 100%;
+				}
+			}
+			.selectRecommendType {
+				position: absolute;
+				height: 3rem;
+				width: 100%;
+				left: 0;
+				filter: alpha(opacity=0);
+				-moz-opacity: 0;
+				-khtml-opacity: 0;
+				opacity: 0;
+			}
+			.addMatch {
+				background: url("../icons/btn_add.png");
+				background-size: 100%;
+			}
 		}
-		.myDefineFee {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			padding-right: 1rem;
-			padding-left: 1rem;
-			> input {
+
+		.imageView {
+			width: 100%;
+			position: relative;
+			.preLoadImg {
+				width: 100%;
+				margin-top: 1rem;
+			}
+			.deleteImgBtn {
+				position: absolute;
+				right: 0;
+				top: 1rem;
+				width: 1rem;
+				height: 1rem;
+				background: url("../icons/btn_delete.png");
+				background-size: 100%;
+			}
+		}
+
+		.reasonDiv {
+			height: 9rem;
+			.reason {
+				font-size: 1.6rem;
+				height: 100%;
 				width: 100%;
 				border: 0;
 				outline: none;
+				resize: none;
+				padding: 1.5rem 1.5rem 0;
+				color: $gray;
 			}
 		}
-		> .selected {
-			color: red;
-			border-color: red;
-		}
-	}
-	.itemMatchWap {
-		width: 98%;
-		.itemMatch {
-			border-radius: 4px;
-			padding-left: 1rem;
-			padding-right: 1rem;
-			margin: 0.5rem;
-			background-color: white;
-			width: 95%;
-			.middleWap {
-				position: relative;
-				.line1 {
-					height: 3rem;
-					line-height: 3rem;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					.left {
-						color: orange;
-						font-size: 2rem;
-						flex: 1;
-					}
-					.money {
-						font-size: 2rem;
-						flex: 1;
-						text-align: center;
-						color: red;
-					}
-					.right {
-						font-size: 2rem;
-						flex: 1;
-						text-align: right;
-					}
-				}
-				.line2 {
-					height: 4rem;
-					line-height: 4rem;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					color: black;
-					.left {
-						font-size: 2.5rem;
-						flex: 1;
-					}
-					.vs {
-						font-size: 2rem;
-						flex: 1;
-						text-align: center;
-					}
-					.right {
-						font-size: 2.5rem;
-						flex: 1;
-						text-align: right;
-					}
-				}
-				.line3 {
-					height: 6rem;
-					line-height: 6rem;
-					font-size: 2.5rem;
-					.left {
-						width: 10%;
-						display: inline-block;
-						.num {
-							display: block;
-							width: 3rem;
-							text-align: center;
-							background-color: #fcb2b2;
-							color: white;
-							height: 3rem;
-							border-radius: 4rem;
-							position: relative;
-							line-height: 3rem;
-						}
-					}
-					.right {
-						width: 90%;
-						display: inline-block;
-						.first {
-							width: 30%;
-							display: inline-block;
-							text-align: center;
-							height: 4rem;
-							border: 1px solid;
-							border-radius: 3px;
-							position: relative;
-							line-height: 4rem;
-							box-sizing: border-box;
-						}
-						.middle {
-							width: 30%;
-							display: inline-block;
-							text-align: center;
-							height: 4rem;
-							border: 1px solid;
-							border-radius: 3px;
-							position: relative;
-							line-height: 4rem;
-							box-sizing: border-box;
-							margin-left: 5%;
-						}
-						.last {
-							width: 30%;
-							display: inline-block;
-							text-align: center;
-							height: 4rem;
-							border: 1px solid;
-							border-radius: 3px;
-							position: relative;
-							line-height: 4rem;
-							box-sizing: border-box;
-							margin-left: 5%;
-						}
-						> .selected {
-							color: red;
-						}
-					}
-
-				}
-			}
-			.deleteBtn {
-				justify-content: center;
+		.addImageFlex {
+			margin-top: 0;
+			height: 9.2rem;
+			.addImageWap {
+				background-color: #F5F5F5;
+				height: 7.7rem;
+				width: 7.7rem;
 				display: flex;
 				align-items: center;
-				background-color: #00BCD4;
-				color: white;
-				border-radius: 4px;
+				justify-content: center;
+				flex-direction: column;
+				margin: 0 1.5rem 1.5rem;
+				> div {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: 100%;
+				}
+				.addBtn {
+					flex: 2;
+					width: 60%;
+					.add {
+						width: 66%;
+						height: 100%;
+						position: relative;
+						.adddd {
+							width: 100%;
+							border: 1px solid;
+							position: absolute;
+							top: 50%;
+						}
+						.addColumn {
+							transform: rotate(90deg);
+						}
+					}
+				}
+				.text {
+					flex: 1;
+				}
 			}
 		}
-	}
-	.recommendationType {
-		border: 0;
-		background: transparent;
-		color: black;
-		.typeLabel {
-
+		.moneyTitle {
+			height: 2rem;
+			border: 0;
+			background: transparent;
+			color: black;
 		}
-		.selectType {
-			width: 20%;
+
+		.moneyDiv {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			flex-direction: row;
+			border: 0;
+			background: transparent;
+			height: 2rem;
+			.feebox {
+				background-color: white;
+				flex: 1;
+				border: 1px solid;
+				margin-left: .5rem;
+				margin-right: .5rem;
+				border-radius: 4px;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				height: 100%;
+			}
+			.myDefineFee {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				padding-right: .5rem;
+				padding-left: .5rem;
+				> input {
+					width: 100%;
+					border: 0;
+					outline: none;
+				}
+			}
+			> .selected {
+				color: red;
+				border-color: red;
+			}
 		}
+		.itemMatchWap {
+			width: 100%;
+			.itemMatch {
+				padding: 0 1.5rem 0;
+				margin-bottom: 1rem;
+				background-color: white;
+				height: 8.8rem;
+				position: relative;
+				.middleWap {
+					position: relative;
+					padding-top: 1.5rem;
+					padding-bottom: 1.5rem;
+					margin-right: 3rem;
+					.line1 {
+						height: 1.5rem;
+						line-height: 1.5rem;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						.left {
+							color: orange;
+							font-size: 1rem;
+							flex: 1;
+							.bh {
+								color: $gray;
+							}
+						}
+						.money {
+							font-size: 1rem;
+							flex: 1;
+							text-align: center;
+							color: red;
+						}
+						.right {
+							font-size: 1rem;
+							flex: 1;
+							text-align: right;
+						}
+					}
+					.line2 {
+						height: 2rem;
+						line-height: 2rem;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						color: black;
+						.left {
+							font-size: 1.5rem;
+							flex: 1;
+						}
+						.vs {
+							font-size: 1.5rem;
+							flex: 1;
+							text-align: center;
+						}
+						.right {
+							font-size: 1.5rem;
+							flex: 1;
+							text-align: right;
+						}
+					}
+					.line3 {
+						height: 3rem;
+						line-height: 3rem;
+						font-size: 1.25rem;
+						.left {
+							width: 10%;
+							display: inline-block;
+							.num {
+								display: block;
+								width: 1.5rem;
+								text-align: center;
+								background-color: #fcb2b2;
+								color: white;
+								height: 1.5rem;
+								border-radius: 2rem;
+								position: relative;
+								line-height: 1.5rem;
+							}
+						}
+						.right {
+							width: 90%;
+							display: inline-block;
+							.first {
+								width: 30%;
+								display: inline-block;
+								text-align: center;
+								height: 2rem;
+								border: 1px solid;
+								border-radius: 3px;
+								position: relative;
+								line-height: 2rem;
+								box-sizing: border-box;
+								font-size: 1.4rem;
+							}
+							.middle {
+								width: 30%;
+								display: inline-block;
+								text-align: center;
+								height: 2rem;
+								border: 1px solid;
+								border-radius: 3px;
+								position: relative;
+								line-height: 2rem;
+								box-sizing: border-box;
+								margin-left: 5%;
+								font-size: 1.4rem;
+							}
+							.last {
+								width: 30%;
+								display: inline-block;
+								text-align: center;
+								height: 2rem;
+								border: 1px solid;
+								border-radius: 3px;
+								position: relative;
+								line-height: 2rem;
+								box-sizing: border-box;
+								margin-left: 5%;
+								font-size: 1.4rem;
+							}
+							> .selected {
+								color: red;
+							}
+						}
+
+					}
+				}
+				.deleteBtn {
+					position: absolute;
+					right: 0;
+					top: 0;
+					height: 100%;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					margin: 0 1.5rem;
+					.deleteBtnIcon {
+						width: 1.5rem;
+						height: 1.5rem;
+						background: url("../icons/btn_delete.png");
+						background-size: 100%;
+					}
+				}
+			}
+		}
+		.recommendationType {
+			border: 0;
+			background: transparent;
+			color: black;
+			.typeLabel {
+
+			}
+			.selectType {
+				width: 20%;
+			}
+		}
+
 	}
 
+	.newAddAlert{
+		.saishi{
+			position: relative;
+			background-color: white;
+			padding: 5.3% 2.7%;
+			border-bottom: 0.01rem solid #eee;
+			text-align: center;
+			font-size: .6rem;
+			.matchWap{
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				.item{
+					vertical-align: top;
+					height: 4.5rem;
+					line-height: 4.5rem;
+					flex: 1;
+				}
+				.itemLeft{
+					img{
+						height: 2.5rem;
+						border-radius: 1.25rem;
+						vertical-align: top;
+						margin-top: 1rem;
+					}
+					span{
+						line-height: 4.5rem;
+						height: 4.5rem;
+						color: black;
+					}
+				}
+				.itemMiddle{
+					height: 4.5rem;
+					vertical-align: top;
+					text-align: center;
+					font-size: 1rem;
+					line-height: 1.5rem;
+				}
+				.itemRight{
+					span{
+						line-height: 4.5rem;
+						height: 4.5rem;
+						color: black;
+					}
+				}
+			}
+		}
+
+
+	}
+}
+
+.deployBtnWap {
+	margin-top: 0.5rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	.deployBtn {
+		width: 100%;
+		justify-content: center;
+		align-items: center;
+		display: flex;
+		height: 3rem;
+		background-color: #DC594B;
+		color: white;
+		font-size: 1.5rem;
+	}
 }

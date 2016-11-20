@@ -1,26 +1,85 @@
-.recommendationBtn{
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  background-color: #f2f2f2;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-  height: 8rem;
-  .footer-item{
-    display: inline-block;
-    width: 25%;
-    text-align: center;
-    font-size: 2.5rem;
-    &>img{
-      width:2.5rem;
-      vertical-align: middle;
-    }
-    &>div{
-      height: 4rem;
-    }
-  }
-  .active{
-    color: #00b2ff;
-  }
+.myrecommendation {
+	.header {
+		height: 4rem;
+		background-color: #fff;
+		border-bottom: 0.05rem solid $light_gray;
+		> span {
+			margin: 0 15.6%;
+			width: 18.6%;
+			height: 4rem;
+			color: $gray;
+			font-size: 1.5rem;
+			line-height: 4rem;
+			display: inline-block;
+			text-align: center;
+			box-sizing: border-box;
+		}
+		.active {
+			color: $black;
+			border-bottom: 0.3rem solid $main_red;
+		}
+	}
+	.items {
+		.specialItem {
+			height: 6rem;
+			background-color: white;
+			margin-bottom: 1rem;
+			&:last-of-type {
+				margin-bottom: 0;
+			}
+			.leftPart {
+				display: inline-block;
+				width: 80%;
+				height: 6rem;
+				vertical-align: top;
+				padding: .5rem 1rem;
+				.topInfo {
+					height: 2rem;
+					line-height: 2rem;
+					font-size: 1.2rem;
+					margin-bottom: 1rem;
+					.liansai {
+						color: #f47564;
+					}
+					.add {
+						margin-left: .5rem;
+						border: 1px solid;
+						border-radius: 0.25rem;
+						padding: 0.05rem;
+						color: green;
+					}
+					.time {
+						float: right;
+						margin-right: .5rem;
+						color: #b0b6bf;
+					}
+				}
+				.bottomInfo {
+					height: 2.5rem;
+					line-height: 2.5rem;
+					text-align: center;
+					font-size: 1.5rem;
+					.left {
+						float: left;
+					}
+					.right {
+						float: right;
+						margin-right: .5rem;
+					}
+				}
+			}
+			.rightPart {
+				display: inline-block;
+				width: 20%;
+				line-height: 6rem;
+				box-sizing: border-box;
+				border-left: 1px solid;
+				border-color: #d9d9d9;
+				text-align: center;
+				color: red;
+				height: 6rem;
+				font-size: 1.5rem;
+			}
+		}
+	}
 }
