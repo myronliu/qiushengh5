@@ -1,7 +1,6 @@
 import React from 'react';
 export default class Navigation extends React.Component{
   static propTypes = {
-    title:React.PropTypes.string,
     rightItems:React.PropTypes.array,//[{title:登录,icon:'',func：login}，]
     hideBack:React.PropTypes.bool,
     backTo:React.PropTypes.func
@@ -23,7 +22,7 @@ export default class Navigation extends React.Component{
     }
   }
   componentDidMount(){
-    document.title = this.props.title;
+    document.title = (typeof this.props.title) === 'string' ? this.props.title : '';
   }
   render(){
     let  rightItems=this.renderItem();

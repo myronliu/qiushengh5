@@ -355,3 +355,4 @@ export default class extends BasePage {
         )
     }
 }
+
