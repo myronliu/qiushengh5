@@ -5,20 +5,20 @@
     width: 100%;
     background-color: #fff;
     padding: 2% 0 1%;
-    border: 0.1rem solid #ead9d9;
+    border: 0.05rem solid #ead9d9;
     .footer-item {
         display: inline-block;
         width: 25%;
         text-align: center;
-        font-size: 2.5rem;
+        font-size: 1.25rem;
         color: #ead9d9;
         & > img {
-            width: 4rem;
+            width: 2rem;
             vertical-align: middle;
             margin-bottom: 4%;
         }
         & > div {
-            font-size: 2rem;
+            font-size: 1rem;
         }
     }
     .active {

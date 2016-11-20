@@ -13,59 +13,61 @@ import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 
 export default class extends BasePage {
-  state={
-    list:[]
-  };
+    state = {
+        list: []
+    };
 
-  apiSuccess(url,body){
-    this.showLoading(false);
-    switch(url){
-      case UrlConfig.hots:
-        this.setState({
-          list:body
-        })
-        break;
+    apiSuccess(url, body) {
+        this.showLoading(false);
+        switch (url) {
+            case UrlConfig.hots:
+                this.setState({
+                    list: body
+                })
+                break;
+        }
     }
-  }
 
-  componentDidMount(){
-    super.componentDidMount();
+    componentDidMount() {
+        super.componentDidMount();
 
-    this.showLoading(true)
-    ApiAction.post(UrlConfig.hots, {token: Cookie.getCookie("token") || 'dds'});
-  }
+        this.showLoading(true)
+        ApiAction.post(UrlConfig.hots, {token: Cookie.getCookie("token") || 'dds'});
+    }
 
-  gotoDetail(id){
-    window.to('/specialinfo?id=' + id);
-  }
+    gotoDetail(id) {
+        window.to('/specialinfo?id=' + id);
+    }
 
-  renderItems(){
-    return this.state.list.map(function(item, index){
-      return (
-        <TapAble className="item block" key={"i"+index} onTap={this.gotoDetail.bind(this, item.id)}>
-          <span className="ser">{index + 1}</span>
-          <img src={item.avatar ? item.avatar : '../images/photo.png'} className="photo" />
-          <span className="info">
+    renderItems() {
+        return this.state.list.map(function (item, index) {
+            return (
+                <TapAble className="item block" key={"i" + index} onTap={this.gotoDetail.bind(this, item.id)}>
+
+                    {index < 3 ? <img className="ser"
+                                      src={"../images/userrank/icon_rank" + index + ".png"}/> :
+                        <span className="ser">{index + 1}</span>}
+                    <img src={item.avatar ? item.avatar : '../images/photo.png'} className="photo"/>
+                    <span className="info">
             <span className="name">{item.name}</span>
             <span className="desc">{item.title}</span>
           </span>
-          <span className="right">
-            <img src={'../images/metal.png'} className="metal" />
+                    <span className="right">
             <span className="num">{item.hits || "0"}</span>
             <span className="text">场连红</span>
-            <img src={'../images/right.png'} className="rightIcon" />
+            <img src={'../images/right.png'} className="rightIcon"/>
           </span>
-        </TapAble>
-      )
-    }.bind(this));
-  }
+                </TapAble>
+            )
+        }.bind(this));
+    }
 
-  render() {
-    return (
-      <Layout className={'userrank'} title={'红人馆'}>
-        <Loading showLoading={this.state.showLoading} />
-        {this.renderItems()}
-      </Layout>
-    )
-  }
+    render() {
+        return (
+            <Layout className={'userrank'} title={'红人馆'}>
+                <Loading showLoading={this.state.showLoading}/>
+                {this.renderItems()}
+            </Layout>
+        )
+    }
 }

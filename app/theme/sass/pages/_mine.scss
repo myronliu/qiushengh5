@@ -2,115 +2,115 @@
 
 .userInfo {
     position: relative;
-    padding: 3.5rem 3rem 4.5rem;
+    padding: 1.75rem 1.5rem 2.25rem;
     text-align: left;
-    border-bottom: 0.1rem solid $light_gray;
+    border-bottom: 0.05rem solid $light_gray;
     & > img {
-        width: 10rem;
-        border-radius: 4.5rem;
+        width: 5rem;
+        border-radius: 2.25rem;
         display: inline-block;
         vertical-align: middle;
-        margin-right: 3rem;
+        margin-right: 1.5rem;
         font-size: 0;
     }
     .textInfo {
         display: inline-block;
         vertical-align: middle;
         .tTitle {
-            font-size: 3.2rem;
-            line-height: 5rem;
+            font-size: 1.6rem;
+            line-height: 2.5rem;
             color: $black;
         }
         .tDesc {
             color: $gray;
-            font-size: 2.8rem;
-            line-height: 4rem;
+            font-size: 1.4rem;
+            line-height: 2rem;
         }
     }
     .right {
         float: right;
-        margin-top: 1.4rem;
+        margin-top: 0.7rem;
         display: inline-block;
     }
 }
 
 .articlePreview {
     background: #fff;
-    padding: 2rem 3rem;
+    padding: 1rem 1.5rem;
     .articleTitle {
         color: $black;
-        font-size: 3rem;
-        line-height: 5rem;
+        font-size: 1.5rem;
+        line-height: 2.5em;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
     }
     .articleDesc {
         color: $gray;
-        font-size: 2.8rem;
-        line-height: 4rem;
+        font-size: 1.4rem;
+        line-height: 2rem;
     }
     .articleDesc +  .articleDesc{
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 }
 
 .mine {
     background: $light_gray;
-    margin-bottom: 5rem;
+    margin-bottom: 2.5rem;
     .header {
         background: #fff;
         .userInfo {
             .money {
                 color: $main_red;
-                margin-right: 0.5rem;
+                margin-right: 0.25rem;
             }
             .right {
-                margin-top: 3.5rem;
+                margin-top: 1.75rem;
                 .writeArticleBtn {
-                    font-size: 2.6rem;
+                    font-size: 1.3rem;
                     color: $blue;
-                    padding: 0.2rem;
-                    border: 0.1rem solid $blue;
+                    padding: 0.1rem;
+                    border: 0.05rem solid $blue;
                 }
             }
         }
         .options {
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             .optionButton {
-                height: 8rem;
-                line-height: 8rem;
+                height: 4rem;
+                line-height: 4rem;
                 display: inline-block;
-                font-size: 3.2rem;
+                font-size: 1.6rem;
                 width: 50%;
                 text-align: center;
                 color: $black;
                 &:nth-child(1) {
-                    border-right: 0.1rem solid $light_gray;
+                    border-right: 1px solid $light_gray;
                 }
                 img {
-                    height: 3.2rem;
+                    height: 1.6rem;
                     display: inline-block;
                     vertical-align: text-bottom;
-                    margin: 0 1rem;
+                    margin: 0 0.5rem;
                 }
             }
         }
     }
     .contentWrap {
         .contentTitle {
-            height: 7rem;
-            line-height: 7rem;
+            height: 3.5rem;
+            line-height: 3.5rem;
             color: $gray;
-            font-size: 2.8rem;
-            margin-left: 3rem;
+            font-size: 1.4rem;
+            margin-left: 1.5rem;
         }
         .contentInner {
             .saishiAttachPrice{
                 background: #fff;
             }
             .saishiAttachPrice + .saishiAttachPrice {
-                margin-top: 2rem;
+                margin-top: 1rem;
             }
         }
     }
