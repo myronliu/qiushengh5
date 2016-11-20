@@ -5,7 +5,6 @@ import DownLoadHeader from './DownLoadHeader.js'
 export default class Layer extends React.Component {
   static propTypes = {
     isShowHeader:React.PropTypes.bool,
-    title: React.PropTypes.string,
     rightItems: React.PropTypes.array//[{title:登录；func：login}，]
   }
   static defaultProps = {
@@ -25,10 +24,10 @@ export default class Layer extends React.Component {
     return (
       <div className={'layout '+this.props.className}>
         <div style={hiddenStyle}>
-          { 
-            this.props.hideNav ? 
+          {
+            this.props.hideNav ?
             <div></div>
-            : <Navigation {...this.props}/> 
+            : <Navigation {...this.props}/>
           }
         </div>
           {this.props.children}
