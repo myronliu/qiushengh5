@@ -66,8 +66,8 @@ export default class extends BasePage {
                 <Loading showLoading={this.state.showLoading}/>
                 <div><span className="ava-amount">可提现金额：</span><span className="ava-balls">{this.state.myballs}</span></div>
                 <div className='center_input'>
-                  <TitleInput title={'金额'} titleWidth={'14rem'} inputWidth={'40rem'} ref='balls' placeholder={'请输入提现'}/>
-                  <TitleInput title={'支付宝账号'} titleWidth={'14rem'} inputWidth={'40rem'} ref='alipayNo' placeholder={'请输入支付宝账号'} type={'password'}/>
+                  <TitleInput title={'金额'} titleWidth={'6rem'} titleColor={"#414b59"} inputWidth={'20rem'} ref='balls' placeholder={'请输入提现'}/>
+                  <TitleInput title={'支付宝账号'} titleWidth={'10rem'} titleColor={"#414b59"} inputWidth={'20rem'} ref='alipayNo' placeholder={'请输入支付宝账号'} type={'password'}/>
                 </div>
                 <div className='btn-area' onTouchEnd={this.handleSubmit.bind(this)}>
                   <div className='drawapply-btn'>{'提交'}</div>
