@@ -1,0 +1,6 @@
+{
+  "name": "vendor_library",
+  "content": {
+    "../node_modules/pixi.js/bin/pixi.min.js": "0c11"
+  }
+}

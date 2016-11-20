@@ -25,30 +25,30 @@ export default class extends BasePage {
         awayTeamAvatar: ''
     };
 
-    apiSuccess(url,body){
+    apiSuccess(url, body) {
         this.showLoading(false);
-        switch(url){
-          case UrlConfig.matchDetail:
-            this.setState({
-              homeTeam: body.detail.homeTeam,
-              awayTeam: body.detail.awayTeam,
-              matchName: body.detail.matchName,
-              matchDate: body.detail.matchDate,
-              homeTeamAvatar: body.detail.homeTeamAvatar,
-              awayTeamAvatar: body.detail.awayTeamAvatar,
-              recList: body.recommends
-            })
-            break;
-          case UrlConfig.recommendBuy:
-            this.setState({
-              showAlert: false
-            })
-            if(body.success){
-              window.to('/recommendationdetail?id=' + this.state.payId);
-            }else{
-              Toast.show(body.msg, 'error');
-            }
-            break;
+        switch (url) {
+            case UrlConfig.matchDetail:
+                this.setState({
+                    homeTeam: body.detail.homeTeam,
+                    awayTeam: body.detail.awayTeam,
+                    matchName: body.detail.matchName,
+                    matchDate: body.detail.matchDate,
+                    homeTeamAvatar: body.detail.homeTeamAvatar,
+                    awayTeamAvatar: body.detail.awayTeamAvatar,
+                    recList: body.recommends
+                })
+                break;
+            case UrlConfig.recommendBuy:
+                this.setState({
+                    showAlert: false
+                })
+                if (body.success) {
+                    window.to('/recommendationdetail?id=' + this.state.payId);
+                } else {
+                    Toast.show(body.msg, 'error');
+                }
+                break;
         }
     }
 
@@ -59,16 +59,19 @@ export default class extends BasePage {
         ApiAction.post(UrlConfig.matchDetail, {id: this.props.id, token: Cookie.getCookie("token") || ''});
     }
 
-    pay(fee, id, ifBuy){
-        if(!ifBuy && fee && fee != "0"){
-          this.setState({
-            showAlert: true,
-            alertTitle: "需支付" + fee + CommonConfig.unit + "查看专家推荐<br />(1" + CommonConfig.unit + "=1元)",
-            payId: id
-          })
-        }else{
-          window.to('/recommendationdetail?id=' + id);
+    pay(fee, id, ifBuy) {
+        if (!ifBuy && fee && fee != "0") {
+            this.setState({
+                showAlert: true,
+                alertTitle: "需支付" + fee + CommonConfig.unit + "查看专家推荐<br />(1" + CommonConfig.unit + "=1元)",
+                payId: id
+            })
+        } else {
+            window.to('/recommendationdetail?id=' + id);
         }
+    }
+    track(fee) {
+        console.log(fee);
     }
 
     handleCancle() {
@@ -83,7 +86,9 @@ export default class extends BasePage {
     }
 
     renderRecommondList() {
-        return this.state.recList.map(function (item, index) {
+        let recList = this.state.recList;
+
+        return recList.map(function (item, index) {
             return (
                 <TapAble className="recItem block" key={"rec" + index}
                          onTap={this.pay.bind(this, item.fee, item.id, item.ifBuy)}>
@@ -98,12 +103,12 @@ export default class extends BasePage {
                         <div className="leftPart">
                             <div className="sTopInfo">
                                 <span className="add">{item.betsType}</span>
+                                <span className="recWay">{item.recommendWay}</span>
                                 <span className="time">{item.createTimeStr}</span>
                             </div>
-
                         </div>
                         <div className="rightPart">
-                            {item.fee > 0 ? (item.ifBuy ? "查看" : (item.fee + "粒米")) : ("免费")}
+                            {item.fee > 0 ? (item.ifBuy ? "查看" : (item.fee + CommonConfig.unit)) : ("免费")}
                         </div>
                     </div>
                 </TapAble>
@@ -133,10 +138,6 @@ export default class extends BasePage {
         return (
             <Layout className={'hotmatchdetail'} title={'赛事详情'}>
                 <Loading showLoading={this.state.showLoading}/>
-                <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
-                             secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
-                             secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
-
                 <div className="top">
                     <Saishi
                         type="saishi"
@@ -146,6 +147,9 @@ export default class extends BasePage {
                     {this.renderTabs()}
                 </div>
                 {this.renderRecommondList()}
+                <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
+                             secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
+                             secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
             </Layout>
         )
     }

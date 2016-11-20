@@ -4,11 +4,9 @@
 
   }
   .header{
-    line-height: 3rem;
-    background-color: white;
-    border-bottom: 1px solid;
-    border-bottom-color: #d7d7d7;
-    margin-bottom: 1rem;
+    line-height: 1.5rem;
+    background-color: #fff;
+    margin-bottom: 0.5rem;
     text-align: center;
     .on{
       width: 30%;
@@ -25,32 +23,34 @@
   }
   .saishi {
     background-color: green;
-    height: 13rem;
+    height: 6.5rem;
     padding: 8% 0;
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
     box-sizing: content-box;
     //background: url('../images/header.jpg') 0 0 no-repeat;
     //background-size: 100% 100%;
-    .line-1 {
+    .line-1{
+      height: 1.5rem;
+      line-height: 1.2rem;
       .matchName {
         margin-right: 0;
-        font-size: 2.4rem;
-        margin-bottom: 8rem;
+        font-size: 1.2rem;
+        margin-bottom: 4rem;
         display: block;
         color: $light_gray;
       }
       .matchTime {
         margin-right: 0;
-        font-size: 2rem;
+        font-size: 1rem;
         display: block;
         color: $light_gray;
       }
     }
     .line-2 {
       position: relative;
-      height: 6rem;
-      line-height: 6rem;
+      height: 3rem;
+      line-height: 3rem;
       .saishiLeft, .saishiRight {
         display: inline-block;
         width: 40%;
@@ -61,7 +61,7 @@
         }
         & > span {
           display: block;
-          font-size: 3rem;
+          font-size: 1.5rem;
           color: $light_gray;
         }
       }
@@ -76,7 +76,7 @@
       }
       .saishiMiddle {
         color: $green;
-        font-size: 6rem;
+        font-size: 3rem;
       }
     }
     .line-3 {
@@ -84,87 +84,54 @@
     }
   }
   .recItem{
-    .specialInfo{
-      padding-left: 1rem;
-      height: 4rem;
-      background-color: white;
-      border-bottom: 0.1rem solid;
-      border-bottom-color: #d7d7d7;
-      &>img{
-        width: 3rem;
-        border-radius: 2rem;
-        margin-top: 0.5rem;
-        vertical-align: top;
-      }
-      .textInfo{
-        display: inline-block;
-        .tTitle{
-          font-size: 3rem;
-          line-height: 2.5rem;
-          color: black;
-        }
-        .tDesc{
-          font-size: 1rem;
-          line-height: 1.5rem;
-        }
-      }
+    margin-bottom: 1rem;
+    .specialInfo {
+      background: #fff;
     }
     .saishiItem{
-      height: 1.5rem;
-      background-color: white;
-      padding-top: 0.5rem;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+      line-height: 1.5rem;
+      background-color: #fff;
       .leftPart{
-        display: inline-block;
+        margin: 0.5rem 0;
         width: 80%;
-        height: 4rem;
+        display: inline-block;
         vertical-align: top;
         .sTopInfo{
-          height: 1.5rem;
           font-size: 1rem;
-          padding-left: 1rem;
-          .liansai{
-            color: orange;
-          }
           .add{
-            margin-left: 1rem;
-            border: 0.1rem solid;
+            margin-left: 1.5rem;
+            border: 0.1rem solid $blue;
             border-radius: 0.2rem;
             padding: 0.1rem;
-            color: green;
+            color: $blue;
+            font-size: 0.9rem;
+          }
+          .recWay{
+            margin-left: 0.5rem;
+            background: $green;
+            border-radius: 0.2rem;
+            padding: 0.2rem;
+            font-size: 0.9rem;
+            color: #fff;
+            background: $green;
           }
           .time{
             float: right;
             margin-right: 1rem;
-            font-size: 0.5rem;
-            color: #bebebe;
-          }
-        }
-        .bottomInfo{
-          height: 2.5rem;
-          padding-left: 1rem;
-          line-height: 2.5rem;
-          text-align: center;
-          .left{
-            float: left;
-          }
-          .right{
-            float: right;
-            margin-right: 1rem;
+            font-size: 0.9rem;
+            color: $gray;
           }
         }
       }
       .rightPart{
+        margin: 0.5rem 0;
         display: inline-block;
         width: 20%;
         line-height: 1.5rem;
-        box-sizing: border-box;
-        border-left: 0.1rem solid;
-        border-color: #d9d9d9;
-        text-align: center;
-        color: red;
         height: 1.5rem;
+        border-left: 0.05rem solid $light_gray;
+        text-align: center;
+        color: $red;
       }
     }
   }
@@ -172,26 +139,26 @@
 }
 
 .tabs {
-  border-bottom: 0.1rem solid $light_gray;
-  height: 8rem;
-  line-height: 8rem;
+  border-bottom: 1px solid $light_gray;
+  height: 4rem;
+  line-height: 4rem;
   overflow-y: auto;
   background: #fff;
-  width: 80rem;
+  width: 100%;
   box-sizing: border-box;
 }
 .tabItem {
   margin: 0 15.6%;
   width: 18.6%;
-  height: 8rem;
+  height:4rem;
   color: $gray;
-  font-size: 3rem;
-  line-height: 8rem;
+  font-size: 1.5rem;
+  line-height: 4rem;
   display: inline-block;
   text-align: center;
   box-sizing: border-box;
   &.active {
     color: $black;
-    border-bottom: 0.6rem solid $main_red;
+    border-bottom: 0.3rem solid $main_red;
   }
 }

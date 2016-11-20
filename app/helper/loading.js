@@ -6,6 +6,7 @@ var show={
   paddingTop: '80%',
   opacity: '0.5',
   backgroundColor: 'black',
+  zIndex:99999,
 }
 var hide={
   display: 'none'

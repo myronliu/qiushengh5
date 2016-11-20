@@ -1,0 +1,30 @@
+@import "../_base";
+.specialInfo {
+    display: block;
+    margin: 0 0 2.67%;
+    border-bottom: none;
+    & > img {
+        width: 3.4rem;
+        border-radius: 50%;
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 4%;
+        font-size: 0;
+    }
+    .textInfo {
+        display: inline-block;
+        .tTitle {
+            font-size: 1.5rem;
+            line-height: 2rem;
+            color: $black;
+        }
+        .tDesc {
+            color: $dark_gray;
+            font-size: 1.2rem;
+            line-height: 1.4rem;
+        }
+    }
+    .rightItem{
+
+    }
+}
