@@ -1,3 +1,41 @@
 .drawapply {
-    
+	.center_input{
+		.title_input{
+			background-color: white;
+			margin-bottom:2rem;
+			height: 4rem;
+    		line-height: 4rem;
+    		font-size: 1.6rem;
+		}
+	}
+	.ava-amount{
+		font-size: 1.3rem;
+	    line-height: 3rem;
+	    padding-left: 15px;
+	}
+	.ava-balls{
+		color: #f47564;
+		font-size: 1.3rem;
+	    line-height: 3rem;
+	    font-weight: bold;
+    	margin-left: 0.5rem;
+	}
+    .btn-area{
+    	bottom: 0;
+	    left: 0;
+	    width: 100%;
+	    height: 10rem;
+	    padding: 1.6rem 3rem;
+	    margin-top: 4rem;
+	    .drawapply-btn{
+	    	background-color: #f47564;
+		    height: 3.4rem;
+		    line-height: 3.4rem;
+		    text-align: center;
+		    color: #fff;
+		    font-size: 1.7rem;
+		    border: 1px solid #f47564;
+		    border-radius: 0.5rem;
+	    }
+    }
 }
