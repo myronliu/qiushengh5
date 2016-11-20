@@ -61,7 +61,7 @@ class RecommendationDetail extends BasePage {
 					body.data.matches = body.data.matches || [];
 					this.setState({
 						list: body.data.matches,
-						picUrl: body.data.detail.picUrl || "../images/photo.png",
+						picUrl: body.data.detail.picUrl || "",
 						content: body.data.detail.content || '',
 						name: body.data.expert.name || '',
 						title: body.data.expert.title || ''
@@ -116,9 +116,8 @@ class RecommendationDetail extends BasePage {
 
 	render() {
 		let {list, avatar, picUrl, name, title, content} = this.state;
-		let rightBtn = {icon: './images/home_1.png', func: this.goHomePage.bind(this)};
 		return (
-			<Layout className='hotmatch' title={'推荐详情'} rightItems={[rightBtn]}>
+			<Layout className='hotmatch' title={'推荐详情'}>
 				<Loading showLoading={this.state.showLoading}/>
 				<TwoBtnAlert show={this.state.showWarnAlert} title={this.state.alertWarnTitle} firstBtnTitle={"取消"}
 				             secondBtnTitle={"确定"}
@@ -178,7 +177,7 @@ class RecommendationDetail extends BasePage {
 
 		ApiAction.post(UrlConfig.recommendDetail, {
 			recommendId: this.props.id,
-			token: Cookie.getCookie("token") || '4A658C932EC03A80D651EABC74E08383D2EFD43F4C19558D5E4BF07367A3FC000055D74AFE1D6D014BFF6B4F87D557570AD61DEB36EEE90DCDC78A0700FD6FA413F17223F0379E6F67C33419E6DE9060'
+			token: Cookie.getCookie("token") || 'D3EB44780D4B29EDD4E22B3A1B9316B7D47DB679AA57559225B9D2C624A1F70A48949DF715957AB41E86F56B205FB4D339142BE590EAF32F071F44336744302BEB1A61EA0730C0B31A5E4B7CA740A8A6'
 		});
 	}
 

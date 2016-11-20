@@ -45,49 +45,38 @@ class MyRecommendation extends BasePage {
 	getRecommend(data) {
 		this.showLoading(true);
 		data = data || {};
-		data.token = Cookie.getCookie("token") || '';
-		// Post(UrlConfig.myRecommend, data).then((res)=> {
-		// 	if (res && res.length > 0) {
-		// 		this.setState({
-		// 			list: res || [],
-		// 		});
-		// 	} else {
-		// 		this.setState({
-		// 			list: [],
-		// 		});
-		// 	}
-		// });
+		data.token = Cookie.getCookie("token") || 'D3EB44780D4B29EDD4E22B3A1B9316B7D47DB679AA57559225B9D2C624A1F70A48949DF715957AB41E86F56B205FB4D339142BE590EAF32F071F44336744302BEB1A61EA0730C0B31A5E4B7CA740A8A6';
 
-    ApiAction.post(UrlConfig.myRecommend, data);
+		ApiAction.post(UrlConfig.myRecommend, data);
 	}
 
-	apiSuccess(url,body){
-    this.showLoading(false);
-    switch(url){
-      case UrlConfig.myRecommend:
-        body=body||[];
-        if(body.length > 0){
-          this.setState({
-            list: body
-          })
-        }else{
-        	this.setState({
-        		list: []
-        	})
-        }
-        break;
-      case UrlConfig.recommendBuy:
-        this.setState({
-          showAlert: false
-        })
-        if(body.success){
-          window.to('/recommendationdetail?id=' + this.state.payId);
-        }else{
-          Toast.show(body.msg, 'error')
-        }
-        break;
-    }
-  }
+	apiSuccess(url, body) {
+		this.showLoading(false);
+		switch (url) {
+			case UrlConfig.myRecommend:
+				body = body || [];
+				if (body.length > 0) {
+					this.setState({
+						list: body
+					})
+				} else {
+					this.setState({
+						list: []
+					})
+				}
+				break;
+			case UrlConfig.recommendBuy:
+				this.setState({
+					showAlert: false
+				})
+				if (body.success) {
+					window.to('/recommendationdetail?id=' + this.state.payId);
+				} else {
+					Toast.show(body.msg, 'error')
+				}
+				break;
+		}
+	}
 
 	getEnd() {
 		this.showLoading(true);
@@ -146,19 +135,18 @@ class MyRecommendation extends BasePage {
 
 	render() {
 		return (
-			<Layout className={'specialinfo'} title={'我的推荐'}>
+			<Layout className={'myrecommendation'} title={'我的推荐'}>
 				<Loading showLoading={this.state.showLoading}/>
 				<TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
 				             secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
 				             secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
-				<div className="tabs">
-					<div className={this.state.recState == "NO" ? "active" : "unactive"}
-					     onTouchEnd={this.getUnEnd.bind(this)}>未结束
-					</div>
-					<div className={this.state.recState == "YES" ? "active" : "unactive"}
-					     onTouchEnd={this.getEnd.bind(this)}>已结束
-					</div>
+				<div className="header">
+                    <span className={this.state.recState === "NO" ? "active left" : "left"}
+                          onTouchEnd={this.getUnEnd.bind(this)}>竞彩中</span>
+					<span className={this.state.recState === "YES" ? "active right" : "right"}
+					      onTouchEnd={this.getEnd.bind(this)}>已结束</span>
 				</div>
+
 				<div className="items">
 					{this.renderItems()}
 				</div>

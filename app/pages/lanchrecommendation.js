@@ -308,28 +308,29 @@ class LanchRecommendation extends BasePage {
 
 	renderDetailMatch() {
 		let {sureSelectedArray, list, deployMatchInfo} = this.state;
-		return list.filter(item=>sureSelectedArray.join(",").indexOf(item.matchId) !== -1)
-			.map(function (item, index) {
-				return (
-					<div className="itemMatchWap" key={"recommendation" + index}>
-						{
-							deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId]["letBall"] && deployMatchInfo[item.matchId]["letBall"].map((letBall, index)=> {
-								return this.renderMatch(item, letBall, index)
-							})
-						}
-					</div>
-				)
-			}.bind(this));
+		list = list.filter(item=>sureSelectedArray.join(",").indexOf(item.matchId) !== -1);
+		return list.map(function (item, index) {
+			return (
+				<div className="itemMatchWap" key={"recommendation" + index}>
+					{
+						deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId]["letBall"] && deployMatchInfo[item.matchId]["letBall"].map((letBall, index)=> {
+							return this.renderMatch(item, letBall, index, list.length)
+						})
+					}
+				</div>
+			)
+		}.bind(this));
 	}
 
-	renderMatch(item, letBall, index) {
+	renderMatch(item, letBall, index, listLength) {
 		let {deployMatchInfo} = this.state;
-		return <div className="itemMatch" key={index}>
-			<div className="letWap">{item.bh}</div>
+		return <div className="itemMatch" key={index} style={{marginBottom: index === listLength ? 0 : "2rem"}}>
 			<div className="middleWap">
 				<div className="line1">
-					<span className="left">{item.matchName}</span>
-					{/*{<span className="money">1球币</span>}*/}
+					<span className="left">
+						<span className="bh">{item.bh + " "}</span>
+						<span>{item.matchName}</span>
+					</span>
 					<span className="right">{item.matchDate}</span>
 				</div>
 				<div className="line2">
@@ -351,7 +352,9 @@ class LanchRecommendation extends BasePage {
 					</div>
 				</div>
 			</div>
-			<div className="deleteBtn" onTouchEnd={this.deleteHandler.bind(this, item.matchId, letBall)}>删除</div>
+			<div className="deleteBtn">
+				<div className="deleteBtnIcon" onTouchEnd={this.deleteHandler.bind(this, item.matchId, letBall)}/>
+			</div>
 		</div>
 	}
 
@@ -360,10 +363,10 @@ class LanchRecommendation extends BasePage {
 	}
 
 	render() {
-		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, recommendationType, kbdShow} = this.state;
+		let {selectedMatchArray, list, content, fee, sureSelectedArray, imgUrl, recommendationType, kbdShow} = this.state;
 		let rightBtn = {icon: '../icons/nav_sy_pre.png', func: this.goHomePage.bind(this)};
 		return (
-			<Layout className='hotmatch' title={'发起推荐'} rightItems={[rightBtn]}>
+			<Layout className='lanchRecommendation' title={'新增推荐'} rightItems={[rightBtn]}>
 				<Loading showLoading={this.state.showLoading}/>
 				<div className="newAddAlert">
 					<TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
@@ -378,12 +381,12 @@ class LanchRecommendation extends BasePage {
 				             secondBtnOnTouchEnd={()=>this.setState({showWarnAlert: false})}>
 				</TwoBtnAlert>
 
-				<div className="lanchrecommendation">
+				<div className="lanchrecommendationItem">
 					<div className="flexItem">
 						<div className="btnDiv">推荐类型</div>
 						<div className="btnImage">
 							<div className="recommendType">{recommendType[recommendationType]}</div>
-							<div className="icon selectType">{">"}</div>
+							<div className="icon"></div>
 						</div>
 						<select className="selectRecommendType"
 						        onChange={($e)=> {
@@ -396,7 +399,8 @@ class LanchRecommendation extends BasePage {
 						</select>
 					</div>
 
-					<div className="flexItem"
+					<div className="flexItem selectMatchBtn"
+					     style={{border: sureSelectedArray.length === 0 ? 0 : "1px solid #dddddd"}}
 					     onTouchEnd={this.getMoreRecommendation.bind(this)}>
 						<div className="btnDiv">选择赛事</div>
 						<div className="btnImage">
@@ -415,7 +419,7 @@ class LanchRecommendation extends BasePage {
 								     imgUrl: ""
 							     });
 							     this.refs.qsFile.value = "";
-						     }}>X
+						     }}>
 						</div>
 					</div>
 
@@ -443,7 +447,7 @@ class LanchRecommendation extends BasePage {
 						<div className="btnDiv">选择费用</div>
 						<div className="btnImage">
 							<div className="recommendType">{fee + "球币"}</div>
-							<div className="icon selectType">{">"}</div>
+							<div className="icon"></div>
 						</div>
 					</div>
 				</div>

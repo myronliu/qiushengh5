@@ -286,7 +286,7 @@ export default class extends BasePage {
             {
                 id: 'scoreLive',
                 title: '比分直播',
-                direct_url: ''
+                direct_url: '/livescore'
             },
             {
                 id: 'freeRecommend',

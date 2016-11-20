@@ -189,59 +189,60 @@
 		justify-content: center;
 		align-items: center;
 		display: flex;
-		height: 6rem;
+		height: 3rem;
 		background-color: #DC594B;
 		color: white;
+		font-size: 1.5rem;
 	}
 }
 
 .newAddAlert {
-	.messageDiv {
-		height: 50rem;
-		overflow-y: auto;
+	 .messageDiv {
+		 height: 30rem;
+		 overflow-y: auto;
 
-		.matchWap.selected {
-			background-color: #ccc;
-		}
+		 .matchWap.selected {
+			 background-color: #ccc;
+		 }
 
-		.matchWap {
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			.item {
-				vertical-align: top;
-				height: 9rem;
-				line-height: 9rem;
-				flex: 1;
-			}
+		 .matchWap {
+			 display: flex;
+			 justify-content: center;
+			 align-items: center;
+			 .item {
+				 vertical-align: top;
+				 height: 4.5rem;
+				 line-height: 4.5rem;
+				 flex: 1;
+			 }
 
-			.itemLeft, .itemRight {
-				> img {
-					height: 5rem;
-					border-radius: 2.5rem;
-					vertical-align: top;
-					margin-top: 2rem;
-				}
-				> span {
-					line-height: 9rem;
-					height: 9rem;
-					color: black;
-				}
-			}
-			.itemMiddle {
-				height: 9rem;
-				vertical-align: top;
-				text-align: center;
-				font-size: 2rem;
-				line-height: 3rem;
-				.o {
-					color: orange;
-					margin-right: 1rem;
-				}
-				.g {
-					color: green;
-				}
-			}
-		}
-	}
-}
+			 .itemLeft, .itemRight {
+				 > img {
+					 height: 2.5rem;
+					 border-radius: 1.25rem;
+					 vertical-align: top;
+					 margin-top: 1rem;
+				 }
+				 > span {
+					 line-height: 4.5rem;
+					 height: 4.5rem;
+					 color: black;
+				 }
+			 }
+			 .itemMiddle {
+				 height: 4.5rem;
+				 vertical-align: top;
+				 text-align: center;
+				 font-size: 1rem;
+				 line-height: 1.5rem;
+				 .o {
+					 color: orange;
+					 margin-right: .5rem;
+				 }
+				 .g {
+					 color: green;
+				 }
+			 }
+		 }
+	 }
+ }
