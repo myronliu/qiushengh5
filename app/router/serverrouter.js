@@ -47,6 +47,7 @@ var DepositRecord = React.createFactory(require('../pages/depositrecord'));
 var Recommend = React.createFactory(require('../pages/recommend'));
 var Contract = React.createFactory(require('../pages/contract'));
 var Limits = React.createFactory(require('../pages/limits'));
+var Drawapply = React.createFactory(require('../pages/drawapply'));
 
 // 加入定时计划
 var later = require('later');
@@ -251,6 +252,11 @@ router.get('/limits',function(req,res){
 router.get('/depositrecord',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(DepositRecord());
   res.render('home', {reactOutput: reactHtml,title:'充值记录'});
+});
+
+router.get('/drawapply',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(Drawapply());
+  res.render('home', {reactOutput: reactHtml,title:'申请提现'});
 });
 
 router.get('/recommend',function(req,res){

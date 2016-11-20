@@ -29,6 +29,7 @@ var DepositRecord = require('../pages/depositrecord');
 var Recommend = require('../pages/recommend');
 var Contract = require('../pages/contract');
 var Limits = require('../pages/limits');
+var Drawapply = require('../pages/drawapply');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -116,6 +117,9 @@ var Router = EvoFlux.createRouter({
   },
   '/limits': function(){
     ReactDOM.render(<Limits />, container);
+  },
+  '/drawapply': function(){
+    ReactDOM.render(<Drawapply />, container);
   },
   '/recommend': function(){
     ReactDOM.render(<Recommend type={this.query("type")} />, container);

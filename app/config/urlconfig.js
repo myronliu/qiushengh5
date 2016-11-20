@@ -29,6 +29,7 @@ module.exports={// 不要加  '/'
   freeRecommendList: 'lottery/recommend/free',
   // 彩店实单
   recommendList: 'lottery/recommend/list',
+  drawapply: 'lottery/draw/apply',
 
 
   // server needs
