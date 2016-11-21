@@ -105,15 +105,20 @@ export default class extends BasePage {
         if (this.state.ifCommon) {
             return (
                 <div className="options">
-                    <span className="optionButton" onTouchEnd={this.applyExpert.bind(this)}>申请专家</span>
+                    <span className="optionButton" onTouchEnd={this.applyExpert.bind(this)}>
+                      <img src="../images/mine/icon-deposit.png"/>申请专家
+                    </span>
+                    <span className="optionButton" onTouchEnd={this.gotoCharge.bind(this)}>
+                        <img src="../images/mine/icon-deposit.png"/>
+                        快速充值</span>
                 </div>
             );
         } else {
             return (
                 <div className="options">
-                    <span className="optionButton" onTouchEnd={this.withdraw.bind(this)}>
+                    <span className="optionButton" onTouchEnd={this.gotoMyreRommendation.bind(this)}>
                         <img src="../images/mine/icon-withdraw.png"/>
-                        申请提现
+                        新增推荐
                     </span>
                     <span className="optionButton" onTouchEnd={this.gotoCharge.bind(this)}>
                         <img src="../images/mine/icon-deposit.png"/>
@@ -188,9 +193,37 @@ export default class extends BasePage {
             )
         }.bind(this));
     }
+    renderHeaderRight(){
+      if(!this.state.ifCommon){
+        return (
+          <div className="right">
+              <TapAble className="writeArticleBtn" onTap={this.writeArticle.bind(this)}>
+                  发表文章
+              </TapAble>
+          </div>
+        );
+      }else{
+        return null;
+      }
+    }
+    renderArticleArea(){
+      if(!this.state.ifCommon){
+        return (
+          <div className="contentWrap articleList">
+              <div className="contentTitle">文章</div>
+              <div className="contentInner">
+                  {this.renderArticle()}
+              </div>
+          </div>
+        );
+      }else{
+        return null;
+      }
+    }
+    noFunc(){}
 
     render() {
-        let rightBtn = {title: '我的推荐', func: this.gotoMyreRommendation.bind(this)};
+        let rightBtn = this.state.ifCommon ? {title: '', func: this.noFunc.bind(this)}:{title: '申请提现', func: this.withdraw.bind(this)};
         return (
             <Layout hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn]}>
                 <Loading showLoading={this.state.showLoading}/>
@@ -202,14 +235,10 @@ export default class extends BasePage {
                         <img src={this.state.avatar ? this.state.avatar : "../images/photo.png"} className=""/>
                         <div className="textInfo">
                             <div className="tTitle">{ this.state.name || '座无虚席' }</div>
-                            <div className="tDesc">米仓：<span
+                            <div className="tDesc">余额：<span
                                 className="money">{this.state.rices || '0'}</span>{CommonConfig.unit}</div>
                         </div>
-                        <div className="right">
-                            <TapAble className="writeArticleBtn" onTap={this.writeArticle.bind(this)}>
-                                发表文章
-                            </TapAble>
-                        </div>
+                        {this.renderHeaderRight()}
                     </div>
                     {this.renderOptions()}
                 </div>
@@ -225,12 +254,7 @@ export default class extends BasePage {
                         {this.renderMatches(this.state.overlist)}
                     </div>
                 </div>
-                <div className="contentWrap articleList">
-                    <div className="contentTitle">文章</div>
-                    <div className="contentInner">
-                        {this.renderArticle()}
-                    </div>
-                </div>
+                {this.renderArticleArea()}
                 <div style={{height: '9rem'}}></div>
                 <QsFooter page={"mine"}/>
             </Layout>
