@@ -88,4 +88,4 @@ gulp.task('sassfile',function(){
 gulp.task('serve',['browsersync','watch']);
 gulp.task('s',['serve']);
 gulp.task('default',['packagejs']);
-gulp.task('n',['demon','watch']);
+gulp.task('n',['sassfile','demon','watch']);
