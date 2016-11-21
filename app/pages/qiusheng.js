@@ -175,64 +175,65 @@ export default class extends BasePage {
     }
 
     renderRecommendList() {
-        let recList = [
-            {
-                "expert": {
-                    "id": "ff8080815828cc90015828fba10d0033",
-                    "hits": "0",
-                    "title": "推荐专家",
-                    "name": "啊Zhang张先森无脸人",
-                    "avatar": "http://wx.qlogo.cn/mmopen/UEFcaeyFkDh0deia30cNjdia8QkqPhAN9MvjMG8PRA7OB6hYCIOys9ib7rEXbfwmQ9FPlSdRV4441qJBK2iaK3V5AQ/0"
-                },
-                "recommend": {
-                    "id": "ff808081586b8fb601586d038d420011",
-                    "matchName": "英足总",
-                    "betsType": "串关",
-                    "homeTeam": "布莱克",
-                    "awayTeam": "吉灵汉姆",
-                    "matchDate": "2016-11-17 03:45:00",
-                    "content": null,
-                    "recommendWay": null,
-                    "fee": 0,
-                    "picUrl": null,
-                    "hits": null,
-                    "createTimeStr": null,
-                    "expertName": null,
-                    "expertTitle": null,
-                    "avatar": null,
-                    "ifBuy": false
-                }
-            },
-            {
-                "expert": {
-                    "id": "ff8080815811a5a90158121f3f420004",
-                    "hits": "0",
-                    "title": "推荐专家",
-                    "name": "创造财富",
-                    "avatar": "http://wx.qlogo.cn/mmopen/Q3auHgzwzM5sWLbuj1scSvNwX6F5TMKmbYXqUnZdM3zMTQ00DKHJsXzVDaCeBA7uRBeZPmgKCUWdj8L8jKtZHYmvY58AQNgBYhloZI4OicdE/0"
-                },
-                "recommend": {
-                    "id": "ff8080815862933901586556c460003a",
-                    "matchName": "世杯亚",
-                    "betsType": "单关",
-                    "homeTeam": "中国",
-                    "awayTeam": "卡塔尔",
-                    "matchDate": "2016-11-15 19:35:00",
-                    "content": null,
-                    "recommendWay": null,
-                    "fee": 99,
-                    "picUrl": null,
-                    "hits": null,
-                    "createTimeStr": null,
-                    "expertName": null,
-                    "expertTitle": null,
-                    "avatar": null,
-                    "ifBuy": false
-                }
-            },];
+        // let recList = [
+            // {
+            //     "expert": {
+            //         "id": "ff8080815828cc90015828fba10d0033",
+            //         "hits": "0",
+            //         "title": "推荐专家",
+            //         "name": "啊Zhang张先森无脸人",
+            //         "avatar": "http://wx.qlogo.cn/mmopen/UEFcaeyFkDh0deia30cNjdia8QkqPhAN9MvjMG8PRA7OB6hYCIOys9ib7rEXbfwmQ9FPlSdRV4441qJBK2iaK3V5AQ/0"
+            //     },
+            //     "recommend": {
+            //         "id": "ff808081586b8fb601586d038d420011",
+            //         "matchName": "英足总",
+            //         "betsType": "串关",
+            //         "homeTeam": "布莱克",
+            //         "awayTeam": "吉灵汉姆",
+            //         "matchDate": "2016-11-17 03:45:00",
+            //         "content": null,
+            //         "recommendWay": null,
+            //         "fee": 0,
+            //         "picUrl": null,
+            //         "hits": null,
+            //         "createTimeStr": null,
+            //         "expertName": null,
+            //         "expertTitle": null,
+            //         "avatar": null,
+            //         "ifBuy": false
+            //     }
+            // },
+            // {
+            //     "expert": {
+            //         "id": "ff8080815811a5a90158121f3f420004",
+            //         "hits": "0",
+            //         "title": "推荐专家",
+            //         "name": "创造财富",
+            //         "avatar": "http://wx.qlogo.cn/mmopen/Q3auHgzwzM5sWLbuj1scSvNwX6F5TMKmbYXqUnZdM3zMTQ00DKHJsXzVDaCeBA7uRBeZPmgKCUWdj8L8jKtZHYmvY58AQNgBYhloZI4OicdE/0"
+            //     },
+            //     "recommend": {
+            //         "id": "ff8080815862933901586556c460003a",
+            //         "matchName": "世杯亚",
+            //         "betsType": "单关",
+            //         "homeTeam": "中国",
+            //         "awayTeam": "卡塔尔",
+            //         "matchDate": "2016-11-15 19:35:00",
+            //         "content": null,
+            //         "recommendWay": null,
+            //         "fee": 99,
+            //         "picUrl": null,
+            //         "hits": null,
+            //         "createTimeStr": null,
+            //         "expertName": null,
+            //         "expertTitle": null,
+            //         "avatar": null,
+            //         "ifBuy": false
+            //     }
+            // }
+        // ];
         //let recList = this.state.recList;
-        if (recList instanceof Array) {
-            return recList.map(function (item, index) {
+        if (this.state.recList instanceof Array) {
+            return this.state.recList.map(function (item, index) {
                 return (
                     <div className="recItem" key={"rec" + index}>
                         <TapAble className="specialInfo" onTap={this.gotoSpecial.bind(this, item.expert.id)}>
@@ -338,7 +339,7 @@ export default class extends BasePage {
                 <div className="content recListHome">
                     <div className="topInfo">
                         <span className="title">{"最新推荐"}</span>
-                        <span className="subTitle">{"推荐有风险 投注请谨慎"}</span>
+                        <span className="subTitle">{/*"推荐有风险 投注请谨慎"*/}</span>
                     </div>
                     {this.renderRecommendList()}
                 </div>
