@@ -33,6 +33,7 @@ class Match extends Component {
           {
             this.buttonName.map((button, index) =>
               <div
+                key={button.linkName}
                 onClick={() => {
                   this.setState({ activeButtonIndex: index, iframeSrc: button.linkUrl });
                 }}

@@ -4,15 +4,7 @@ import ActionTypes from '../constants/ActionTypes';
 // import { EventName } from '../constants/constValue';
 
 const initState = {
-  matchData: [
-    {
-      // awayTeam,
-      // homeTeam,
-      // oddsS,
-      // oddsP,
-      // oddsF,
-    },
-  ],
+  matchData: [],
 };
 
 
