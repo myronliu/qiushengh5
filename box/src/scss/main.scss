@@ -185,18 +185,47 @@ $noticeHeight: 40px;
     height: 80px;
     background-color: rgba(0, 0, 0, .75);
     .control-block {
+      font-size: 12px;
+      padding: 16px;
+      display: flex;
+      color: #ffffff;
       &:nth-child(1) {
         flex: 2;
-        border-left: 1px solid #ccc;
+        justify-content: center;
+        align-items: center;
+        .show-select-time {
+          border: 2px solid #d7a561;
+          padding: 8px;
+          color: $fontColor;
+          background-color: #f8dd75;
+          width: 100%;
+          text-align: center;
+        }
       }
-      &:nth-child(2) {
+      &:nth-child(2), &:nth-child(3) {
         flex: 2;
+        flex-direction: column;
+        > div {
+          flex: 1;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
       }
       &:nth-child(3) {
         flex: 3;
       }
       &:nth-child(4) {
         flex: 2;
+        justify-content: center;
+        align-items: center;
+        .show-more {
+          width: 100%;
+          text-align: center;
+          background-color: #fd693e;
+          padding: 8px;
+          // border-radius: 4px;
+        }
       }
     }
   }

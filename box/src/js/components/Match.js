@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
 
 class Match extends Component {
-  constructor(props) {
-    super(props);
-  }
-
   select(index, type) {
     const { selectTeam } = this.props;
     selectTeam({ index, type });
@@ -13,6 +9,7 @@ class Match extends Component {
   render() {
     const { matchData } = this.props;
 
+    console.log(matchData);
     return (
       <div className="match-container">
         <div className="match-header">
@@ -25,7 +22,7 @@ class Match extends Component {
         <div className="match-list">
           {
             matchData.map((itemData, index) => (
-              <div className="match-item">
+              <div className="match-item" key={itemData.matchId}>
                 <div className="match-block">
                   {itemData.homeTeam} VS {itemData.awayTeam}
                 </div>
@@ -50,10 +47,38 @@ class Match extends Component {
           }
         </div>
         <div className="control-panel">
-          <div className="control-block">1</div>
-          <div className="control-block">2</div>
-          <div className="control-block">3</div>
-          <div className="control-block">4</div>
+          <div className="control-block">
+            <div className="show-select-time">
+              <span>已选1次</span>
+            </div>
+          </div>
+          <div className="control-block">
+            <div>
+              过关方式
+            </div>
+            <div>
+              普通过关
+            </div>
+            <div>
+              多选过关
+            </div>
+          </div>
+          <div className="control-block">
+            <div>
+              过关方式
+            </div>
+            <div>
+              普通过关
+            </div>
+            <div>
+              多选过关
+            </div>
+          </div>
+          <div className="control-block">
+            <div className="show-more">
+              <span>查看详情</span>
+            </div>
+          </div>
         </div>
       </div>
     );
