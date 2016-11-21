@@ -5,6 +5,7 @@ var React = require('react');
 var ReactDOMServer = require('react-dom/server');
 var fs= require('fs')
 var patha = require('path');
+var WeiXinShare=require('../helper/weixinshare');
 
 global.ajaxConfig = {url:"http://localhost:8080/api/app",header:{'Content-Type': 'application/json','X-KJT-Agent': 'h511111111111111111111111;h511111111111111111111111;h5;h5;;h5;h5;1.0.0;WIFI;h511111111111111111111111'}}
 global.ajaxQiushengConfig = {url:"http://localhost:8080/api",header:{'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8'}}
@@ -47,6 +48,7 @@ var DepositRecord = React.createFactory(require('../pages/depositrecord'));
 var Recommend = React.createFactory(require('../pages/recommend'));
 var Contract = React.createFactory(require('../pages/contract'));
 var Limits = React.createFactory(require('../pages/limits'));
+var Article = React.createFactory(require('../pages/article'));
 var Drawapply = React.createFactory(require('../pages/drawapply'));
 
 // 加入定时计划
@@ -258,6 +260,24 @@ router.get('/drawapply',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Drawapply());
   res.render('home', {reactOutput: reactHtml,title:'申请提现'});
 });
+
+router.get('/article', function(req,res){
+  WeiXinShare(req,res,function(sign,appid,timestamp,noncestr,url,ticket){
+    var reactHtml = ReactDOMServer.renderToString(Article({id: req.query.id}));
+    res.render('wxshare',
+        { reactOutput: reactHtml,
+          title: '球盛体育--快来看专家们的精彩文章分享',
+          shareTitle:'球盛体育--快来看专家们的精彩文章分享',
+          shareDes:'业界大牛的良心分享，走过路过不要错过～',
+          shareImage:'http://7xni9f.dl1.z0.glb.clouddn.com/300_300.jpg',
+          sign:sign,
+          appid:appid,
+          timestamp:timestamp,
+          noncestr:noncestr,
+          url:url,
+          ticket:ticket});
+  });
+})
 
 router.get('/recommend',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Recommend({type: req.query.type}));

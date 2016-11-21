@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= typeof title === 'undefined' ? '球盛': title %></title>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+  <link rel="stylesheet" type="text/css" href="/css/main.css">
+  <link rel="stylesheet" type="text/css" href="/css/style.css">
+  <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
+
+  <script>
+  ;(function (doc, win) {
+    var docEl = doc.documentElement,
+        resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+    var recalc = function () {
+            var clientWidth = docEl.clientWidth;
+            if (!clientWidth) return;
+            var fontSize = 10 * (clientWidth / 375);
+            fontSize = (fontSize > 30) ? 30: fontSize;
+            //如果是pc访问
+            if(!/windows phone|iphone|android|iPad/ig.test(window.navigator.userAgent)) {
+                fontSize = 20;
+            }
+            docEl.style.fontSize = fontSize + 'px';
+            var dpi =  window.devicePixelRatio;
+            docEl.setAttribute('data-dpi',dpi);
+            var scale = 1/dpi;
+        };
+    if (!doc.addEventListener) return;
+    win.addEventListener(resizeEvt, recalc, false);
+    recalc();
+  })(document, window);
+</script>
+</head>
+<body>
+<div id='container'>
+  <%- reactOutput %>
+</div>
+</body>
+<script><%- typeof stateData === 'undefined'?'':stateData%></script>
+<!-- build:js -->
+<script type="text/javascript" src="/bundle.min.js"></script>
+<!-- endbuild -->
+</html>
+<script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+
+<script type="text/javascript">
+
+  var _signature = "<%- sign %>";
+  var _noncestr = "<%- noncestr %>";
+  var _appId = "<%- appid %>";
+  var _timestamp = "<%- timestamp %>";
+  var _ticket = "<%- ticket %>";
+  var _url = "<%- url %>";
+
+  wx.config({
+    debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+    appId: _appId, // 必填，公众号的唯一标识
+    timestamp: _timestamp,// 必填，生成签名的时间戳
+    nonceStr: _noncestr, // 必填，生成签名的随机串
+    signature: _signature,// 必填，签名，见附录1
+    jsApiList: [
+      'checkJsApi',
+      'onMenuShareTimeline',
+      'onMenuShareAppMessage',
+      'onMenuShareQQ',
+      'onMenuShareWeibo',
+      'onMenuShareQZone'
+
+    ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
+  });
+
+  wx.ready(function () {
+
+    wx.checkJsApi({
+      jsApiList: [
+        'onMenuShareTimeline',
+        'onMenuShareAppMessage',
+        'onMenuShareQQ',
+        'onMenuShareWeibo',
+        'onMenuShareQZone'
+      ],
+      success: function (res) {
+//        console.log(JSON.stringify(res));
+      }
+    });
+
+
+    wx.onMenuShareAppMessage({
+      title: "<%- shareTitle %>", // 分享标题
+      desc: "<%- shareDes %>", // 分享描述
+      link: window.location.href, // 分享链接
+      imgUrl: "<%= typeof shareImage === 'undefined' ? 'http://7xni9f.dl1.z0.glb.clouddn.com/300_300.jpg' : shareImage %>", // 分享图标
+      type: '', // 分享类型,music、video或link，不填默认为link
+      dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+      success: function () {
+// 用户确认分享后执行的回调函数
+// alert('分享成功!');
+
+      },
+      cancel: function () {
+// 用户取消分享后执行的回调函数
+// alert("用户取消分享后执行的回调函数");
+//   alert('取消分享!');
+      }
+    });
+    wx.onMenuShareTimeline({
+      title: "<%- shareTitle %>", // 分享标题
+      link: window.location.href, // 分享链接
+      imgUrl: "<%= typeof shareImage === 'undefined' ? 'http://7xni9f.dl1.z0.glb.clouddn.com/300_300.jpg' : shareImage %>", // 分享图标
+      success: function () {
+// 用户确认分享后执行的回调函数
+//     alert('分享成功!');
+      },
+      cancel: function () {
+// 用户取消分享后执行的回调函数
+//   alert('取消分享!');
+      }
+    });
+
+    wx.onMenuShareQQ({
+      title: "<%- shareTitle %>", // 分享标题
+      desc: "<%- shareDes %>", // 分享描述
+      link: window.location.href, // 分享链接
+      imgUrl:"<%= typeof shareImage === 'undefined' ? 'http://7xni9f.dl1.z0.glb.clouddn.com/300_300.jpg' : shareImage %>", // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    });
+    wx.onMenuShareWeibo({
+      title: "<%- shareTitle %>", // 分享标题
+      desc:  "<%- shareDes %>", // 分享描述
+      link: window.location.href, // 分享链接
+      imgUrl: "<%= typeof shareImage === 'undefined' ? 'http://7xni9f.dl1.z0.glb.clouddn.com/300_300.jpg' : shareImage %>", // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    });
+    wx.onMenuShareQZone({
+      title:  "<%- shareTitle %>", // 分享标题
+      desc:  "<%- shareDes %>", // 分享描述
+      link: window.location.href, // 分享链接
+      imgUrl:  "<%= typeof shareImage === 'undefined' ? 'http://7xni9f.dl1.z0.glb.clouddn.com/300_300.jpg' : shareImage %>", // 分享图标
+      success: function () {
+        // 用户确认分享后执行的回调函数
+      },
+      cancel: function () {
+        // 用户取消分享后执行的回调函数
+      }
+    });
+
+  });
+
+</script>
+<script type="text/javascript">
+  (function () {
+    var ma = document.createElement('script');
+    ma.type = 'text/javascript';
+    ma.async = true;
+    //ma.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'data.kjtpay.com:8082/js/tj.js';
+    console.log(document.location.protocol);
+    ma.src =  'https://data.kjtpay.com:8082/js/tj.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(ma, s);
+  })();
+
+</script>
+

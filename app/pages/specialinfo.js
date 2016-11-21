@@ -131,6 +131,10 @@ export default class extends BasePage {
     }
   }
 
+  gotoArticle(id){
+    window.location.href = '/article?id=' + id;
+  }
+
   renderRecommending(){
     return (
       <div>
@@ -161,7 +165,7 @@ export default class extends BasePage {
   renderArticleItems(articles){
     return articles.map(function(item, index){
       return (
-        <TapAble className="article block" key={"s"+index}>
+        <TapAble className="article block" key={"s"+index} onTap={this.gotoArticle.bind(this, item.id)}>
           <div className='article-item'>
             <p className='article-title'>{item.title}</p>
             <p className='article-creator'>{item.creator === '' ? '球胜体育': item.creator}</p>
