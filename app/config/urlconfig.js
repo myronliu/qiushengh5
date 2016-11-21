@@ -30,7 +30,7 @@ module.exports={// 不要加  '/'
   // 彩店实单
   recommendList: 'lottery/recommend/list',
   drawapply: 'lottery/draw/apply',
-
+  myorder: 'lottery/my/balance/value',
 
   // server needs
   banner: 'lottery/banner',

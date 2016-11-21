@@ -1,8 +1,8 @@
 .title{
   .switch-area{
     width: 50%;
-    height: 8rem;
-    line-height: 8rem;
+    height: 4rem;
+    line-height: 4rem;
     margin: 0 auto;
     font-size: 0;
     overflow: hidden;
@@ -12,15 +12,15 @@
       text-align: center;
       color: #fff;
       width: 50%;
-      height: 6rem;
-      line-height: 6rem;
-      margin-top: 1rem;
+      height: 3rem;
+      line-height: 3rem;
+      margin-top: 0.5rem;
       border: 1px solid #fff;
       &:nth-of-type(1){
-        border-radius: 0.4rem 0 0 0.4rem;
+        border-radius: 0.2rem 0 0 0.2rem;
       }
       &:nth-of-type(2){
-        border-radius: 0 0.4rem 0.4rem 0;
+        border-radius: 0 0.2rem 0.2rem 0;
       }
       &.active{
         background-color: #fff;
@@ -37,16 +37,16 @@
 
 .apply-expert{
   width: 100%;
-  padding-bottom: 10rem;
+  padding-bottom: 5rem;
   .user-input{
     .input-area{
       .input-item{
         background-color: #fff;
-        padding-left: 3rem;
-        height: 7rem;
-        line-height: 7rem;
-        margin-top: 2rem;
-        font-size: 3.2rem;
+        padding-left: 1.5rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        margin-top: 1rem;
+        font-size: 1.6rem;
         color: #b0b6bf;
         display: flex;
         .item-label{
@@ -55,26 +55,27 @@
         .item-input{
           flex: 1;
           outline: none;
-          font-size: 3.2rem;
+          border: 0;
+          font-size: 1.6rem;
           color: #b0b6bf;
-          text-indent: 1rem;
+          text-indent: 0.5rem;
         }
       }
       .file-item{
         background-color: #fff;
-        padding-left: 3rem;
-        height: 7rem;
-        line-height: 7rem;
-        margin-top: 2rem;
-        font-size: 3.2rem;
+        padding-left: 1.5rem;
+        height: 3.5rem;
+        line-height: 3.5rem;
+        margin-top: 1rem;
+        font-size: 1.6rem;
         position: relative;
         .item-label{
           color: #414b59;
         }
         .add-card{
-          width: 3rem;
+          width: 1.5rem;
           float: right;
-          margin: 2rem;
+          margin: 1rem;
         }
         .form-horizontal{
           position: absolute;
@@ -85,7 +86,7 @@
       }
       .image-preview{
         background-color: #fff;
-        padding: 3rem 0;
+        padding: 1.5rem 0;
         border-top: 1px solid #f1f1f5;
         position: relative;
         .preview-image{
@@ -94,9 +95,9 @@
           margin: 0 auto;
         }
         .close{
-          width: 3rem;
+          width: 1.5rem;
           position: absolute;
-          right: 2rem;
+          right: 1rem;
           top: 50%;
           transform: translateY(-50%);
         }
@@ -105,21 +106,21 @@
         width: 100%;
         border: 0;
         outline: none;
-        margin-top: 2rem;
-        padding: 3rem;
+        margin-top: 1rem;
+        padding: 1.5rem;
         resize: none;
-        font-size: 3.2rem;
+        font-size: 1.6rem;
         color: #b0b6bf;
       }
     }
     .role-area{
-      padding-left: 3rem;
-      margin-top: 1rem;
-      font-size: 2rem;
+      padding-left: 1.5rem;
+      margin-top: 0.5rem;
+      font-size: 1rem;
       .checkbox-icon{
-        width: 2rem;
+        width: 1rem;
         vertical-align: middle;
-        margin-right: 1rem;
+        margin-right: 0.5rem;
       }
       .contract-name{
         color: #99beed;
@@ -128,22 +129,19 @@
   }
 
   .apply-button-area{
-    position:fixed;
-    bottom: 0;
-    left: 0;
     width: 100%;
-    height: 10rem;
-    padding: 1.6rem 3rem;
-    background-color: #fff;
+    height: 5rem;
+    padding: 0.8rem 1.5rem;
+    margin-top: 3rem;
     .apply-button{
       background-color: #f47564;
-      height: 6.8rem;
-      line-height: 6.8rem;
+      height: 3.4rem;
+      line-height: 3.4rem;
       text-align: center;
       color: #fff;
-      font-size: 3.4rem;
+      font-size: 1.7rem;
       border: 1px solid #f47564;
-      border-radius: 0.5rem;
+      border-radius: 0.25rem;
     }
   }
 }

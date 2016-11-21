@@ -146,22 +146,21 @@ class LiveScore extends BasePage {
 
 	render() {
 		return (
-			<Layout className={'specialinfo'} title={'比分直播'}>
+			<Layout className={'livescore'} title={'比分直播'}>
 				<Loading showLoading={this.state.showLoading}/>
 				<TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
 				             secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
 				             secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
-				<div className="tabs">
-					<div className={this.state.recState == "NO" ? "active" : "unactive"}
-					     onTouchEnd={this.getUnEnd.bind(this)}>即时
-					</div>
-					<div className={this.state.recState == "YES" ? "active" : "unactive"}
-					     onTouchEnd={this.getEnd.bind(this)}>晚场
-					</div>
+
+				<div className="header">
+                    <span className={this.state.recState === "NO" ? "active left" : "left"}
+                          onTouchEnd={this.getUnEnd.bind(this)}>即时</span>
+					<span className={this.state.recState === "YES" ? "active right" : "right"}
+					      onTouchEnd={this.getEnd.bind(this)}>晚场</span>
 				</div>
+
 				<div className="liveScoreItems">
 					{this.renderItems()}
-
 
 				</div>
 			</Layout>

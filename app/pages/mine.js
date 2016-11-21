@@ -98,7 +98,7 @@ export default class extends BasePage {
     }
 
     withdraw() {
-        alert('申请提现，等待接口');
+        window.to('/drawapply');
     }
 
     renderOptions() {

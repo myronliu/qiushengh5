@@ -43,7 +43,7 @@ class TitleInput extends React.Component {
         type='number';
     }
     let inputStyle={width:this.props.inputWidth};
-    let titleStyle={width:this.props.titleWidth};
+    let titleStyle={width:this.props.titleWidth, color: this.props.titleColor};
     return (
       <div className='title_input'>
         <span className='title' style={titleStyle}>
