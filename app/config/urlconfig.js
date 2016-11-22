@@ -31,6 +31,7 @@ module.exports={// 不要加  '/'
   recommendList: 'lottery/recommend/list',
   drawapply: 'lottery/draw/apply',
   myorder: 'lottery/my/balance/value',
+  articledetail: 'lottery/article/detail',
 
   // server needs
   banner: 'lottery/banner',

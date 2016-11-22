@@ -9,16 +9,22 @@ import Loading from '../helper/loading';
 
 export default class extends BasePage {
   state = {
+    title:'',
+    context:''
   };
 
   apiSuccess(url, body) {
     this.showLoading(false);
     switch (url) {
-      case UrlConfig.concern:
-        this.setState({
-          focusList: (body.has ? body.experts : []),
-          newList: (!body.has ? body.experts : [])
-        })
+      case UrlConfig.articledetail:
+        if(body.success){
+          this.setState({
+            title: body.data.title,
+            context: body.data.content
+          })
+        }else{
+          Toast.show(body.msg, 'error')
+        }
         break;
     }
   }
@@ -26,16 +32,16 @@ export default class extends BasePage {
   componentDidMount() {
     super.componentDidMount();
 
-    // this.showLoading(true)
-    // ApiAction.post(UrlConfig.concern, {token: Cookie.getCookie("token") || ''});
+    this.showLoading(true)
+    ApiAction.post(UrlConfig.articledetail, {articleId: this.props.id || ''});
   }
 
   render() {
       return (
           <Layout hideBack={false} className={'article'} title={'文章'} >
             <Loading showLoading={this.state.showLoading}/>
-            <div>{"这里只是一个test的文章，哈哈哈哈，没有任何数据"}</div>
-            <div>{"文章ID：" + this.props.id}</div>
+            <div className="article-title">{this.state.title}</div>
+            <div className="article-context">{this.state.context}</div>
           </Layout>
       )
   }
