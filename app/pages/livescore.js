@@ -156,7 +156,7 @@ class LiveScore extends BasePage {
                     <span className={this.state.recState === "NO" ? "active left" : "left"}
                           onTouchEnd={this.getUnEnd.bind(this)}>即时</span>
 					<span className={this.state.recState === "YES" ? "active right" : "right"}
-					      onTouchEnd={this.getEnd.bind(this)}>晚场</span>
+					      onTouchEnd={this.getEnd.bind(this)}>完场</span>
 				</div>
 
 				<div className="liveScoreItems">

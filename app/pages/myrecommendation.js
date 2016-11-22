@@ -45,7 +45,7 @@ class MyRecommendation extends BasePage {
 	getRecommend(data) {
 		this.showLoading(true);
 		data = data || {};
-		data.token = Cookie.getCookie("token") || '';
+		data.token = Cookie.getCookie("token") || 'D3EB44780D4B29EDD4E22B3A1B9316B7D47DB679AA57559225B9D2C624A1F70A48949DF715957AB41E86F56B205FB4D339142BE590EAF32F071F44336744302BEB1A61EA0730C0B31A5E4B7CA740A8A6';
 
 		ApiAction.post(UrlConfig.myRecommend, data);
 	}

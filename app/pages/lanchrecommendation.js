@@ -324,7 +324,7 @@ class LanchRecommendation extends BasePage {
 
 	renderMatch(item, letBall, index, listLength) {
 		let {deployMatchInfo} = this.state;
-		return <div className="itemMatch" key={index} style={{marginBottom: index === listLength ? 0 : "2rem"}}>
+		return <div className="itemMatch" key={index} style={{marginBottom: index === listLength ? 0 : "1rem"}}>
 			<div className="middleWap">
 				<div className="line1">
 					<span className="left">
