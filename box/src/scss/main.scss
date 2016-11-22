@@ -93,14 +93,13 @@ $noticeHeight: 40px;
   }
   .match-list {
     position: absolute;
-    padding-top: $navHeight;
     height: 100%;
     width: 100%;
     z-index: 0;
     overflow: auto;
     top: 0;
     left: 0;
-    padding: 0 16px;
+    padding: $navHeight 16px 0;
   }
   .match-item {
     display: flex;
@@ -146,7 +145,12 @@ $noticeHeight: 40px;
     }
     .pl-wrap {
       .match-block-cell {
-        background:linear-gradient(to bottom, #fee38a , #fed87f); /* 浏览器默认值 */
+        cursor: pointer;
+        background:linear-gradient(to bottom, #fee38a , #fed87f);
+        &.active {
+          // background:linear-gradient(to bottom, #fed87f, #fee38a);
+          background: red;
+        }
         // &:first-child {
         //   border: 1px solid #fff
         // }

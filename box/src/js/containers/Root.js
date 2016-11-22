@@ -25,12 +25,13 @@ class Root extends Component {
 
 
   render() {
-    const { appData: { matchData }, selectTeam } = this.props;
+    const { appData: { matchData, selectTime }, selectTeam } = this.props;
 
     return (
       <div className="main-container">
         <Info />
         <Match
+          selectTime={selectTime}
           matchData={matchData}
           selectTeam={selectTeam}
         />

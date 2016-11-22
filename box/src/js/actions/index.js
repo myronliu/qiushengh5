@@ -27,3 +27,7 @@ export const getMatch = createAction(
 export const selectTeam = createAction(
     ActionTypes.SELECT_TEAM
 );
+
+export const sortTeam = createAction(
+    ActionTypes.SORT_TEAM
+);

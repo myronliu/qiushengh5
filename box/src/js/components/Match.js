@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import classnames from 'classnames';
 
 class Match extends Component {
   select(index, type) {
@@ -7,9 +8,8 @@ class Match extends Component {
   }
 
   render() {
-    const { matchData } = this.props;
+    const { matchData, selectTime } = this.props;
 
-    console.log(matchData);
     return (
       <div className="match-container">
         <div className="match-header">
@@ -22,25 +22,55 @@ class Match extends Component {
         <div className="match-list">
           {
             matchData.map((itemData, index) => (
-              <div className="match-item" key={itemData.matchId}>
+              <div className="match-item">
                 <div className="match-block">
                   {itemData.homeTeam} VS {itemData.awayTeam}
                 </div>
                 <div className="match-block rq-wrap">
-                  <div className="match-block-cell rq">0</div>
+                  <div className="match-block-cell rq">{index}</div>
                   <div className="match-block-cell rq">{itemData.handicap}</div>
                 </div>
                 <div className="match-block pl-wrap">
-                  <div onClick={() => this.select(index, 'oddsS')} className="match-block-cell pl">{itemData.oddsS}</div>
-                  <div onClick={() => this.select(index, 'oddsRs')} className="match-block-cell pl">{itemData.oddsRs}</div>
+                  <div
+                    onClick={() => this.select(index, 'oddsS')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsSSelected })}
+                  >
+                    {itemData.oddsS}
+                  </div>
+                  <div
+                    onClick={() => this.select(index, 'oddsRs')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsRsSelected })}
+                  >
+                    {itemData.oddsRs}
+                  </div>
                 </div>
                 <div className="match-block pl-wrap">
-                  <div onClick={() => this.select(index, 'oddsP')} className="match-block-cell pl">{itemData.oddsP}</div>
-                  <div onClick={() => this.select(index, 'oddsRp')} className="match-block-cell pl">{itemData.oddsRp}</div>
+                  <div
+                    onClick={() => this.select(index, 'oddsP')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsPSelected })}
+                  >
+                    {itemData.oddsP}
+                  </div>
+                  <div
+                    onClick={() => this.select(index, 'oddsRp')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsRpSelected })}
+                  >
+                    {itemData.oddsRp}
+                  </div>
                 </div>
                 <div className="match-block pl-wrap">
-                  <div onClick={() => this.select(index, 'oddsF')} className="match-block-cell pl">{itemData.oddsF}</div>
-                  <div onClick={() => this.select(index, 'oddsRf')} className="match-block-cell pl">{itemData.oddsRf}</div>
+                  <div
+                    onClick={() => this.select(index, 'oddsF')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsFSelected })}
+                  >
+                    {itemData.oddsF}
+                  </div>
+                  <div
+                    onClick={() => this.select(index, 'oddsRf')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsRfSelected })}
+                  >
+                    {itemData.oddsRf}
+                  </div>
                 </div>
               </div>
             ))
@@ -49,7 +79,7 @@ class Match extends Component {
         <div className="control-panel">
           <div className="control-block">
             <div className="show-select-time">
-              <span>已选1次</span>
+              <span>已选{selectTime}次</span>
             </div>
           </div>
           <div className="control-block">

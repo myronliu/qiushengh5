@@ -5,6 +5,7 @@ import ActionTypes from '../constants/ActionTypes';
 
 const initState = {
   matchData: [],
+  selectTime: 0,
 };
 
 
@@ -41,8 +42,29 @@ export default handleActions({
     });
   },
   [ActionTypes.SELECT_TEAM]: (state, action) => {
-    const { payload } = action;
-    console.log(payload);
-    return state;
+    const { payload: { index, type } } = action;
+
+    const isSelected = !state.matchData[index][`${type}Selected`];
+    const newSelectTime = isSelected ? ++state.selectTime : --state.selectTime;
+    return update(state, {
+      matchData: {
+        [index]: {
+          [`${type}Selected`]: {
+            $set: isSelected,
+          },
+        },
+      },
+      selectTime: { $set: newSelectTime },
+    });
   },
+  [ActionTypes.SORT_TEAM]: (state, action) => {
+    const { payload: { sortKey } } = action;
+
+    return update(state, {
+      matchData: {
+        $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey] - itemDataA[sortKey]),
+      },
+    });
+  },
+
 }, initState);
