@@ -38,7 +38,7 @@ export default class extends BasePage {
 
   render() {
       return (
-          <Layout hideBack={false} className={'article'} title={'文章'} >
+          <Layout hideBack={false} className={'article'} title={'专家文章'} >
             <Loading showLoading={this.state.showLoading}/>
             <div className="article-title">{this.state.title}</div>
             <div className="article-context">{this.state.context}</div>

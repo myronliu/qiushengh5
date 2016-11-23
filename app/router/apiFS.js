@@ -1,3 +1,4 @@
+var gulp = require('gulp');
 var express = require('express');
 var router = express.Router();
 var ApiAction = require('../actions/apiaction')
@@ -41,6 +42,79 @@ function uploadFile(uptoken, key, localFile) {
 }
 
 function handleApiWithFile(req, res, config){
+  // var reqq = multipart(req);
+  var form = new formidable.IncomingForm();
+  form.uploadDir = path.join(__dirname, 'tmp');   //文件保存的临时目录为当前项目下的tmp文件夹
+  form.maxFieldsSize = 10 * 1024 * 1024;  //用户头像大小限制为最大1M
+  form.keepExtensions = true;        //使用文件的原扩展名
+  form.parse(req, function (err, fields, file) {
+      var filePath = '';
+      var filesPath = [];
+      //如果提交文件的form中将上传文件的input名设置为tmpFile，就从tmpFile中取上传文件。否则取for in循环第一个上传的文件。
+      if(file.tmpFile){
+          filePath = file.tmpFile.path;
+      } else {
+          for(var key in file){
+              if( file[key].path && filePath==='' ){
+                  console.log(key)
+                  console.log(file[key].path)
+                  filesPath.push(file[key].path);
+              }
+          }
+      }
+      if(filePath){
+        var fileExt = filePath.substring(filePath.lastIndexOf('.'));
+        //判断文件类型是否允许上传
+        if (('.jpg.jpeg.png.gif').indexOf(fileExt.toLowerCase()) === -1) {
+            var err = new Error('此文件类型不允许上传');
+            res.json({code:-1, message:'此文件类型不允许上传'});
+        } else {
+            //以当前时间戳对上传文件进行重命名
+            var fileName = new Date().getTime()+ '/'  + fields.username + fileExt;
+
+            //生成上传 Token
+            var token = uptoken(bucket, fileName);
+
+            //调用uploadFile上传
+            uploadFile(token, fileName, filePath);
+            fields[fields.paramUrl] = 'http://ogk4g82l7.bkt.clouddn.com/' + fileName;
+            fs.unlink(filePath);
+            ApiAction.post(req.url,fields,function(data){
+              res.json(data);
+              // res.json({status: 0, body:{success: true, msg:''}})
+            }, config)
+        }
+      }else{
+        for(var key in file){
+          var filePath = file[key].path;
+          var fileExt = filePath.substring(filePath.lastIndexOf('.'));
+          //判断文件类型是否允许上传
+          if (('.jpg.jpeg.png.gif').indexOf(fileExt.toLowerCase()) === -1) {
+              var err = new Error('此文件类型不允许上传');
+              res.json({code:-1, message:'此文件类型不允许上传'});
+          } else {
+              //以当前时间戳对上传文件进行重命名
+              var fileName = new Date().getTime()+ '/'  + fields.username + '/' + key + fileExt;
+
+              //生成上传 Token
+              var token = uptoken(bucket, fileName);
+
+              //调用uploadFile上传
+              uploadFile(token, fileName, filePath);
+              fields[key] = 'http://ogk4g82l7.bkt.clouddn.com/' + fileName;
+              console.log('http://ogk4g82l7.bkt.clouddn.com/' + fileName)
+              fs.unlink(filePath);
+          }
+        }
+
+        ApiAction.post(req.url,fields,function(data){
+          res.json(data);
+        }, config)
+      }
+  });
+}
+
+function handleApiWithFile_aaaa(req, res, config){
   // var reqq = multipart(req);
   var form = new formidable.IncomingForm();
   form.uploadDir = path.join(__dirname, 'tmp');   //文件保存的临时目录为当前项目下的tmp文件夹
