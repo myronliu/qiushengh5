@@ -50,6 +50,7 @@ var Contract = React.createFactory(require('../pages/contract'));
 var Limits = React.createFactory(require('../pages/limits'));
 var Article = React.createFactory(require('../pages/article'));
 var Drawapply = React.createFactory(require('../pages/drawapply'));
+var DrawRecord = React.createFactory(require('../pages/drawrecord'));
 
 // 加入定时计划
 var later = require('later');
@@ -259,6 +260,11 @@ router.get('/depositrecord',function(req,res){
 router.get('/drawapply',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Drawapply());
   res.render('home', {reactOutput: reactHtml,title:'申请提现'});
+});
+
+router.get('/drawrecords',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(DrawRecord());
+  res.render('home', {reactOutput: reactHtml,title:'提现明细'});
 });
 
 router.get('/article', function(req,res){

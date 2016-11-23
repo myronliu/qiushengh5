@@ -21,7 +21,7 @@ export default class extends BasePage {
             case UrlConfig.url + "?url=http://b.fencaike.com/api/" + UrlConfig.competition:
                 var ll = JSON.parse(body);
                 this.setState({
-                    list: ll.data || []
+                    list: ll.data || {}
                 })
                 break;
         }
@@ -119,13 +119,22 @@ export default class extends BasePage {
     }
 
     renderList() {
-        return this.state.list.map(function (item, index) {
-            return (
-                <div className="listS" key={'list' + index}>
-                    {this.renderItemNew(item)}
+        var arr = [];
+        for(var key in this.state.list){
+            arr.push(
+                <div className="listS" key={'list' + key}>
+                    {this.renderItemNew(this.state.list[key])}
                 </div>
             )
-        }.bind(this));
+        }
+        return arr;
+        // return this.state.list.map(function (item, index) {
+        //     return (
+        //         <div className="listS" key={'list' + index}>
+        //             {this.renderItemNew(item)}
+        //         </div>
+        //     )
+        // }.bind(this));
 
 
     }
