@@ -42,6 +42,7 @@ module.exports={// 不要加  '/'
   //
   //shangjie add
   apiAddress: 'http://60.205.145.105',
-  token : Cookie.getCookie("token") || ""
+  token : Cookie.getCookie("token") || "",
+  myDetail: 'lottery/my/detail'
 
 };
