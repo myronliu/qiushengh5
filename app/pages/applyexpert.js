@@ -210,7 +210,7 @@ export default class extends BasePage {
               <span className="item-label">上传身份证正面照</span>
               <img className="add-card" src={addIconSrc} onTouchEnd={this.chooseExpertCard.bind(this)}/>
               <PageForm ref="expertForm" className="form-horizontal" action="/apiQS/upload" enctype="multipart/form-data">
-                <input type="file" name="qsFile" ref="expertCard" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+                <input type="file" name="qsFile" ref="expertCard" capture="camera" accept="image/*" onChange={($e)=> {
                    let files = $e.target.files;
                    if (files.length == 0) return;
                    this.preLoadImg(files[0], 'expertCard');
@@ -250,7 +250,7 @@ export default class extends BasePage {
               <span className="item-label">上传身份证正面照</span>
               <img className="add-card" src={addIconSrc} onTouchEnd={this.chooseKeeperCard.bind(this)}/>
               <PageForm ref="keeperCardForm" className="form-horizontal" action="/apiQS/upload" enctype="multipart/form-data">
-                <input type="file" name="qsFile" ref="keeperCard" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+                <input type="file" name="qsFile" ref="keeperCard" capture="camera" accept="image/*" onChange={($e)=> {
                    let files = $e.target.files;
                    if (files.length == 0) return;
                    this.preLoadImg(files[0], 'keeperCard');

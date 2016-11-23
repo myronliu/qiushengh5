@@ -2,7 +2,11 @@
 .lanchRecommendation {
 	.navigetion {
 		.right {
-			top: 10.25%
+			top: 10.25%;
+			> .icon {
+				height: 2rem;
+				width: 2rem;
+			}
 		}
 	}
 	.lanchrecommendationItem {
@@ -46,7 +50,7 @@
 			}
 			.selectRecommendType {
 				position: absolute;
-				height: 3rem;
+				height: 4.5rem;
 				width: 100%;
 				left: 0;
 				filter: alpha(opacity=0);
@@ -66,14 +70,15 @@
 			.preLoadImg {
 				width: 100%;
 				margin-top: 1rem;
+				border: .5rem solid white;
 			}
 			.deleteImgBtn {
 				position: absolute;
-				right: 0;
-				top: 1rem;
-				width: 1rem;
-				height: 1rem;
-				background: url("../icons/btn_delete.png");
+				right: .5rem;
+				top: 1.5rem;
+				width: 1.5rem;
+				height: 1.5rem;
+				background: url(../icons/btn_delete.png);
 				background-size: 100%;
 			}
 		}
@@ -336,46 +341,46 @@
 
 	}
 
-	.newAddAlert{
-		.saishi{
+	.newAddAlert {
+		.saishi {
 			position: relative;
 			background-color: white;
 			padding: 5.3% 2.7%;
 			border-bottom: 0.01rem solid #eee;
 			text-align: center;
 			font-size: .6rem;
-			.matchWap{
+			.matchWap {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				.item{
+				.item {
 					vertical-align: top;
 					height: 4.5rem;
 					line-height: 4.5rem;
 					flex: 1;
 				}
-				.itemLeft{
-					img{
+				.itemLeft {
+					img {
 						height: 2.5rem;
 						border-radius: 1.25rem;
 						vertical-align: top;
 						margin-top: 1rem;
 					}
-					span{
+					span {
 						line-height: 4.5rem;
 						height: 4.5rem;
 						color: black;
 					}
 				}
-				.itemMiddle{
+				.itemMiddle {
 					height: 4.5rem;
 					vertical-align: top;
 					text-align: center;
 					font-size: 1rem;
 					line-height: 1.5rem;
 				}
-				.itemRight{
-					span{
+				.itemRight {
+					span {
 						line-height: 4.5rem;
 						height: 4.5rem;
 						color: black;
@@ -383,7 +388,6 @@
 				}
 			}
 		}
-
 
 	}
 }

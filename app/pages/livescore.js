@@ -14,6 +14,15 @@ import Loading from '../helper/loading';
 import TapAble from 'react-tappable';
 // import {Post} from '../http/http';
 
+const weekMap = {
+	1: "周一",
+	2: "周二",
+	3: "周三",
+	4: "周四",
+	5: "周五",
+	6: "周六",
+	0: "周日"
+};
 class LiveScore extends BasePage {
 	constructor(props) {
 		super(props);
@@ -110,38 +119,69 @@ class LiveScore extends BasePage {
 
 	renderItems() {
 		let {list, recState}  = this.state;
-		return list.map(function (item, index) {
-			return (
-				<div className="matchItem" key={"matchItem_" + index}>
-					<div className="matchTitle">
-						<span className="week">{item.weekday}</span>
-						<span className="bh">{item.bh}</span>
-						<span className="desc">{item.matchName}</span>
-						<span className="time">{item.matchDate.substring(11, 16)}</span>
-					</div>
-					<div className="matchBody">
-						<div className="bodyLeft">{recState === "NO" ? "未" : "完"}</div>
-						<div className="bodyRight">
-							<div className="score" style={{color: recState === "NO" ? "#7f8691" : "red"}}>
-								<div
-									className="scoreTop">{recState === "NO" ? "-" : item.finalScore.split(":")[0]}</div>
-								<div
-									className="scoreBottom">{recState === "NO" ? "-" : item.finalScore.split(":")[1]}</div>
-							</div>
-							<div className="team">
-								<div className="teamTop">{item.homeTeam}</div>
-								<div className="teamBottom">{item.awayTeam}</div>
-							</div>
-							<div className="result">
-								<div className="resultTop">{item.oddsS}</div>
-								<div className="resultMiddle">{item.oddsP}</div>
-								<div className="resultBottom">{item.oddsF}</div>
-							</div>
+		if (recState === "NO") {
+			return <div className="liveScoreItems">
+				{
+					list.map((item, index)=> {
+						return this.renderDetailItems(item, index, recState)
+					})
+				}
+			</div>
+		} else {
+			let lastDate = list[0].matchDate.substring(0, 10);
+			let object = {[lastDate]: []};
+			list.map(itemInfo=> {
+				let date = itemInfo.matchDate.substring(0, 10);
+				if (date !== lastDate) {
+					object[date] = [];
+					lastDate = date;
+				}
+				object[date].push(itemInfo);
+			});
+			return Object.keys(object).map((date, index1)=> {
+				return <div className="liveScoreItems" key={"liveScoreItems_" + index1}>
+					<div className="dateDesc">{date + " " + weekMap[new Date(date).getDay()]}</div>
+					{
+						object[date].map((item, index)=> {
+							return this.renderDetailItems(item, index, recState);
+						})
+					}
+				</div>
+			});
+		}
+	}
+
+	renderDetailItems(item, index, recState) {
+		return (
+			<div className="matchItem" key={"matchItem_" + index}>
+				<div className="matchTitle">
+					<span className="week">{item.weekday}</span>
+					<span className="bh">{item.bh}</span>
+					<span className="desc">{item.matchName}</span>
+					<span className="time">{item.matchDate}</span>
+				</div>
+				<div className="matchBody">
+					<div className="bodyLeft">{recState === "NO" ? "未" : "完"}</div>
+					<div className="bodyRight">
+						<div className="score" style={{color: recState === "NO" ? "#7f8691" : "red"}}>
+							<div
+								className="scoreTop">{recState === "NO" ? "-" : item.finalScore.split(":")[0]}</div>
+							<div
+								className="scoreBottom">{recState === "NO" ? "-" : item.finalScore.split(":")[1]}</div>
+						</div>
+						<div className="team">
+							<div className="teamTop">{item.homeTeam}</div>
+							<div className="teamBottom">{item.awayTeam}</div>
+						</div>
+						<div className="result">
+							<div className="resultTop">{item.oddsS}</div>
+							<div className="resultMiddle">{item.oddsP}</div>
+							<div className="resultBottom">{item.oddsF}</div>
 						</div>
 					</div>
 				</div>
-			)
-		}.bind(this));
+			</div>
+		)
 	}
 
 	render() {
@@ -156,13 +196,9 @@ class LiveScore extends BasePage {
                     <span className={this.state.recState === "NO" ? "active left" : "left"}
                           onTouchEnd={this.getUnEnd.bind(this)}>即时</span>
 					<span className={this.state.recState === "YES" ? "active right" : "right"}
-					      onTouchEnd={this.getEnd.bind(this)}>晚场</span>
+					      onTouchEnd={this.getEnd.bind(this)}>完场</span>
 				</div>
-
-				<div className="liveScoreItems">
-					{this.renderItems()}
-
-				</div>
+				{this.renderItems()}
 			</Layout>
 		)
 	}

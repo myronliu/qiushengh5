@@ -324,7 +324,7 @@ class LanchRecommendation extends BasePage {
 
 	renderMatch(item, letBall, index, listLength) {
 		let {deployMatchInfo} = this.state;
-		return <div className="itemMatch" key={index} style={{marginBottom: index === listLength ? 0 : "2rem"}}>
+		return <div className="itemMatch" key={index} style={{marginBottom: index === listLength ? 0 : "1rem"}}>
 			<div className="middleWap">
 				<div className="line1">
 					<span className="left">
@@ -461,7 +461,7 @@ class LanchRecommendation extends BasePage {
 				<PageForm ref="pageForm" className="form-horizontal" action="/apiQS/upload"
 				          enctype="multipart/form-data">
 					<input style={{display: "none"}} type="file" ref="qsFile" name="qsFile"
-					       accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+					       capture="camera" accept="image/*" onChange={($e)=> {
 						let files = $e.target.files;
 						if (files.length == 0) return;
 						this.beforeUpload && this.preLoadImg(files[0]);
