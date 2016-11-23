@@ -461,7 +461,7 @@ class LanchRecommendation extends BasePage {
 				<PageForm ref="pageForm" className="form-horizontal" action="/apiQS/upload"
 				          enctype="multipart/form-data">
 					<input style={{display: "none"}} type="file" ref="qsFile" name="qsFile"
-					       accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+					       capture="camera" accept="image/*" onChange={($e)=> {
 						let files = $e.target.files;
 						if (files.length == 0) return;
 						this.beforeUpload && this.preLoadImg(files[0]);
