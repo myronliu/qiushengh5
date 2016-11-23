@@ -105,6 +105,10 @@ export default class extends BasePage {
         window.to('/drawapply');
     }
 
+    drawrecords() {
+        window.to('/drawrecords');
+    }
+
     renderOptions() {
         if (this.state.ifCommon) {
             return (
@@ -228,9 +232,10 @@ export default class extends BasePage {
 
     render() {
         let leftBtn = {title: '我的推荐', func: this.gotoMyreRommendation.bind(this)};
-        let rightBtn = this.state.ifCommon ? {title: '', func: this.noFunc.bind(this)}:{title: '申请提现', func: this.withdraw.bind(this)};
+        let rightBtn1 = this.state.ifCommon ? {title: '', func: this.noFunc.bind(this)}:{title: '提现', func: this.withdraw.bind(this)};
+        let rightBtn2 = this.state.ifCommon ? {title: '', func: this.noFunc.bind(this)}:{title: '明细', func: this.drawrecords.bind(this)};
         return (
-            <Layout hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn]} leftItems={leftBtn}>
+            <Layout hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn1, rightBtn2]} leftItems={leftBtn}>
                 <Loading showLoading={this.state.showLoading}/>
                 <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
                              secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}

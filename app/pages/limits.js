@@ -59,7 +59,7 @@ export default class extends BasePage {
                     type = 'type1';
             }
             return (
-                <div className="item" key={'item' + index}>
+                <div className="limit-item" key={'item' + index}>
                     <div className={"limitType " + type}>
                         {item.limit_type}
                     </div>
