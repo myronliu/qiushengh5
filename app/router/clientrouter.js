@@ -31,6 +31,7 @@ var Contract = require('../pages/contract');
 var Limits = require('../pages/limits');
 var Article = require('../pages/article');
 var Drawapply = require('../pages/drawapply');
+var DrawRecord = require('../pages/drawrecord');
 
 // import Index from '../pages/financing/index';
 // console.log('host');
@@ -121,6 +122,9 @@ var Router = EvoFlux.createRouter({
   },
   '/drawapply': function(){
     ReactDOM.render(<Drawapply />, container);
+  },
+  '/drawrecords': function(){
+    ReactDOM.render(<DrawRecord />, container);
   },
   '/recommend': function(){
     ReactDOM.render(<Recommend type={this.query("type")} />, container);

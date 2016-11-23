@@ -21,7 +21,7 @@ export default class extends BasePage {
             case UrlConfig.url + "?url=http://b.fencaike.com/api/" + UrlConfig.competition:
                 var ll = JSON.parse(body);
                 this.setState({
-                    list: ll.data || []
+                    list: ll.data || {}
                 })
                 break;
         }
@@ -51,6 +51,9 @@ export default class extends BasePage {
                     break;
                 case '连续赢盘':
                     type = 'type4';//蓝色
+                    break;
+                case '连续大球':
+                    type = 'type5';//红色
                     break;
                 default :
                     type = 'type1';
@@ -119,13 +122,22 @@ export default class extends BasePage {
     }
 
     renderList() {
-        return this.state.list.map(function (item, index) {
-            return (
-                <div className="listS" key={'list' + index}>
-                    {this.renderItemNew(item)}
+        var arr = [];
+        for(var key in this.state.list){
+            arr.push(
+                <div className="listS" key={'list' + key}>
+                    {this.renderItemNew(this.state.list[key])}
                 </div>
             )
-        }.bind(this));
+        }
+        return arr;
+        // return this.state.list.map(function (item, index) {
+        //     return (
+        //         <div className="listS" key={'list' + index}>
+        //             {this.renderItemNew(item)}
+        //         </div>
+        //     )
+        // }.bind(this));
 
 
     }
