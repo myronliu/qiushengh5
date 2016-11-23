@@ -14,7 +14,11 @@ export default class extends BasePage {
   }
 
   apiSuccess(url,body){
-    Toast.show('发布成功', 'success', 1000);
+    switch (url) {
+        case UrlConfig.publishArticle:
+          Toast.show('发布成功', 'success', 1000);
+          break;
+    }
   }
 
   render(){
