@@ -52,6 +52,9 @@ export default class extends BasePage {
                 case '连续赢盘':
                     type = 'type4';//蓝色
                     break;
+                case '连续大球':
+                    type = 'type5';//红色
+                    break;
                 default :
                     type = 'type1';
             }

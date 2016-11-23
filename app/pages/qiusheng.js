@@ -301,7 +301,7 @@ export default class extends BasePage {
             }
         ];
         return (
-            <Layout hideBack={true} className={'qiusheng'} title={'球盛体育'}>
+            <Layout isShowHeader={false} hideBack={true} className={'qiusheng'} title={'球盛体育'}>
                 <Loading showLoading={this.state.showLoading}/>
                 <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
                              secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
@@ -329,7 +329,7 @@ export default class extends BasePage {
                 </div>
                 <TapAble className="hongrenbang block" onTap={this.gotoHots.bind(this)}>
                     <div id="scrollDiv" className="scrolldivs">
-                        <img className="leftInfo" src="../images/qiusheng/icon-hongrenbang.png"/>
+                        <img className="leftInfo" src="../images/qiusheng/icon_userrank.png"/>
                         <ul className="scrollul">
                             {this.renderHots()}
                         </ul>
@@ -346,7 +346,7 @@ export default class extends BasePage {
                 <div className="content specialistHome">
                     <div className="topInfo">
                         <span className="title">{"竞彩专家"}</span>
-                        {/*<span className="link" onTouchEnd={this.gotoSpecialist.bind(this)}>{"更多"}</span>*/}
+                        <span className="link" onTouchEnd={this.gotoSpecialist.bind(this)}>{"更多"}</span>
                     </div>
                     {this.renderSpecialist()}
                 </div>
