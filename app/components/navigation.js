@@ -26,15 +26,39 @@ export default class Navigation extends React.Component{
   }
   render(){
     let  rightItems=this.renderItem();
-    let backStyle={}
-    if(this.props.hideBack){
+    let backStyle={};
+    let {hideBack, leftItems} = this.props;
+    if(hideBack){
       backStyle={display:'none'}
     }
     return (
       <div className='navigetion'>
         <div style={backStyle} className='back' onTouchEnd={this.back.bind(this)}>
-          <i className="jianTou icon-angle-left icon-2x"></i>
+          <i className="jianTou icon-angle-left icon-2x"/>
         </div>
+        {
+          hideBack && leftItems ? <div className='left'>
+            {
+	            (()=>{
+		            if(leftItems.icon){
+			            return <img
+				            className='icon'
+				            src={leftItems.icon}
+				            onTouchEnd={leftItems.func}
+			            />
+		            }else{
+			            return <span
+				            onTouchEnd={leftItems.func}
+				            className='item'>
+				             {leftItems.title}
+				            </span>
+			            }
+	            })()
+            }
+          </div>:null
+        }
+
+
         <div className='title'>
           {this.props.title}
         </div>
