@@ -91,6 +91,32 @@ $noticeHeight: 40px;
       line-height: 46px;
     }
   }
+  .drop-menu {
+    position: relative;
+    cursor: pointer;
+      > ul {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        padding: 0;
+        width: 100%;
+        margin: 0;
+        background-color: #fff;
+        border: 1px solid #ccc;
+        > li {
+          list-style: none;
+          display: block;
+          height: 20px;
+          line-height: 20px;
+          cursor: pointer;
+          span {
+            &:hover {
+              text-decoration: underline;
+            }
+          }
+        }
+      }
+  }
   .match-list {
     position: absolute;
     height: 100%;
@@ -190,7 +216,7 @@ $noticeHeight: 40px;
     background-color: rgba(0, 0, 0, .75);
     .control-block {
       font-size: 12px;
-      padding: 16px;
+      padding: 16px 0 16px 16px;
       display: flex;
       color: #ffffff;
       &:nth-child(1) {
@@ -212,17 +238,54 @@ $noticeHeight: 40px;
         > div {
           flex: 1;
           display: flex;
-          flex-direction: column;
+          flex-direction: row;
           justify-content: center;
+          align-items: center;
         }
       }
       &:nth-child(3) {
         flex: 3;
+        > div {
+          justify-content: flex-start;
+          display: flex;
+          flex-direction: row;
+          > div {
+            justify-content: flex-start;
+            display: flex;
+            flex-direction: row;
+          }
+        }
+        .price-result {
+          color: #FFE38B;
+        }
+        .control-num {
+          display: inline-block;
+          justify-content: flex-start;
+          display: flex;
+          flex-direction: row;
+          height: 17px;
+          line-height: 15px;
+          width: 49px;
+          > div {
+            box-sizing: content-box;
+            flex: 1;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            background-color: #fff;
+            border: 1px solid #ccc;
+          }
+          .buy-num-count-in {
+            color: $fontColor;
+          }
+        }
       }
       &:nth-child(4) {
         flex: 2;
         justify-content: center;
         align-items: center;
+        padding-right: 16px;
         .show-more {
           width: 100%;
           text-align: center;

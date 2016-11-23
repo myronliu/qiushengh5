@@ -12,10 +12,6 @@ import Match from '../components/Match';
     dispatch => bindActionCreators(actions, dispatch)
 )
 class Root extends Component {
-  constructor(props) {
-    super(props);
-    console.log(props);
-  }
   componentWillMount() {
     const { getNotice, getMatch } = this.props;
 
@@ -25,15 +21,16 @@ class Root extends Component {
 
 
   render() {
-    const { appData: { matchData, selectTime }, selectTeam } = this.props;
+    const { appData: { matchData, controlData }, selectTeam, sortTeam } = this.props;
 
     return (
       <div className="main-container">
         <Info />
         <Match
-          selectTime={selectTime}
+          controlData={controlData}
           matchData={matchData}
           selectTeam={selectTeam}
+          sortTeam={sortTeam}
         />
       </div>
     );

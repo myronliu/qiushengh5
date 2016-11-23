@@ -31,3 +31,7 @@ export const selectTeam = createAction(
 export const sortTeam = createAction(
     ActionTypes.SORT_TEAM
 );
+
+export const changeBuyNum = createAction(
+    ActionTypes.CHANGE_BUY_NUM
+);

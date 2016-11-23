@@ -5,7 +5,10 @@ import ActionTypes from '../constants/ActionTypes';
 
 const initState = {
   matchData: [],
-  selectTime: 0,
+  controlData: {
+    selectTime: 0,
+    buyNum: 1,
+  },
 };
 
 
@@ -54,17 +57,75 @@ export default handleActions({
           },
         },
       },
-      selectTime: { $set: newSelectTime },
+      controlData: {
+        selectTime: { $set: newSelectTime },
+      },
     });
   },
   [ActionTypes.SORT_TEAM]: (state, action) => {
-    const { payload: { sortKey } } = action;
+    const { payload: { a, b } } = action;
 
-    return update(state, {
-      matchData: {
-        $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey] - itemDataA[sortKey]),
-      },
-    });
+    let result;
+    function choose(indexNum, key) {
+      let sortKey;
+      switch (indexNum) {
+      case 0:
+        sortKey = `odds${key.toUpperCase()}`;
+        console.log(state.matchData.sort((itemDataA, itemDataB) => {
+          return itemDataB[sortKey] - itemDataA[sortKey];
+        }));
+        result = update(state, {
+          matchData: {
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey] - itemDataA[sortKey]),
+          },
+        });
+        break;
+      case 1:
+        sortKey = `odds${key.toUpperCase()}`;
+        result = update(state, {
+          matchData: {
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataA[sortKey] - itemDataB[sortKey]),
+          },
+        });
+        break;
+      case 2:
+        sortKey = `oddsR${key}`;
+        result = update(state, {
+          matchData: {
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey] - itemDataA[sortKey]),
+          },
+        });
+        break;
+      case 3:
+        sortKey = `oddsR${key}`;
+        result = update(state, {
+          matchData: {
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataA[sortKey] - itemDataB[sortKey]),
+          },
+        });
+        break;
+      default:
+
+      }
+    }
+    switch (a) {
+    case 0:
+      choose(b, 's');
+      break;
+    case 1:
+      choose(b, 'f');
+      break;
+    case 2:
+      choose(b, 'p');
+      break;
+    default:
+    }
+    return result;
+  },
+  [ActionTypes.CHANGE_BUY_NUM]: (state, action) => {
+    const { payload } = action;
+    console.log(payload);
+    return state;
   },
 
 }, initState);
