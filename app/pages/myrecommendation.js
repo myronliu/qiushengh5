@@ -150,13 +150,13 @@ class MyRecommendation extends BasePage {
 				<div className="items">
 					{this.renderItems()}
 				</div>
-				<div className="deployBtnWap" onTouchEnd={this.gotoMoreRecommendation.bind(this, "mine")}>
+			{/*	<div className="deployBtnWap" onTouchEnd={this.gotoMoreRecommendation.bind(this, "mine")}>
 					<div className="deployBtn">
 						<div className="footer-item">
 							<div>新增推荐</div>
 						</div>
 					</div>
-				</div>
+				</div>*/}   
 			</Layout>
 		)
 	}
