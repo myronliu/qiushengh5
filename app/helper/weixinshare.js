@@ -1,8 +1,8 @@
 var request = require('request');
 var sign=require('../helper/sign');//微信提供的签名方法
 var WeiXinData={
-    appid:'',//正式
-    secret:'',//正式
+    appid:'wx2d22b4133f04d06e',//正式
+    secret:'0209044ac26f4ba5f625890d8bcdcfdb',//正式
     access_token:'',
     ticket:'',
     access_tokenDate:0,

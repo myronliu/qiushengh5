@@ -64,7 +64,7 @@ export default class extends BasePage {
 
     render() {
         return (
-            <Layout className={'userrank'} title={'红人馆'}>
+            <Layout className={'userrank'} title={'球盛名人堂'}>
                 <Loading showLoading={this.state.showLoading}/>
                 {this.renderItems()}
             </Layout>

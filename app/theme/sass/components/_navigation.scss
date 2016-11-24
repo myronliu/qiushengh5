@@ -32,7 +32,7 @@ $bgc: #DC594B;
         width: 100%;
         font-size: 1.5rem;
     }
-    .right {
+    .right, .left {
         color: #fff;
         right: 1.5rem;
         font-size: 1.4rem;
@@ -47,6 +47,9 @@ $bgc: #DC594B;
             height: 25px;
             width: 25px;
         }
+    }
+    .left{
+        left: 1.5rem;
     }
 
 }

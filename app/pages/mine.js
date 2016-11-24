@@ -85,6 +85,10 @@ export default class extends BasePage {
         window.to('/myrecommendation');
     }
 
+	gotoMoreRecommendation() {
+		window.to('/lanchrecommendation');
+	}
+
     applyExpert() {
         window.to('/applyexpert');
     }
@@ -99,6 +103,10 @@ export default class extends BasePage {
 
     withdraw() {
         window.to('/drawapply');
+    }
+
+    drawrecords() {
+        window.to('/drawrecords');
     }
 
     renderOptions() {
@@ -116,7 +124,7 @@ export default class extends BasePage {
         } else {
             return (
                 <div className="options">
-                    <span className="optionButton" onTouchEnd={this.gotoMyreRommendation.bind(this)}>
+                    <span className="optionButton" onTouchEnd={this.gotoMoreRecommendation.bind(this)}>
                         <img src="../images/mine/icon-withdraw.png"/>
                         新增推荐
                     </span>
@@ -223,9 +231,11 @@ export default class extends BasePage {
     noFunc(){}
 
     render() {
-        let rightBtn = this.state.ifCommon ? {title: '', func: this.noFunc.bind(this)}:{title: '申请提现', func: this.withdraw.bind(this)};
+        let leftBtn = {title: '我的推荐', func: this.gotoMyreRommendation.bind(this)};
+        let rightBtn1 = this.state.ifCommon ? {title: '', func: this.noFunc.bind(this)}:{title: '提现', func: this.withdraw.bind(this)};
+        let rightBtn2 = this.state.ifCommon ? {title: '', func: this.noFunc.bind(this)}:{title: '明细', func: this.drawrecords.bind(this)};
         return (
-            <Layout hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn]}>
+            <Layout hideBack={true} className={'mine'} title={'我的'} rightItems={[rightBtn1, rightBtn2]} leftItems={leftBtn}>
                 <Loading showLoading={this.state.showLoading}/>
                 <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
                              secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}

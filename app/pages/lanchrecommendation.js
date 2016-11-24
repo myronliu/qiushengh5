@@ -18,8 +18,8 @@ import UploadStore from '../stores/uploadstore';
 import Keyboard from '../components/keyboard';
 
 const recommendType = {
-	COMMON: "普通推荐",
-	REAL: "实单推荐"
+	EXPERT: "普通推荐",
+	SHOPKEEPER: "实单推荐"
 };
 class LanchRecommendation extends BasePage {
 	constructor(props) {
@@ -33,11 +33,11 @@ class LanchRecommendation extends BasePage {
 			selectedMatchArray: [],
 			sureSelectedArray: [],
 			deployMatchInfo: {},
-			fee: 5,
+			fee: -1,
 			myDefineFee: -1,
 			content: "",
 			imgUrl: "",
-			recommendationType: "COMMON",
+			userType: "EXPERT",
 			kbdShow: false
 		};
 	}
@@ -54,7 +54,7 @@ class LanchRecommendation extends BasePage {
 				} else {
 					this.setState({
 						list: []
-					})
+					});
 					Toast.show(body.msg)
 				}
 				break;
@@ -70,13 +70,24 @@ class LanchRecommendation extends BasePage {
 						fee: -1,
 						myDefineFee: -1,
 						content: "",
-						imgUrl: "",
-						recommendationType: "COMMON"
+						imgUrl: ""
 					});
 				} else {
 					this.setState({
 						showWarnAlert: true,
 						alertWarnTitle: "网络出错，请重新发布！"
+					});
+				}
+				break;
+			case UrlConfig.myDetail:
+				if (body.myType) {
+					this.setState({
+						userType: body.myType
+					});
+				} else {
+					this.setState({
+						showWarnAlert: true,
+						alertWarnTitle: "网络出错，请刷新页面！"
 					});
 				}
 				break;
@@ -148,7 +159,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	deployRecommendation() {
-		let {deployMatchInfo, fee, myDefineFee, content, recommendationType, imgUrl} = this.state;
+		let {deployMatchInfo, fee, myDefineFee, content, userType, imgUrl} = this.state;
 
 		let matchIdArray = Object.keys(deployMatchInfo);
 
@@ -159,14 +170,14 @@ class LanchRecommendation extends BasePage {
 			});
 			return;
 		}
-		if (fee === 0) {
+		if (fee === -1 && (myDefineFee === -1 || myDefineFee === "")) {
 			this.setState({
 				showWarnAlert: true,
 				alertWarnTitle: "请选择费用！"
 			});
 			return;
 		}
-		if (content.trim() === "" || content.trim().length < 30) {
+		if (userType === "EXPERT" && (content.trim() === "" || content.trim().length < 30)) {
 			this.setState({
 				showWarnAlert: true,
 				alertWarnTitle: "推荐理由不少于30字！"
@@ -218,7 +229,7 @@ class LanchRecommendation extends BasePage {
 			token: Cookie.getCookie("token") || ''
 		};
 
-		if (recommendationType === "COMMON") {
+		if (userType === "EXPERT") {
 			this.showLoading(true);
 			ApiAction.post(UrlConfig.deployRecommendation, params);
 		} else {
@@ -363,7 +374,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	render() {
-		let {selectedMatchArray, list, content, fee, sureSelectedArray, imgUrl, recommendationType, kbdShow} = this.state;
+		let {selectedMatchArray, list, content, fee, myDefineFee, sureSelectedArray, imgUrl, userType, kbdShow} = this.state;
 		let rightBtn = {icon: '../icons/nav_sy_pre.png', func: this.goHomePage.bind(this)};
 		return (
 			<Layout className='lanchRecommendation' title={'新增推荐'} rightItems={[rightBtn]}>
@@ -383,20 +394,10 @@ class LanchRecommendation extends BasePage {
 
 				<div className="lanchrecommendationItem">
 					<div className="flexItem">
-						<div className="btnDiv">推荐类型</div>
+						<div className="btnDiv">标题</div>
 						<div className="btnImage">
-							<div className="recommendType">{recommendType[recommendationType]}</div>
-							<div className="icon"></div>
+							<div className="recommendType">{recommendType[userType]}</div>
 						</div>
-						<select className="selectRecommendType"
-						        onChange={($e)=> {
-							        this.setState({recommendationType: $e.target.value, imgUrl: ""});
-							        this.refs.qsFile.value = "";
-						        }}
-						        value={recommendationType}>
-							<option value="COMMON">普通推荐</option>
-							<option value="REAL">实单推荐</option>
-						</select>
 					</div>
 
 					<div className="flexItem selectMatchBtn"
@@ -411,7 +412,7 @@ class LanchRecommendation extends BasePage {
 					{this.renderDetailMatch()}
 
 					<div className="imageView"
-					     style={{display: imgUrl === "" || recommendationType === "COMMON" ? "none" : "block"}}>
+					     style={{display: imgUrl === "" || userType === "EXPERT" ? "none" : "block"}}>
 						<img className="preLoadImg" src={imgUrl}/>
 						<div className="deleteImgBtn"
 						     onTouchEnd={()=> {
@@ -429,7 +430,7 @@ class LanchRecommendation extends BasePage {
                         }}/>
 					</div>
 					<div className="flexItem addImageFlex"
-					     style={{display: recommendationType === "REAL" && imgUrl === "" ? "" : "none"}}>
+					     style={{display: userType === "SHOPKEEPER" && imgUrl === "" ? "" : "none"}}>
 						<div className="addImageWap"
 						     onTouchEnd={()=> {
 							     this.refs.qsFile.click();
@@ -443,13 +444,32 @@ class LanchRecommendation extends BasePage {
 							<div className="text">添加图片</div>
 						</div>
 					</div>
-					<div className="flexItem" onTouchEnd={()=> this.setState({kbdShow: true})}>
-						<div className="btnDiv">选择费用</div>
-						<div className="btnImage">
-							<div className="recommendType">{fee + "球币"}</div>
-							<div className="icon"></div>
+					<div className="flexItem moneyTitle">选择费用</div>
+					<div className="flexItem moneyDiv">
+						<div className={fee === 0 ? "feebox selected" : "feebox"}
+						     onTouchEnd={this.selectFee.bind(this, 0)}>免费
+						</div>
+						<div className={fee === 28 ? "feebox selected" : "feebox"}
+						     onTouchEnd={this.selectFee.bind(this, 28)}>28球币
+						</div>
+						<div className={fee === 48 ? "feebox selected" : "feebox"}
+						     onTouchEnd={this.selectFee.bind(this, 48)}>48球币
+						</div>
+						<div className={fee === 98 ? "feebox selected" : "feebox"}
+						     onTouchEnd={this.selectFee.bind(this, 98)}>98球币
+						</div>
+						<div className={myDefineFee !== -1 ? "feebox myDefineFee selected" : "feebox myDefineFee"}>
+							<input placeholder="自定义" value={myDefineFee === -1 ? "" : myDefineFee}
+							       onFocus={()=> {
+								       this.setState({
+									       fee: -1,
+									       myDefineFee: ""
+								       });
+							       }}
+							       onChange={this.changeMyDefineFee.bind(this)}/><span>球币</span>
 						</div>
 					</div>
+
 				</div>
 				<div className="deployBtnWap" onTouchEnd={this.deployRecommendation.bind(this)}>
 					<div className="deployBtn">
@@ -546,12 +566,14 @@ class LanchRecommendation extends BasePage {
 	componentDidMount() {
 		super.componentDidMount();
 		this.showLoading(true);
+		let token = Cookie.getCookie("token") || "";
 		let data = {
 			status: 1,
 			matchTypes: '',
-			token: Cookie.getCookie("token") || ""
+			token: token
 		};
 		ApiAction.post(UrlConfig.matchList, data);
+		ApiAction.post(UrlConfig.myDetail, {token});
 
 		UploadStore.uploadfile(function (body) {
 			this.showLoading(false);
@@ -565,8 +587,7 @@ class LanchRecommendation extends BasePage {
 					fee: -1,
 					myDefineFee: -1,
 					content: "",
-					imgUrl: "",
-					recommendationType: "COMMON"
+					imgUrl: ""
 				});
 			} else {
 				this.setState({

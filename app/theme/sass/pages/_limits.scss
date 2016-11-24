@@ -7,10 +7,10 @@
     }
 }
 
-.item {
+.limit-item {
     position: relative;
     margin-top: 1.5rem;
-    color: #fff;
+    background: #fff;
     width: 100%;
     .limitType {
         $shadowc1: #C38127;
@@ -21,6 +21,8 @@
         $c3: #E484F8;
         $shadowc4: #376CC3;
         $c4: #84B0F8;
+        $shadowc5: #CC4E52;
+        $c5: #FF777C;
 
         &.type2{
             background: $c2;
@@ -28,7 +30,7 @@
                 border-color: transparent transparent $shadowc2 transparent;
             }
             &:after {
-                border-color: transparent transparent $shadowc2 transparent;
+                border-color: transparent transparent transparent $shadowc2;
             }
         }
         &.type3{
@@ -37,7 +39,7 @@
                 border-color: transparent transparent $shadowc3 transparent;
             }
             &:after {
-                border-color: transparent transparent $shadowc3 transparent;
+                border-color: transparent transparent transparent $shadowc3;
             }
         }
         &.type4{
@@ -46,7 +48,16 @@
                 border-color: transparent transparent $shadowc4 transparent;
             }
             &:after {
-                border-color: transparent transparent $shadowc4 transparent;
+                border-color: transparent transparent transparent $shadowc4;
+            }
+        }
+        &.type5{
+            background: $c5;
+            &:before {
+                border-color: transparent transparent $shadowc5 transparent;
+            }
+            &:after {
+                border-color: transparent transparent transparent $shadowc5;
             }
         }
         color: #fff;
@@ -107,7 +118,6 @@
                 .teamName {
                     font-size: 1.4rem;
                     color: $dark_gray;
-                    margin-bottom: 1.5rem;
                 }
             }
             .rightInfo {
@@ -126,12 +136,13 @@
             }
         }
         .bottomInfo {
-            padding: 0.6rem 1.5rem 0.6rem;
+            padding: 0.9rem 1.5rem 0.9rem;
             color: $gray;
+            font-size: 1.2rem;
             .limitItem, .limitSurpass {
                 span {
                     color: $dark_gray;
-                    margin-right: 0.6rem;
+                    margin-right: 0.8rem;
                 }
                 span:first-child {
                     color: $gray;

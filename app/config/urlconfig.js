@@ -30,6 +30,7 @@ module.exports={// 不要加  '/'
   // 彩店实单
   recommendList: 'lottery/recommend/list',
   drawapply: 'lottery/draw/apply',
+  drawrecords: 'lottery/draw/records',
   myorder: 'lottery/my/balance/value',
   articledetail: 'lottery/article/detail',
 
@@ -42,6 +43,7 @@ module.exports={// 不要加  '/'
   //
   //shangjie add
   apiAddress: 'http://60.205.145.105',
-  token : Cookie.getCookie("token") || ""
+  token : Cookie.getCookie("token") || "",
+  myDetail: 'lottery/my/detail'
 
 };
