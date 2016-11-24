@@ -63,19 +63,21 @@ export default class extends BasePage {
     event.preventDefault();
     // 表单验证
     if(this.doValid('keeperCard') && this.doValid('shopLicence')){
-      // this.setState({submitState: "submitted"});
-      // var frmdata = this.retrieveFormData('expertForm', 'expertCard');
-      // var token = Cookie.getCookie("token") || '';
-      // this.showLoading(true)
-      // // ApiAction.post(UrlConfig.matchList, {status:2, matchTypes:'', token: Cookie.getCookie("token") || 'dds'});
-      // frmdata.token = token;
-      // frmdata.name = this.refs.expertName.value;
-      // frmdata.phone = this.refs.expertPhone.value;
-      // frmdata.content = this.refs.expertDescribe.value;
-      // frmdata.paramUrl = 'cardPic';
-      // frmdata.username = token.substr(token.length-6);
-      // console.log('form data:',frmdata);
-      // UploadAction.uploadfile('/lottery/expert/apply', frmdata);
+      this.setState({submitState: "submitted"});
+      var frmdata = this.retrieveFormData('keeperCardForm', 'keeperCard');
+      var afrmdata = this.retrieveFormData('shopLicenceForm', 'shopLicence');
+      var token = Cookie.getCookie("token") || '';
+      this.showLoading(true)
+      // ApiAction.post(UrlConfig.matchList, {status:2, matchTypes:'', token: Cookie.getCookie("token") || 'dds'});
+      frmdata.token = token;
+      frmdata.name = this.refs.keeperName.value;
+      frmdata.phone = this.refs.keeperPhone.value;
+      frmdata.address = this.refs.keeperAddress.value;
+      frmdata.cardPic = ReactDOM.findDOMNode(this.refs.keeperCard).files[0];
+      frmdata.busiPic = ReactDOM.findDOMNode(this.refs.shopLicence).files[0];
+      frmdata.username = token.substr(token.length-6);
+      console.log('form data:',frmdata);
+      UploadAction.uploadfile('/lottery/shopkepper/apply', frmdata);
     }
   }
   doValid(fileRef){
@@ -83,7 +85,11 @@ export default class extends BasePage {
     var _qs = ReactDOM.findDOMNode(this.refs[fileRef]).files;
 
     if(_qs.length == 0){
-      Toast.show("请上传文件", 'info');
+      if(fileRef === 'expertCard' || fileRef === 'keeperCard'){
+        Toast.show("请上传身份证照片", 'info');
+      }else if(fileRef === 'shopLicence'){
+        Toast.show("请上传营业执照", 'info');
+      }
       return false;
     }
     var _fileExt = _qs[0].name.substring(_qs[0].name.lastIndexOf("."));
@@ -100,20 +106,36 @@ export default class extends BasePage {
       Toast.show("文件大小不能大于2M", 'info');
       return false;
     }
-    if(this.refs.expertName.value.trim() === ""){
+    if(this.state.applyStatus === 'expert' && this.refs.expertName.value.trim() === ""){
       Toast.show("请填写您的姓名", 'info');
       return false;
     }
-    if(this.refs.expertPhone.value.trim() === ""){
+    if(this.state.applyStatus === 'expert' && this.refs.expertPhone.value.trim() === ""){
       Toast.show("请填写您的手机号", 'info');
       return false;
     }
-    if(this.refs.expertDescribe.value.trim() === ""){
+    if(this.state.applyStatus === 'expert' && this.refs.expertDescribe.value.trim() === ""){
       Toast.show("请填写简介", 'info');
       return false;
     }
-    if(!this.state.expertChecked){
+    if(this.state.applyStatus === 'expert' && !this.state.expertChecked){
       Toast.show("请仔细阅读并同意专家协议", 'info');
+      return false;
+    }
+    if(this.state.applyStatus === 'shopkeeper' && this.refs.keeperName.value.trim() === "" ){
+      Toast.show("请填写您的姓名", 'info');
+      return false;
+    }
+    if(this.state.applyStatus === 'shopkeeper' && this.refs.keeperPhone.value.trim() === ""){
+      Toast.show("请填写您的手机号", 'info');
+      return false;
+    }
+    if(this.state.applyStatus === 'shopkeeper' && this.refs.keeperAddress.value.trim() === ""){
+      Toast.show("请填写您的彩票站点地址", 'info');
+      return false;
+    }
+    if(this.state.applyStatus === 'shopkeeper' && !this.state.keeperChecked){
+      Toast.show("请仔细阅读并同意站长协议", 'info');
       return false;
     }
     return true;
@@ -244,13 +266,13 @@ export default class extends BasePage {
             </div>
             <div className="input-item">
               <span className="item-label">彩票站点地址</span>
-              <input className="item-input" type="tel" ref='keeperPhone' placeholder="请输入您的站点地址"/>
+              <input className="item-input" type="tel" ref='keeperAddress' placeholder="请输入您的站点地址"/>
             </div>
             <div className="file-item">
               <span className="item-label">上传身份证正面照</span>
               <img className="add-card" src={addIconSrc} onTouchEnd={this.chooseKeeperCard.bind(this)}/>
               <PageForm ref="keeperCardForm" className="form-horizontal" action="/apiQS/upload" enctype="multipart/form-data">
-                <input type="file" name="qsFile" ref="keeperCard" capture="camera" accept="image/*" onChange={($e)=> {
+                <input type="file" name="cardPic" ref="keeperCard" capture="camera" accept="image/*" onChange={($e)=> {
                    let files = $e.target.files;
                    if (files.length == 0) return;
                    this.preLoadImg(files[0], 'keeperCard');
@@ -265,7 +287,7 @@ export default class extends BasePage {
               <span className="item-label">上传营业执照</span>
               <img className="add-card" src={addIconSrc} onTouchEnd={this.chooseLicence.bind(this)}/>
               <PageForm ref="shopLicenceForm" className="form-horizontal" action="/apiQS/upload" enctype="multipart/form-data">
-                <input type="file" name="qsFile" ref="shopLicence" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+                <input type="file" name="busiPic" ref="shopLicence" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
                    let files = $e.target.files;
                    if (files.length == 0) return;
                    this.preLoadImg(files[0], 'licence');
@@ -291,7 +313,7 @@ export default class extends BasePage {
     UploadStore.uploadfile(function(data){
       if(data && data.success) {
         Toast.show("发送成功！", 'success');
-        this.reset();
+        // this.reset();
       } else if(data && data.message){
         Toast.show(data.message, 'info');
       } else {
