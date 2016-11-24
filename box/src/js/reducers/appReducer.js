@@ -3,14 +3,34 @@ import update from 'react-addons-update';
 import ActionTypes from '../constants/ActionTypes';
 // import { EventName } from '../constants/constValue';
 
+const tickeyPrice = 2;
 const initState = {
   matchData: [],
   controlData: {
     selectTime: 0,
     buyNum: 1,
+    sumPay: 0,
+    sumGet: '0.00',
   },
 };
 
+function getSumResult(matchData, selectTime, buyNum) {
+  const sumPay = tickeyPrice * selectTime * buyNum;
+  const sumGet = matchData.reduce((itemA, itemB) => {
+    const bKeys = Object.keys(itemB);
+    const itemSum = bKeys.reduce((a, b) => {
+      if (typeof itemB[b] === 'object' && itemB[b].isSelected) {
+        return a + (tickeyPrice * itemB[b].percent * buyNum);
+      }
+      return a;
+    }, 0);
+    return itemA + itemSum;
+  }, 0);
+  return {
+    sumGet: sumGet.toFixed(2),
+    sumPay,
+  };
+}
 
 export default handleActions({
   [`${ActionTypes.GET_NOTICE}_FULFILLED`]: (state, action) => {
@@ -27,19 +47,31 @@ export default handleActions({
         $set: payload.map(item => ({
           awayTeam: item.awayTeam,
           homeTeam: item.homeTeam,
-          oddsS: item.oddsS,
-          oddsP: item.oddsP,
-          oddsF: item.oddsF,
-          oddsRf: item.oddsRf,
-          oddsRp: item.oddsRp,
-          oddsRs: item.oddsRs,
+          oddsS: {
+            percent: item.oddsS,
+            isSelected: false,
+          },
+          oddsP: {
+            percent: item.oddsP,
+            isSelected: false,
+          },
+          oddsF: {
+            percent: item.oddsF,
+            isSelected: false,
+          },
+          oddsRs: {
+            percent: item.oddsRs,
+            isSelected: false,
+          },
+          oddsRp: {
+            percent: item.oddsRp,
+            isSelected: false,
+          },
+          oddsRf: {
+            percent: item.oddsRf,
+            isSelected: false,
+          },
           handicap: item.handicap,
-          oddsSSelected: false,
-          oddsPSelected: false,
-          oddsFSelected: false,
-          oddsRfSelected: false,
-          oddsRpSelected: false,
-          oddsRsSelected: false,
         })),
       },
     });
@@ -47,18 +79,29 @@ export default handleActions({
   [ActionTypes.SELECT_TEAM]: (state, action) => {
     const { payload: { index, type } } = action;
 
-    const isSelected = !state.matchData[index][`${type}Selected`];
-    const newSelectTime = isSelected ? ++state.selectTime : --state.selectTime;
-    return update(state, {
+    const isSelected = !state.matchData[index][type].isSelected;
+    const newSelectTime = isSelected ? ++state.controlData.selectTime : --state.controlData.selectTime;
+
+    const newState = update(state, {
       matchData: {
         [index]: {
-          [`${type}Selected`]: {
-            $set: isSelected,
+          [type]: {
+            isSelected: {
+              $set: isSelected,
+            },
           },
         },
       },
       controlData: {
         selectTime: { $set: newSelectTime },
+      },
+    });
+    const result = getSumResult(newState.matchData, newState.controlData.selectTime, newState.controlData.buyNum);
+
+    return update(newState, {
+      controlData: {
+        sumPay: { $set: result.sumPay },
+        sumGet: { $set: result.sumGet },
       },
     });
   },
@@ -71,12 +114,9 @@ export default handleActions({
       switch (indexNum) {
       case 0:
         sortKey = `odds${key.toUpperCase()}`;
-        console.log(state.matchData.sort((itemDataA, itemDataB) => {
-          return itemDataB[sortKey] - itemDataA[sortKey];
-        }));
         result = update(state, {
           matchData: {
-            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey] - itemDataA[sortKey]),
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey].percent - itemDataA[sortKey].percent),
           },
         });
         break;
@@ -84,7 +124,7 @@ export default handleActions({
         sortKey = `odds${key.toUpperCase()}`;
         result = update(state, {
           matchData: {
-            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataA[sortKey] - itemDataB[sortKey]),
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataA[sortKey].percent - itemDataB[sortKey].percent),
           },
         });
         break;
@@ -92,7 +132,7 @@ export default handleActions({
         sortKey = `oddsR${key}`;
         result = update(state, {
           matchData: {
-            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey] - itemDataA[sortKey]),
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataB[sortKey].percent - itemDataA[sortKey].percent),
           },
         });
         break;
@@ -100,7 +140,7 @@ export default handleActions({
         sortKey = `oddsR${key}`;
         result = update(state, {
           matchData: {
-            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataA[sortKey] - itemDataB[sortKey]),
+            $set: state.matchData.sort((itemDataA, itemDataB) => itemDataA[sortKey].percent - itemDataB[sortKey].percent),
           },
         });
         break;
@@ -123,9 +163,32 @@ export default handleActions({
     return result;
   },
   [ActionTypes.CHANGE_BUY_NUM]: (state, action) => {
-    const { payload } = action;
-    console.log(payload);
-    return state;
+    const { payload: { num } } = action;
+    let buyNum = state.controlData.buyNum;
+    if (num > 0 || buyNum > 1) {
+      buyNum = state.controlData.buyNum + num;
+    }
+
+    // const sumPay = 2 * state.controlData.selectTime * buyNum;
+    // const sumGet = state.matchData.reduce((itemA, itemB) => {
+    //   const bKeys = Object.keys(itemB);
+    //   const itemSum = bKeys.reduce((a, b) => {
+    //     if (typeof itemB[b] === 'object' && itemB[b].isSelected) {
+    //       return a + (2 * itemB[b].percent * buyNum);
+    //     }
+    //     return a;
+    //   }, 0);
+    //   return itemA + itemSum;
+    // }, 0);
+    const result = getSumResult(state.matchData, state.controlData.selectTime, buyNum);
+
+    return update(state, {
+      controlData: {
+        buyNum: { $set: buyNum },
+        sumPay: { $set: result.sumPay },
+        sumGet: { $set: result.sumGet },
+      },
+    });
   },
 
 }, initState);

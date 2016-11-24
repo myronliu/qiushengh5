@@ -21,7 +21,7 @@ class Root extends Component {
 
 
   render() {
-    const { appData: { matchData, controlData }, selectTeam, sortTeam } = this.props;
+    const { appData: { matchData, controlData }, selectTeam, sortTeam, changeBuyNum } = this.props;
 
     return (
       <div className="main-container">
@@ -31,6 +31,7 @@ class Root extends Component {
           matchData={matchData}
           selectTeam={selectTeam}
           sortTeam={sortTeam}
+          changeBuyNum={changeBuyNum}
         />
       </div>
     );

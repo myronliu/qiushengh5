@@ -122,10 +122,11 @@ $noticeHeight: 40px;
     height: 100%;
     width: 100%;
     z-index: 0;
-    overflow: auto;
+    overflow: hidden;;
     top: 0;
     left: 0;
     padding: $navHeight 16px 0;
+
   }
   .match-item {
     display: flex;
@@ -253,6 +254,9 @@ $noticeHeight: 40px;
             justify-content: flex-start;
             display: flex;
             flex-direction: row;
+            &:first-child {
+              line-height: 14px;;
+            }
           }
         }
         .price-result {
@@ -263,9 +267,11 @@ $noticeHeight: 40px;
           justify-content: flex-start;
           display: flex;
           flex-direction: row;
-          height: 17px;
-          line-height: 15px;
-          width: 49px;
+          height: 14px;
+          line-height: 12px;
+          width: 40px;
+          margin-right: 4px;
+          cursor: pointer;
           > div {
             box-sizing: content-box;
             flex: 1;
@@ -275,6 +281,9 @@ $noticeHeight: 40px;
             align-items: center;
             background-color: #fff;
             border: 1px solid #ccc;
+            &:nth-child(n+1) {
+              border-left: none;
+            }
           }
           .buy-num-count-in {
             color: $fontColor;

@@ -3961,6 +3961,10 @@ pbkdf2@^3.0.3:
   dependencies:
     create-hmac "^1.1.2"
 
+perfect-scrollbar:
+  version "0.6.14"
+  resolved "http://registry.npm.taobao.org/perfect-scrollbar/download/perfect-scrollbar-0.6.14.tgz#7344dce8e8c4985f6966ba660187b218bcd66f2a"
+
 pify@^2.0.0:
   version "2.3.0"
   resolved "http://registry.npm.taobao.org/pify/download/pify-2.3.0.tgz#ed141a6ac043a849ea588498e7dca8b15330e90c"

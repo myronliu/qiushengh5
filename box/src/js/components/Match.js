@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import classnames from 'classnames';
+import Ps from 'perfect-scrollbar';
 import DropMenu from './DropMenu';
 
 class Match extends Component {
@@ -42,13 +43,22 @@ class Match extends Component {
     //   },
     // ];
   }
+
+  componentDidMount() {
+    Ps.initialize(document.querySelector('.match-list'));
+  }
+
+  componentDidUpdate() {
+    Ps.initialize(document.querySelector('.match-list'));
+  }
+
   select(index, type) {
     const { selectTeam } = this.props;
     selectTeam({ index, type });
   }
 
   render() {
-    const { matchData, controlData: { selectTime, buyNum }, sortTeam } = this.props;
+    const { matchData, controlData: { selectTime, buyNum, sumPay, sumGet }, sortTeam, changeBuyNum } = this.props;
 
     return (
       <div className="match-container">
@@ -79,43 +89,43 @@ class Match extends Component {
                 <div className="match-block pl-wrap">
                   <div
                     onClick={() => this.select(index, 'oddsS')}
-                    className={classnames('match-block-cell pl', { active: itemData.oddsSSelected })}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsS.isSelected })}
                   >
-                    {itemData.oddsS}
+                    {itemData.oddsS.percent}
                   </div>
                   <div
                     onClick={() => this.select(index, 'oddsRs')}
-                    className={classnames('match-block-cell pl', { active: itemData.oddsRsSelected })}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsRs.isSelected })}
                   >
-                    {itemData.oddsRs}
-                  </div>
-                </div>
-                <div className="match-block pl-wrap">
-                  <div
-                    onClick={() => this.select(index, 'oddsP')}
-                    className={classnames('match-block-cell pl', { active: itemData.oddsPSelected })}
-                  >
-                    {itemData.oddsF}
-                  </div>
-                  <div
-                    onClick={() => this.select(index, 'oddsRp')}
-                    className={classnames('match-block-cell pl', { active: itemData.oddsRpSelected })}
-                  >
-                    {itemData.oddsRf}
+                    {itemData.oddsRs.percent}
                   </div>
                 </div>
                 <div className="match-block pl-wrap">
                   <div
                     onClick={() => this.select(index, 'oddsF')}
-                    className={classnames('match-block-cell pl', { active: itemData.oddsFSelected })}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsF.isSelected })}
                   >
-                    {itemData.oddsP}
+                    {itemData.oddsF.percent}
                   </div>
                   <div
                     onClick={() => this.select(index, 'oddsRf')}
-                    className={classnames('match-block-cell pl', { active: itemData.oddsRfSelected })}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsRf.isSelected })}
                   >
-                    {itemData.oddsRp}
+                    {itemData.oddsRf.percent}
+                  </div>
+                </div>
+                <div className="match-block pl-wrap">
+                  <div
+                    onClick={() => this.select(index, 'oddsP')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsP.isSelected })}
+                  >
+                    {itemData.oddsP.percent}
+                  </div>
+                  <div
+                    onClick={() => this.select(index, 'oddsRp')}
+                    className={classnames('match-block-cell pl', { active: itemData.oddsRp.isSelected })}
+                  >
+                    {itemData.oddsRp.percent}
                   </div>
                 </div>
               </div>
@@ -145,14 +155,14 @@ class Match extends Component {
                 <div className="control-num">
                   <div
                     className="handle-button delete"
-                    // onClick={() => this.handleBuyNum(MarketConst.DELETE_BUY_NUM)}
+                    onClick={() => changeBuyNum({ num: -1 })}
                   >
                     <img style={{ width: 10 }} src="./images/delete-yellow.png" alt="" />
                   </div>
                   <div className="buy-num-count-in"><span>{buyNum}</span></div>
                   <div
                     className="handle-button plus"
-                    // onClick={() => this.handleBuyNum(MarketConst.ADD_BUY_NUM)}
+                    onClick={() => changeBuyNum({ num: 1 })}
                   >
                     <img style={{ width: 10 }} src="./images/plus-yellow.png" alt="" />
                   </div>
@@ -161,10 +171,10 @@ class Match extends Component {
               </div>
             </div>
             <div>
-              <div><span>投注金额：</span><span className="price-result">0</span><span> 元</span></div>
+              <div><span>投注金额：</span><span className="price-result">{sumPay}</span><span> &nbsp;&nbsp;元</span></div>
             </div>
             <div>
-              <div style={{ whiteSpace: 'nowrap' }}><span>理论最高奖金：</span><span className="price-result">0.00</span><span> 元</span></div>
+              <div style={{ whiteSpace: 'nowrap' }}><span>理论最高奖金：</span><span className="price-result">{sumGet}</span><span>&nbsp;&nbsp;元</span></div>
             </div>
           </div>
           <div className="control-block">
