@@ -26,13 +26,14 @@ function uptoken(bucket, key) {
   return putPolicy.token();
 }
 
-
 //构造上传函数
 function uploadFile(uptoken, key, localFile) {
   var extra = new qiniu.io.PutExtra();
     qiniu.io.putFile(uptoken, key, localFile, extra, function(err, ret) {
       if(!err) {
         // 上传成功， 处理返回值
+        fs.unlink(localFile);
+        
         console.log(ret.hash, ret.key, ret.persistentId);
       } else {
         // 上传失败， 处理返回代码
@@ -45,7 +46,7 @@ function handleApiWithFile(req, res, config){
   // var reqq = multipart(req);
   var form = new formidable.IncomingForm();
   form.uploadDir = path.join(__dirname, 'tmp');   //文件保存的临时目录为当前项目下的tmp文件夹
-  form.maxFieldsSize = 10 * 1024 * 1024;  //用户头像大小限制为最大1M
+  form.maxFieldsSize = 10 * 1024 * 1024;  //用户头像大小限制为最大10M
   form.keepExtensions = true;        //使用文件的原扩展名
   form.parse(req, function (err, fields, file) {
       var filePath = '';
@@ -103,7 +104,6 @@ function handleApiWithFile(req, res, config){
               uploadFile(token, fileName, filePath);
               fields[key] = 'http://ogk4g82l7.bkt.clouddn.com/' + fileName;
               console.log('http://ogk4g82l7.bkt.clouddn.com/' + fileName)
-              fs.unlink(filePath);
           }
         }
 
@@ -118,7 +118,7 @@ function handleApiWithFile_aaaa(req, res, config){
   // var reqq = multipart(req);
   var form = new formidable.IncomingForm();
   form.uploadDir = path.join(__dirname, 'tmp');   //文件保存的临时目录为当前项目下的tmp文件夹
-  form.maxFieldsSize = 10 * 1024 * 1024;  //用户头像大小限制为最大1M
+  form.maxFieldsSize = 10 * 1024 * 1024;  //用户头像大小限制为最大10M
   form.keepExtensions = true;        //使用文件的原扩展名
   form.parse(req, function (err, fields, file) {
       var filePath = '';
@@ -157,9 +157,61 @@ function handleApiWithFile_aaaa(req, res, config){
   });
 }
 
-router.post('/upload', function(req,res){
-  console.log('test')
-  handleApiWithFile(req, res, global.qsH5Config);
+//构造上传函数
+function uploadFileWithCb(uptoken, key, localFile) {
+  var extra = new qiniu.io.PutExtra();
+    qiniu.io.putFile(uptoken, key, localFile, extra, function(err, ret) {
+        console.log("success upload");
+      if(!err) {
+        // 上传成功， 处理返回值
+        fs.unlink(localFile);
+        
+        // cb(true, '', res, localFile, url)
+      } else {
+        // 上传失败， 处理返回代码
+        console.log(err);
+        // cb(false, err.toString(), res, filePath, url)
+      }
+  });
+}
+
+function handleApiWithOneFile(req, res){
+  var form = new formidable.IncomingForm();
+  form.uploadDir = path.join(__dirname, 'tmp');   //文件保存的临时目录为当前项目下的tmp文件夹
+  form.maxFieldsSize = 10 * 1024 * 1024;  //用户头像大小限制为最大10M
+  form.keepExtensions = true;        //使用文件的原扩展名
+  form.parse(req, function (err, fields, file) {
+      var filePath = '';
+      //如果提交文件的form中将上传文件的input名设置为tmpFile，就从tmpFile中取上传文件。否则取for in循环第一个上传的文件。
+      for(var key in file){
+          if( file[key].path && filePath==='' ){
+              filePath = file[key].path;
+              break;
+          }
+      }
+      var fileExt = filePath.substring(filePath.lastIndexOf('.'));
+      //判断文件类型是否允许上传
+      if (('.jpg.jpeg.png.gif').indexOf(fileExt.toLowerCase()) === -1) {
+          var err = new Error('此文件类型不允许上传');
+          res.json({code:-1, message:'此文件类型不允许上传'});
+      } else {
+          //以当前时间戳对上传文件进行重命名
+          var fileName = new Date().getTime()+ '/'  + fields.username + fileExt;
+
+          //生成上传 Token
+          var token = uptoken(bucket, fileName);
+
+          //调用uploadFile上传
+          uploadFile(token, fileName, filePath, res);
+          
+          var url = 'http://ogk4g82l7.bkt.clouddn.com/' + key;
+          res.json({status: 0, body:{success: true, msg:'上传成功', qiniuUrl: url}})
+      }
+  });
+}
+
+router.post('/uploadOnePic', function(req,res){
+  handleApiWithOneFile(req, res);
 });
 
 
