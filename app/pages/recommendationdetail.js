@@ -39,6 +39,7 @@ class RecommendationDetail extends BasePage {
 
 	apiSuccess(url, body) {
 		this.showLoading(false);
+		debugger;
 		switch (url) {
 			case UrlConfig.matchList:
 				body = body || [];
@@ -116,6 +117,7 @@ class RecommendationDetail extends BasePage {
 
 	render() {
 		let {list, avatar, picUrl, name, title, content} = this.state;
+		var picUrlArray = picUrl.split(',');
 		return (
 			<Layout className='hotmatch' title={'推荐详情'}>
 				<Loading showLoading={this.state.showLoading}/>
@@ -149,8 +151,14 @@ class RecommendationDetail extends BasePage {
 						{content}
 					</div>
 
-					<img style={{display: picUrl ? "block" : "none"}}
-					     className="showImg" src={picUrl}/>
+					{
+						picUrlArray.map(function(item, index){
+							return <img key={"picitem" + index} style={{display: item ? "block" : "none"}} className="showImg" src={item}/>
+						})
+					}
+
+					{/*<img style={{display: picUrl ? "block" : "none"}}
+					     className="showImg" src={picUrl}/>*/}
 					{/*<div className="flexItem likeUnlikeShareDiv">
 					 /!*<div className="doBtn like">{'\uD83D\uDC4D'}</div>*!/
 					 /!*<div className="doBtn like">{'ue00e'}</div>*!/

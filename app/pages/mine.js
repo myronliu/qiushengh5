@@ -19,7 +19,8 @@ export default class extends BasePage {
         overlist: [],
         unoverlist: [],
         showAlert: false,
-        status: 'unover'
+        status: 'unover',
+        articleList: []
     };
 
     apiSuccess(url, body) {
@@ -32,7 +33,8 @@ export default class extends BasePage {
                     ifCommon: body.my.ifCommon === 'YES',
                     rices: body.rices,
                     overlist: body.orders.over || [],
-                    unoverlist: body.orders.unOver || []
+                    unoverlist: body.orders.unOver || [],
+                    articleList: body.articles || []
                 })
                 break;
             case UrlConfig.recommendBuy:
@@ -138,59 +140,18 @@ export default class extends BasePage {
 
 
     renderArticle() {
-        let articleList = [{
-            title: '文章名字',
-            desc: '文章描述'
-        }];//this.state.articleList;
-
-        return articleList.map(function (item, index) {
+        return this.state.articleList.map(function (item, index) {
             return (
                 <div className="articlePreview" key={"arti" + index}>
                     <div className="articleTitle">{item.title}</div>
-                    <div className="articleDesc">{item.desc}</div>
+                    <div className="articleDesc">{item.content}</div>
                 </div>
             )
         }.bind(this));
     }
 
     renderMatches(data) {
-        data = [{
-
-            "id": "ff808081586b8fb601586d038d420011",
-            "matchName": "英足总",
-            "betsType": "串关",
-            "homeTeam": "布莱克",
-            "awayTeam": "吉灵汉姆",
-            "matchDate": "2016-11-17 03:45:00",
-            "content": null,
-            "recommendWay": null,
-            "fee": 0,
-            "picUrl": null,
-            "hits": null,
-            "createTimeStr": null,
-            "expertName": null,
-            "expertTitle": null,
-            "avatar": null,
-            "ifBuy": true
-        },{
-
-            "id": "ff808081586b8fb601586d038d420011",
-            "matchName": "英足总",
-            "betsType": "串关",
-            "homeTeam": "布莱克",
-            "awayTeam": "吉灵汉姆",
-            "matchDate": "2016-11-17 03:45:00",
-            "content": null,
-            "recommendWay": null,
-            "fee": 0,
-            "picUrl": null,
-            "hits": null,
-            "createTimeStr": null,
-            "expertName": null,
-            "expertTitle": null,
-            "avatar": null,
-            "ifBuy": true
-        }]
+        data = data || [];
         return data.map(function (item, index) {
             return (
                 <Saishi
