@@ -35,17 +35,17 @@ export default class extends BasePage {
         }
         break;
       case UrlConfig.recommendList:
-      if(body && body.success){
-        this.setState({
-          caidianList: body.data
-        });
-      }else{
-        this.setState({
-          caidianList: []
-        });
-        Toast.show(body.msg, 'error');
-      }
-      break;
+        if(body && body.success){
+          this.setState({
+            caidianList: body.data
+          });
+        }else{
+          this.setState({
+            caidianList: []
+          });
+          Toast.show(body.msg, 'error');
+        }
+        break;
     }
   }
 

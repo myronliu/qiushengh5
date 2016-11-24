@@ -79,9 +79,13 @@ class LiveScore extends BasePage {
 				})
 				if (body.success) {
 					window.to('/recodetail?id=' + this.state.payId);
-				} else {
-					Toast.show(body.msg, 'error')
-				}
+				} else{
+          if(body.msg === "已经买过该推荐了"){
+            window.to('/recommendationdetail?id=' + this.state.payId);
+          }else{
+            Toast.show(body.msg, 'error')
+          }
+        }
 				break;
 		}
 	}
