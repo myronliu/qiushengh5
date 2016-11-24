@@ -37,27 +37,67 @@ export default class extends BasePage {
 
   renderRecords(){
     return this.state.records.map(function(item, index){
+      // return (
+      //   <div className="record" key={'record' + index}>
+      //     <div>
+      //       {"交易单号：" + item.tradeNo}
+      //     </div>
+      //     <div>
+      //       {"创建时间" + item.createTime}
+      //     </div>
+      //     <div>
+      //       {"状态：" + item.drawStatus}
+      //     </div>
+      //     <div>
+      //       {"提现数额：" + item.rice + CommonConfig.unit}
+      //     </div>
+      //     <div>
+      //       {"支付宝账户：" + item.alipayNo}
+      //     </div>
+      //     <div>
+      //       {"原因：" + item.reason}
+      //     </div>
+      //   </div>
+      // )
+
+
       return (
-        <div className="record" key={'record' + index}>
-          <div>
-            {"交易单号：" + item.tradeNo}
+          <div className="drecords-item" key={'item' + index}>
+              <div className="content">
+                  <div className="topInfo">
+                      <div className="leftInfo">
+                          <span className="title">{"-" + item.rice + CommonConfig.unit}</span>
+                          <div className="teamName">{"提现到支付宝：" + item.alipayNo}</div>
+                      </div>
+                      <div className="rightInfo">
+                          <div className={item.drawStatus === "已支付" ? "limitNumGray" : "limitNum"}><span>{item.drawStatus}</span></div>
+                          <div>{item.createTime}</div>
+                      </div>
+                  </div>
+                  <div className="bottomInfo">
+                      <div className="limitItem">
+                          <span>交易单号：</span>
+                          <span>{item.tradeNo}</span>
+                      </div>
+                  </div>
+                  {
+                    item.reason ? 
+                      (
+                        <div className="bottomInfo">
+                            <div className="limitItem">
+                                <span>失败原因：</span>
+                                <span>{item.reason}</span>
+                            </div>
+                        </div>
+                      )
+                      :
+                      (
+                        <div></div>
+                      )
+                  
+                  }
+              </div>
           </div>
-          <div>
-            {"创建时间" + item.createTime}
-          </div>
-          <div>
-            {"状态：" + item.drawStatus}
-          </div>
-          <div>
-            {"提现数额：" + item.rice + CommonConfig.unit}
-          </div>
-          <div>
-            {"支付宝账户：" + item.alipayNo}
-          </div>
-          <div>
-            {"原因：" + item.reason}
-          </div>
-        </div>
       )
     })
   }

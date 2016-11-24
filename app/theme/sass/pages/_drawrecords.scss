@@ -1,3 +1,5 @@
+@import "../_base";
+
 .drawrecords{
   .record{
     background-color: white;
@@ -5,5 +7,157 @@
     font-size: 1.5rem;
     line-height: 2rem;
     margin-bottom: 1rem;
+  }
+  .drecords-item {
+    position: relative;
+    margin-top: 1.5rem;
+    background: #fff;
+    width: 100%;
+    .limitType {
+      $shadowc1: #C38127;
+      $c1: #F3A633;
+      $shadowc2: #75A00B;
+      $c2: #A0D321;
+      $shadowc3: #AE49C3;
+      $c3: #E484F8;
+      $shadowc4: #376CC3;
+      $c4: #84B0F8;
+      $shadowc5: #CC4E52;
+      $c5: #FF777C;
+
+      &.type2{
+        background: $c2;
+        &:before {
+          border-color: transparent transparent $shadowc2 transparent;
+        }
+        &:after {
+          border-color: transparent transparent transparent $shadowc2;
+        }
+      }
+      &.type3{
+        background: $c3;
+        &:before {
+          border-color: transparent transparent $shadowc3 transparent;
+        }
+        &:after {
+          border-color: transparent transparent transparent $shadowc3;
+        }
+      }
+      &.type4{
+        background: $c4;
+        &:before {
+          border-color: transparent transparent $shadowc4 transparent;
+        }
+        &:after {
+          border-color: transparent transparent transparent $shadowc4;
+        }
+      }
+      &.type5{
+        background: $c5;
+        &:before {
+          border-color: transparent transparent $shadowc5 transparent;
+        }
+        &:after {
+          border-color: transparent transparent transparent $shadowc5;
+        }
+      }
+      color: #fff;
+      padding: 0.5rem 1rem;
+      background: $c1;
+      font-size: 1.2rem;
+      position: absolute;
+      left: 2rem;
+      top: -1rem;
+      border-radius: 0 0 0.4rem 0.4rem;
+
+      &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        left: -0.6rem;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 0 0 1rem 0.6rem;
+        border-color: transparent transparent $shadowc1 transparent;
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        right: -0.6rem;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 1rem 0 0 0.6rem;
+        border-color: transparent transparent transparent $shadowc1;
+      }
+    }
+    .content {
+      .topInfo {
+        padding: 2.5rem 1.5rem 1.5rem;
+        overflow: hidden;
+        border-bottom: 0.05rem solid $light_gray;
+        .leftInfo {
+          float: left;
+          .title {
+            font-size: 1.8rem;
+            color: $black;
+            display: inline-block;
+            margin-bottom: 1rem;
+            margin-right: 0.5rem;
+            vertical-align: baseline;
+          }
+          .time {
+            display: inline-block;
+            font-size: 1.2rem;
+            color: $gray;
+          }
+          .teamName {
+            font-size: 1.4rem;
+            color: $dark_gray;
+          }
+        }
+        .rightInfo {
+          float: right;
+          font-size: 1.4rem;
+          color: $gray;
+          text-align: right;
+          margin-top: 0.2rem;
+          .limitNum {
+            color: $main_red;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+            span {
+            }
+          }
+          .limitNumGray{
+            color: $gray;
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+          }
+        }
+      }
+      .bottomInfo {
+        padding: 0.9rem 1.5rem 0.9rem;
+        color: $gray;
+        font-size: 1.4rem;
+        border-bottom: 0.05rem solid #F5F5F5;
+        .limitItem, .limitSurpass {
+          span {
+            color: $dark_gray;
+            margin-right: 0.8rem;
+          }
+          span:first-child {
+            color: $gray;
+          }
+        }
+        .limitItem{
+          // margin-bottom: 0.6rem;
+        }
+      }
+    }
   }
 }
