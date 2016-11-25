@@ -28,7 +28,7 @@
                 font-size: 1.3rem;
             }
             img {
-                width: 4rem;
+                width: 3rem;
                 margin: 1.5rem auto;
             }
         }
@@ -146,7 +146,7 @@
             & > img {
                 width: 43%;
                 border-radius: 50%;
-                margin: 18% 0 11%;
+                margin: 10% 0 10%;
                 background-color: #fff;
             }
             .name {
@@ -161,12 +161,12 @@
     }
     .recListHome {
         .recItem {
-            padding: 2.67% 4%;
+            padding: 1.67% 4%;
             background: #fff;
             border-bottom: 1px solid $light_gray;
             .specialInfo {
                 display: block;
-                margin: 0 0 2.67%;
+                margin: 0 0 0.5rem;
                 border-bottom: none;
                 & > img {
                     width: 3.4rem;

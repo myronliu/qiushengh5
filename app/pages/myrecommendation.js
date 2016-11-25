@@ -121,7 +121,7 @@ class MyRecommendation extends BasePage {
 						<div className="topInfo">
 							<span className="liansai">{item.matchName}</span>
 							<span className="add">{item.betsType}</span>
-							<span className="time">10-10 02:45</span>
+							<span className="time">{item.matchDate.substr(5,11)}</span>
 						</div>
 						<div className="bottomInfo">
 							<span className="left">{item.homeTeam}</span>

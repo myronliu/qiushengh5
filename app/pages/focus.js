@@ -27,7 +27,7 @@ export default class extends BasePage {
                 break;
             case UrlConfig.concernadd:
                 this.showLoading(true)
-                ApiAction.post(UrlConfig.concern, {token: Cookie.getCookie("token") || 'af80808157fa19f70157fa1a74a30001'});
+                ApiAction.post(UrlConfig.concern, {token: Cookie.getCookie("token") || ''});
                 break;
         }
     }

@@ -75,7 +75,7 @@ class LanchRecommendation extends BasePage {
 				} else {
 					this.setState({
 						showWarnAlert: true,
-						alertWarnTitle: "网络出错，请重新发布！"
+						alertWarnTitle: body.msg
 					});
 				}
 				break;
