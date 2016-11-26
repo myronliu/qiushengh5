@@ -10,47 +10,59 @@
 		}
 	}
 	.lanchrecommendationItem {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		flex: 1;
-		flex-direction: column;
-		.flexItem {
-			flex: 1;
-			width: 100%;
+		.titleDesc {
 			margin-top: 1rem;
 			background-color: white;
 			height: 4.5rem;
-			display: flex;
-			align-items: center;
 			.btnDiv {
+				height: 4.5rem;
+				line-height: 4.5rem;
+				float: left;
 				padding-left: 1.5rem;
 				flex: 1;
 				font-size: 1.6rem;
 				color: $black;
 			}
 			.btnImage {
-				flex: 1;
-				display: flex;
-				justify-content: flex-end;
-				align-items: center;
+				height: 4.5rem;
+				line-height: 4.5rem;
+				float: right;
 				padding-right: 1.5rem;
 				font-size: 1.6rem;
-				.recommendType {
-					display: flex;
-					align-items: center;
-					justify-content: center;
-				}
-				.icon {
-					height: 1.6rem;
-					width: 1.6rem;
-					background: url("../icons/btn_next.png");
-					background-size: 100%;
-				}
 			}
 			.addMatch {
 				background: url("../icons/btn_add.png");
 				background-size: 100%;
+			}
+		}
+
+		.selectMatchBtn {
+			margin-top: 1rem;
+			background-color: white;
+			height: 4.5rem;
+			border: 1px solid;
+			.btnDiv {
+				height: 4.5rem;
+				line-height: 4.5rem;
+				float: left;
+				padding-left: 1.5rem;
+				flex: 1;
+				font-size: 1.6rem;
+				color: $black;
+			}
+			.btnImage {
+				height: 4.5rem;
+				line-height: 4.5rem;
+				float: right;
+				padding-right: 1.5rem;
+				font-size: 1.6rem;
+				.icon {
+					height: 2rem;
+					width: 2rem;
+					margin-top: 1.25rem;
+					background: url("../icons/btn_next.png");
+					background-size: 100%;
+				}
 			}
 		}
 
@@ -75,6 +87,7 @@
 
 		.reasonDiv {
 			height: 9rem;
+			margin-top: 1rem;
 			.reason {
 				font-size: 1.6rem;
 				height: 100%;
@@ -89,33 +102,28 @@
 		.addImageFlex {
 			margin-top: 0;
 			height: 9.2rem;
+			background-color: white;
 			.addImageWap {
 				background-color: #F5F5F5;
 				height: 7.7rem;
 				width: 7.7rem;
-				display: flex;
-				align-items: center;
-				justify-content: center;
-				flex-direction: column;
+
 				margin: 0 1.5rem 1.5rem;
 				> div {
-					display: flex;
-					justify-content: center;
-					align-items: center;
+
 					width: 100%;
 				}
 				.addBtn {
-					flex: 2;
-					width: 60%;
+					height: 5.1rem;
 					.add {
-						width: 66%;
-						height: 100%;
 						position: relative;
 						.adddd {
-							width: 100%;
+							width: 3.4rem;
 							border: 1px solid;
 							position: absolute;
-							top: 50%;
+							left: 50%;
+							margin-left: -1.7rem;
+							top: 3rem;
 						}
 						.addColumn {
 							transform: rotate(90deg);
@@ -123,46 +131,48 @@
 					}
 				}
 				.text {
-					flex: 1;
+					line-height: 2.6rem;
+					height: 2.6rem;
+					text-align: center;
 				}
 			}
 		}
 		.moneyTitle {
 			height: 3rem;
+			line-height: 3rem;
 			font-size: 1.6rem;
 			color: $black;
 			padding-left: 1.5rem;
+			margin-top: 1rem;
+			background-color: white;
 		}
 
 		.moneyDiv {
 			display: flex;
-			justify-content: center;
-			align-items: center;
-			flex-direction: row;
 			height: 4rem;
 			margin-top: 0;
+			background-color: white;
 			padding: 0rem 1rem 0rem 1rem;
 			.feebox {
 				background-color: white;
-				flex: 1;
 				border: 1px solid;
-				margin-left: .5rem;
-				margin-right: .5rem;
+				width: 16%;
+				text-align: center;
+				margin-top: 1rem;
 				border-radius: 4px;
-				display: flex;
-				align-items: center;
-				justify-content: center;
 				height: 2rem;
+				line-height: 2rem;
+				margin-right: 0.5rem;
 			}
 			.myDefineFee {
-				flex: 2;
-				display: flex;
-				justify-content: center;
-				align-items: center;
-				padding-right: .5rem;
-				padding-left: .5rem;
+				margin-top: 1rem;
+				width: 36%;
+				line-height: 2rem;
+				text-align: center;
 				> input {
-					width: 75%;
+					width: 60%;
+					height: 1.7rem;
+					line-height: 1.7rem;
 					border: 0;
 					outline: none;
 					font-size: 1rem;

@@ -31,7 +31,6 @@ class LanchRecommendation extends BasePage {
 			showWarnAlert: false,
 			alertWarnTitle: "",
 			selectedMatchArray: [],
-			sureSelectedArray: [],
 			deployMatchInfo: {},
 			fee: -1,
 			myDefineFee: -1,
@@ -66,7 +65,6 @@ class LanchRecommendation extends BasePage {
 						showWarnAlert: true,
 						alertWarnTitle: "发布成功！",
 						selectedMatchArray: [],
-						sureSelectedArray: [],
 						deployMatchInfo: {},
 						fee: -1,
 						myDefineFee: -1,
@@ -155,11 +153,6 @@ class LanchRecommendation extends BasePage {
 
 			});
 		});
-
-		console.log(deployMatchIds.join(","))
-		console.log(deployLetBalls.join(","))
-		console.log(deployResults.join(","))
-
 
 		let params = {
 			content: content,
@@ -281,7 +274,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	render() {
-		let {selectedMatchArray, list, content, fee, myDefineFee, sureSelectedArray, imgUrl, userType, kbdShow} = this.state;
+		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, userType, kbdShow} = this.state;
 		let rightBtn = {icon: '../icons/nav_sy_pre.png', func: this.goHomePage.bind(this)};
 		return (
 			<Layout className='lanchRecommendation' title={'新增推荐'} rightItems={[rightBtn]}>
@@ -293,15 +286,15 @@ class LanchRecommendation extends BasePage {
 				</TwoBtnAlert>
 
 				<div className="lanchrecommendationItem">
-					<div className="flexItem">
+					<div className="titleDesc">
 						<div className="btnDiv">标题</div>
 						<div className="btnImage">
 							<div className="recommendType">{recommendType[userType]}</div>
 						</div>
 					</div>
 
-					<div className="flexItem selectMatchBtn"
-					     style={{border: sureSelectedArray.length === 0 ? 0 : "1px solid #dddddd"}}
+					<div className="selectMatchBtn"
+					     style={{border: selectedMatchArray.length === 0 ? 0 : "1px solid #dddddd"}}
 					     onTouchEnd={this.gotoSelectMatch.bind(this)}>
 						<div className="btnDiv">选择赛事</div>
 						<div className="btnImage">
@@ -324,12 +317,12 @@ class LanchRecommendation extends BasePage {
 						</div>
 					</div>
 
-					<div className="flexItem reasonDiv">
+					<div className="reasonDiv">
                         <textarea className="reason" placeholder="描述一下你的推荐理由" value={content} onChange={(e)=> {
 	                        this.setState({content: e.target.value.trim()});
                         }}/>
 					</div>
-					<div className="flexItem addImageFlex"
+					<div className="addImageFlex"
 					     style={{display: userType === "SHOPKEEPER" && imgUrl === "" ? "" : "none"}}>
 						<div className="addImageWap"
 						     onTouchEnd={()=> {
@@ -344,8 +337,8 @@ class LanchRecommendation extends BasePage {
 							<div className="text">添加图片</div>
 						</div>
 					</div>
-					<div className="flexItem moneyTitle">选择费用</div>
-					<div className="flexItem moneyDiv">
+					<div className="moneyTitle">选择费用</div>
+					<div className="moneyDiv">
 						<div className={fee === 0 ? "feebox selected" : "feebox"}
 						     onTouchEnd={this.selectFee.bind(this, 0)}>免费
 						</div>
@@ -487,7 +480,6 @@ class LanchRecommendation extends BasePage {
 					showWarnAlert: true,
 					alertWarnTitle: "发布成功！",
 					selectedMatchArray: [],
-					sureSelectedArray: [],
 					deployMatchInfo: {},
 					fee: -1,
 					myDefineFee: -1,
