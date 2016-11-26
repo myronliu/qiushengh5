@@ -95,76 +95,29 @@ class LanchRecommendation extends BasePage {
 		}
 	}
 
-	handleCancle() {
-		this.setState({
-			showAlert: false,
-			// selectedMatchArray: []
-		})
-	}
-
-	handleSure() {
-		let preState = _.fromJS(this.state).toJS();
-		let {selectedMatchArray, list}= preState;
-		preState.deployMatchInfo = {};
-		list.map(matchItem=> {
-			if (selectedMatchArray.join(",").indexOf(matchItem.matchId) !== -1) {
-				preState.deployMatchInfo[matchItem.matchId] = {};
-				preState.deployMatchInfo[matchItem.matchId]["letBall"] = [0, matchItem.handicap];
-				preState.deployMatchInfo[matchItem.matchId]["selectType"] = {0: [], [matchItem.handicap]: []};
-			}
-		});
-		preState.showAlert = false;
-		preState.sureSelectedArray = selectedMatchArray;
-		this.setState(preState);
-	}
 
 	deleteHandler(matchId, letBall) {
 		let preState = _.fromJS(this.state).toJS();
-		preState.deployMatchInfo[matchId]["letBall"] = preState.deployMatchInfo[matchId]["letBall"].filter(letBallId=>letBallId !== letBall);
+		preState.deployMatchInfo[matchId][letBall] = null;
+		let matchIdObj = preState.deployMatchInfo[matchId];
+		let flag = false;
+		Object.keys(matchIdObj).map(letBall=> {
+			flag = flag || (matchIdObj[letBall] && matchIdObj[letBall].length !== 0);
+		});
+		if (!flag) {
+			preState.selectedMatchArray = preState.selectedMatchArray.filter(id=>id !== matchId);
+		}
 		this.setState(preState);
 	}
 
-	selectTypeHandler(matchId, type, letBall) {
-		let preState = _.fromJS(this.state).toJS();
-		let selectType = preState.deployMatchInfo[matchId]["selectType"];
-		let array = selectType[letBall];
-		if (array.join(",").indexOf(type) !== -1) {
-			array = array.filter(t=>t !== type);
-		} else {
-			array.push(type);
-		}
-		if (array.length > 2) {
-			array.shift();
-		}
-		selectType[letBall] = array;
-		preState.deployMatchInfo[matchId]["selectType"] = selectType;
-		this.setState(preState);
-	}
-
-	getMoreRecommendation() {
-		this.setState({
-			showAlert: true,
-			alertTitle: "推荐赛事"
-		})
-	}
-
-	selectHandler(matchId) {
-		let {selectedMatchArray} = this.state;
-		let array = _.fromJS(selectedMatchArray).toJS();
-		if (array.join(",").indexOf(matchId) !== -1) {
-			array = array.filter(id=>id !== matchId);
-		} else {
-			array.push(matchId);
-		}
-		this.setState({selectedMatchArray: array});
+	gotoSelectMatch() {
+		window.to('/selectmatch');
 	}
 
 	deployRecommendation() {
-		let {deployMatchInfo, fee, myDefineFee, content, userType, imgUrl} = this.state;
+		let {selectedMatchArray, deployMatchInfo, fee, myDefineFee, content, userType, imgUrl} = this.state;
 
-		let matchIdArray = Object.keys(deployMatchInfo);
-
-		if (matchIdArray.length === 0) {
+		if (selectedMatchArray.length === 0) {
 			this.setState({
 				showWarnAlert: true,
 				alertWarnTitle: "请选择推荐赛事！"
@@ -189,37 +142,24 @@ class LanchRecommendation extends BasePage {
 		let deployMatchIds = [];
 		let deployLetBalls = [];
 		let deployResults = [];
-		let winLvFlagWrong = false;
-		matchIdArray.map(matchId=> {
-			let letBallArray = deployMatchInfo[matchId]["letBall"];
-			if (letBallArray.length !== 0) {
-				let selectTypeArray = deployMatchInfo[matchId]["selectType"];
-				letBallArray.map(leBall=> {
-					if (selectTypeArray[leBall].length === 0) {
-						winLvFlagWrong = true;
-						return;
-					}
-					let resultSum = selectTypeArray[leBall].reduce((a, b)=>a + b);
+
+		selectedMatchArray.map(matchId=> {
+			let matchIdObj = deployMatchInfo[matchId];
+			Object.keys(matchIdObj).map(letBall=> {
+				if (matchIdObj[letBall] && matchIdObj[letBall].length > 0) {
+					deployLetBalls.push(letBall);
 					deployMatchIds.push(matchId);
-					deployLetBalls.push(leBall);
+					let resultSum = matchIdObj[letBall].reduce((a, b)=>a + b);
 					deployResults.push(resultSum);
-				});
-			}
+				}
+
+			});
 		});
-		if (winLvFlagWrong) {
-			this.setState({
-				showWarnAlert: true,
-				alertWarnTitle: "请选择胜率！"
-			});
-			return;
-		}
-		if (deployMatchIds.length === 0) {
-			this.setState({
-				showWarnAlert: true,
-				alertWarnTitle: "请选择推荐赛事！"
-			});
-			return;
-		}
+
+		console.log(deployMatchIds.join(","))
+		console.log(deployLetBalls.join(","))
+		console.log(deployResults.join(","))
+
 
 		let params = {
 			content: content,
@@ -284,49 +224,16 @@ class LanchRecommendation extends BasePage {
 		return true;
 	}
 
-	renderItems(list) {
-		// if(process.browser){
-		//   alert('renderItems')
-		// }
-		return list.map(function (item, index) {
-			return (
-				<TapAble className="saishi block" key={"hot" + index}
-				         onTap={this.selectHandler.bind(this, item.matchId)}>
-					<div
-						className={this.state.selectedMatchArray.join(",").indexOf(item.matchId) !== -1 ? "matchWap selected" : "matchWap"}>
-						<div>{item.bh}</div>
-						<div className="item itemLeft">
-							<img src={item.homeTeamAvatar ? item.homeTeamAvatar : "../images/photo.png"}/>
-							<span>{item.homeTeam}</span>
-						</div>
-						<div className="item itemMiddle">
-							<div><span
-								className="o">{item.matchName.length > 3 ? item.matchName.substring(0, 3) + '..' : item.matchName}</span>
-							</div>
-							<div className="g">{item.finalScore || 'vs'}</div>
-							<div className=""><span
-								className="oo">{item.matchDate.length > 5 ? item.matchDate.substring(5) : ''}</span>
-							</div>
-						</div>
-						<div className="item itemRight">
-							<span>{item.awayTeam}</span>
-							<img src={item.awayTeamAvatar ? item.awayTeamAvatar : "../images/photo.png"}/>
-						</div>
-					</div>
-				</TapAble>
-			)
-		}.bind(this));
-	}
-
 	renderDetailMatch() {
-		let {sureSelectedArray, list, deployMatchInfo} = this.state;
-		list = list.filter(item=>sureSelectedArray.join(",").indexOf(item.matchId) !== -1);
+		let {selectedMatchArray, list, deployMatchInfo} = this.state;
+		list = list.filter(item=>this.arrayIncludes(selectedMatchArray, item.matchId));
 		return list.map(function (item, index) {
+			let matchId = item.matchId;
 			return (
 				<div className="itemMatchWap" key={"recommendation" + index}>
 					{
-						deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId]["letBall"] && deployMatchInfo[item.matchId]["letBall"].map((letBall, index)=> {
-							return this.renderMatch(item, letBall, index, list.length)
+						deployMatchInfo[matchId] && Object.keys(deployMatchInfo[matchId]).map((letBall, id)=> {
+							return deployMatchInfo[matchId][letBall] && this.renderMatch(item, letBall, index + "_" + id, list.length, deployMatchInfo[matchId][letBall]);
 						})
 					}
 				</div>
@@ -334,8 +241,7 @@ class LanchRecommendation extends BasePage {
 		}.bind(this));
 	}
 
-	renderMatch(item, letBall, index, listLength) {
-		let {deployMatchInfo} = this.state;
+	renderMatch(item, letBall, index, listLength, lvArray) {
 		return <div className="itemMatch" key={index} style={{marginBottom: index === listLength ? 0 : "1rem"}}>
 			<div className="middleWap">
 				<div className="line1">
@@ -352,15 +258,15 @@ class LanchRecommendation extends BasePage {
 				</div>
 				<div className="line3">
 					<div className="left">
-						<span className="num">{letBall ? item.handicap : 0}</span>
+						<span className="num">{letBall != "0" ? item.handicap : 0}</span>
 					</div>
 					<div className="right">
-					<span onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, letBall)}
-					      className={"first" + (deployMatchInfo[item.matchId]["selectType"][letBall].join(",").indexOf(1) !== -1 ? " selected" : "")}>{'主胜 ' + (letBall ? item.oddsRs : item.oddsS)}</span>
-						<span onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, letBall)}
-						      className={"middle" + (deployMatchInfo[item.matchId]["selectType"][letBall].join(",").indexOf(2) !== -1 ? " selected" : "")}>{'平局 ' + (letBall ? item.oddsRp : item.oddsP)}</span>
-						<span onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, letBall)}
-						      className={"last" + (deployMatchInfo[item.matchId]["selectType"][letBall].join(",").indexOf(4) !== -1 ? " selected" : "")}>{'客胜 ' + (letBall ? item.oddsRf : item.oddsF)}</span>
+						<span
+							className={"first" + (this.arrayIncludes(lvArray, 1) ? " selected" : "")}>{'主胜 ' + (letBall != "0" ? item.oddsRs : item.oddsS)}</span>
+						<span
+							className={"middle" + (this.arrayIncludes(lvArray, 2) ? " selected" : "")}>{'平局 ' + (letBall != "0" ? item.oddsRp : item.oddsP)}</span>
+						<span
+							className={"last" + (this.arrayIncludes(lvArray, 4) ? " selected" : "")}>{'客胜 ' + (letBall != "0" ? item.oddsRf : item.oddsF)}</span>
 					</div>
 				</div>
 			</div>
@@ -380,13 +286,6 @@ class LanchRecommendation extends BasePage {
 		return (
 			<Layout className='lanchRecommendation' title={'新增推荐'} rightItems={[rightBtn]}>
 				<Loading showLoading={this.state.showLoading}/>
-				<div className="newAddAlert">
-					<TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
-					             secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
-					             secondBtnOnTouchEnd={this.handleSure.bind(this)}>
-						<div>{this.renderItems(list)}</div>
-					</TwoBtnAlert>
-				</div>
 				<TwoBtnAlert show={this.state.showWarnAlert} title={this.state.alertWarnTitle} firstBtnTitle={"取消"}
 				             secondBtnTitle={"确定"}
 				             firstBtnOnTouchEnd={()=>this.setState({showWarnAlert: false})}
@@ -403,7 +302,7 @@ class LanchRecommendation extends BasePage {
 
 					<div className="flexItem selectMatchBtn"
 					     style={{border: sureSelectedArray.length === 0 ? 0 : "1px solid #dddddd"}}
-					     onTouchEnd={this.getMoreRecommendation.bind(this)}>
+					     onTouchEnd={this.gotoSelectMatch.bind(this)}>
 						<div className="btnDiv">选择赛事</div>
 						<div className="btnImage">
 							<div className="icon addMatch"></div>
@@ -576,6 +475,11 @@ class LanchRecommendation extends BasePage {
 		ApiAction.post(UrlConfig.matchList, data);
 		ApiAction.post(UrlConfig.myDetail, {token});
 
+		let selectedMatchData = JSON.parse(window.sessionStorage.getItem("selectedMatchData"));
+		if (selectedMatchData) {
+			this.setState({...selectedMatchData});
+		}
+
 		UploadStore.uploadfile(function (body) {
 			this.showLoading(false);
 			if (body.success) {
@@ -597,6 +501,10 @@ class LanchRecommendation extends BasePage {
 				});
 			}
 		}.bind(this));
+	}
+
+	arrayIncludes(array, str) {
+		return array.join(",").indexOf(str) != -1;
 	}
 }
 

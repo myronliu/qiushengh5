@@ -28,6 +28,8 @@ var Specialinfo = React.createFactory(require('../pages/specialinfo'));
 var QiuSheng = React.createFactory(require('../pages/qiusheng'));
 var Hotmatch = React.createFactory(require('../pages/hotmatch'));
 var MyRecommendation = React.createFactory(require('../pages/myrecommendation'));
+var SelectMatch = React.createFactory(require('../pages/selectmatch'));
+
 var LiveScore = React.createFactory(require('../pages/livescore'));
 var NewAddRecommendation = React.createFactory(require('../pages/newaddrecommendation'));
 var RecommendationDetail = React.createFactory(require('../pages/recommendationdetail'));
@@ -199,6 +201,12 @@ router.get('/myrecommendation',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(MyRecommendation());
   res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
 });
+
+router.get('/selectmatch',function(req,res){
+  var reactHtml = ReactDOMServer.renderToString(SelectMatch());
+  res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
+});
+
 
 router.get('/livescore',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(LiveScore());

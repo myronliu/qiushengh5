@@ -1,0 +1,154 @@
+.selectmatch {
+	.matchDesc {
+		height: 3.5rem;
+		line-height: 3.5rem;
+		color: $dark_gray;
+		font-size: 1.3rem;
+		padding-left: 1.5rem;
+		.dateTime {
+		}
+		.week {
+			margin: 0 .5rem;
+		}
+		.desc {
+		}
+	}
+	.matchList {
+		.listItem {
+			height: 12rem;
+			margin-bottom: 1.5rem;
+			background-color: #f5f5f5;
+			.teamVsTeam {
+				height: 4rem;
+				> div {
+					float: left;
+					height: 100%;
+				}
+				.div1 {
+					width: 18%;
+					.matchSelect {
+						width: 2.2rem;
+						height: 2.2rem;
+						margin: .9rem 1.5rem;
+						background: url("../icons/choose_un_selected.png");
+						background-size: 100%;
+					}
+					.selected {
+						background: url("../icons/choose_selected.png");
+						background-size: 100%;
+					}
+				}
+				.div2 {
+					width: 14%;
+
+				}
+				.div3 {
+					//width: 53%;
+					width: 66%;
+					& > div {
+						float: left;
+						height: 4rem;
+						line-height: 4rem;
+						text-align: center;
+						overflow-wrap: break-word;
+						color: $black;
+						font-size: 1.4rem;
+					}
+					.topLeft, .topRight {
+						width: 45%;
+					}
+					.topMiddle {
+						width: 10%;
+					}
+				}
+				.div4 {
+
+				}
+			}
+			.itemDetail {
+				height: 8rem;
+				> div {
+					float: left;
+					height: 100%;
+				}
+				.div1 {
+					width: 18%;
+					text-align: center;
+					> div {
+						margin-top: 1rem;
+						color: $dark_gray;
+						font-size: 1.2rem;
+					}
+				}
+				.div2 {
+					width: 14%;
+					text-align: center;
+					> div {
+						line-height: 3rem;
+						border: 0;
+						height: 3rem;
+						width: 3rem;
+						border-radius: 100%;
+						margin: 0.5rem 0.5rem;
+						font-size: 1.4rem;
+						color: white;
+						background-color: #dddddd;
+
+					}
+					.addOne {
+						background-color: $red;
+					}
+					.lessOne {
+						background-color: $green;
+					}
+				}
+				.div3 {
+					//width: 53%;
+					width: 66%;
+					background-color: white;
+					.div3Top, .div3Bottom {
+						height: 4rem;
+						line-height: 4rem;
+						> div {
+							float: left;
+							width: 33.33%;
+							text-align: center;
+							font-size: 1.4rem;
+							border-left: 1px solid #dddddd;
+							.result {
+								color: $black;
+							}
+							.lv {
+								color: $gray;
+							}
+						}
+						.lvSelect {
+							background-color: $red;
+						}
+					}
+					.div3Top {
+						border-bottom: 1px solid #dddddd;
+					}
+				}
+				.div4 {
+					//width: 18%;
+					width: 0;
+					background-color: white;
+					border-left: 1px solid #dddddd;
+					.div4Wap {
+						height: 4rem;
+						margin-top: 2rem;
+						color: $black;
+						font-size: 1.3rem;
+						> div {
+							height: 2rem;
+							line-height: 2rem;
+							text-align: center;
+						}
+					}
+
+				}
+			}
+		}
+	}
+}
