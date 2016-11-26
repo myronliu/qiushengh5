@@ -52,8 +52,8 @@ function handleApiWithFile(req, res, config){
       var filePath = '';
       var filesPath = [];
       //如果提交文件的form中将上传文件的input名设置为tmpFile，就从tmpFile中取上传文件。否则取for in循环第一个上传的文件。
-      if(file.tmpFile){
-          filePath = file.tmpFile.path;
+      if(file.qsFile){
+          filePath = file.qsFile.path;
       } else {
           for(var key in file){
               if( file[key].path && filePath==='' ){
@@ -79,10 +79,16 @@ function handleApiWithFile(req, res, config){
             //调用uploadFile上传
             uploadFile(token, fileName, filePath);
             fields[fields.paramUrl] = 'http://ogk4g82l7.bkt.clouddn.com/' + fileName;
-            fs.unlink(filePath);
+            // fs.unlink(filePath);
+            // ApiAction.post(req.url,fields,function(data){
+            //   console.log(fields)
+            //   res.json(data);
+            //   // res.json({status: 0, body:{success: true, msg:''}})
+            // }, config)
             ApiAction.post(req.url,fields,function(data){
+              // fs.unlink(filePath);
+              console.log(fields)
               res.json(data);
-              // res.json({status: 0, body:{success: true, msg:''}})
             }, config)
         }
       }else{
@@ -108,6 +114,8 @@ function handleApiWithFile(req, res, config){
         }
 
         ApiAction.post(req.url,fields,function(data){
+          // fs.unlink(filePath);
+          console.log(fields)
           res.json(data);
         }, config)
       }

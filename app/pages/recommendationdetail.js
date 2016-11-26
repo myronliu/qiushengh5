@@ -61,6 +61,7 @@ class RecommendationDetail extends BasePage {
 					body.data.detail = body.data.detail || {};
 					body.data.matches = body.data.matches || [];
 					this.setState({
+						avatar: body.data.expert.avatar,
 						list: body.data.matches,
 						picUrl: body.data.detail.picUrl || "",
 						content: body.data.detail.content || '',

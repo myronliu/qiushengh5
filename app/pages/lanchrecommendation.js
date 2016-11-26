@@ -38,6 +38,7 @@ class LanchRecommendation extends BasePage {
 			content: "",
 			imgUrl: "",
 			userType: "EXPERT",
+			// userType: "SHOPKEEPER",
 			kbdShow: false
 		};
 	}
