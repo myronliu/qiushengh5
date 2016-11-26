@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html>
-<head>
+<head >
   <title><%= typeof title === 'undefined' ? '球盛': title %></title>
-  <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  
+  <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+  <script type="text/javascript">
+
+  </script>
   <link rel="stylesheet" type="text/css" href="/css/main.css">
   <link rel="stylesheet" type="text/css" href="/css/style.css">
   <link rel="stylesheet" type="text/css" href="/css/font-awesome/css/font-awesome.min.css">
@@ -36,26 +38,24 @@
 <div style='margin:0 auto;width:0px;height:0px;overflow:hidden;'>
   <img src="http://oh3pitlhq.bkt.clouddn.com/logo.png" width='700'>
 </div>
-<div id='container'>
-  <%- reactOutput %>
+<header id="header">
+  <%- typeof headerData === 'undefined'?'':headerData %>
+</header>
+<div id="container" style="height: 100%;">
+  <div style="height: 100%;"><%- reactOutput %></div>
 </div>
 </body>
 <script><%- typeof stateData === 'undefined'?'':stateData%></script>
-<!-- build:js -->
-<script type="text/javascript" src="/bundle.min.js"></script>
-<!-- endbuild -->
-</html>
+<script src="jquery-1.4.4.min.js" type="text/javascript"></script>
+<script src="jq_scroll.js" type="text/javascript"></script>
 <script src="//res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
-
 <script type="text/javascript">
-
   var _signature = "<%- sign %>";
   var _noncestr = "<%- noncestr %>";
   var _appId = "<%- appid %>";
   var _timestamp = "<%- timestamp %>";
   var _ticket = "<%- ticket %>";
   var _url = "<%- url %>";
-
   wx.config({
     debug: false, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
     appId: _appId, // 必填，公众号的唯一标识
@@ -72,9 +72,7 @@
 
     ] // 必填，需要使用的JS接口列表，所有JS接口列表见附录2
   });
-
-  wx.ready(function () {
-
+  wx.ready(function(){
     wx.checkJsApi({
       jsApiList: [
         'onMenuShareTimeline',
@@ -84,49 +82,47 @@
         'onMenuShareQZone'
       ],
       success: function (res) {
-//        console.log(JSON.stringify(res));
+        //        console.log(JSON.stringify(res));
       }
     });
-
-
     wx.onMenuShareAppMessage({
       title: "<%- shareTitle %>", // 分享标题
       desc: "<%- shareDes %>", // 分享描述
-      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+(window.location.pathname === '/qiusheng' ? 'http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx' : encodeURIComponent(window.location.href))+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
       imgUrl: "<%= typeof shareImage === 'undefined' ? 'http://oh3pitlhq.bkt.clouddn.com/logo.png' : shareImage %>", // 分享图标
       type: '', // 分享类型,music、video或link，不填默认为link
       dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
       success: function () {
-// 用户确认分享后执行的回调函数
-// alert('分享成功!');
-
+        // 用户确认分享后执行的回调函数
+        // alert('分享成功!');
       },
       cancel: function () {
-// 用户取消分享后执行的回调函数
-// alert("用户取消分享后执行的回调函数");
-//   alert('取消分享!');
+        // 用户取消分享后执行的回调函数
+        // alert("用户取消分享后执行的回调函数");
+        //   alert('取消分享!');
       }
     });
     wx.onMenuShareTimeline({
       title: "<%- shareTitle %>", // 分享标题
       // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri=http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
-      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+(window.location.pathname === '/qiusheng' ? 'http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx' : encodeURIComponent(window.location.href))+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
       imgUrl: "<%= typeof shareImage === 'undefined' ? 'http://oh3pitlhq.bkt.clouddn.com/logo.png' : shareImage %>", // 分享图标
       success: function () {
-// 用户确认分享后执行的回调函数
-//     alert('分享成功!');
+        // 用户确认分享后执行的回调函数
+        //     alert('分享成功!');
       },
       cancel: function () {
-// 用户取消分享后执行的回调函数
-//   alert('取消分享!');
+        // 用户取消分享后执行的回调函数
+        //   alert('取消分享!');
       }
     });
-
     wx.onMenuShareQQ({
       title: "<%- shareTitle %>", // 分享标题
       desc: "<%- shareDes %>", // 分享描述
       // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri=http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
-      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+(window.location.pathname === '/qiusheng' ? 'http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx' : encodeURIComponent(window.location.href))+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
       imgUrl:"<%= typeof shareImage === 'undefined' ? 'http://oh3pitlhq.bkt.clouddn.com/logo.png' : shareImage %>", // 分享图标
       success: function () {
         // 用户确认分享后执行的回调函数
@@ -139,7 +135,8 @@
       title: "<%- shareTitle %>", // 分享标题
       desc:  "<%- shareDes %>", // 分享描述
       // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri=http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',// window.location.href, // 分享链接
-      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+(window.location.pathname === '/qiusheng' ? 'http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx' : encodeURIComponent(window.location.href))+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
       imgUrl: "<%= typeof shareImage === 'undefined' ? 'http://oh3pitlhq.bkt.clouddn.com/logo.png' : shareImage %>", // 分享图标
       success: function () {
         // 用户确认分享后执行的回调函数
@@ -152,7 +149,8 @@
       title:  "<%- shareTitle %>", // 分享标题
       desc:  "<%- shareDes %>", // 分享描述
       // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri=http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
-      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+(window.location.pathname === '/qiusheng' ? 'http%3a%2f%2fqiusheng.qingxinguoyuan.com%2flogin%2fwx' : encodeURIComponent(window.location.href))+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
+      // link: 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx2d22b4133f04d06e&redirect_uri='+encodeURIComponent(window.location.href)+'&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect',//window.location.href, // 分享链接
       imgUrl:  "<%= typeof shareImage === 'undefined' ? 'http://oh3pitlhq.bkt.clouddn.com/logo.png' : shareImage %>", // 分享图标
       success: function () {
         // 用户确认分享后执行的回调函数
@@ -161,9 +159,9 @@
         // 用户取消分享后执行的回调函数
       }
     });
-
   });
-
 </script>
-
-
+<!-- build:js -->
+<script type="text/javascript" src="/bundle.js"></script>
+<!-- endbuild -->
+</html>

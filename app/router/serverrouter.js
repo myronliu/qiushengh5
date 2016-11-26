@@ -132,12 +132,14 @@ router.get('/',function(req,res){
 
 router.get('/specialist',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Specialist());
-  res.render('home', {reactOutput: reactHtml,title:'专家列表'});
+  // res.render('home', {reactOutput: reactHtml,title:'专家列表'});
+  renderByWX(req, res, reactHtml, '专家列表');
 });
 
 router.get('/specialinfo',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Specialinfo({id: req.query.id}));
-  res.render('home', {reactOutput: reactHtml,title:'专家详情'});
+  // res.render('home', {reactOutput: reactHtml,title:'专家详情'});
+  renderByWX(req, res, reactHtml, '专家详情');
 });
 
 router.get('/qiusheng',function(req,res){
@@ -153,8 +155,8 @@ router.get('/qiusheng',function(req,res){
       };
       res.expose(Exp.dehydrate(data));
       var reactHtml = ReactDOMServer.renderToString(QiuSheng({data: data}));
-      res.render('home', {reactOutput: reactHtml,title:'球盛体育', stateData: res.locals.state});
-      // renderByWX(req, res, reactHtml, '球盛体育',res.locals.state)
+      // res.render('home', {reactOutput: reactHtml,title:'球盛体育', stateData: res.locals.state});
+      renderByWX(req, res, reactHtml, '球盛体育',res.locals.state)
     })
     .catch(function(err){
       var data={
@@ -174,106 +176,128 @@ router.get('/qiusheng',function(req,res){
 
 router.get('/hotmatch',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Hotmatch());
-  res.render('home', {reactOutput: reactHtml,title:'热门赛事'});
+  // res.render('home', {reactOutput: reactHtml,title:'热门赛事'});
+  renderByWX(req, res, reactHtml, '热门赛事');
 });
 
 router.get('/hotmatchdetail',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(HotmatchDetail({id: req.query.id}));
-  res.render('home', {reactOutput: reactHtml,title:'赛事推荐列表'});
+  // res.render('home', {reactOutput: reactHtml,title:'赛事推荐列表'});
+  renderByWX(req, res, reactHtml, '赛事推荐列表');
 });
 
 router.get('/recodetail',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(RecoDetail({id: req.query.id}));
-  res.render('home', {reactOutput: reactHtml,title:'推荐详情'});
+  // res.render('home', {reactOutput: reactHtml,title:'推荐详情'});
+  renderByWX(req, res, reactHtml, '推荐详情');
 });
 
 router.get('/userrank',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(UserRank());
-  res.render('home', {reactOutput: reactHtml,title:'红人榜'});
+  // res.render('home', {reactOutput: reactHtml,title:'红人榜'});
+  renderByWX(req, res, reactHtml, '红人榜');
 });
 
 router.get('/mine',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Mine());
-  res.render('home', {reactOutput: reactHtml,title:'我的'});
+  // res.render('home', {reactOutput: reactHtml,title:'我的'});
+  renderByWX(req, res, reactHtml, '我的');
 });
 
 router.get('/myrecommendation',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(MyRecommendation());
-  res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
+  // res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
+  renderByWX(req, res, reactHtml, '我的推荐');
 });
 
 router.get('/selectmatch',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(SelectMatch());
-  res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
+  // res.render('home', {reactOutput: reactHtml,title:'我的推荐'});
+  renderByWX(req, res, reactHtml, '我的推荐');
 });
 
 
 router.get('/livescore',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(LiveScore());
-  res.render('home', {reactOutput: reactHtml,title:'比分直播'});
+  // res.render('home', {reactOutput: reactHtml,title:'比分直播'});
+  renderByWX(req, res, reactHtml, '比分直播');
 });
 
 router.get('/newaddrecommendation',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(NewAddRecommendation());
-  res.render('home', {reactOutput: reactHtml,title:'新增推荐'});
+  // res.render('home', {reactOutput: reactHtml,title:'新增推荐'});
+  renderByWX(req, res, reactHtml, '新增推荐');
 });
 router.get('/lanchrecommendation',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(LanchRecommendation());
-  res.render('home', {reactOutput: reactHtml,title:'发起推荐'});
+  // res.render('home', {reactOutput: reactHtml,title:'发起推荐'});
+  renderByWX(req, res, reactHtml, '发起推荐');
 });
 router.get('/recommendationdetail',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(RecommendationDetail({id: req.query.id}));
-  res.render('home', {reactOutput: reactHtml,title:'推荐详情'});
+  // res.render('home', {reactOutput: reactHtml,title:'推荐详情'});
+  renderByWX(req, res, reactHtml, '推荐详情');
 });
 
 router.get('/focus',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Focus());
-  res.render('home', {reactOutput: reactHtml,title:'我的关注'});
+  // res.render('home', {reactOutput: reactHtml,title:'我的关注'});
+  renderByWX(req, res, reactHtml, '我的关注');
 });
 
 router.get('/applyexpert',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(ApplyExpert());
-  res.render('home', {reactOutput: reactHtml,title:'申请站长'});
+  // res.render('home', {reactOutput: reactHtml,title:'申请站长'});
+  renderByWX(req, res, reactHtml, '申请站长');
 });
 
 router.get('/writearticle',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(WriteArticle());
-  res.render('home', {reactOutput: reactHtml,title:'发表文章'});
+  // res.render('home', {reactOutput: reactHtml,title:'发表文章'});
+  renderByWX(req, res, reactHtml, '发表文章');
 });
 
 router.get('/testupload',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(TestUpload());
-  res.render('home', {reactOutput: reactHtml,title:'testupload'});
+  // res.render('home', {reactOutput: reactHtml,title:'testupload'});
+  renderByWX(req, res, reactHtml, 'testupload');
 });
 
 router.get('/deposit',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Deposit());
-  res.render('home', {reactOutput: reactHtml,title:'充值'});
+  // res.render('home', {reactOutput: reactHtml,title:'充值'});
+  renderByWX(req, res, reactHtml, '充值');
 });
 
 router.get('/contract',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Contract({type: req.query.type}));
-  res.render('home', {reactOutput: reactHtml,title:'协议'});
+  // res.render('home', {reactOutput: reactHtml,title:'协议'});
+  renderByWX(req, res, reactHtml, '协议');
 });
 
 router.get('/limits',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Limits());
-  res.render('home', {reactOutput: reactHtml,title:'极限追盘'});
+  // res.render('home', {reactOutput: reactHtml,title:'极限追盘'});
+  renderByWX(req, res, reactHtml, '极限追盘');
 });
 
 router.get('/depositrecord',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(DepositRecord());
-  res.render('home', {reactOutput: reactHtml,title:'充值记录'});
+  // res.render('home', {reactOutput: reactHtml,title:'充值记录'});
+  renderByWX(req, res, reactHtml, '充值记录');
 });
 
 router.get('/drawapply',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Drawapply());
-  res.render('home', {reactOutput: reactHtml,title:'申请提现'});
+  // res.render('home', {reactOutput: reactHtml,title:'申请提现'});
+  renderByWX(req, res, reactHtml, '申请提现');
 });
 
 router.get('/drawrecords',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(DrawRecord());
-  res.render('home', {reactOutput: reactHtml,title:'提现明细'});
+  // res.render('wxshare', {reactOutput: reactHtml,title:'提现明细',sing:'ddd', shareTitle:'ddd'});
+  // res.render('home', {reactOutput: reactHtml,title:'提现明细'});
+  renderByWX(req, res, reactHtml, '提现明细');
 });
 
 router.get('/article', function(req,res){
@@ -296,24 +320,13 @@ router.get('/article', function(req,res){
 
 router.get('/recommend',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Recommend({type: req.query.type}));
-  res.render('home', {reactOutput: reactHtml,title:'免费推荐'});
+  // res.render('home', {reactOutput: reactHtml,title:'免费推荐'});
+  renderByWX(req, res, reactHtml, '免费推荐');
 });
 
 function renderByWX(req, res, reactHtml, title, data){
   WeiXinShare(req,res,function(sign,appid,timestamp,noncestr,url,ticket){
-    res.render('wxshare',
-        { reactOutput: reactHtml,
-          title: title,
-          shareTitle:'球盛体育--快来看专家们的精彩文章分享',
-          shareDes:'业界大牛的良心分享，走过路过不要错过～',
-          shareImage:'http://oh3pitlhq.bkt.clouddn.com/logo.png',
-          sign:sign,
-          appid:appid,
-          timestamp:timestamp,
-          noncestr:noncestr,
-          url:url,
-          ticket:ticket,
-          stateData: data});
+    res.render('wxshare', {reactOutput: reactHtml, title: title, shareTitle: title, shareDes:'球盛体育--精彩分享，走过路过不要错过～', shareImage:'http://oh3pitlhq.bkt.clouddn.com/logo.png', sign:sign, appid:appid, timestamp:timestamp, noncestr:noncestr, url:url, ticket:ticket, stateData: data});
   });
 }
 

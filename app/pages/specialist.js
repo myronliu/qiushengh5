@@ -15,21 +15,37 @@ export default class extends BasePage {
   state={
     tabs:[
       {
-        title:'推荐专家',
+        title: '专家推荐',//'推荐专家',
         key: 'TJZJ'
-      },{
-        title:'特邀大咖',
-        key: 'TYDK'
-      },{
-        title:'彩店专家',
+      },
+      // {
+      //   title:'特邀大咖',
+      //   key: 'TYDK'
+      // },
+      {
+        title: '彩店实单',//'彩店专家',
         key: 'CDSD'
-      },{
-        title:'美女推波',
-        key: 'MNTB'
-      },{
-        title:'竞彩高手',
-        key:'JCGS'
-      }],
+      },
+      {
+        title: '裁判推荐',
+        key: 'CPTJ'
+      },
+      {
+        title: '金牌推荐',
+        key: 'JPTJ'
+      },
+      {
+        title: '数据推荐',
+        key: 'SJTJ'
+      },
+      // {
+      //   title:'美女推波',
+      //   key: 'MNTB'
+      // },{
+      //   title:'竞彩高手',
+      //   key:'JCGS'
+      // }
+      ],
     currentTab: 0,
     list:[]
   };
