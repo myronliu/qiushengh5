@@ -36,8 +36,8 @@ class LanchRecommendation extends BasePage {
 			myDefineFee: -1,
 			content: "",
 			imgUrl: "",
-			userType: "EXPERT",
-			// userType: "SHOPKEEPER",
+			// userType: "EXPERT",
+			userType: "SHOPKEEPER",
 			kbdShow: false
 		};
 	}
@@ -71,6 +71,7 @@ class LanchRecommendation extends BasePage {
 						content: "",
 						imgUrl: ""
 					});
+					window.sessionStorage.removeItem("selectedMatchData");
 				} else {
 					this.setState({
 						showWarnAlert: true,
@@ -468,9 +469,31 @@ class LanchRecommendation extends BasePage {
 		ApiAction.post(UrlConfig.matchList, data);
 		ApiAction.post(UrlConfig.myDetail, {token});
 
-		let selectedMatchData = JSON.parse(window.sessionStorage.getItem("selectedMatchData"));
+		let selectedMatchData = JSON.parse(window.sessionStorage.getItem("selectedMatchData"))
+		let {deployMatchInfo}=selectedMatchData;
+		let matchIdArray = Object.keys(deployMatchInfo);
+		matchIdArray = matchIdArray.filter(matchId=> {
+			let validFlag = true;
+			let matchIdObj = deployMatchInfo[matchId];
+			if (undefined === matchIdObj) {
+				validFlag = false;
+			} else {
+				let letBallKeys = Object.keys(matchIdObj);
+				if (letBallKeys.length === 0) {
+					validFlag = false;
+				} else {
+					let nullArray = false;
+					letBallKeys.map(key=> {
+						nullArray = nullArray || matchIdObj[key].length > 0;
+					});
+					validFlag = validFlag && nullArray;
+				}
+			}
+			return validFlag;
+		});
+
 		if (selectedMatchData) {
-			this.setState({...selectedMatchData});
+			this.setState({selectedMatchArray: matchIdArray, deployMatchInfo});
 		}
 
 		UploadStore.uploadfile(function (body) {
@@ -486,6 +509,7 @@ class LanchRecommendation extends BasePage {
 					content: "",
 					imgUrl: ""
 				});
+				window.sessionStorage.removeItem("selectedMatchData");
 			} else {
 				this.setState({
 					showWarnAlert: true,

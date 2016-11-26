@@ -1,19 +1,22 @@
 .selectmatch {
-	.matchDesc {
-		height: 3.5rem;
-		line-height: 3.5rem;
-		color: $dark_gray;
-		font-size: 1.3rem;
-		padding-left: 1.5rem;
-		.dateTime {
-		}
-		.week {
-			margin: 0 .5rem;
-		}
-		.desc {
-		}
-	}
+
 	.matchList {
+
+		.matchDesc {
+			height: 3.5rem;
+			line-height: 3.5rem;
+			color: $dark_gray;
+			font-size: 1.3rem;
+			padding-left: 1.5rem;
+			.dateTime {
+			}
+			.week {
+				margin: 0 .5rem;
+			}
+			.desc {
+			}
+		}
+
 		.listItem {
 			height: 12rem;
 			margin-bottom: 1.5rem;

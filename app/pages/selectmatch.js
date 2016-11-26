@@ -12,6 +12,15 @@ import TwoBtnAlert from '../components/twobtnalert';
 import BasePage from '../components/BasePage.js';
 import Loading from '../helper/loading';
 
+const weekMap = {
+	1: "周一",
+	2: "周二",
+	3: "周三",
+	4: "周四",
+	5: "周五",
+	6: "周六",
+	0: "周日"
+};
 class SelectMatch extends BasePage {
 	constructor(props) {
 		super(props);
@@ -68,28 +77,58 @@ class SelectMatch extends BasePage {
 
 	gotoLanchRecommendation() {
 		let {selectedMatchArray, deployMatchInfo}=this.state;
-		if (selectedMatchArray.length === 0) {
+		// if (selectedMatchArray.length === 0) {
+		// 	this.setState({
+		// 		showAlert: true,
+		// 		alertTitle: "请选择赛事！"
+		// 	});
+		// 	return;
+		// }
+		// let validFlag = true;
+		// selectedMatchArray.map(matchId=> {
+		// 	let matchIdObj = deployMatchInfo[matchId];
+		// 	if (undefined === matchIdObj) {
+		// 		validFlag = false;
+		// 	} else {
+		// 		let letBallKeys = Object.keys(matchIdObj);
+		// 		if (letBallKeys.length === 0) {
+		// 			validFlag = false;
+		// 		} else {
+		// 			let arrayNullFlag = false;
+		// 			letBallKeys.map(key=> {
+		// 				arrayNullFlag = arrayNullFlag || matchIdObj[key].length > 0;
+		// 			});
+		// 			validFlag = validFlag && arrayNullFlag;
+		// 		}
+		// 	}
+		// });
+
+		let matchIdKeys = Object.keys(deployMatchInfo);
+		if (matchIdKeys.length === 0) {
 			this.setState({
 				showAlert: true,
-				alertTitle: "请选择赛事！"
+				alertTitle: "请选择胜率！"
 			});
 			return;
 		}
-		let validFlag = true;
-		selectedMatchArray.map(matchId=> {
+		// console.log(matchIdKeys.length)
+		let validFlag = false;
+		matchIdKeys.map(matchId=> {
 			let matchIdObj = deployMatchInfo[matchId];
+			// console.log("matchIdObj", matchIdObj)
 			if (undefined === matchIdObj) {
-				validFlag = false;
+				// validFlag = false;
+				// console.log("undefined === matchIdObj", undefined === matchIdObj)
 			} else {
 				let letBallKeys = Object.keys(matchIdObj);
+				// console.log("letBallKeys", letBallKeys)
 				if (letBallKeys.length === 0) {
-					validFlag = false;
+					// validFlag = false;
+					// console.log("letBallKeys.length", letBallKeys.length)
 				} else {
-					let arrayNullFlag = false;
 					letBallKeys.map(key=> {
-						arrayNullFlag = arrayNullFlag || matchIdObj[key].length > 0;
+						validFlag = validFlag || matchIdObj[key].length > 0;
 					});
-					validFlag = validFlag && arrayNullFlag;
 				}
 			}
 		});
@@ -101,6 +140,7 @@ class SelectMatch extends BasePage {
 			});
 			return;
 		}
+		// console.log("deployMatchInfo",deployMatchInfo)
 		window.sessionStorage.setItem("selectedMatchData", JSON.stringify({selectedMatchArray, deployMatchInfo}));
 		window.to('/lanchrecommendation');
 	}
@@ -122,13 +162,13 @@ class SelectMatch extends BasePage {
 		let preState = _.fromJS(this.state).toJS();
 		let {selectedMatchArray, deployMatchInfo} = preState;
 
-		if (!this.arrayIncludes(selectedMatchArray, matchId)) {
-			this.setState({
-				showAlert: true,
-				alertTitle: "请先选择赛事！"
-			});
-			return;
-		}
+		// if (!this.arrayIncludes(selectedMatchArray, matchId)) {
+		// 	this.setState({
+		// 		showAlert: true,
+		// 		alertTitle: "请先选择赛事！"
+		// 	});
+		// 	return;
+		// }
 		deployMatchInfo[matchId] = deployMatchInfo[matchId] || {};
 		deployMatchInfo[matchId][letBall] = deployMatchInfo[matchId][letBall] || [];
 		if (this.arrayIncludes(deployMatchInfo[matchId][letBall], type)) {
@@ -146,99 +186,122 @@ class SelectMatch extends BasePage {
 
 	renderItems() {
 		let {list, selectedMatchArray, deployMatchInfo} = this.state;
-		return (
-			<div className="matchList">
+		if (!list[0]) {
+			return;
+		}
+
+		let lastDate = list[0].matchDate.substring(0, 10);
+		let object = {[lastDate]: []};
+		list.map(itemInfo=> {
+			let date = itemInfo.matchDate.substring(0, 10);
+			if (date !== lastDate) {
+				object[date] = [];
+				lastDate = date;
+			}
+			object[date].push(itemInfo);
+		});
+		return Object.keys(object).map((date, index1)=> {
+			return <div className="matchList" key={"matchList_" + index1}>
+				<div className="matchDesc">
+					<span className="dateTime">{date}</span>
+					<span className="week">{weekMap[new Date(date).getDay()]}</span>
+					<span className="desc">{object[date].length + "场可投注"}</span>
+				</div>
 				{
-					list.map(function (item, index) {
-						return (
-
-							<div className="listItem" key={"select_match_" + index}>
-								<div className="teamVsTeam">
-									<div className="div1" onTouchEnd={this.selectHandler.bind(this, item.matchId)}>
-										<div
-											className={selectedMatchArray.join(",").indexOf(item.matchId) != -1 ? "matchSelect selected" : "matchSelect"}/>
-									</div>
-									<div className="div2">
-									</div>
-									<div className="div3">
-										<div className="topLeft">
-											<span>{item.homeTeam}</span>
-										</div>
-										<div className="topMiddle">
-											<span>vs</span>
-										</div>
-										<div className="topRight">
-											<span>{item.awayTeam}</span>
-										</div>
-									</div>
-									<div className="div4">
-									</div>
-								</div>
-								<div className="itemDetail">
-									<div className="div1">
-										<div className="div1Top">{item.matchName}</div>
-										<div className="div2middle">{item.bh}</div>
-										<div className="div3Bottom">00:00截止</div>
-									</div>
-									<div className="div2">
-										<div className="div2Top">0</div>
-										<div
-											className={item.handicap == -1 ? "div2Bottom lessOne" : "div2Bottom addOne"}>{item.handicap}</div>
-									</div>
-									<div className="div3">
-										<div className="div3Top">
-											<div
-												className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 1) ? "topLeft lvSelect" : "topLeft"}
-												onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, 0)}>
-												<span>胜</span>
-												<span>{item.oddsS}</span>
-											</div>
-											<div
-												className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 2) ? "topMiddle lvSelect" : "topMiddle"}
-												onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, 0)}>
-												<span>平</span>
-												<span>{item.oddsP}</span>
-											</div>
-											<div
-												className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 4) ? "topRight lvSelect" : "topRight"}
-												onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, 0)}>
-												<span>负</span>
-												<span>{item.oddsF}</span>
-											</div>
-										</div>
-										<div className="div3Bottom">
-											<div
-												className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 1) ? "bottomLeft lvSelect" : "bottomLeft"}
-												onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, item.handicap)}>
-												<span>胜</span>
-												<span>{item.oddsRs}</span>
-											</div>
-											<div
-												className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 2) ? "bottomMiddle lvSelect" : "bottomMiddle"}
-												onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, item.handicap)}>
-												<span>平</span>
-												<span>{item.oddsRp}</span>
-											</div>
-											<div
-												className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 4) ? "bottomRight lvSelect" : "bottomRight"}
-												onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, item.handicap)}>
-												<span>负</span>
-												<span>{item.oddsRf}</span>
-											</div>
-										</div>
-									</div>
-									<div className="div4">
-										{/*<div className="div4Wap">
-										 <div>展开</div>
-										 <div>全部</div>
-										 </div>*/}
-									</div>
-								</div>
-
-							</div>
-						)
-					}.bind(this))
+					object[date].map((item, index)=> {
+						return this.renderDetailItems(item, index, deployMatchInfo, selectedMatchArray);
+					})
 				}
+			</div>
+		});
+	}
+
+	renderDetailItems(item, index, deployMatchInfo, selectedMatchArray) {
+		return (
+
+			<div className="listItem" key={"select_match_" + index}>
+				<div className="teamVsTeam">
+					{/*<div className="div1" onTouchEnd={this.selectHandler.bind(this, item.matchId)}>
+					 <div
+					 className={selectedMatchArray.join(",").indexOf(item.matchId) != -1 ? "matchSelect selected" : "matchSelect"}/>
+					 </div>*/}
+					<div className="div2">
+					</div>
+					<div className="div3">
+						<div className="topLeft">
+							<span>{item.homeTeam}</span>
+						</div>
+						<div className="topMiddle">
+							<span>vs</span>
+						</div>
+						<div className="topRight">
+							<span>{item.awayTeam}</span>
+						</div>
+					</div>
+					<div className="div4">
+					</div>
+				</div>
+				<div className="itemDetail">
+					<div className="div1">
+						<div className="div1Top">{item.matchName}</div>
+						<div className="div2middle">{item.bh}</div>
+						<div className="div3Bottom">00:00截止</div>
+					</div>
+					<div className="div2">
+						<div className="div2Top">0</div>
+						<div
+							className={item.handicap == -1 ? "div2Bottom lessOne" : "div2Bottom addOne"}>{item.handicap}</div>
+					</div>
+					<div className="div3">
+						<div className="div3Top">
+							<div
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 1) ? "topLeft lvSelect" : "topLeft"}
+								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, 0)}>
+								<span>胜</span>
+								<span>{item.oddsS}</span>
+							</div>
+							<div
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 2) ? "topMiddle lvSelect" : "topMiddle"}
+								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, 0)}>
+								<span>平</span>
+								<span>{item.oddsP}</span>
+							</div>
+							<div
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 4) ? "topRight lvSelect" : "topRight"}
+								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, 0)}>
+								<span>负</span>
+								<span>{item.oddsF}</span>
+							</div>
+						</div>
+						<div className="div3Bottom">
+							<div
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 1) ? "bottomLeft lvSelect" : "bottomLeft"}
+								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, item.handicap)}>
+								<span>胜</span>
+								<span>{item.oddsRs}</span>
+							</div>
+							<div
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 2) ? "bottomMiddle lvSelect" : "bottomMiddle"}
+								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, item.handicap)}>
+								<span>平</span>
+								<span>{item.oddsRp}</span>
+							</div>
+							<div
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 4) ? "bottomRight lvSelect" : "bottomRight"}
+								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, item.handicap)}>
+								<span>负</span>
+								<span>{item.oddsRf}</span>
+							</div>
+						</div>
+					</div>
+					<div className="div4">
+						{/*<div className="div4Wap">
+						 <div>展开</div>
+						 <div>全部</div>
+						 </div>*/}
+					</div>
+				</div>
+
 			</div>
 		);
 	}
@@ -254,11 +317,7 @@ class SelectMatch extends BasePage {
 				             secondBtnOnTouchEnd={()=>this.setState({showAlert: false})}>
 				</TwoBtnAlert>
 
-				<div className="matchDesc">
-					<span className="dateTime">2016-11-15</span>
-					<span className="week">周五</span>
-					<span className="desc">11场可投注</span>
-				</div>
+
 				{
 					this.renderItems()
 				}
