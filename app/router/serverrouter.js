@@ -151,7 +151,8 @@ router.get('/qiusheng',function(req,res){
       };
       res.expose(Exp.dehydrate(data));
       var reactHtml = ReactDOMServer.renderToString(QiuSheng({data: data}));
-      res.render('home', {reactOutput: reactHtml,title:'球盛体育', stateData: res.locals.state});
+      // res.render('home', {reactOutput: reactHtml,title:'球盛体育', stateData: res.locals.state});
+      renderByWX(req, res, reactHtml, '球盛体育',res.locals.state)
     })
     .catch(function(err){
       var data={
@@ -275,7 +276,7 @@ router.get('/article', function(req,res){
           title: '球盛体育--快来看专家们的精彩文章分享',
           shareTitle:'球盛体育--快来看专家们的精彩文章分享',
           shareDes:'业界大牛的良心分享，走过路过不要错过～',
-          shareImage:'http://7xni9f.dl1.z0.glb.clouddn.com/300_300.jpg',
+          shareImage:'http://oh3pitlhq.bkt.clouddn.com/logo.png',
           sign:sign,
           appid:appid,
           timestamp:timestamp,
@@ -289,6 +290,24 @@ router.get('/recommend',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Recommend({type: req.query.type}));
   res.render('home', {reactOutput: reactHtml,title:'免费推荐'});
 });
+
+function renderByWX(req, res, reactHtml, title, data){
+  WeiXinShare(req,res,function(sign,appid,timestamp,noncestr,url,ticket){
+    res.render('wxshare',
+        { reactOutput: reactHtml,
+          title: title,
+          shareTitle:'球盛体育--快来看专家们的精彩文章分享',
+          shareDes:'业界大牛的良心分享，走过路过不要错过～',
+          shareImage:'http://oh3pitlhq.bkt.clouddn.com/logo.png',
+          sign:sign,
+          appid:appid,
+          timestamp:timestamp,
+          noncestr:noncestr,
+          url:url,
+          ticket:ticket,
+          stateData: data});
+  });
+}
 
 function renderToPath(req,res,path){
   let filePath=patha.join(__dirname,'..','/pages'+path+'.js');
