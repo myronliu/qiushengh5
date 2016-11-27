@@ -80,6 +80,7 @@ export default class extends BasePage {
       frmdata.address = this.refs.keeperAddress.value;
       frmdata.cardPic = ReactDOM.findDOMNode(this.refs.keeperCard).files[0];
       frmdata.busiPic = ReactDOM.findDOMNode(this.refs.shopLicence).files[0];
+      frmdata.keeperCard = '';
       frmdata.username = token.substr(token.length-6);
       console.log('form data:',frmdata);
       UploadAction.uploadfile('/lottery/shopkepper/apply', frmdata);
