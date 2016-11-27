@@ -35,7 +35,12 @@ export default class extends BasePage {
   retrieveFormData(formRef, fileRef){
     var me = this;
     var _frmdata = this.refs[formRef].getFormData();
+    var name = fileRef;
+    if(fileRef === 'expertCard'){
+      _frmdata['qsFile'] = ReactDOM.findDOMNode(this.refs[fileRef]).files[0];
+    }else{
       _frmdata[fileRef] = ReactDOM.findDOMNode(this.refs[fileRef]).files[0];
+    }
     return _frmdata;
   }
 
