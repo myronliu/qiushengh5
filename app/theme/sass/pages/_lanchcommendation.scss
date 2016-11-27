@@ -149,10 +149,11 @@
 
 		.moneyDiv {
 			display: flex;
-			height: 4rem;
+			height: 5rem;
 			margin-top: 0;
 			background-color: white;
-			padding: 0rem 1rem 0rem 1rem;
+			padding: 0 1rem;
+			font-size: 1.2rem;
 			.feebox {
 				background-color: white;
 				border: 1px solid;
@@ -160,22 +161,23 @@
 				text-align: center;
 				margin-top: 1rem;
 				border-radius: 4px;
-				height: 2rem;
-				line-height: 2rem;
+				height: 3rem;
+				line-height: 3rem;
 				margin-right: 0.5rem;
 			}
 			.myDefineFee {
 				margin-top: 1rem;
 				width: 36%;
-				line-height: 2rem;
+				height: 3rem;
+				line-height: 3rem;
 				text-align: center;
 				> input {
 					width: 60%;
-					height: 1.7rem;
-					line-height: 1.7rem;
+					height: 2rem;
+					line-height: 2rem;
 					border: 0;
 					outline: none;
-					font-size: 1rem;
+					font-size: 1.2rem;
 				}
 			}
 			> .selected {
@@ -397,18 +399,14 @@
 
 .deployBtnWap {
 	margin-top: 0.5rem;
-	display: flex;
-	justify-content: center;
-	align-items: center;
 	width: 100%;
+	padding: 0 1.5rem;
 	.deployBtn {
 		width: 100%;
-		justify-content: center;
-		align-items: center;
-		display: flex;
-		height: 3rem;
+		height: 3.4rem;
 		background-color: #DC594B;
 		color: white;
-		font-size: 1.5rem;
+		font-size: 1.7rem;
+		border-radius: 0.25rem;
 	}
 }

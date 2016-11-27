@@ -39,7 +39,6 @@ class RecommendationDetail extends BasePage {
 
 	apiSuccess(url, body) {
 		this.showLoading(false);
-		debugger;
 		switch (url) {
 			case UrlConfig.matchList:
 				body = body || [];

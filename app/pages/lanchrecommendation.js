@@ -469,30 +469,29 @@ class LanchRecommendation extends BasePage {
 		ApiAction.post(UrlConfig.matchList, data);
 		ApiAction.post(UrlConfig.myDetail, {token});
 
-		let selectedMatchData = JSON.parse(window.sessionStorage.getItem("selectedMatchData"))
-		let {deployMatchInfo}=selectedMatchData;
-		let matchIdArray = Object.keys(deployMatchInfo);
-		matchIdArray = matchIdArray.filter(matchId=> {
-			let validFlag = true;
-			let matchIdObj = deployMatchInfo[matchId];
-			if (undefined === matchIdObj) {
-				validFlag = false;
-			} else {
-				let letBallKeys = Object.keys(matchIdObj);
-				if (letBallKeys.length === 0) {
+		let selectedMatchData = JSON.parse(window.sessionStorage.getItem("selectedMatchData"));
+		if (selectedMatchData) {
+			let {deployMatchInfo}=selectedMatchData;
+			let matchIdArray = Object.keys(deployMatchInfo);
+			matchIdArray = matchIdArray.filter(matchId=> {
+				let validFlag = true;
+				let matchIdObj = deployMatchInfo[matchId];
+				if (undefined === matchIdObj) {
 					validFlag = false;
 				} else {
-					let nullArray = false;
-					letBallKeys.map(key=> {
-						nullArray = nullArray || matchIdObj[key].length > 0;
-					});
-					validFlag = validFlag && nullArray;
+					let letBallKeys = Object.keys(matchIdObj);
+					if (letBallKeys.length === 0) {
+						validFlag = false;
+					} else {
+						let nullArray = false;
+						letBallKeys.map(key=> {
+							nullArray = nullArray || matchIdObj[key].length > 0;
+						});
+						validFlag = validFlag && nullArray;
+					}
 				}
-			}
-			return validFlag;
-		});
-
-		if (selectedMatchData) {
+				return validFlag;
+			});
 			this.setState({selectedMatchArray: matchIdArray, deployMatchInfo});
 		}
 
