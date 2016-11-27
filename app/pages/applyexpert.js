@@ -272,7 +272,7 @@ export default class extends BasePage {
             </div>
             <div className="input-item">
               <span className="item-label">彩票站点地址</span>
-              <input className="item-input" type="tel" ref='keeperAddress' placeholder="请输入您的站点地址"/>
+              <input className="item-input" ref='keeperAddress' placeholder="请输入您的站点地址"/>
             </div>
             <div className="file-item">
               <span className="item-label">上传身份证正面照</span>
