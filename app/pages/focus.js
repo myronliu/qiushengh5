@@ -108,7 +108,7 @@ export default class extends BasePage {
     render() {
         let rightBtn = {title: '新增关注', func: this.gotoSpecials.bind(this)};
         return (
-            <Layout hideBack={true} className={'focus'} title={'我的关注'} rightItems={[rightBtn]}>
+            <Layout hideBack={true} className={'focus'} title={'专家列表'} rightItems={[rightBtn]}>
 
                 {this.renderFocusList()}
                 <Loading showLoading={this.state.showLoading}/>
