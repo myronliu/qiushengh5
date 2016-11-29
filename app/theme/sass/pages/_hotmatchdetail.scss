@@ -88,7 +88,7 @@
       background: #fff;
     }
     .saishiItem{
-      line-height: 1.5rem;
+      line-height: 2.5rem;
       background-color: #fff;
       .leftPart{
         margin: 0.5rem 0;
@@ -103,21 +103,21 @@
             border-radius: 0.2rem;
             padding: 0.1rem;
             color: $blue;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
           }
           .recWay{
             margin-left: 0.5rem;
             background: $green;
             border-radius: 0.2rem;
             padding: 0.2rem;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: #fff;
             background: $green;
           }
           .time{
             float: right;
             margin-right: 1rem;
-            font-size: 0.9rem;
+            font-size: 1.1rem;
             color: $gray;
           }
         }
@@ -126,11 +126,12 @@
         margin: 0.5rem 0;
         display: inline-block;
         width: 20%;
-        line-height: 1.5rem;
-        height: 1.5rem;
+        line-height: 2.5rem;
+        height: 2.5rem;
         border-left: 0.05rem solid $light_gray;
         text-align: center;
         color: $red;
+        font-size: 1.2rem;
       }
     }
   }
