@@ -293,7 +293,7 @@ export default class extends BasePage {
               <span className="item-label">上传营业执照</span>
               <img className="add-card" src={addIconSrc} onTouchEnd={this.chooseLicence.bind(this)}/>
               <PageForm ref="shopLicenceForm" className="form-horizontal" action="/apiQS/upload" enctype="multipart/form-data">
-                <input type="file" name="busiPic" ref="shopLicence" accept=".jpg,.jpeg,.png,.gif" onChange={($e)=> {
+                <input type="file" name="busiPic" ref="shopLicence" capture="camera" accept="image/*" onChange={($e)=> {
                    let files = $e.target.files;
                    if (files.length == 0) return;
                    this.preLoadImg(files[0], 'licence');
