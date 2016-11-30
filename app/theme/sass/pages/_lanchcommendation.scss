@@ -14,14 +14,15 @@
 			margin-top: 1rem;
 			background-color: white;
 			height: 4.5rem;
+			font-size: 1.6rem;
 			.btnDiv {
 				height: 4.5rem;
 				line-height: 4.5rem;
 				float: left;
 				padding-left: 1.5rem;
 				flex: 1;
-				font-size: 1.6rem;
 				color: $black;
+				width: 20%;
 			}
 			.btnImage {
 				height: 4.5rem;
@@ -29,6 +30,16 @@
 				float: right;
 				padding-right: 1.5rem;
 				font-size: 1.6rem;
+				width: 80%;
+				& > input {
+					font-size: 1.6rem;
+					height: 3rem;
+					line-height: 3rem;
+					margin-top: .75rem;
+					width: 100%;
+					color: $black;
+					border: none;
+				}
 			}
 			.addMatch {
 				background: url("../icons/btn_add.png");
@@ -41,7 +52,7 @@
 			background-color: white;
 			height: 4.5rem;
 			border: 1px solid;
-			.btnDiv {
+			& > .btnDiv {
 				height: 4.5rem;
 				line-height: 4.5rem;
 				float: left;
@@ -50,7 +61,7 @@
 				font-size: 1.6rem;
 				color: $black;
 			}
-			.btnImage {
+			& > .btnImage {
 				height: 4.5rem;
 				line-height: 4.5rem;
 				float: right;
