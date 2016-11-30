@@ -94,15 +94,16 @@
         .numInfo {
             float: right;
             margin-right: 5%;
-            margin-top: 1rem;
-            background-color: $red;
+            margin-top: 0.4rem;
+            background-color: #F47564;
             display: inline-block;
-            width: 0.7rem;
-            height: 0.7rem;
-            line-height: 0.75rem;
+            width: 1.7rem;
+            height: 1.7rem;
+            line-height: 1.75rem;
             border-radius: 50%;
             text-align: center;
-            font-size: 0; //0.5rem;
+            font-size: 1.2rem;
+            color: white;
             &:after {
                 content: '';
                 display: inline-block;

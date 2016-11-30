@@ -25,19 +25,19 @@ export default class extends BasePage {
       // },
       {
         title: '彩店实单',//'彩店专家',
-        key: 'CDSD'
+        key: 'CDDZ'
       },
       {
         title: '裁判推荐',
-        key: 'CPTJ'
+        key: 'JCGS'
       },
       {
         title: '金牌推荐',
-        key: 'JPTJ'
+        key: 'TYDK'
       },
       {
         title: '数据推荐',
-        key: 'SJTJ'
+        key: 'MNTB'
       },
       // {
       //   title:'美女推波',

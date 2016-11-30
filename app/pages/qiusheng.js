@@ -128,6 +128,10 @@ export default class extends BasePage {
         window.to('/userrank')
     }
 
+    gotoMatch(id){
+        window.to('/hotmatchdetail?id=' + id)
+    }
+
     renderBanner() {
         var count = this.state.banners.length;
         if (!process.browser && count > 0) {
@@ -328,7 +332,7 @@ export default class extends BasePage {
                         <span className="title">{"足球赛事"}</span>
                         <span className="link" onTouchEnd={this.gotoHotmatch.bind(this)}>{"全部赛事"}</span>
                     </div>
-                    <Saishi type="saishi"
+                    <Saishi type="saishi" onTap={this.gotoMatch.bind(this, this.props.data.match.id)}
                             data={this.props.data.match}></Saishi>
                 </div>
                 <TapAble className="hongrenbang block" onTap={this.gotoHots.bind(this)}>
