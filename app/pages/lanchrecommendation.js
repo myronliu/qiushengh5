@@ -36,9 +36,11 @@ class LanchRecommendation extends BasePage {
 			myDefineFee: -1,
 			content: "",
 			imgUrl: "",
-			// userType: "EXPERT",
-			userType: "SHOPKEEPER",
-			kbdShow: false
+			userType: "EXPERT",
+			// userType: "SHOPKEEPER",
+			kbdShow: false,
+			title: ""
+
 		};
 	}
 
@@ -114,8 +116,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	deployRecommendation() {
-		let {selectedMatchArray, deployMatchInfo, fee, myDefineFee, content, userType, imgUrl} = this.state;
-
+		let {selectedMatchArray, deployMatchInfo, fee, myDefineFee, content, userType, imgUrl, title} = this.state;
 		if (selectedMatchArray.length === 0) {
 			this.setState({
 				showWarnAlert: true,
@@ -123,6 +124,15 @@ class LanchRecommendation extends BasePage {
 			});
 			return;
 		}
+
+		if (title === "") {
+			this.setState({
+				showWarnAlert: true,
+				alertWarnTitle: "请输入标题！"
+			});
+			return;
+		}
+
 		if (fee === -1 && (myDefineFee === -1 || myDefineFee === "")) {
 			this.setState({
 				showWarnAlert: true,
@@ -156,6 +166,7 @@ class LanchRecommendation extends BasePage {
 		});
 
 		let params = {
+			title: title,
 			content: content,
 			fee: fee,
 			matchIds: deployMatchIds.join(","),
@@ -172,7 +183,7 @@ class LanchRecommendation extends BasePage {
 			// 表单验证
 			if (this.doValid()) {
 				this.showLoading(true);
-				["content", "fee", "matchIds", "letBalls", "results", "token"].map(key=> {
+				["title", "content", "fee", "matchIds", "letBalls", "results", "token"].map(key=> {
 					frmdata[key] = params[key];
 				});
 				frmdata.recommendWay = "REAL";
@@ -275,7 +286,7 @@ class LanchRecommendation extends BasePage {
 	}
 
 	render() {
-		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, userType, kbdShow} = this.state;
+		let {selectedMatchArray, list, content, fee, myDefineFee, imgUrl, userType, kbdShow, title} = this.state;
 		let rightBtn = {icon: '../icons/nav_sy_pre.png', func: this.goHomePage.bind(this)};
 		return (
 			<Layout className='lanchRecommendation' title={'新增推荐'} rightItems={[rightBtn]}>
@@ -290,7 +301,16 @@ class LanchRecommendation extends BasePage {
 					<div className="titleDesc">
 						<div className="btnDiv">标题</div>
 						<div className="btnImage">
-							<div className="recommendType">{recommendType[userType]}</div>
+							<input value={title} placeholder="输入标题" onChange={($e)=> {
+								if (selectedMatchArray.length === 0) {
+									this.setState({
+										showWarnAlert: true,
+										alertWarnTitle: "请先选择推荐赛事！"
+									});
+									return;
+								}
+								this.setState({title: $e.target.value.trim()})
+							}}/>
 						</div>
 					</div>
 
