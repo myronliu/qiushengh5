@@ -242,7 +242,7 @@ router.get('/recommendationdetail',function(req,res){
 router.get('/focus',function(req,res){
   var reactHtml = ReactDOMServer.renderToString(Focus());
   // res.render('home', {reactOutput: reactHtml,title:'我的关注'});
-  renderByWX(req, res, reactHtml, '专家列表');
+  renderByWX(req, res, reactHtml, '我的关注');
 });
 
 router.get('/applyexpert',function(req,res){

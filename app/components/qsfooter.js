@@ -7,7 +7,7 @@ export default class Footer extends React.Component{
       }else if(page === "saishi" && this.props.page !== "saishi"){
         window.to("/hotmatch");
       }else if(page === "focus" && this.props.page !== "focus"){
-        window.to("/focus");
+        window.to("/specialist");
       }else if(page === "mine" && this.props.page !== "mine"){
         window.to("/mine");
       }
