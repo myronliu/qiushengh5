@@ -10,6 +10,7 @@ import ApiStore from '../stores/apistore';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig'
 import BasePage from '../components/BasePage.js';
+import QsFooter from '../components/qsfooter';
 
 export default class extends BasePage {
   state={
@@ -133,6 +134,7 @@ export default class extends BasePage {
         <div className="specialistInner">
           {this.renderItems()}
         </div>
+        <QsFooter page={"specialist"}/>
       </Layout>
     )
   }
