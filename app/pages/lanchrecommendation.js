@@ -177,6 +177,7 @@ class LanchRecommendation extends BasePage {
 
 		if (userType === "EXPERT") {
 			this.showLoading(true);
+			params.recommendWay = "COMMON";
 			ApiAction.post(UrlConfig.deployRecommendation, params);
 		} else {
 			var frmdata = this.retrieveFormData();
