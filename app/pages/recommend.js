@@ -4,6 +4,7 @@ import Cookie from '../helper/cookie';
 import ApiAction from '../actions/apiaction';
 import UrlConfig from '../config/urlconfig';
 import Toast from '../helper/toast';
+import TwoBtnAlert from '../components/twobtnalert';
 
 export default class extends BasePage {
   constructor(props) {
@@ -12,12 +13,38 @@ export default class extends BasePage {
 			freeList: [],
       caidianList: [],
       recState: 'NO',
+      showAlert: false
 		};
 	}
 
+ //  pay(fee, id, ifBuy) {
+	// 	window.to('/recodetail?id=' + id);
+	// }
+
+  handleCancle() {
+    this.setState({
+      showAlert: false
+    })
+  }
+
+  handleSure() {
+    this.showLoading(true);
+    ApiAction.post(UrlConfig.recommendBuy, {recommendId: this.state.payId, token: Cookie.getCookie("token") || ''});
+  }
+
+
   pay(fee, id, ifBuy) {
-		window.to('/recodetail?id=' + id);
-	}
+    if (!ifBuy && fee && fee != "0") {
+      this.setState({
+        showAlert: true,
+        alertTitle: "需支付" + fee + CommonConfig.unit + "查看专家推荐<br />(1" + CommonConfig.unit + "=1元)",
+        payId: id
+      })
+    } else {
+      window.to('/recommendationdetail?id=' + id);
+    }
+  }
+
 
   apiSuccess(url,body){
     this.showLoading(false);
@@ -44,6 +71,20 @@ export default class extends BasePage {
             caidianList: []
           });
           Toast.show(body.msg, 'error');
+        }
+        break;
+      case UrlConfig.recommendBuy:
+        this.setState({
+          showAlert: false
+        })
+        if (body.success) {
+          window.to('/recommendationdetail?id=' + this.state.payId);
+        } else{
+          if(body.msg === "已经买过该推荐了"){
+            window.to('/recommendationdetail?id=' + this.state.payId);
+          }else{
+            Toast.show(body.msg, 'error')
+          }
         }
         break;
     }
@@ -78,6 +119,9 @@ export default class extends BasePage {
 
     return (
         <Layout hideBack={false} className={'recommend'} title={titleName}>
+          <TwoBtnAlert show={this.state.showAlert} title={this.state.alertTitle} firstBtnTitle={"取消"}
+                             secondBtnTitle={"确定"} firstBtnOnTouchEnd={this.handleCancle.bind(this)}
+                             secondBtnOnTouchEnd={this.handleSure.bind(this)}/>
           {
             (type === 'free' ? this.state.freeList : this.state.caidianList).map(function(item, index){
               return (
