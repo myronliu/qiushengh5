@@ -40,7 +40,7 @@ export default class extends BasePage {
         this.setState({
             status: 'on'
         })
-        ApiAction.post(UrlConfig.matchList, {status: 2, matchTypes: '', token: Cookie.getCookie("token") || 'dds'});
+        ApiAction.post(UrlConfig.matchList, {status: 2, matchTypes: '', token: Cookie.getCookie("token") || ''});
     }
 
     selectEnd() {
@@ -48,7 +48,7 @@ export default class extends BasePage {
         this.setState({
             status: 'end'
         })
-        ApiAction.post(UrlConfig.matchList, {status: 5, matchTypes: '', token: Cookie.getCookie("token") || 'dds'});
+        ApiAction.post(UrlConfig.matchList, {status: 5, matchTypes: '', token: Cookie.getCookie("token") || ''});
     }
 
     gotoDetail(id) {

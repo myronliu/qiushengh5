@@ -126,7 +126,7 @@ export default class extends BasePage {
 
   render() {
     return (
-      <Layout className={'specialist'} title={'专家列表'}>
+      <Layout hideBack={true} className={'specialist'} title={'专家列表'}>
         <Loading showLoading={this.state.showLoading} />
         <div className="tabs">
           {this.renderTabs()}

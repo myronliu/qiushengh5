@@ -143,7 +143,7 @@ export default class extends BasePage {
     return (
       <div>
         <p className="itemCategoryTitle recommending">未结束</p>
-        { this.renderItems(this.state.recommending) }
+        { this.renderItems(this.state.recommending, false) }
       </div>
     );
   }
@@ -152,7 +152,7 @@ export default class extends BasePage {
     return (
       <div>
         <p className="itemCategoryTitle recommended">历史推荐</p>
-        { this.renderItems(this.state.recommended) }
+        { this.renderItems(this.state.recommended, true) }
       </div>
     );
   }
@@ -179,10 +179,10 @@ export default class extends BasePage {
     }.bind(this));
   }
 
-  renderItems(sourceList){
+  renderItems(sourceList, free){
     return sourceList.map(function(item, index){
       return (
-        <TapAble className="specialItem block" key={"s"+index} onTap={this.pay.bind(this, item.fee, item.id, item.ifBuy)}>
+        <TapAble className="specialItem block" key={"s"+index} onTap={this.pay.bind(this, item.fee, item.id, free || item.ifBuy)}>
           <div className="leftPart">
             <div className="topInfo">
               <span className="liansai">{item.matchName}</span>
@@ -196,7 +196,7 @@ export default class extends BasePage {
             </div>
           </div>
           <div className="rightPart">
-            {this.state.recState == "NO" ? (item.fee && item.fee > 0 ? (item.ifBuy ? "查看" : item.fee + CommonConfig.unit) : "免费") : "免费"}
+            {this.state.recState == "NO" ? (item.fee && item.fee > 0 ? (free || item.ifBuy ? "查看" : item.fee + CommonConfig.unit) : "免费") : "免费"}
           </div>
         </TapAble>
       )

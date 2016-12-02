@@ -171,7 +171,7 @@ export default class extends BasePage {
         if (this.state.specialist instanceof Array) {
             return this.state.specialist.map(function (item, index) {
                 return (
-                    <TapAble className="specialItem" key={"s" + index} onTap={this.gotoSpecial.bind(this, item.id)}>
+                    <TapAble className="specialItem" key={"s" + index} onTap={this.gotoSpecial.bind(this, item.myId)}>
                         <img src={item.avatar ? item.avatar : '../images/photo.png'} className=""/>
                         <div className="name">
                             {item.name ? item.name : '虚位以待'}
