@@ -2,12 +2,12 @@
   .header{
     background-image: url(../images/back.jpg);
     background-size: contain;
-    padding: 0.5rem;
+    padding: 3.5rem;
     .divImg{
       text-align: center;
       &>img{
-        width: 4rem;
-        border-radius: 2rem;
+        width: 4.6rem;
+        border-radius: 2.3rem;
         border: 0.05rem solid;
         border-color: white;
       }
@@ -16,6 +16,7 @@
       text-align: center;
       color: white;
       font-size: 1.25rem;
+      margin-top: 0.5rem;
     }
     .desc{
       padding-left: 0.5rem;
@@ -23,6 +24,7 @@
       text-align: center;
       color: white;
       font-size: 1.25rem;
+      margin-top: 0.5rem;
     }
   }
   .tabs{
