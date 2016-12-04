@@ -44,7 +44,7 @@ function handleApiWithFile(req, res, config){
   // var reqq = multipart(req);
   var form = new formidable.IncomingForm();
   form.uploadDir = path.join(__dirname, 'tmp');   //文件保存的临时目录为当前项目下的tmp文件夹
-  form.maxFieldsSize = 10 * 1024 * 1024;  //用户头像大小限制为最大1M
+  form.maxFieldsSize = 100 * 1024 * 1024;  //用户头像大小限制为最大1M
   form.keepExtensions = true;        //使用文件的原扩展名
   form.parse(req, function (err, fields, file) {
       var filePath = '';

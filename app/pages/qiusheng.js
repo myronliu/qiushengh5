@@ -268,6 +268,7 @@ export default class extends BasePage {
             return (
                 <li key={"li" + index}>
                     <span className="middleInfo">{item.name}</span>
+                    <span className="lianhong">连红</span>
                     <span className="numInfo">{item.hits}</span>
                 </li>
             )

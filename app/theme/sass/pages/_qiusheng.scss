@@ -93,7 +93,7 @@
         }
         .numInfo {
             float: right;
-            margin-right: 5%;
+            margin-right: 0.4rem;
             margin-top: 0.4rem;
             background-color: #F47564;
             display: inline-block;
@@ -115,6 +115,16 @@
                 width: 1rem;
                 height: 1.4rem;
             }
+        }
+        .lianhong{
+            float: right;
+            margin-right: 5%;
+            margin-top: 0.4rem;
+            display: inline-block;
+            line-height: 1.75rem;
+            text-align: center;
+            font-size: 1.2rem;
+            color: #F47564;
         }
         .scrolldivs {
             position: relative;

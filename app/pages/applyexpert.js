@@ -108,10 +108,10 @@ export default class extends BasePage {
       Toast.show("文件大小不能为0", 'info');
       return false;
     }
-    if(_qs[0].size > 2 * 1024 * 1024){
-      Toast.show("文件大小不能大于2M", 'info');
-      return false;
-    }
+    // if(_qs[0].size > 2 * 1024 * 1024){
+    //   Toast.show("文件大小不能大于2M", 'info');
+    //   return false;
+    // }
     if(this.state.applyStatus === 'expert' && this.refs.expertName.value.trim() === ""){
       Toast.show("请填写您的姓名", 'info');
       return false;
