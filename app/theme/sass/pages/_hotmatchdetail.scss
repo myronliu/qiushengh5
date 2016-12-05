@@ -121,13 +121,19 @@
             color: $gray;
           }
         }
+        .titleDesc {
+          font-size: 1.5rem;
+          margin-left: 1.5rem;
+          height: 2.5rem;
+          line-height: 2.5rem;
+        }
       }
       .rightPart{
         margin: 0.5rem 0;
         display: inline-block;
         width: 20%;
-        line-height: 2.5rem;
-        height: 2.5rem;
+        line-height: 5rem;
+        height: 5rem;
         border-left: 0.05rem solid $light_gray;
         text-align: center;
         color: $red;
