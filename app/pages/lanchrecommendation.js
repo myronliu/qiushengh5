@@ -315,15 +315,14 @@ class LanchRecommendation extends BasePage {
 						</div>
 					</div>
 
-					<div className="selectMatchBtn"
-					     style={{border: selectedMatchArray.length === 0 ? 0 : "1px solid #dddddd"}}
-					     onTouchEnd={this.gotoSelectMatch.bind(this)}>
+					<TapAble className="selectMatchBtn"
+					         style={{border: selectedMatchArray.length === 0 ? 0 : "1px solid #dddddd"}}
+					         onTap={this.gotoSelectMatch.bind(this)}>
 						<div className="btnDiv">选择赛事</div>
 						<div className="btnImage">
 							<div className="icon addMatch"></div>
 						</div>
-					</div>
-
+					</TapAble>
 					{this.renderDetailMatch()}
 
 					<div className="imageView"

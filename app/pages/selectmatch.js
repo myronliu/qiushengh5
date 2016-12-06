@@ -2,7 +2,7 @@
  * Created by sjzhang on 2016/11/3.
  */
 import Layout from '../components/layout'
-
+import TapAble from 'react-tappable';
 import Cookie from '../helper/cookie';
 import Toast from '../helper/toast';
 import _ from 'immutable';
@@ -254,44 +254,44 @@ class SelectMatch extends BasePage {
 					</div>
 					<div className="div3">
 						<div className="div3Top">
-							<div
-								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 1) ? "topLeft lvSelect" : "topLeft"}
-								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, 0)}>
+							<TapAble
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 1) ? "touchDiv topLeft lvSelect" : "touchDiv topLeft"}
+								onTap={this.selectTypeHandler.bind(this, item.matchId, 1, 0)}>
 								<span>胜</span>
 								<span>{item.oddsS}</span>
-							</div>
-							<div
-								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 2) ? "topMiddle lvSelect" : "topMiddle"}
-								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, 0)}>
+							</TapAble>
+							<TapAble
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 2) ? "touchDiv topMiddle lvSelect" : "touchDiv topMiddle"}
+								onTap={this.selectTypeHandler.bind(this, item.matchId, 2, 0)}>
 								<span>平</span>
 								<span>{item.oddsP}</span>
-							</div>
-							<div
-								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 4) ? "topRight lvSelect" : "topRight"}
-								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, 0)}>
+							</TapAble>
+							<TapAble
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][0] && this.arrayIncludes(deployMatchInfo[item.matchId][0], 4) ? "touchDiv topRight lvSelect" : "touchDiv topRight"}
+								onTap={this.selectTypeHandler.bind(this, item.matchId, 4, 0)}>
 								<span>负</span>
 								<span>{item.oddsF}</span>
-							</div>
+							</TapAble>
 						</div>
 						<div className="div3Bottom">
-							<div
-								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 1) ? "bottomLeft lvSelect" : "bottomLeft"}
-								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 1, item.handicap)}>
+							<TapAble
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 1) ? "touchDiv bottomLeft lvSelect" : "touchDiv bottomLeft"}
+								onTap={this.selectTypeHandler.bind(this, item.matchId, 1, item.handicap)}>
 								<span>胜</span>
 								<span>{item.oddsRs}</span>
-							</div>
-							<div
-								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 2) ? "bottomMiddle lvSelect" : "bottomMiddle"}
-								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 2, item.handicap)}>
+							</TapAble>
+							<TapAble
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 2) ? "touchDiv bottomMiddle lvSelect" : "touchDiv bottomMiddle"}
+								onTap={this.selectTypeHandler.bind(this, item.matchId, 2, item.handicap)}>
 								<span>平</span>
 								<span>{item.oddsRp}</span>
-							</div>
-							<div
-								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 4) ? "bottomRight lvSelect" : "bottomRight"}
-								onTouchEnd={this.selectTypeHandler.bind(this, item.matchId, 4, item.handicap)}>
+							</TapAble>
+							<TapAble
+								className={deployMatchInfo[item.matchId] && deployMatchInfo[item.matchId][item.handicap] && this.arrayIncludes(deployMatchInfo[item.matchId][item.handicap], 4) ? "touchDiv bottomRight lvSelect" : "touchDiv bottomRight"}
+								onTap={this.selectTypeHandler.bind(this, item.matchId, 4, item.handicap)}>
 								<span>负</span>
 								<span>{item.oddsRf}</span>
-							</div>
+							</TapAble>
 						</div>
 					</div>
 					<div className="div4">
