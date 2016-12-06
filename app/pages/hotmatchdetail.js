@@ -110,6 +110,9 @@ export default class extends BasePage {
                                 <span className="recWay">{item.recommendWay}</span>
                                 <span className="time">{item.createTimeStr}</span>
                             </div>
+                            <div className="titleDesc">
+                                <span>{item.title}</span>
+                            </div>
                         </div>
                         <div className="rightPart">
                             {item.fee > 0 ? (item.ifBuy ? "查看" : (item.fee + CommonConfig.unit)) : ("免费")}

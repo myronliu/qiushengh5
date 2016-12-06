@@ -128,6 +128,9 @@ class MyRecommendation extends BasePage {
 							<span className="">VS</span>
 							<span className="right">{item.awayTeam}</span>
 						</div>
+						<div className="titleDesc">
+							<span>{item.title}</span>
+						</div>
 					</div>
 					<div className="rightPart">
 						{this.state.recState == "NO" ? (item.fee && item.fee > 0 ? (item.ifBuy ? "查看" : item.fee + CommonConfig.unit) : "免费") : "免费"}
