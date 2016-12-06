@@ -114,7 +114,7 @@ export default class extends BasePage {
   renderItems(){
     return this.state.list.map(function(item, index){
       return (
-        <div className="specialItem" key={"s"+index} onTouchEnd={this.gotoDetail.bind(this, item.id)}>
+        <div className="specialItem" key={"s"+index} onTouchEnd={this.gotoDetail.bind(this, item.myId)}>
           <img src={item.avatar ? item.avatar : '../images/photo.png'} className="" />
           <div className="name">
             {item.name ? item.name : '虚位以待'}
